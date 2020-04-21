@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+
+{% block main %}
+    <h1>{{ page.title }}</h1>
+    <time datetime="{{ page.date | date(format="%Y-%m-%d") }}" class="post-date">
+        {{ page.date | date(format="%b %d, %Y") }}
+        {% if page.extra.updated %} (updated on {{ page.extra.updated | date(format="%b %d, %Y") }}) {% endif %}
+    </time>
+    {{ page.content | safe }}
+{% endblock main %}
+
+{% block after_main %}
+    <hr>
+    <div class="PageNavigation">
+        {% if page.earlier %}
+            <a class="prev" href="/{{ page.earlier.path | safe }}">&laquo; {{ page.earlier.title }}</a>
+        {% endif %}
+        {% if page.later %}
+            <a class="next" href="/{{ page.later.path | safe }}">{{ page.later.title }} &raquo;</a>
+        {% endif %}
+    </div>
+{% endblock after_main %}

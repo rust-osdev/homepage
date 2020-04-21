@@ -1,6 +1,9 @@
 # The URL the site will be built for
 base_url = "https://rust-osdev.com"
 
+title = "Rust OSDev"
+description = "Operating System Development in Rust"
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
 

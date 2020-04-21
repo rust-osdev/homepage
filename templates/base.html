@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html lang="{% if lang %}{{ lang }}{% else %}{{ config.default_language }}{% endif %}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+
+    {% if current_url %}
+        <link rel="canonical" href="{{ current_url | safe }}" />
+    {% endif %}
+    <link href="/css/poole.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="{{ config.base_url | safe }}/rss.xml" />
+
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="{{ config.base_url | safe }}" title="Home">{{ config.title | safe }}</a>
+              <small>{{ config.description }}</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>{% block main %}{% endblock main %}</main>
+
+            <footer class="footer">
+                <hr>
+                <small>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="{{ get_url(path="@/pages/contact.md") | safe }}">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>

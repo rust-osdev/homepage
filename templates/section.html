@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ config.title }}{% endblock title %}
+
+{% block main %}
+
+<h1>{{ section.title }}</h1>
+
+{% block introduction %}
+<p>{{ section.description }}</p>
+{% endblock introduction %}
+
+<div class="posts">
+    {% for page in section.pages %}
+        <h2 class="post-title"><a href="/{{ page.path | safe }}">{{ page.title }}</a></h2>
+        <div class="post-summary">
+            {{ page.summary | safe }}
+            <a class="read-more" href="/{{ page.path | safe }}"><em>read&nbsp;more&nbsp;»</em></a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock main %}
+
+{% block after_main %}
+
+{% endblock after_main %}
