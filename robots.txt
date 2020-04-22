@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://rust-osdev.com/sitemap.xml
