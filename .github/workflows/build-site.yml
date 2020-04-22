@@ -68,32 +68,24 @@ jobs:
       with:
         name: generated_site
 
-    - name: Setup SSH Keys and known_hosts
-      run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-          ssh-add - <<< "$deploy_key"
-          echo ::set-env name=SSH_AUTH_SOCK::$SSH_AUTH_SOCK
-      env:
-        SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        deploy_key: ${{ secrets.DEPLOY_SSH_KEY }}
-
-    - name: "Clone homepage_deploy Repo"
-      run: git clone git@github.com:rust-osdev/homepage_deploy.git --branch gh-pages
+    - name: Check out gh-pages branch
+      uses: actions/checkout@v2
+      with:
+        ref: 'gh-pages'
+        path: 'gh-pages'
 
     - name: "Set Up Git Identity"
       run: |
         git config --local user.name "GitHub Actions Deploy"
         git config --local user.email "github-actions-deploy@rust-osdev.com"
-      working-directory: "homepage_deploy"
+      working-directory: "gh-pages"
 
     - name: "Delete Old Content"
       run: "rm -r ./*"
-      working-directory: "homepage_deploy"
+      working-directory: "gh-pages"
 
     - name: "Add New Content"
-      run: cp -r generated_site/* homepage_deploy
+      run: cp -r generated_site/* gh-pages
 
     - name: "Commit New Content"
       run: |
@@ -101,12 +93,12 @@ jobs:
         git commit --allow-empty -m "Deploy ${GITHUB_SHA}
 
         Deploy of commit https://github.com/rust-osdev/homepage/commit/${GITHUB_SHA}"
-      working-directory: "homepage_deploy"
+      working-directory: "gh-pages"
 
     - name: "Show Changes"
       run: "git show"
-      working-directory: "homepage_deploy"
+      working-directory: "gh-pages"
 
     - name: "Push Changes"
       run: "git push"
-      working-directory: "homepage_deploy"
+      working-directory: "gh-pages"
