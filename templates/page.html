@@ -7,6 +7,15 @@
     <time datetime="{{ page.date | date(format="%Y-%m-%d") }}" class="post-date">
         {{ page.date | date(format="%b %d, %Y") }}
         {% if page.extra.updated %} (updated on {{ page.extra.updated | date(format="%b %d, %Y") }}) {% endif %}
+
+        <span class="post-authors">Written by
+            {% for author in page.extra.authors %}
+                {%- if not loop.first -%}
+                    {%- if loop.last %}, and {% else %}, {% endif -%}
+                {%- endif -%}
+                <a href="https://github.com/{{ author }}">@{{ author }}</a>
+            {% endfor %}
+        </span>
     </time>
     {{ page.content | safe }}
 {% endblock main %}
