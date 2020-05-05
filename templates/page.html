@@ -9,12 +9,12 @@
         {% if page.extra.updated %} (updated on {{ page.extra.updated | date(format="%b %d, %Y") }}) {% endif %}
 
         <span class="post-authors">Written by
-            {% for author in page.extra.authors %}
+            {% for author in page.extra.authors -%}
                 {%- if not loop.first -%}
-                    {%- if loop.last %}, and {% else %}, {% endif -%}
+                    {%- if loop.last %}{% if loop.index0 > 1 %}, and {% else %} and {% endif %}{% else %}, {% endif -%}
                 {%- endif -%}
                 <a href="https://github.com/{{ author }}">@{{ author }}</a>
-            {% endfor %}
+            {%- endfor %}
         </span>
     </time>
     {{ page.content | safe }}
