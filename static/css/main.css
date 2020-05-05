@@ -2,16 +2,12 @@
     margin-left: 1rem;
 }
 
-.post-authors a {
+.post-authors a, a code, .gray a {
     color: inherit;
 }
 
 .gray {
     color: gray;
-}
-
-a code {
-    color: inherit;
 }
 
 li ul {
