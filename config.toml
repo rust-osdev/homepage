@@ -14,5 +14,10 @@ highlight_code = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
+[link_checker]
+skip_prefixes = [
+    "https://crates.io/crates", # see https://github.com/rust-lang/crates.io/issues/788
+]
+
 [extra]
 # Put all your custom variables here
