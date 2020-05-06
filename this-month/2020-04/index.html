@@ -1,0 +1,188 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2020-04/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (April 2020) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (April 2020)</h1>
+    <time datetime="2020-05-06" class="post-date">
+        May 06, 2020
+        
+
+        <span class="post-authors">Written by
+            <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/IsaacWoods">@IsaacWoods</a>
+        </span>
+    </time>
+    <p>Welcome to the first issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we will give a regular overview of notable changes in the Rust operating system development community.</p>
+<span id="continue-reading"></span>
+<p>These posts are the successor of the <a href="https://os.phil-opp.com/status-update/"><em>&quot;Status Update&quot;</em> posts</a> on the <em>&quot;Writing an OS in Rust&quot;</em> blog. Instead of only focusing on the updates to the blog and the directly related crates, we try to give an overview of the full Rust OSDev ecosystem in this new series. This includes all the projects under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> GitHub organization, relevant projects of other organizations, and also personal OS projects.</p>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a>.</p>
+<h2 id="news-and-blog-posts">News and Blog Posts</h2>
+<p>We try to collect posts that are relevant to Rust-based OS development each month. Please create pull requests for any posts that you want linked in the next issue.</p>
+<ul>
+<li><a href="https://blogs.windows.com/windowsdeveloper/2020/04/30/rust-winrt-public-preview/">Rust/WinRT Public Preview</a></li>
+<li><a href="https://tc.gts3.org/cs3210/2020/spring/lab.html">Georgia Tech CS-3210: Write an OS for the Raspberry Pi in Rust</a></li>
+<li><a href="https://www.phoronix.com/scan.php?page=news_item&amp;px=Redox-OS-On-Threadripper-3990X">Rust-Written Redox OS Booting The 128-Thread AMD Ryzen Threadripper 3990X</a></li>
+</ul>
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="x86-64"><code>x86_64</code></h3>
+<p>The <a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code> crate</a> provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>This month, we released version <code>0.10.0</code> of <code>x86_64</code>, which includes some breaking changes:</p>
+<ul>
+<li><em>Breaking:</em> <a href="https://github.com/rust-osdev/x86_64/pull/135">Make <code>map_to</code> and <code>update_flags</code> unsafe</a></li>
+<li><em>Breaking:</em> <a href="https://github.com/rust-osdev/x86_64/pull/146">Make FrameDeallocator::deallocate_frame unsafe</a></li>
+<li><em>Breaking:</em> <a href="https://github.com/rust-osdev/x86_64/pull/147">Don't pass small trivially copyable types by reference</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/145">Use <code>#[inline]</code> everywhere</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/142">Add <code>{PhysFrame,Page}::from_start_address_unchecked</code></a></li>
+</ul>
+<p>After <code>v0.10.0</code>, the following changes were merged:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/137">Add <code>InterruptDescriptorTable::load_unsafe</code></a> <span class="gray">(published as <code>v0.10.1</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/151">Use <code>llvm_asm!</code> instead of deprecated <code>asm!</code> macro</a>
+<ul>
+<li>This might break older nightlies. Given that version <code>0.10.x</code> is so recent, we still decided to release only a patch version. Note that this isn't a breaking change in the <code>semver</code> sense since we only guarantee compatibility with recent nightlies.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/153">Return the correct RPL from <code>GDT::add_entry()</code></a> <span class="gray">(published as <code>v0.10.2</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/m-ou-se">@m-ou-se</a>, <a href="https://github.com/tomaka">@tomaka</a>, <a href="https://github.com/haraldh">@haraldh</a>, and <a href="https://github.com/imtsuki">@imtsuki</a> for their contributions!</p>
+<h3 id="acpi-and-aml"><code>acpi</code> and <code>aml</code></h3>
+<p>The <a href="https://github.com/rust-osdev/acpi"><code>acpi</code> repository</a> contains crates for parsing the <a href="https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface">ACPI</a> tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. The crate for parsing the static tables (<a href="https://crates.io/crates/acpi"><code>acpi</code></a>) was stabilised this month – while it needs more work to support the entire spec, it is now in the state where it can be integrated into a Rust kernel to provide useful information, and its overall architecture is unlikely to change in the near future.</p>
+<p>The full set of changes is:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/69">Remove two nightly features in the ACPI crate</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/68">Make local NMI line table optional</a> <span class="gray">(published as v0.8.0)</span></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/70">Prepare for stabilisation of the <code>acpi</code> crate</a> (🎉 published as v1.0.0 🎉)</li>
+</ul>
+<p>Thanks to <a href="https://github.com/tomaka">@tomaka</a> for their contribution and congratulations to the creator and maintainer <a href="https://github.com/IsaacWoods">@IsaacWoods</a> on the <code>1.0</code> release!</p>
+<h3 id="bootloader"><code>bootloader</code></h3>
+<p>The <a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code> crate</a> implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. It received the following updates this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/105">SSE feature: remove inline assembly + don't set reserved bits</a> <span class="gray">(published as <code>v0.9.1</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/108">Use <code>llvm_asm!</code> instead of deprecated <code>asm!</code></a> <span class="gray">(published as <code>v0.9.2</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Freax13">@Freax13</a> and <a href="https://github.com/realKennyStrawn93">@realKennyStrawn93</a> for these changes!</p>
+<p>Right now, <a href="https://github.com/rybot666">@rybot666</a> and <a href="https://github.com/phil-opp">@phil-opp</a> are working on a rewrite of the bootloader. The goal is to port the 16-bit and 32-bit stages from assembly to Rust, which should make the crate safer, more composable, and easier to understand for outsiders. Our progress is tracked in the <a href="https://github.com/rust-osdev/bootloader/milestone/1"><code>Rewrite</code> milestone</a>.</p>
+<h3 id="bootimage"><code>bootimage</code></h3>
+<p>The <a href="https://github.com/rust-osdev/bootimage"><code>bootimage</code> tool</a> allows the creation of bootable disk images for <code>bootloader</code>-based kernels. It also provides a runner executable for <code>cargo</code> to make <code>cargo xrun</code> and <code>cargo xtest</code> work using QEMU. In April, the crate received the following updates:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootimage/pull/51">Set empty RUSTFLAGS to ensure that no .cargo/config applies</a> <span class="gray">(published as v0.7.9)</span></li>
+<li><a href="https://github.com/rust-osdev/bootimage/pull/52">Add support for doctests</a> <span class="gray">(published as v0.7.10)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Freax13">@Freax13</a> for their contribution!</p>
+<h3 id="uart-16550"><code>uart_16550</code></h3>
+<p>The <a href="https://github.com/rust-osdev/uart_16550"><code>uart_16550</code> crate</a> provides basic support for serial port I/O for 16550-compatible UARTs. This month, the crate received support for serial input:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uart_16550/pull/8">Support receiving bytes from serial ports</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/imtsuki">@imtsuki</a> for their contribution!</p>
+<h3 id="cargo-xbuild"><code>cargo-xbuild</code></h3>
+<p>The <a href="https://github.com/rust-osdev/cargo-xbuild"><code>cargo-xbuild</code></a> project provides <code>cargo</code> command wrappers to cross-compile the sysroot crates <code>core</code> and <code>alloc</code>. This month, we added a new environment variable to help debugging build errors:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/67">Add an environment variable to keep the temp dir</a> <span class="gray">(published as v0.5.29)</span></li>
+</ul>
+<h3 id="uefi"><code>uefi</code></h3>
+<p>The <a href="https://github.com/rust-osdev/uefi-rs"><code>uefi</code> crate</a> provides abstractions for the <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface"><code>UEFI</code></a> standard that replaces the traditional BIOS on modern systems. This month, the crate received a new cargo feature to ignore logger errors:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/132">Add cargo feature for ignoring logger errors</a></li>
+</ul>
+<h2 id="new-projects">New Projects</h2>
+<p>There are a number of new projects in the <code>rust-osdev</code> organization:</p>
+<ul>
+<li>
+<p><a href="https://github.com/rust-osdev/homepage"><strong><code>homepage</code>:</strong></a> As you might have noticed by now, we have a new organization-level homepage at <a href="https://rust-osdev.com/">https://rust-osdev.com/</a>. The <code>homepage</code> repository contains the source code for this website. Right now, it is still a work-in-progress and only contains the very minimum to host this post, but we plan to add more content soon.</p>
+<p>Note that we will create a branch for the upcoming May issue of <em>&quot;This Month in Rust OSDev&quot;</em>. Please open pull requests for any content that you would like to see next month.</p>
+</li>
+<li>
+<p><a href="https://github.com/rust-osdev/vga"><strong><code>vga</code>:</strong></a> The goal of the <code>vga</code> crate is to allow configuration of the VGA hardware. It already makes it possible to switch from a text-based buffer to a pixel-based framebuffer, which enables drawing of lines, geometric shapes, and even images. The library is created by <a href="https://github.com/RKennedy9064">@RKennedy9064</a>.</p>
+</li>
+<li>
+<p><a href="https://github.com/rust-osdev/ps2-mouse"><strong><code>ps2-mouse</code>:</strong></a> The library provides a basic interface for interacting with a PS/2 mouse. It is also created by <a href="https://github.com/RKennedy9064">@RKennedy9064</a>.</p>
+</li>
+</ul>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="isaacwoods-pebble"><code>IsaacWoods/pebble</code></h3>
+<p><span class="gray">(Section written by <a href="ttps://github.com/IsaacWoods">@IsaacWoods</a>)</span></p>
+<p><a href="https://github.com/IsaacWoods/pebble">Pebble</a> has been undergoing a bit of a reorganisation, in the interests of supporting a second architecture (ARM64). A hardware abstraction layer (HAL) has been introduced that abstracts away the platform-specifics of managing page tables, creating processes etc. so that the main <code>kernel</code> crate is now completely platform-independent.</p>
+<p>I also wrote a <a href="https://github.com/IsaacWoods/pebble/blob/master/tools/tftp_serve/src/main.rs">little TFTP server</a> for netbooting a Raspberry Pi 4 from a development machine. This makes iterating the kernel a lot easier because there's no need to write it to an SD card after every compile. In the next few weeks, I hope to clean this code up and publish it for use as both a library and CLI application, and maybe write a blog-post on the intricacies of netbooting the Pi.</p>
+<h3 id="rust-embedded-rust-raspberrypi-os-tutorials"><code>rust-embedded/rust-raspberrypi-OS-tutorials</code></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/andre-richter">@andre-richter</a>)</span></p>
+<p>The <a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials"><em>Operating System development tutorials in Rust on the Raspberry Pi</em></a> project received the following updates recently:</p>
+<ul>
+<li><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/14_exceptions_part2_peripheral_IRQs">Add <code>tutorial 14</code></a>: Exceptions Part 2: Peripheral IRQs.
+<ul>
+<li>We write <code>device drivers</code> for the two interrupt controllers on the <em>Raspberry Pi 3</em> (Broadcom
+custom controller) and <em>Pi 4</em> (ARM Generic Interrupt Controller v2, <code>GICv2</code>).</li>
+<li>Modularity is ensured by interfacing everything through a trait named <code>IRQManager</code>.</li>
+<li>Handling for our first peripheral IRQ is implemented: The <code>UART</code>'s receive IRQ - one IRQ per
+received character.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/commit/3a794448adc26bcd318df47ae1a81ab56203364a">Set chainloader relocation address to <code>32 MiB</code></a>.
+<ul>
+<li>Enables booting on Pi3 A+ devices.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/commit/089565762a60462c527a907fba2caeee583fa58d">Run the chainloader natively on non-Linux Unix systems</a>.
+<ul>
+<li>Adds experimental support for <code>macOS</code> and other Unix systems which have <code>Ruby</code> available.</li>
+</ul>
+</li>
+</ul>
+<h3 id="phil-opp-blog-os"><code>phil-opp/blog_os</code></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>Apart from a few <a href="https://github.com/phil-opp/blog_os/pulls?q=is%3Apr+is%3Aclosed+merged%3A2020-04-02..2020-05-01">minor fixes</a> (thanks for all the contributions!), April was a quiet month for the <a href="https://os.phil-opp.com/"><em>&quot;Writing an OS in Rust&quot;</em></a> project. I focused my work this month on the <code>x86_64</code> library, the rewrite of the bootloader, and my job search instead. In this regard, I'm excited to announce that I have decided to do Rust-related freelance work for now, which will allow me to continue dedicating some of my time to open-source work.</p>
+<!-- Maybe next month
+
+## Call for Participation
+
+-->
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
