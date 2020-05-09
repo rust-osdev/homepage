@@ -1,6 +1,6 @@
 # homepage
 
-This repository contains the source code for our organization homepage at <https://rust-osdev.com>.
+This repository contains the source code for our organization homepage at <https://rust-osdev.org>.
 
 ## License
 

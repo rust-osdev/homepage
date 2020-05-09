@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://rust-osdev.com"
+base_url = "https://rust-osdev.org"
 
 title = "Rust OSDev"
 description = "Operating System Development in Rust"
