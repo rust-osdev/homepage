@@ -7,7 +7,16 @@
         <generator>Zola</generator>
         <language>en</language>
         <atom:link href="https://rust-osdev.com/rss.xml" rel="self" type="application/rss+xml"/>
-        <lastBuildDate>Wed, 06 May 2020 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Sun, 07 Jun 2020 00:00:00 +0000</lastBuildDate>
+        
+            <item>
+                <title>This Month in Rust OSDev (May 2020)</title>
+                <pubDate>Sun, 07 Jun 2020 00:00:00 +0000</pubDate>
+                <link>https://rust-osdev.com/this-month/2020-05/</link>
+                <guid>https://rust-osdev.com/this-month/2020-05/</guid>
+                <description>&lt;p&gt;Welcome to the second issue of &lt;em&gt;&amp;quot;This Month in Rust OSDev&amp;quot;&lt;&#x2F;em&gt;. In these posts, we will give a regular overview of notable changes in the Rust operating system development ecosystem.&lt;&#x2F;p&gt;
+</description>
+            </item>
         
             <item>
                 <title>This Month in Rust OSDev (April 2020)</title>
@@ -15,15 +24,6 @@
                 <link>https://rust-osdev.com/this-month/2020-04/</link>
                 <guid>https://rust-osdev.com/this-month/2020-04/</guid>
                 <description>&lt;p&gt;Welcome to the first issue of &lt;em&gt;&amp;quot;This Month in Rust OSDev&amp;quot;&lt;&#x2F;em&gt;. In these posts, we will give a regular overview of notable changes in the Rust operating system development community.&lt;&#x2F;p&gt;
-</description>
-            </item>
-        
-            <item>
-                <title>This Month in Rust OSDev (May 2020)</title>
-                <pubDate>Sat, 01 Jan 0000 00:00:00 +0000</pubDate>
-                <link>https://rust-osdev.com/this-month/2020-05/</link>
-                <guid>https://rust-osdev.com/this-month/2020-05/</guid>
-                <description>&lt;p&gt;Welcome to the second issue of &lt;em&gt;&amp;quot;This Month in Rust OSDev&amp;quot;&lt;&#x2F;em&gt;. In these posts, we will give a regular overview of notable changes in the Rust operating system development ecosystem.&lt;&#x2F;p&gt;
 </description>
             </item>
         
