@@ -11,7 +11,7 @@
                 {%- if loop.last %}{% if loop.index0 > 1 %}, and {% else %} and {% endif %}{% else %}, {% endif -%}
             {%- endif -%}
             <a href="https://github.com/{{ author }}">@{{ author }}</a>
-        {%- endfor %};
+        {%- endfor %}
 
         <br>Published on <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">
             {{ page.date | date(format="%b %d, %Y") }}
