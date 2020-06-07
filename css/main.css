@@ -1,9 +1,14 @@
-.post-authors {
-    margin-left: 1rem;
+a code, .gray a {
+    color: inherit;
 }
 
-.post-authors a, a code, .gray a {
+h3 a code {
     color: inherit;
+}
+
+.post-authors a {
+    color: inherit;
+    font-style: italic;
 }
 
 .gray {

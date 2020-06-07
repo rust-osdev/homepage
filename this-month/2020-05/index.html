@@ -1,0 +1,181 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2020-05/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (May 2020) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (May 2020)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/stlankes">@stlankes</a>, and <a href="https://github.com/andre-richter">@andre-richter</a>
+
+        <br>Published on <time datetime="0000-01-01">
+            Jan 01, 0000
+            
+        </time>
+    </span>
+
+    <p>Welcome to the second issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we will give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a>.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (May 2020)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<!--
+
+## News and Blog Posts
+
+We try to collect posts that are relevant to Rust-based OS development each month. Please create pull requests for any posts that you want linked in the next issue.
+
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In May, the crate received a bugfix for inclusive page/frame ranges. We also landed a long-awaited change to the <code>Mapper::map_to</code> function to set certain page table flags also in higher level page tables:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/156">Fix: Inclusive ranges is_empty() comparison</a> <span class="gray">(published as <code>v0.10.3</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/114">Handle parent table flags in Mapper methods</a> <span class="gray">(published as <code>v0.11.0</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/haraldh">@haraldh</a> and <a href="https://github.com/mrll">@mrll</a> for their contributions!</p>
+<h3 id="cargo-xbuild"><a href="https://github.com/rust-osdev/cargo-xbuild"><code>cargo-xbuild</code></a></h3>
+<p>The <code>cargo-xbuild</code> project provides <code>cargo</code> command wrappers to cross-compile the sysroot crates <code>core</code> and <code>alloc</code>.</p>
+<p>This month, <code>rustc</code>/<code>cargo</code> <a href="https://github.com/rust-lang/cargo/pull/8192">changed their codegen behavior for builds with link-time optimization (LTO)</a>, which lead to <a href="https://github.com/rust-osdev/cargo-xbuild/issues/69">breakage for LTO builds with <code>cargo-xbuild</code></a>. Fixing this issue was not easy and required <a href="https://github.com/rust-osdev/cargo-xbuild/pull/70">multiple</a> <a href="https://github.com/rust-osdev/cargo-xbuild/pull/71">tries</a> until we found a proper <a href="https://github.com/rust-osdev/cargo-xbuild/pull/73">solution</a>.</p>
+<p>Unfortunately, the solution still led to <a href="https://github.com/rust-osdev/cargo-xbuild/issues/72">link issues</a> for some people, which was caused by a <a href="https://github.com/rust-lang/cargo/issues/8239">bug in <code>cargo</code>/<code>rustc</code></a>. Thanks to <a href="https://github.com/alexcrichton">@alexcrichton</a>, this was quickly <a href="https://github.com/rust-lang/rust/pull/72325">fixed in <code>rustc</code></a>, so that now everything should work again.</p>
+<p>Apart from these bugfixes, there were also two other changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/75">Respect Cargo.lock file for sysroot build</a> <span class="gray">(published as <code>v0.32</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/79">Don't print warning about missing root package in quiet mode</a> <span class="gray">(published as <code>v0.5.33</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Nils-TUD">@Nils-TUD</a> for their contribution and to all the people that helped investigating the build errors!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern
+computers use to relay information about the hardware to the OS.</p>
+<p>Not a lot happened this month, but preparations
+were made to change how the AML namespace is stored on the heap, in order to avoid a lot of small heap allocations
+for AML paths, and reduce the number of heap allocations overall. However, some more profiling infrastructure will
+need to be built before starting this.</p>
+<p>In preparation, a <a href="https://github.com/rust-osdev/acpi/commit/3b08721981d85e7bd82124db8c72e0c31d243771">change to how <code>DefName</code>s are stored in the namespace</a> was made, which avoids an extra heap
+allocation per <code>DefName</code>, and also allows us to simplify some code around the <code>aml</code> crate.</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code> crate</a> implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. It received the following updates this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/117">Update x86_64 dependency to version 0.11.0</a> <span class="gray">(published as <code>v0.9.3</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/118">Remove unused feature gates</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/116">Add recursive_idx for boot info</a> <span class="gray">(published as <code>v0.9.4</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/mark-i-m">@mark-i-m</a> and <a href="https://github.com/Aaron1011">@Aaron1011</a> for their contributions!</p>
+<h3 id="bootimage"><a href="https://github.com/rust-osdev/bootimage"><code>bootimage</code></a></h3>
+<p>The <code>bootimage</code> tool allows the creation of bootable disk images for <code>bootloader</code>-based kernels. It also provides a runner executable for <code>cargo</code> to make <code>cargo xrun</code> and <code>cargo xtest</code> work using QEMU. In May, the crate was almost completely rewritten with a smaller API to make it more maintainable:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootimage/pull/55">Rewrite: Remove support for <code>bootimage {run, test}</code></a> <span class="gray">(published as <code>v0.8.0</code>)</span></li>
+</ul>
+<h3 id="uart-16550"><a href="https://github.com/rust-osdev/uart_16550"><code>uart_16550</code></a></h3>
+<p>The <code>uart_16550</code> crate provides basic support for serial port I/O for 16550-compatible UARTs. This month, the crate received the following updates:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uart_16550/pull/9">Use <code>spin_loop_hint</code> while waiting for data</a> <span class="gray">(published as <code>v0.2.6</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/uart_16550/commit/7faedcab2d266e758913d394c499db8dc2d40aed">Update x86_64 dependency to v0.11.0</a> <span class="gray">(published as <code>v0.2.7</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/dbeckwith">@dbeckwith</a> for their contribution!</p>
+<h3 id="uefi"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi</code></a></h3>
+<p>The <code>uefi</code> crate provides abstractions for the <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface"><code>UEFI</code></a> standard that replaces the traditional BIOS on modern systems. This month, the crate's dependencies were updated, and a bug was fixed in the graphics protocol:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/134">Bump x86_64 dependency version to fix build on latest nightlies</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/135">Fix <code>BltPixel::from</code> conversion</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/imtsuki">@imtsuki</a> and <a href="https://github.com/BinaryTENSHi">@BinaryTENSHi</a> for their contributions!</p>
+<!--
+## New Projects
+
+There are a number of new projects in the `rust-osdev` organization:
+-->
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="isaacwoods-pebble"><a href="https://github.com/IsaacWoods/pebble"><code>IsaacWoods/pebble</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/IsaacWoods">@IsaacWoods</a>)</span></p>
+<p>This month, I've been tracking down a bug in the kernel that causes usermode stacks to become corrupted on the
+return of some system calls. While I've not found the root cause, I've taken this opportunity to add some more
+debugging capabilities, which have found a number of other kernel bugs.</p>
+<p>I also started working on the Rust implementation of <a href="https://github.com/IsaacWoods/pebble/tree/master/lib/ptah/src">Ptah</a>,
+the wire format for Pebble's message passing interface. It allows libraries to easily use <a href="https://serde.rs/">Serde</a> to
+serialize and deserialize Rust types to and from the wire format. In the future, a compiler will be able to
+generate bindings for <code>Ptah</code> for a number of different supported languages, which will allow tasks written in
+different languages to communicate over Pebble <code>Channel</code>s using idiomatic types.</p>
+<h3 id="rustyhermit"><a href="https://github.com/hermitcore/rusty-hermit"><code>RustyHermit</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/stlankes">@stlankes</a>)</span></p>
+<p>RustyHermit is a <a href="http://unikernel.org">unikernel</a> targeting a scalable and predictable runtime. Unikernel means, you bundle your application directly with the kernel library, so that it can run without any installed operating system.
+This reduces image size and overhead, therefore, interesting applications include virtual machines and high-performance computing.</p>
+<p>This month the integration of <a href="https://github.com/smoltcp-rs/smoltcp">smoltcp</a> has been improved and first support for virtio has been integrated. The integration in Rust's standard runtime is already in progress and clients can be developed with <code>TcpStream</code>. Server side applications will follow soon.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>This month, support for the legacy <code>asm!</code> macro was removed from <code>rustc</code>. This lead to build errors for the <em>Writing an OS in Rust</em> project because some dependencies were still using the macro. To fix this, I landed a number of dependency updates:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/808">Update bootloader to v0.9.3</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/809">Update x86_64 dependency to version 0.11.0</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/810">Update Hardware Interrupts post to use pic8259_simple v0.2.0</a></li>
+</ul>
+<p>I also decided to change the design of the executor in the Async/Await post to simplify it:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/804">Simplify executor by merging task_queue and wake_queue</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/805">Update Async/Await post for simplified executor design</a></li>
+</ul>
+<p>While I already started a draft on the next blog post about processes, I currently plan to look into adding UEFI support to the <code>bootloader</code> crate first. The reason is that UEFI support will require some fundamental changes to the blog because the VGA text buffer and the legacy PIC are not supported on UEFI. This is also relevant to the upcoming post about processes, since different designs would be possible if we used the APIC instead of the legacy PIC. It therefore makes most sense to me to sort this out first.</p>
+<h3 id="rust-embedded-rust-raspberrypi-os-tutorials"><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials"><code>rust-embedded/rust-raspberrypi-OS-tutorials</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/andre-richter">@andre-richter</a>)</span></p>
+<p>May was a quiet month for the project, since I am currently taking a little hiatus. I am planning to restart working on new content two or three months down the road.</p>
+<p>Therefore, only some maintenance updates went in, e.g. bumping all dependency crates to versions that support the new <code>llvm_asm!</code> macros. Also, the :cn: chinese translations received updates/additions (<a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/blob/master/README.CN.md">main <code>Readme</code></a>; <a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/blob/master/00_before_we_start/README.CN.md"><code>00_before_we_start</code></a>).</p>
+<!--
+## Call for Participation
+-->
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
