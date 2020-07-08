@@ -20,6 +20,7 @@ generate_rss = true
 [link_checker]
 skip_prefixes = [
     "https://crates.io/crates", # see https://github.com/rust-lang/crates.io/issues/788
+    "https://github.com", # because of rate limiting
 ]
 
 [extra]
