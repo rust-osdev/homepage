@@ -1,0 +1,130 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2020-06/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (June 2020) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (June 2020)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>
+
+        <br>Published on <time datetime="2020-07-12">
+            Jul 12, 2020
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we will give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a>.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (June 2020)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In June, the crate received some smaller improvements:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/159">Remove needless <code>try_into</code> calls</a> to fix clippy warnings</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/161">Correct Cr2::read documentation</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/163">Export <code>PhysAddrNotValid</code> and <code>VirtAddrNotValid</code></a> <span class="gray">(published as <code>v0.11.1</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/samueltardieu">@samueltardieu</a> and <a href="https://github.com/leecannon">@leecannon</a> for their contributions!</p>
+<h3 id="cargo-xbuild"><a href="https://github.com/rust-osdev/cargo-xbuild"><code>cargo-xbuild</code></a></h3>
+<p>The <code>cargo-xbuild</code> project provides <code>cargo</code> command wrappers to cross-compile the sysroot crates <code>core</code> and <code>alloc</code>. This month, support for the <code>cargo-features</code> manifest key was added and a deprecated dependency was replaced:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/82">Propagate <code>cargo-features</code> from project's Cargo.toml</a> <span class="gray">(published as <code>v0.5.34</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/84">Replace tempdir with tempfile</a> <span class="gray">(published as <code>v0.5.35</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/eggyal">@eggyal</a> and <a href="https://github.com/Eijebong">@Eijebong</a> for these contributions!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code> crate</a> implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we fixed a newly introduced Rust warning:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/122">Rename <code>_improper_ctypes_check</code> functions</a> <span class="gray">(published as <code>v0.9.5</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Freax13">@Freax13</a> for this contribution!</p>
+<p>While we do not have to report any news yet, we are still working on a rewrite of the crate in order to make it more robust (use Rust instead of assembly for boot stages) and composable (in order to add UEFI and multiboot2 support).</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. This month, the crate received two small improvements to the <a href="https://wiki.osdev.org/RSDP">RSDP</a>-related code:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/commit/43df4bc79611d311c4a50978ebc4babe78b46074">Use RSDP's length field in revisions 1+</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/commit/a37cf48429334dc3dfd98e065656c374cc907a4a">Use fold to sum RSDP bytes</a></li>
+</ul>
+<h3 id="uefi"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi</code></a></h3>
+<p>The <code>uefi</code> crate provides abstractions for the <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface"><code>UEFI</code></a> standard that replaces the traditional BIOS on modern systems. This month, the contribution docs were extended with information how to add new UEFI protocols:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/commit/56375412e62d41122aba5b2c86c365373ca31ecd">Tutorial on how to add protocols</a></li>
+</ul>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>In June, I pushed two small improvements to the <code>blog_os</code> repository and the <em>Writing an OS in Rust</em> blog:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/816">Create a testable trait for printing test messages automatically</a>. This required updates to some blog posts:
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/817">Update Testing post to use Testable trait for automatic printing</a></li>
+<li>Update remaining posts: <a href="https://github.com/phil-opp/blog_os/pull/819">Remove superfluous printing from tests</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/818">Do a volatile read in stack_overflow test to avoid tail recursion</a>. This required an update to the <em>Double Faults</em> post:
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/820">Update Double Faults post to prevent tail recursion in test</a></li>
+</ul>
+</li>
+</ul>
+<p>There were also <a href="https://github.com/phil-opp/blog_os/pulls?q=is%3Apr+is%3Aclosed+merged%3A2020-06-01..2020-07-01">lots of small contributions</a> this month that fixed typos and dead links and updated the Chinese translation. Thanks a lot to all contributors!</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
