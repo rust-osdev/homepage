@@ -10,7 +10,7 @@
 {% set section = get_section(path = "this-month/_index.md") %}
 <p>{{ section.description }}</p>
 <ul>
-    {% for page in section.pages | reverse %}
+    {% for page in section.pages %}
         <li><a href="/{{ page.path | safe }}">{{ page.extra.month }}</a></li>
     {% endfor %}
 </ul>
