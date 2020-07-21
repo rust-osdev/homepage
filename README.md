@@ -2,6 +2,15 @@
 
 This repository contains the source code for our organization homepage at <https://rust-osdev.com>.
 
+# Development 
+In order to build the website, first you will need to install the [zola](https://github.com/getzola/zola/releases) static site generator.
+
+Then you can run:
+```
+./zola serve
+```
+and open <a href="http://127.0.0.1:1111/">localhost:1111</a>
+
 ## License
 
 Licensed under either of
