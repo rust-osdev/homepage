@@ -15,7 +15,8 @@ highlight_code = true
 build_search_index = false
 
 # Generate RSS feed
-generate_rss = true
+generate_feed = true
+feed_filename = "rss.xml"
 
 [link_checker]
 skip_prefixes = [
