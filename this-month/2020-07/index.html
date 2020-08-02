@@ -1,0 +1,167 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2020-07/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (July 2020) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (July 2020)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, and <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>
+
+        <br>Published on <time datetime="2020-08-02">
+            Aug 02, 2020
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a>.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (July 2020)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="bootimage"><a href="https://github.com/rust-osdev/bootimage"><code>bootimage</code></a></h3>
+<p>The <code>bootimage</code> tool allows the creation of bootable disk images for <code>bootloader</code>-based kernels. It also provides a runner executable for <code>cargo</code> to make <code>cargo run</code> and <code>cargo test</code> work using QEMU. In July, the crate was updated to work with cargo's own <code>build-std</code> feature instead of relying on the <code>cargo-xbuild</code> crate:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootimage/pull/62">Add support for building bootloaders using <code>-Zbuild-std</code></a> <span class="gray">(published as <code>v0.8.1</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootimage/pull/63">Make <code>cargo bootimage</code> use <code>cargo build</code> instead of <code>cargo xbuild</code></a> <span class="gray">(published as <code>v0.9.0</code>)</span></li>
+</ul>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code> crate</a> implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. In July, we switched the crate from <code>cargo-xbuild</code> to the <code>build-std</code> feature of cargo and fixed a bug that prevented booting in VirtualBox:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/123">Change 1st stage int 13h addressing</a> <span class="gray">(published as <code>v0.9.6</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/125">Make bootloader buildable with <code>-Zbuild-std</code></a> <span class="gray">(published as <code>v0.9.7</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/126">Enable rlibc dependency only with <code>binary</code> feature</a> <span class="gray">(published as <code>v0.9.8</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/rsribeiro">@rsribeiro</a> for their contribution!</p>
+<p>We also made some progress on adding UEFI support to the bootloader. Our prototype is now able to set up a pixel-based framebuffer, map a given kernel ELF file into virtual memory, and then pass control to its entry point. The next steps are the construction of the boot information structure, including a memory map. You can find a link to the code and the build instructions in <a href="https://github.com/phil-opp/blog_os/issues/349#issuecomment-663562464">this comment</a>.</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. This month saw some substantial improvements to our AML handling:</p>
+<ul>
+<li>Objects defined by AML tables exist within a namespace, with objects referred to by paths such as <code>\_SB.PCI0.ISA.COM1</code>. Until now, we represented this namespace using a <code>BTreeMap</code> between the path (allocated on the heap) and a handle to the
+object, meaning that there was both a heap-allocated container, and a heap allocation for every single path within the namespace. <a href="https://github.com/rust-osdev/acpi/pull/72">In this PR</a>, we moved the library to use a new representation that has
+a <code>BTreeMap</code> for each <em>level</em> of the namespace. Because each level of the path can only be 4 characters long (<code>_SB</code>, <code>PCI0</code>, <code>ISA</code>, and <code>COM1</code> are the <em>name segments</em> in the example above), storing the path of each level no longer requires a heap
+allocation per object, which reduces the heap-burden of the library significantly.</li>
+<li>Some more opcodes were implemented: <code>Target</code>, <code>DefShiftLeft</code>, <code>DefShiftRight</code>, <code>DefLOr</code>, and <code>DefAnd</code>. These all appear in QEMU's tables.</li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/73">A fairly large PR</a> was merged that provides the ability to traverse the namespace and initialize devices - this is a mechanism that ACPI provides that allows an OS to initialize hardware that it does
+not have drivers for, and is a compulsory step in getting modern chipsets to function properly. This required us to build up a lot of functionality, including namespace traversal, reading and writing from <em>operation regions</em>, recursively invoking
+control methods, and asking the OS to perform hardware configuration for us (such as reading and writing to IO ports and PCI configuration space). There is still a lot of work in getting all of this working robustly, but this is a great start.</li>
+</ul>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi-rs</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>The major changes which happened in this month are:</p>
+<ul>
+<li>We've tested out support for AArch64. No updates to the code are needed, just <a href="https://github.com/rust-osdev/uefi-rs/blob/e2748687bdafcc21f35e6d4db27b4b1b31bdcf6e/uefi-test-runner/aarch64-unknown-uefi.json">add a custom target file</a> for 64-bit ARM UEFI and then compile your project with it.</li>
+<li>The <code>LoadedImage</code> protocol now <a href="https://docs.rs/uefi/0.4.7/uefi/proto/loaded_image/struct.LoadedImage.html#method.device">exposes the handle</a> for the device where the binary is stored.</li>
+<li>Our CI is now green again! There is <a href="https://github.com/rust-osdev/uefi-rs/issues/103#issuecomment-604728460">only one test</a> which breaks QEMU, and it's going to stay disabled until it gets fixed.</li>
+<li>Building the repository no longer requires <a href="https://github.com/rust-osdev/cargo-xbuild">cargo-xbuild</a>, we've switched to nightly Cargo's <a href="https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#build-std">build-std</a> feature.</li>
+<li>Updated documentation in various places.</li>
+</ul>
+<h3 id="spinning-top"><a href="https://github.com/rust-osdev/spinning_top"><code>spinning_top</code></a></h3>
+<p>The <code>spinning_top</code> crate provides a simple spinlock implementation based on the abstractions of the <a href="https://docs.rs/lock_api/0.4.1/lock_api/"><code>lock_api</code></a> crate. We created the crate to provide an alternative to the no-longer maintained <a href="https://github.com/mvdnes/spin-rs"><code>spin</code></a> crate. In July, the crate received the following updates:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/4">Implement <code>try_lock_weak</code> for use in <code>lock</code> loop</a> <span class="gray">(published as <code>v0.1.1</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/3">Upgrade <code>lock_api</code> to 0.4.0</a> <span class="gray">(published as <code>v0.2.0</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/5">Implement <code>const_spinlock</code> convenience function</a> <span class="gray">(published as <code>v0.2.1</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/akiekintveld">@akiekintveld</a> for their contributions!</p>
+<h3 id="volatile"><a href="https://github.com/rust-osdev/volatile"><code>volatile</code></a></h3>
+<p>The <code>volatile</code> crate provides safe wrapper types for implementing volatile read and write operations. The crate received the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/volatile/pull/10">Derive Default for Volatile, WriteOnly and ReadOnly</a> <span class="gray">(published as <code>v0.2.7</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/volatile/pull/12">Remove <code>Debug</code> and <code>Clone</code> derives for <code>WriteOnly</code></a> <span class="gray">(published as <code>v0.3.0</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Freax13">@Freax13</a> for their contributions!</p>
+<p>We are also considering a complete rewrite of the crate to wrap references instead of values directly. The main advantage of this is that it makes working with slices possible. See the <a href="https://github.com/rust-osdev/volatile/pull/13">pull request</a> for details.</p>
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/multiboot2-elf64"><code>multiboot2</code></a></h3>
+<p>The <code>multiboot2</code> crate provides abstraction types for the boot information of multiboot2 bootloaders. In July, we merged a change that makes the checksum field of the RSDP tag more useful:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/multiboot2-elf64/pull/64">Add a <code>validate_checksum</code> method to rsdp</a> <span class="gray">(published as <code>v0.9.0</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/dlrobertson">@dlrobertson</a> for this contribution!</p>
+<h3 id="cargo-xbuild"><a href="https://github.com/rust-osdev/cargo-xbuild"><code>cargo-xbuild</code></a></h3>
+<p>The <code>cargo-xbuild</code> project provides <code>cargo</code> command wrappers to cross-compile the sysroot crates <code>core</code> and <code>alloc</code>. While there were no updates to the crate itself in July, we added a guide on how to switch from <code>cargo-xbuild</code> to cargo's own <code>build-std</code> feature to the Readme. You can read it <a href="https://github.com/rust-osdev/cargo-xbuild#alternative-the-build-std-feature-of-cargo">here</a>.</p>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="isaacwoods-pebble"><a href="https://github.com/IsaacWoods/pebble"><code>IsaacWoods/pebble</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/IsaacWoods">@IsaacWoods</a>)</span></p>
+<p>Between my work on <code>acpi</code> and university commitments, I have not had much time to work on Pebble this month, but
+some small clean-ups were made:</p>
+<ul>
+<li>The migration from Travis CI to Github Actions was completed, allowing Pebble to be emulated on CI.</li>
+<li>Pebble uses a HAL (hardware abstraction layer) to separate hardware access from kernel logic. Various parts of the <code>x86_64</code> implementation of the HAL were made common to support code-reuse across architectures.</li>
+<li>Some <a href="https://github.com/IsaacWoods/pebble/blob/master/kernel/src/memory/buddy_allocator.rs#L202">tests</a> were added to the buddy allocator (Pebble's physical memory manager). This was to rule out physical memory
+allocation as the cause of a bug where user stacks are occasionally corrupted at the userspace-kernel boundary, which unfortunately has still not been fixed.</li>
+<li>Our <a href="https://github.com/IsaacWoods/pebble/blob/master/kernel/hal_x86_64/src/paging.rs#L376-L481">algorithm</a> for efficiently mapping arbitrary areas was rewritten and extended to support 1GiB pages.</li>
+<li>Work has started on a <em>topology layer</em> - data structures that represent features of the platform such as processors, caches, <a href="https://en.wikipedia.org/wiki/Non-uniform_memory_access">NUMA</a> nodes, and
+microarchitectural information. This will help in allowing Pebble to make more intelligent decisions about scheduling and resource usage in the future.</li>
+</ul>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>The main change this month was the migration from <code>cargo-xbuild</code> to the <code>build-std</code> feature of cargo. This means that we can now use the normal <code>cargo build</code>/<code>cargo run</code>/<code>cargo test</code> commands for our kernel 🎉.</p>
+<p>The full list of notable changes is:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/835">Migrate code from cargo-xbuild to <code>-Zbuild-std</code></a>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/836">Update blog to use <code>build-std</code> feature instead of cargo-xbuild</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/838">Link 'This Month in Rust OSDev' posts in status updates section</a></li>
+</ul>
+<p>There were also <a href="https://github.com/phil-opp/blog_os/pulls?q=is%3Apr+is%3Aclosed+merged%3A2020-06-01..2020-07-01">some contributions</a> this month that fixed typos and updated links. Thanks a lot to all contributors!</p>
+<p>For the next weeks/months, my plan is to finish the UEFI bootloader implementation and then adjust the blog to work with both the BIOS and UEFI bootloaders. Among other things, this will require that we switch from the VGA text buffer to a pixel-based framebuffer because the VGA text mode is not available with UEFI. While this makes things more complicated (we need to do some simple font rendering and add slice support to <code>volatile</code> crate), it will allow us to create our own graphical user interface, render a mouse pointer, or display images.</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
