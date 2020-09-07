@@ -1,0 +1,188 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2020-08/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (August 2020) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (August 2020)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/JohnTitor">@JohnTitor</a>
+
+        <br>Published on <time datetime="2020-09-07">
+            Sep 07, 2020
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we will give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a>.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (August 2020)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi-rs</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. In August, the crate received a large number of improvements:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/149">Add method to return (image_base, image_size) to LoadedImage</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/153">Rename <code>image_info</code> to <code>info</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/154">Hide the <code>MemoryMapIter</code> type from the API</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/156">Upstream two changes from Pebble's fork</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/157">Update to new <code>alloc</code> API</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/158">Publish new versions of the crates</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/161">Make memory map iterator clonable</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/163">Fix the <code>text::Output::current_mode</code> method</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/164">Use exact size iterators where possible</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/165">Use <code>ExactSizeIterator</code> in <code>exit_boot_services</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/tomoyat1">@tomoyat1</a> for their contribution!</p>
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/multiboot2-elf64"><code>multiboot2</code></a></h3>
+<p>The <code>multiboot2</code> crate provides abstraction types for the boot information of multiboot2 bootloaders. The most important change this month was the update to the latest release of the multiboot2 specification:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/multiboot2-elf64/pull/66">Add support for multiboot2</a></li>
+<li><a href="https://github.com/rust-osdev/multiboot2-elf64/pull/68">Improve usage of repr(packed)</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Caduser2020">@Caduser2020</a> for these contributions and welcome to the <code>multiboot2</code> team!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code> crate</a> implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. We did not publish any changes to the bootloader crate this month, but we made good progress on the UEFI implementation. See <a href="https://github.com/phil-opp/blog_os/issues/349#issuecomment-677645694">these issue comments</a> for a detailed status report.</p>
+<p>The rewrite of the real mode and protected mode stages of the BIOS bootloader is also <a href="https://gitter.im/rust-osdev/bootloader?at=5f4594ed9566774dfe3167bc">making progress</a>. The goal is to replace as much of the existing assembly code with Rust as possible, in order to make the code more robust and easier to understand.</p>
+<h3 id="ansi-rgb"><a href="https://github.com/rust-osdev/ansi_rgb"><code>ansi_rgb</code></a></h3>
+<p>The <code>ansi_rgb</code> crate implements <code>no_std</code>-compatible support for colored terminal text using ANSI escape sequences. The crate is still in an early state, but it received lots of new features this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/ansi_rgb/pull/11">More colors and some minor changes</a></li>
+<li><a href="https://github.com/rust-osdev/ansi_rgb/commit/19891574e3a4df81716973cf4c88ad965596c043">Demo using RGB and 3- and 4-bit colors</a></li>
+<li><a href="https://github.com/rust-osdev/ansi_rgb/commit/ebcb75b4f273fdeaef6fde051ca5dccb83560c13">Merge <code>Foreground</code> and <code>Background</code> traits</a></li>
+<li><a href="https://github.com/rust-osdev/ansi_rgb/commit/d6ed54ae50ab3653f9c94275efc369472c5278a9">Add 8-bit colors</a></li>
+<li><a href="https://github.com/rust-osdev/ansi_rgb/commit/0d77122be5a449a9c03f04421d43df90a7fd708e">Combine <code>WithForeground</code> and <code>WithBackground</code> into <code>Colored</code></a></li>
+<li><a href="https://github.com/rust-osdev/ansi_rgb/commit/9e10f6bac075b980cef66f4ddc9efab25c0a5504">Document extension to other color types</a></li>
+<li><a href="https://github.com/rust-osdev/ansi_rgb/pull/12">Add Color8 constructors for RGB and gray</a></li>
+<li><a href="https://github.com/rust-osdev/ansi_rgb/pull/13">Fix bounds check for Color8::new_rgb</a></li>
+<li><a href="https://github.com/rust-osdev/ansi_rgb/commit/3eb8c16681878ae97f8249524609f0611d9eddf6">Go back to <code>WithForeground</code> and <code>WithBackground</code> structs</a></li>
+<li><a href="https://github.com/rust-osdev/ansi_rgb/commit/9dd8d1828b1d0b3b707cb1f22c28074a6ce82ca5">Fix (and document/test) nesting</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/hanmertens">@hanmertens</a> for their contributions!</p>
+<h3 id="bootimage"><a href="https://github.com/rust-osdev/bootimage"><code>bootimage</code></a></h3>
+<p>The <code>bootimage</code> tool allows the creation of bootable disk images for <code>bootloader</code>-based kernels. It also provides a runner executable for <code>cargo</code> to make <code>cargo run</code> and <code>cargo test</code> work using QEMU. In August, we changed the test behavior to fix a bug where a triple fault is interpreted as a test success. We also fixed a small bug related to the <code>--version</code> argument. The relevant pull requests are:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootimage/pull/65">Consider all other exit codes besides 'test-success-exit-code' as failures</a> <span class="gray">(published as <code>v0.10.0</code>)</span>
+<ul>
+<li>Also runs tests with -no-reboot by default, configurable through a new test-no-reboot config key</li>
+<li>This is technically <strong>breaking change</strong>, but it should not affect most people.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/bootimage/pull/67">Parse <code>--version</code> argument without subcommand (<code>bootimage --version</code>)</a> <span class="gray">(published as <code>v0.10.1</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Freax13">@Freax13</a> for their contribution!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>This month, we added some functions for reading and writing the <code>FS</code> and <code>GS</code> segment base registers:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/172">Add rdfsbase, rdgsbase, wrfsbase, wrgsbase</a> <span class="gray">(published as <code>v0.11.2</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/haraldh">@haraldh</a> for this contribution!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. This month, support for more opcodes was added to the AML parser:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/commit/438bd9e4cc98bdac29a9eeccf0877592dd70c540">Factor out value comparison code from DefLEqual</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/commit/28e46b3cd2f68b033ae9559d84e0d8784a527422">Make all type-2 opcode parsers concrete to avoid type limit</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/compare/438bd9e4cc98bdac29a9eeccf0877592dd70c540...8dd5b21cf225e267d9786036ed134a45fc34b5f1">Implement some <code>DefL*</code> opcodes</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/commit/e54158ee0128c47acb5e34509e390010ee1feb74">Only read from field if update rule is Preserve</a></li>
+</ul>
+<h3 id="spinning-top"><a href="https://github.com/rust-osdev/spinning_top"><code>spinning_top</code></a></h3>
+<p>The <code>spinning_top</code> crate provides a simple spinlock implementation based on the abstractions of the <a href="https://docs.rs/lock_api/0.4.1/lock_api/"><code>lock_api</code></a> crate. This month, we added an optional feature to make the crate compatible with the <code>owning_ref</code> crate:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/7">Add owning_ref support</a> <span class="gray">(published as <code>v0.2.2</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/not-a-seagull">@not-a-seagull</a> for this contribution!</p>
+<h3 id="cargo-xbuild"><a href="https://github.com/rust-osdev/cargo-xbuild"><code>cargo-xbuild</code></a></h3>
+<p>The <code>cargo-xbuild</code> project provides <code>cargo</code> command wrappers to cross-compile the sysroot crates <code>core</code> and <code>alloc</code>. At the beginning of this month, we had to update the crate for the new rustc directory layout. The crate also received a small cleanup:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/87">Update cargo-xbuild to new rust directory layout</a> <span class="gray">(published as <code>v0.6.0</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/86">Cleanup: Use eprintln! instead of writeln! with stderr</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/toku-sa-n">@toku-sa-n</a> for their contribution!</p>
+<p>Even though we still maintain the <code>cargo-xbuild</code> crate, we recommend switching to cargo's own <code>build-std</code> feature that is always up-to-date with the latest Rust/Cargo changes. We wrote a short guide on how to switch to it, which is available <a href="https://github.com/rust-osdev/cargo-xbuild#alternative-the-build-std-feature-of-cargo">in our Readme</a>.</p>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>I'm still mostly working on the new bootloader with UEFI support, so there were no major changes to the <em>Writing an OS in Rust</em> series this month. However, I'm making good progress on the bootloader <a href="https://rust-osdev.com/this-month/2020-08/#bootloader">as noted above</a> and I hope to finish the rewrite soon.</p>
+<p>If all goes well, the new version will no longer require the <code>bootimage</code> tool and instead let the users create a simple build script for the bootloader themselves. It will also set up a pixel based framebuffer, which means that we will be able to do display proper graphics instead of just VGA-based text. Unfortunately, I'm currently a bit blocked by limitations of cargo configuration files (our default target should not apply to our build script), but I hope that we can <a href="https://github.com/rust-lang/cargo/issues/8687">find a solution for this</a> soon.</p>
+<p>While I focused most of my time on the bootloader and the cargo config files, I also merged a few few minor improvements for my blog:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/843">Change <code>rustup override add</code> to <code>rustup override set</code></a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/845">Add (initial) Japanese translation</a> (see below)</li>
+<li><a href="https://github.com/phil-opp/blog_os/commit/0425bd3c819bd26910c4e82a7a24c2a5126d4116">Increase double fault stack size in Double Faults post</a>
+<ul>
+<li>The previous stack size was too small in debug mode since our double fault handler uses the rather stack-intensive <code>core::fmt</code> functions.</li>
+<li>Since the dobule fault stack has no guard page, this stack overflow <a href="https://github.com/phil-opp/blog_os/issues/449#issuecomment-667638975">resulted in undefined behavior</a>. For example, it caused the system to hang or lead to a triple fault.</li>
+<li>The stack size increase only works around this problem, but is not a clear fix. I plan to introduce a proper stack allocation function in the upcoming post about threading, which will create stacks with a proper guard page so that stack overflows deterministically lead to a page fault.</li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/846">Use workflow dispatch event to trigger scheduled builds of code branches</a>
+<ul>
+<li>Enables nightly builds of all <code>post-XX</code> branches, so that we can be sure that our code always builds with the latest Rust nightly versions.</li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/850">Update Zola to 0.11.0</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/RWOverdijk">@RWOverdijk</a> and <a href="https://github.com/JohnTitor">@JohnTitor</a> for their contributions!</p>
+<h4 id="japanese-translations">Japanese translations</h4>
+<p><span class="gray">(Section written by <a href="https://github.com/JohnTitor">@JohnTitor</a>)</span></p>
+<p>This month, we also <a href="https://github.com/phil-opp/blog_os/pull/845">added a Japanese translation</a> newly. You can find the languages list in the sidebar and Japanese if you enable that language in your browser.
+Only one post is currently translated, but we'd like to translate more posts in the future.
+Want to participate in the translation or find a typo? Feel free to open a PR/issue on <a href="https://github.com/phil-opp/blog_os">the repository</a>
+(please use English in the description if possible)!</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
