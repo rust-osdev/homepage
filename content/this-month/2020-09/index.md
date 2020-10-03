@@ -146,6 +146,27 @@ defining feature (easy message passing between tasks) is now working!
   future, this will be extended to know about specific vendor+device ID combinations, to identify specific devices
   such as a particular graphics card).
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+
+<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+This month, the "Writing an OS in Rust" blog received a few minor updates:
+
+- [Update Zola to 0.11.0](https://github.com/phil-opp/blog_os/pull/850)
+- [Update `x86_64` to v0.12.1](https://github.com/phil-opp/blog_os/pull/858)
+- [Use new `const_mut_refs` feature gate](https://github.com/phil-opp/blog_os/pull/860)
+- [Update to zola v0.12.1](https://github.com/phil-opp/blog_os/pull/861)
+
+Apart from that, I did a lot of preparation for the upcoming switch to the UEFI bootloader. My prototype implementation of the `blog_os` system on top of the new UEFI bootloader has now reached feature parity with the existing implementation:
+
+![QEMU output of new bootloader implementation, including local APIC and I/O APIC debug output, the timer interrupt dots, and the keyboard input "Hello!!!"](blog_os-rewrite.png)
+
+The output looks different now because we are using a pixel based framebuffer instead of the VGA text mode. This is required because the VGA text mode is no longer supported with UEFI. For the framebuffer implementation I'm using the [new version of the `volatile` crate](#volatile) and the [`font8x8`](https://docs.rs/font8x8/0.2.5/font8x8/) crate for font rendering.
+
+You can also see some log output related to the APIC interrupt controller (not to be confused with the ACPI standard). I'm using the APIC instead of the legacy PIC because the latter is not supported anymore on most UEFI systems. For that, I started working on a new `apic` crate, which will include abstractions for the registers of the local APIC and the IOAPIC.
+
+For the coming month(s), I'm planning to revamp the "Writing an OS in Rust" blog based on this prototype implementation. This will require complete rewrites of the [_VGA Text Mode_](https://os.phil-opp.com/vga-text-mode/) and [_Hardware Interrupts_](https://os.phil-opp.com/hardware-interrupts/) posts, an update of the bootloader build process in [_A Minimal Rust Kernel_](https://os.phil-opp.com/minimal-rust-kernel/), and replacing the QEMU screenshots across all posts. So I expect that it will take some time until the new version is ready.
+
 ### [`andre-richter/qemu-exit`](https://github.com/andre-richter/qemu-exit)
 
 Version `1.0.x` of the crate has been released! 
