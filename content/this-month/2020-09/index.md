@@ -169,7 +169,7 @@ For the coming month(s), I'm planning to revamp the "Writing an OS in Rust" blog
 
 ### [`andre-richter/qemu-exit`](https://github.com/andre-richter/qemu-exit)
 
-Version `1.0.x` of the crate has been released! 
+Version `1.0.x` of the crate has been released!
 
 `qemu-exit` is a crate that allows you quit a running QEMU session with a user-defined exit code. This is useful for `unit` or `integration tests` of bare-metal software (e.g. OS kernels) that are tested in QEMU.
 
