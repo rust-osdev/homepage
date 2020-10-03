@@ -118,12 +118,6 @@ The `uart_16550` crate provides basic support for serial port I/O for 16550-comp
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
-### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
-
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
-
-This month, ...
-
 ### [`IsaacWoods/pebble`](https://github.com/IsaacWoods/pebble)
 <span class="gray">(Section written by [@IsaacWoods](https://github.com/IsaacWoods))</span>
 
