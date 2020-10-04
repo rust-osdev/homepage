@@ -1,0 +1,198 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2020-09/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (September 2020) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (September 2020)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/IsaacWoods">@IsaacWoods</a>
+
+        <br>Published on <time datetime="2020-10-04">
+            Oct 04, 2020
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we will give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a>.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (September 2020)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. Lots of work happened this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/76">Support</a> for the <code>Fixed Memory</code>, <code>Word Address Space</code>, <code>DWord Address Space</code>, <code>QWord Address Space</code>, <code>IRQ Format</code>,
+<code>DMA Format</code>, and <code>I/O Port Descriptor</code> resource descriptors were added. These appear in <code>_CRS</code> objects - objects
+that describe the resources allocated to a particular hardware device. This should be enough support to parse the
+<code>_CRS</code> objects of all devices supported by QEMU. Thanks to <a href="https://github.com/michaelmelanson"><code>@michaelmelanson</code></a> for his contribution!</li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/75">Version <code>2.0.0</code> of the <code>acpi</code> crate was published</a>, after <a href="https://github.com/rust-osdev/acpi/issues/74">consultation with contributors to the Redox project</a>.
+This splits the library into two parts - discovering ACPI tables using various methods, and separately, parsing them to discover information about the system.
+This provides much more flexibility in how tables are parsed, allows support for OS-specific tables, and is
+important to the Redox project as it allows parsing of the ACPI tables in userspace. We also used this
+opportunity for breaking changes to clean up a few parts of the library, especially in making our method of
+mapping physical memory ranges safer.</li>
+<li>A new crate, <a href="https://crates.io/crates/rsdp"><code>rsdp</code></a>, was split out from <code>acpi</code>. This new crate provides methods
+for searching for the first ACPI table (the Root System Description Pointer (RSDP)) on BIOS systems without
+<code>alloc</code> support. This makes it suitable for use from bootloaders and similar applications where heap allocation
+is not supported. All types are reexported by the <code>acpi</code> crate, so users can access the same functionality from
+the main library.</li>
+</ul>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>The crate received the following updates in September:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/174">Add a function for the <code>nop</code> instruction</a> <span class="gray">(published as <code>v0.11.4</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/175">Don't rely on promotion of <code>PageTableEntry::new</code> inside a <code>const fn</code></a> <span class="gray">(published as <code>v0.11.5</code>)</span>
+<ul>
+<li>Thanks a lot to <a href="https://github.com/ecstatic-morse">@ecstatic-morse</a> and the Rust compiler team for preventing an upcoming breakage in our crate!</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/180">Add <code>VirtAddr::is_null</code></a> <span class="gray">(published as <code>v0.11.8</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/179">Decouple instructions into a separate feature flag</a> <span class="gray">(published as <code>v0.12.0</code>)</span>
+<ul>
+<li>See the <a href="https://github.com/rust-osdev/x86_64/blob/master/Changelog.md#0120--2020-09-23">corresponding changelog entry</a> for a summary of the breaking changes introduced by this pull request.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/182">Fix build error on latest nightly</a> caused by new <code>const_mut_refs</code> feature gate <span class="gray">(published as <code>v0.12.1</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/181">Add remaining GDT flags</a>, which also makes our GDT descriptors compatible with the <code>syscall</code>/<code>sysenter</code> instructions</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/186">Fix another build error on latest nightly</a>, this time caused by the new <code>const_fn_fn_ptr_basics</code> feature gate <span class="gray">(published together with <a href="https://github.com/rust-osdev/x86_64/pull/181">#181</a> as <code>v0.12.2</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/ecstatic-morse">@ecstatic-morse</a>, <a href="https://github.com/toku-sa-n">@toku-sa-n</a>, <a href="https://github.com/h33p">@h33p</a>, and <a href="https://github.com/josephlr">@josephlr</a> for their contributions!</p>
+<p>We would also like to welcome <a href="https://github.com/josephlr">@josephlr</a> to our <code>x86_64</code> review and maintenance team!</p>
+<h3 id="volatile"><a href="https://github.com/rust-osdev/volatile"><code>volatile</code></a></h3>
+<p>The <code>volatile</code> crate provides safe wrapper types for implementing volatile read and write operations. This month, we published version <code>0.4.0</code>, which <a href="https://github.com/rust-osdev/volatile/pull/13">completely rewrites the crate based on reference values</a>. Instead of wrapping the target value directly as e.g. <code>Volatile&lt;u32&gt;</code>, the new implementation works by wrapping reference types such as <code>Volatile&lt;&amp;mut u32&gt;</code>. See <a href="https://docs.rs/volatile/0.4.1/volatile/struct.Volatile.html">our completely revamped documentation</a> for more details.</p>
+<p>The main advantage of the new reference-based implementation is that it is now possible to work with volatile arrays and slices, at least on nightly Rust. Through the <a href="https://docs.rs/volatile/0.4.1/volatile/struct.Volatile.html#method.index"><code>index</code></a> and <a href="https://docs.rs/volatile/0.4.1/volatile/struct.Volatile.html#method.index_mut"><code>index_mut</code></a> methods it is possible to create sub-slices, which can then be read and written efficiently through the <a href="https://docs.rs/volatile/0.4.1/volatile/struct.Volatile.html#method.copy_into_slice"><code>copy_into_slice</code></a> and <a href="https://docs.rs/volatile/0.4.1/volatile/struct.Volatile.html#method.copy_from_slice"><code>copy_from_slice</code></a> methods. All these operations perform volatile memory accesses, so that the compiler won't optimize them away.</p>
+<h3 id="pci-types"><a href="https://github.com/rust-osdev/pci_types"><code>pci_types</code></a></h3>
+<p><code>pci_types</code> is a new library in the Rust OSDev organisation that provides types for accessing and configuring PCI
+devices from Rust operating systems. Lots of this code (e.g. identifying devices by class codes) can be shared
+between projects, and would benefit from community contributions. This month, work started on some types for
+representing PCIe addresses, the layout of the configuration space for <em>endpoints</em>, device types, and a trait that
+allows the library to access the PCIe configuration space in whichever way the platform exposes it.</p>
+<p>Thanks to <a href="https://github.com/toku-sa-n">@toku-sa-n</a> for their <a href="https://github.com/rust-osdev/pci_types/pull/1">contribution</a>!</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi-rs</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. In September, the crate was <a href="https://github.com/rust-osdev/uefi-rs/pull/167">updated to Rust's new inline assembly</a> implemenation. We also published version <code>0.6.0</code> of the crate, including all the improvements added in the past two months.</p>
+<p>Thanks to <a href="https://github.com/toku-sa-n">@toku-sa-n</a> for their contribution!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we published versions <code>0.9.9</code> to <code>0.9.11</code> to fix build errors on the latest nightlies, caused by the new feature gate names for some <code>const fn</code> features.</p>
+<p>We also made some more progress on the rewrite with UEFI support. It now <a href="https://github.com/rust-osdev/bootloader/commit/3237429457d3df58080fa284d9c2b7138e3fff3a">passes additional framebuffer information</a> and the <a href="https://github.com/rust-osdev/bootloader/commit/694d3139fe24bce0184da3bb9096e6540ee1fa3d">address of the RSDP structure of ACPI</a> in the boot info. (We later updated the RSDP code to <a href="https://github.com/rust-osdev/bootloader/commit/cb8345bd3c45fc3c56a631a3b416137c45f828f9">use the new <code>rsdp</code> crate</a>). The bootloader also gained support for <a href="https://github.com/rust-osdev/bootloader/commit/34a5da852ba8f6b0abfafb5c5a68adc4cae638fa">setting up a recursive page table mapping</a>, which makes it almost feature-equivalent with the current implementation. There are still a few things missings, but it should be ready to be published soon.</p>
+<h3 id="cargo-xbuild"><a href="https://github.com/rust-osdev/cargo-xbuild"><code>cargo-xbuild</code></a></h3>
+<p>The <code>cargo-xbuild</code> project provides <code>cargo</code> command wrappers to cross-compile the sysroot crates <code>core</code> and <code>alloc</code>. This month, we merged some maintenance updates to increase platform compatibility:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/91">Remove fs2 dependency for broader platform support</a> <span class="gray">(published as <code>v0.6.1</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/94">Fix winapi issues from flock() rework</a> <span class="gray">(published as <code>v0.6.2</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/pfmooney">@pfmooney</a> for these contributions!</p>
+<p>Even though we still maintain the <code>cargo-xbuild</code> crate, we recommend switching to cargo's own <code>build-std</code> feature that is always up-to-date with the latest Rust/Cargo changes. We wrote a short guide on how to switch to it, which is available <a href="https://github.com/rust-osdev/cargo-xbuild#alternative-the-build-std-feature-of-cargo">in our Readme</a>.</p>
+<h3 id="uart-16550"><a href="https://github.com/rust-osdev/uart_16550"><code>uart_16550</code></a></h3>
+<p>The <code>uart_16550</code> crate provides basic support for serial port I/O for 16550-compatible UARTs. Like the <code>x86_64</code> and <code>bootloader</code> crates, this crate received some dependency updates this month to fix nightly breakage. In the process, we released versions <code>0.2.8</code> to <code>0.2.10</code>. Since none of these versions are semver-breaking, a normal <code>cargo update</code> should suffice to update to the latest version.</p>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="isaacwoods-pebble"><a href="https://github.com/IsaacWoods/pebble"><code>IsaacWoods/pebble</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/IsaacWoods">@IsaacWoods</a>)</span></p>
+<p>A fairly large amount of progress has been made on Pebble over the last two months, and a prototype of Pebble's
+defining feature (easy message passing between tasks) is now working!</p>
+<ul>
+<li>The first, basic, version of Pebble's wire format, <a href="https://github.com/IsaacWoods/pebble/tree/master/lib/ptah">ptah</a> has been completed.
+This first version is implemented as a Serde format, but libraries could be written for any language that can
+manipulate a byte stream.</li>
+<li>Two system calls, <code>send_message</code> and <code>get_message</code>, were added that allows a message (a series of bytes, and
+optionally a number of <em>handles</em> (effectively, permission to access a certain <em>kernel object</em>)) to be sent
+down a <em>channel</em>, between two tasks.</li>
+<li>Infrastructure for another of Pebble's key features, <em>services</em>, was added. This allows userspace tasks to
+advertise their ability to provide some kind of 'service' to other tasks. A task called <a href="https://github.com/IsaacWoods/pebble/blob/master/user/echo/src/main.rs"><code>echo</code></a>
+was built to test this - it provides a service that simply echos any messages sent down it back to the sending
+task.</li>
+<li>Work started on the Platform Bus, a concept inspired by another hobby OS <a href="https://github.com/managarm/managarm/blob/master/docs/src/design/mbus/index.md">managarm's <code>mbus</code></a>.
+All hardware devices on the platform will be added to the Platform Bus by <em>Bus Drivers</em>, and described using <em>properties</em> (as an
+example, a PCI device will have properties such as <code>pci.vendor_id</code>, and <code>pci.class</code>). <em>Device drivers</em> will be
+able to apply to manage devices by sending a <em>Filter</em> to the Platform Bus, which specifies which devices they are
+able to handle, based on a device's properties. In the future, Platform Bus will be responsible for handling all
+PCI, USB, and hardwired devices on all platforms.</li>
+<li>The first <em>Bus Driver</em> was added to manage PCI devices. It uses a new system call, <code>pci_get_info</code>, to get the raw
+information about PCI from the kernel, and then creates a Platform Bus device for each function, with the correct
+properties. It uses the new <code>pci_types</code> library in the Rust OSDev organisation to identify each device (in the
+future, this will be extended to know about specific vendor+device ID combinations, to identify specific devices
+such as a particular graphics card).</li>
+</ul>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>This month, the &quot;Writing an OS in Rust&quot; blog received a few minor updates:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/850">Update Zola to 0.11.0</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/858">Update <code>x86_64</code> to v0.12.1</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/860">Use new <code>const_mut_refs</code> feature gate</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/861">Update to zola v0.12.1</a></li>
+</ul>
+<p>Apart from that, I did a lot of preparation for the upcoming switch to the UEFI bootloader. My prototype implementation of the <code>blog_os</code> system on top of the new UEFI bootloader has now reached feature parity with the existing implementation:</p>
+<p><img src="https://rust-osdev.com/this-month/2020-09/blog_os-rewrite.png" alt="QEMU output of new bootloader implementation, including local APIC and I/O APIC debug output, the timer interrupt dots, and the keyboard input &quot;Hello!!!&quot;" /></p>
+<p>The output looks different now because we are using a pixel based framebuffer instead of the VGA text mode. This is required because the VGA text mode is no longer supported with UEFI. For the framebuffer implementation I'm using the <a href="https://rust-osdev.com/this-month/2020-09/#volatile">new version of the <code>volatile</code> crate</a> and the <a href="https://docs.rs/font8x8/0.2.5/font8x8/"><code>font8x8</code></a> crate for font rendering.</p>
+<p>You can also see some log output related to the APIC interrupt controller (not to be confused with the ACPI standard). I'm using the APIC instead of the legacy PIC because the latter is not supported anymore on most UEFI systems. For that, I started working on a new <code>apic</code> crate, which will include abstractions for the registers of the local APIC and the IOAPIC.</p>
+<p>For the coming month(s), I'm planning to revamp the &quot;Writing an OS in Rust&quot; blog based on this prototype implementation. This will require complete rewrites of the <a href="https://os.phil-opp.com/vga-text-mode/"><em>VGA Text Mode</em></a> and <a href="https://os.phil-opp.com/hardware-interrupts/"><em>Hardware Interrupts</em></a> posts, an update of the bootloader build process in <a href="https://os.phil-opp.com/minimal-rust-kernel/"><em>A Minimal Rust Kernel</em></a>, and replacing the QEMU screenshots across all posts. So I expect that it will take some time until the new version is ready.</p>
+<h3 id="andre-richter-qemu-exit"><a href="https://github.com/andre-richter/qemu-exit"><code>andre-richter/qemu-exit</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/andre-richter">@andre-richter</a>)</span></p>
+<p>Version <code>1.0.x</code> of the crate has been released!</p>
+<p><code>qemu-exit</code> is a crate that allows you quit a running QEMU session with a user-defined exit code. This is useful for <code>unit</code> or <code>integration tests</code> of bare-metal software (e.g. OS kernels) that are tested in QEMU.</p>
+<p>The crate supports the following architectures:</p>
+<ul>
+<li><code>AArch64</code></li>
+<li><code>RISC-V 64</code></li>
+<li><code>x86_64</code></li>
+</ul>
+<p>If you want to see the crate in action, you can have a look at how it is used in the <a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/13_integrated_testing#quitting-qemu-with-user-defined-exit-codes">rust-raspberrypi-OS-tutorials project</a>.</p>
+<p>Shoutout to <a href="https://github.com/phil-opp">@phil-opp</a> for inspiring this crate with his original blog post and to <a href="https://github.com/Skallwar">@Skallwar</a> for his many contributions.</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
