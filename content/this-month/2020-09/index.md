@@ -119,6 +119,7 @@ The `uart_16550` crate provides basic support for serial port I/O for 16550-comp
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
 ### [`IsaacWoods/pebble`](https://github.com/IsaacWoods/pebble)
+
 <span class="gray">(Section written by [@IsaacWoods](https://github.com/IsaacWoods))</span>
 
 A fairly large amount of progress has been made on Pebble over the last two months, and a prototype of Pebble's
@@ -168,6 +169,8 @@ You can also see some log output related to the APIC interrupt controller (not t
 For the coming month(s), I'm planning to revamp the "Writing an OS in Rust" blog based on this prototype implementation. This will require complete rewrites of the [_VGA Text Mode_](https://os.phil-opp.com/vga-text-mode/) and [_Hardware Interrupts_](https://os.phil-opp.com/hardware-interrupts/) posts, an update of the bootloader build process in [_A Minimal Rust Kernel_](https://os.phil-opp.com/minimal-rust-kernel/), and replacing the QEMU screenshots across all posts. So I expect that it will take some time until the new version is ready.
 
 ### [`andre-richter/qemu-exit`](https://github.com/andre-richter/qemu-exit)
+
+<span class="gray">(Section written by [@andre-richter](https://github.com/andre-richter))</span>
 
 Version `1.0.x` of the crate has been released!
 
