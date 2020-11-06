@@ -96,12 +96,6 @@ Even though we still maintain the `cargo-xbuild` crate, we recommend switching t
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
-### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
-
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
-
-This month, ...
-
 ### [`rust-embedded/rust-raspberrypi-OS-tutorials`](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials)
 
 <span class="gray">(Section written by [@andre-richter](https://github.com/andre-richter))</span>
@@ -114,6 +108,24 @@ It introduces a first set of changes which are eventually needed for separating 
     - The `kernel binary` stays `identity mapped` for now.
     - Device `MMIO regions` are remapped lazily to a special virtual address region at the top of the virtual address space during the device driver's `init()`.
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+
+<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+This month, the _Writing an OS in Rust_ series received the following updates:
+
+- [Remove rlibc and use compiler-builtins-mem feature](https://github.com/phil-opp/blog_os/pull/865)
+  - [Update `post-04` to use compiler_builtins `mem` feature instead of `rlibc`](https://github.com/phil-opp/blog_os/pull/868)
+  - [Update blog to use `mem` feature of `compiler_builtins`](https://github.com/phil-opp/blog_os/pull/866)
+- [Translate post 02 to Japanese](https://github.com/phil-opp/blog_os/pull/871)
+  - The translated post is now [published](https://os.phil-opp.com/ja/minimal-rust-kernel/).
+- [Add Right-to-Left support for template](https://github.com/phil-opp/blog_os/pull/875) in preparation for a Persian translation
+
+See [the merged pull request list](https://github.com/phil-opp/blog_os/pulls?q=is%3Apr+is%3Aclosed+merged%3A2020-10-01..2020-11-01) for the complete set of changes this month. Thanks a lot to all contributors!
+
+In case you speak Persian: There is currently an open pull request to [add a Persian translation of `Bare Bones` chapter](https://github.com/phil-opp/blog_os/pull/878) that needs reviews. Thanks to everyone involved!
+
+In [in our previous status update](@/this-month/2020-09/index.md#phil-opp-blog-os) I described my plans to rewrite the blog on top of the upcoming UEFI bootloader. In the past month I started rewriting the _Minimal Rust Kernel_ post for this. Unfortunately, I'm still facing build-related issues because of [limitations of Cargo's config files](https://github.com/rust-lang/cargo/pull/8757#issuecomment-713897532). To resolve these (and other) `.cargo/config` issues, I created a proposal on the Rust internals forum to [make some `.cargo/config` options available in `Cargo.toml` too](https://internals.rust-lang.org/t/proposal-move-some-cargo-config-settings-to-cargo-toml/13336). Feel free to join the discussion if it's relevant to you!
 
 ## Join Us?
 
