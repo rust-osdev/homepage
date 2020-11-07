@@ -1,0 +1,157 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2020-10/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (October 2020) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (October 2020)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>
+
+        <br>Published on <time datetime="0000-01-01">
+            Jan 01, 0000
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we will give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a>.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (October 2020)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In October, we merged following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/184">Provide functions for accessing the underlying L4 table for mapper types</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/191">Make <code>GlobalDescriptorTable::add_entry</code> a const fn</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/198">Update docs to suggest <code>TryFrom</code> trait</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/toku-sa-n">@toku-sa-n</a> for their contribution! We plan to publish the above changes as <a href="https://github.com/rust-osdev/x86_64/pull/200">version <code>0.12.3</code></a> in the next few days.</p>
+<h3 id="volatile"><a href="https://github.com/rust-osdev/volatile"><code>volatile</code></a></h3>
+<p>The <code>volatile</code> crate provides a safe wrapper type for implementing volatile read and write operations. This is useful for accessing memory regions that have side-effects, such as memory-mapped hardware registers or framebuffers.</p>
+<p>In October, we published a new version to fix the crate's <code>unstable</code> feature on newer Rust nighlies:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/volatile/pull/16">Change <code>slice::check_range</code> to <code>RangeBounds::assert_len</code></a> <span class="gray">(published as <code>v0.4.2</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/vetio">@vetio</a> for this contribution!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we published versions <code>0.9.9</code> to <code>0.9.11</code> to fix build errors on the latest nightlies, caused by the new feature gate names for some <code>const fn</code> features.</p>
+<p>We we didn't merge any changes to the <code>master</code> branch this month, we made more progress on the rewrite that adds UEFI support: There is now a <a href="https://github.com/rust-osdev/bootloader/pull/130">draft pull request</a> that tracks the remaining issues.</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. In October, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/179">Made <code>panic_handler</code> optional</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/180">Fix Clippy lints</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Swampman08">@Swampman08</a> for their contribution!</p>
+<h3 id="pci-types"><a href="https://github.com/rust-osdev/pci_types"><code>pci_types</code></a></h3>
+<p>The <code>pci_types</code> library provides types for accessing and configuring PCI devices from Rust operating systems. Lots of this code (e.g. identifying devices by class codes) can be shared
+between projects, and would benefit from community contributions.</p>
+<p>This month, we published version <code>0.2.0</code> with the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/pci_types/commit/e1201d7d8986ff1133e2880b0ba62a3b2d7d891b">Untie accessor from the actual PciHeader type</a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/commit/d9cd5809148084d31fe5cc6ddbb5c8129bf23dae">Split out endpoint header to separate struct</a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/commit/aeb1b249cf6e4563b815011f7ed759198b283405">Provide method for accessing BARs on endpoint headers</a></li>
+</ul>
+<h3 id="cargo-xbuild"><a href="https://github.com/rust-osdev/cargo-xbuild"><code>cargo-xbuild</code></a></h3>
+<p>The <code>cargo-xbuild</code> project provides <code>cargo</code> command wrappers to cross-compile the sysroot crates <code>core</code> and <code>alloc</code>. This month, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/95">Document <code>build-std-features</code> flag for Cargo's <code>build-std</code> feature</a></li>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/97">Upgrade the crate to edition 2018</a>  <span class="gray">(published as <code>v0.6.3</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/luqmana">@luqmana</a> and <a href="https://github.com/koushiro">@koushiro</a> for these contributions!</p>
+<p>Even though we still maintain the <code>cargo-xbuild</code> crate, we recommend switching to cargo's own <code>build-std</code> feature that is always up-to-date with the latest Rust/Cargo changes. We wrote a short guide on how to switch to it, which is available <a href="https://github.com/rust-osdev/cargo-xbuild#alternative-the-build-std-feature-of-cargo">in our Readme</a>.</p>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="rust-embedded-rust-raspberrypi-os-tutorials"><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials"><code>rust-embedded/rust-raspberrypi-OS-tutorials</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/andre-richter">@andre-richter</a>)</span></p>
+<p>The <a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials"><em>Operating System development tutorials in Rust on the Raspberry Pi</em></a> project now provides <a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/15_virtual_mem_part2_mmio_remap">Tutorial 15 - <code>Virtual Memory Part 2: MMIO Remap</code></a>.</p>
+<p>It introduces a first set of changes which are eventually needed for separating <code>kernel</code> and <code>user</code> address spaces:</p>
+<ul>
+<li>The memory mapping strategy gets more sophisticated and no longer <code>identity maps</code> the <em>whole</em> of the board's address space.</li>
+<li>Instead, only ranges that are actually needed are mapped:
+<ul>
+<li>The <code>kernel binary</code> stays <code>identity mapped</code> for now.</li>
+<li>Device <code>MMIO regions</code> are remapped lazily to a special virtual address region at the top of the virtual address space during the device driver's <code>init()</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>This month, the <em>Writing an OS in Rust</em> series received the following updates:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/865">Remove rlibc and use compiler-builtins-mem feature</a>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/868">Update <code>post-04</code> to use compiler_builtins <code>mem</code> feature instead of <code>rlibc</code></a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/866">Update blog to use <code>mem</code> feature of <code>compiler_builtins</code></a></li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/871">Translate post 02 to Japanese</a>
+<ul>
+<li>The translated post is now <a href="https://os.phil-opp.com/ja/minimal-rust-kernel/">published</a>.</li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/875">Add Right-to-Left support for template</a> in preparation for a Persian translation</li>
+</ul>
+<p>See <a href="https://github.com/phil-opp/blog_os/pulls?q=is%3Apr+is%3Aclosed+merged%3A2020-10-01..2020-11-01">the merged pull request list</a> for the complete set of changes this month. Thanks a lot to all contributors!</p>
+<p>In case you speak Persian: There is currently an open pull request to <a href="https://github.com/phil-opp/blog_os/pull/878">add a Persian translation of <code>Bare Bones</code> chapter</a> that needs reviews. Thanks to everyone involved!</p>
+<p>In <a href="https://rust-osdev.com/this-month/2020-09/#phil-opp-blog-os">in our previous status update</a> I described my plans to rewrite the blog on top of the upcoming UEFI bootloader. In the past month I started rewriting the <em>Minimal Rust Kernel</em> post for this. Unfortunately, I'm still facing build-related issues because of <a href="https://github.com/rust-lang/cargo/pull/8757#issuecomment-713897532">limitations of Cargo's config files</a>. To resolve these (and other) <code>.cargo/config</code> issues, I created a proposal on the Rust internals forum to <a href="https://internals.rust-lang.org/t/proposal-move-some-cargo-config-settings-to-cargo-toml/13336">make some <code>.cargo/config</code> options available in <code>Cargo.toml</code> too</a>. Feel free to join the discussion if it's relevant to you!</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+<!--
+TODO: Update publication date
+-->
+
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
