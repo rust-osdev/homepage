@@ -46,7 +46,7 @@ Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for their contribution! We 
 
 The `volatile` crate provides a safe wrapper type for implementing volatile read and write operations. This is useful for accessing memory regions that have side-effects, such as memory-mapped hardware registers or framebuffers.
 
-In October, we published a new version to fix the crate's `unstable` feature on newer Rust nighlies:
+In October, we published a new version to fix the crate's `unstable` feature on newer Rust nightlies:
 
 - [Change `slice::check_range` to `RangeBounds::assert_len`](https://github.com/rust-osdev/volatile/pull/16) <span class="gray">(published as `v0.4.2`)</span>
 
