@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "November 2020"
 authors = [
     "phil-opp",
+    "IsaacWoods",
     # add yourself here
 ]
 +++
@@ -36,6 +37,24 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In November, …
 
+### [`acpi`](https://github.com/rust-osdev/acpi)
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern
+computers use to relay information about the hardware to the OS. In November, we started fuzzing the AML parser to
+help find inputs that crash it and we [found](https://github.com/rust-osdev/acpi/commit/56472490c9564b6740eb5e416624d73be8841faa)
+[a](https://github.com/rust-osdev/acpi/commit/5ab486d1a8a8a8160025b88e369e22dc8d993273) [few](https://github.com/rust-osdev/acpi/commit/747bcfd28d44bbdfd39ad4805bba574ac320daf8).
+We even found [a case](https://github.com/rust-osdev/acpi/commit/52b05fd91ebb40e9c5511d568b19cb5f10b33d83) where
+we'd misinterpreted the spec. This is an important task for the project, as the AML parser will often run in
+kernelspace, and so should not panic from any input, however invalid (some more work is needed to make this the
+case, however).
+
+[Lexicographic comparison was also implemented for `Buffer` and `String` AML objects](https://github.com/rust-osdev/acpi/commit/6d2045de3acb9b74347ac6ce9ad01051be7bea82),
+which means we should now be able to perform all comparisons tables are allowed to make (bar some object
+conversions, which still need some work).
+
+The changes this month, as well as some made in December that should improve compile speed a little, have been
+published as [`aml v0.10.0`](https://crates.io/crates/aml).
+
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
@@ -45,6 +64,23 @@ In this section, we describe updates to personal projects that are not directly 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
 This month, ...
+
+### [`IsaacWoods/pebble`](https://github.com/IsaacWoods/pebble)
+
+<span class="gray">(Section written by [@IsaacWoods](https://github.com/IsaacWoods))</span>
+
+Between university and work on `acpi`, I haven't had a huge amount of time to work on Pebble for the last couple of
+months, but in November I:
+- Implemented a basic form of [TLS](https://en.wikipedia.org/wiki/Thread-local_storage) for userspace tasks. Pebble
+  doesn't have threads, but an Address Space can have multiple Tasks running from the same image, each of which
+  need their copy of the master TLS record. TLS support is also needed very early in Rust's `std`, so this was the
+  next step in creating a `std` implementation for Pebble.
+- Tried to fix a bug in Pebble's UEFI bootloader, where we crash if memory allocated to Boot Services is unmapped
+  after `ExitBootServices`. This may be a bug in OVMF - please get in touch if you've come across something
+  similar and know what's going on!
+- Continued work on the USB XHCI driver
+- Improved detection of Intel microarchitectures - we can now differentiate Kaby Lake and Coffee Lake processors
+  based on their `cpuid` steppings
 
 ## Join Us?
 
