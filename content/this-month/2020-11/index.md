@@ -31,12 +31,6 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
-### [`x86_64`](https://github.com/rust-osdev/x86_64)
-
-The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
-
-In November, …
-
 ### [`acpi`](https://github.com/rust-osdev/acpi)
 
 The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern
@@ -54,6 +48,18 @@ conversions, which still need some work).
 
 The changes this month, as well as some made in December that should improve compile speed a little, have been
 published as [`aml v0.10.0`](https://crates.io/crates/aml).
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+In November, we merged the following updates:
+
+- [Don't deny warnings on CI](https://github.com/rust-osdev/x86_64/pull/201)
+- [Rename `enable_interrupts_and_hlt` to `enable_and_hlt`](https://github.com/rust-osdev/x86_64/pull/206)
+- [Release version 0.12.3](https://github.com/rust-osdev/x86_64/pull/200)
+
+Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for their contribution!
 
 ## Personal Projects
 
