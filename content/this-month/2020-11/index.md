@@ -1,6 +1,6 @@
 +++
 title = "This Month in Rust OSDev (November 2020)"
-date = 0000-01-01
+date = 2020-12-10
 
 [extra]
 month = "November 2020"
@@ -122,8 +122,3 @@ Theoretically, it should work with PS/2-compatible keyboards all the way back to
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
-
-
-<!--
-TODO: Update publication date
--->
