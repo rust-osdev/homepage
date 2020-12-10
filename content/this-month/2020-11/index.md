@@ -74,12 +74,6 @@ Thanks to [@CalebLBaker](https://github.com/CalebLBaker) for their contribution!
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
-### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
-
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
-
-This month, ...
-
 ### [`IsaacWoods/pebble`](https://github.com/IsaacWoods/pebble)
 
 <span class="gray">(Section written by [@IsaacWoods](https://github.com/IsaacWoods))</span>
@@ -96,6 +90,23 @@ months, but in November I:
 - Continued work on the USB XHCI driver
 - Improved detection of Intel microarchitectures - we can now differentiate Kaby Lake and Coffee Lake processors
   based on their `cpuid` steppings
+
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+
+<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+In November, we merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog:
+
+- [Add Right-to-Left support for template](https://github.com/phil-opp/blog_os/pull/875)
+- [Add Persian translation for posts of `Bare Bone` Chapter](https://github.com/phil-opp/blog_os/pull/878)
+- [Show all available languages](https://github.com/phil-opp/blog_os/pull/880)
+- [Emphasize moving code](https://github.com/phil-opp/blog_os/pull/883)
+
+Thanks to [@hamidrezakp](https://github.com/hamidrezakp), [@Undin](https://github.com/Undin), and [@briankung](https://github.com/briankung) for their contributions!
+
+Behind the scenes, I'm still working on the upcoming revision of the blog with UEFI and framebuffer support. One fundamental problem of the new build approach planned for this revision is that we can no longer use `.cargo/config` files for specifying defaults. See my comment on GitHub for [more details on the problem](https://github.com/rust-lang/cargo/pull/8757#issuecomment-713897532).
+
+To solve this issue, I created a proposal on the Rust internals forum to [_move some cargo config settings to `Cargo.toml`_](https://internals.rust-lang.org/t/proposal-move-some-cargo-config-settings-to-cargo-toml/13336). While it is still not implemented yet, the great news is that the proposal was [approved by the Cargo team](https://internals.rust-lang.org/t/proposal-move-some-cargo-config-settings-to-cargo-toml/13336/14) 🎉! Now I (or someone else) just needs to find the time to implement this, then the last remaining blocker for the new build system should be resolved.
 
 ### [`lucis-fluxum/ps2-rs`](https://github.com/lucis-fluxum/ps2-rs)
 
