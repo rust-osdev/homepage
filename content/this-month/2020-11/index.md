@@ -61,6 +61,15 @@ In November, we merged the following updates:
 
 Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for their contribution!
 
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2-elf64)
+
+The `multiboot2` crate provides abstraction types for the boot information of multiboot2 bootloaders. We merged the following updates this month:
+
+- [Access to non-available memory areas](https://github.com/rust-osdev/multiboot2-elf64/pull/71) <span class="gray">(published as `v0.10.0`)</span>
+- [Fix a few warnings](https://github.com/rust-osdev/multiboot2-elf64/commit/a1237bcf357e5d4a5a6c40038fd1e690ef7305d9) <span class="gray">(published as `v0.10.1`)</span>
+
+Thanks to [@CalebLBaker](https://github.com/CalebLBaker) for their contribution!
+
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
