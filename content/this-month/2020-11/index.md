@@ -82,6 +82,17 @@ months, but in November I:
 - Improved detection of Intel microarchitectures - we can now differentiate Kaby Lake and Coffee Lake processors
   based on their `cpuid` steppings
 
+### [`lucis-fluxum/ps2-rs`](https://github.com/lucis-fluxum/ps2-rs)
+
+<span class="gray">(Section written by [@lucis-fluxum](https://github.com/lucis-fluxum))</span>
+
+This is a new library I created to provide OS kernels with low-level access to the PS/2 controller and devices. It
+uses a poll-based approach with a timeout to read and write data to the IO ports.
+
+While some of the library's functionality won't work on modern devices due to differing implementations of PS/2
+emulation between manufacturers, it should be enough to get initialized and receiving scancodes and mouse events.
+Theoretically, it should work with PS/2-compatible keyboards all the way back to the IBM Model M!
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
