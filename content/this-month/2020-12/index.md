@@ -46,6 +46,14 @@ In this section, we describe updates to personal projects that are not directly 
 
 This month, ...
 
+### [`lucis-fluxum/ps2-rs`](https://github.com/lucis-fluxum/ps2-rs)
+
+<span class="gray">(Section written by [@lucis-fluxum](https://github.com/lucis-fluxum))</span>
+
+I pushed [release v0.1.1](https://docs.rs/ps2/0.1.1/ps2/) this month, which is mainly a documentation update aiming
+to improve understanding of how to use the library. I've also added links to some reading material that helped me
+understand the PS/2 protocol better and much of the surrounding terminology. May the old keyboards live on!
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
