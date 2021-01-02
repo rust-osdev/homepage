@@ -62,6 +62,12 @@ In December, we published the following three new releases:
 
 Thanks to [@mental32](https://github.com/mental32), [@vinaychandra](https://github.com/vinaychandra), [@tomaka](https://github.com/tomaka), [@haraldh](https://github.com/haraldh), [@tscs37](https://github.com/tscs37), and [@toku-sa-n](https://github.com/toku-sa-n) for their contributions!
 
+### [`volatile`](https://github.com/rust-osdev/volatile)
+
+The `volatile` crate provides a safe wrapper type for implementing volatile read and write operations. This is useful for accessing memory regions that have side-effects, such as memory-mapped hardware registers or framebuffers. In December, we added to new methods for creating read/write-only `Volatile` instances:
+
+- [Add methods to restrict access](https://github.com/rust-osdev/volatile/pull/19) <span class="gray">(published as `v0.4.3`)</span>
+
 ### [`cargo-xbuild`](https://github.com/rust-osdev/cargo-xbuild)
 
 The `cargo-xbuild` project provides `cargo` command wrappers to cross-compile the sysroot crates `core` and `alloc`. This month, we merged a small error reporting improvement:
