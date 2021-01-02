@@ -103,6 +103,23 @@ In this section, we describe updates to personal projects that are not directly 
 
 This month, ...
 
+### [`phil-opp/linked-list-allocator`](https://github.com/phil-opp/linked-list-allocator)
+
+<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+The `linked_list_allocator` crate provides a simple heap allocator that is usable on `no_std` systems. It keeps track of free memory blocks by turning them into a linked list data structure.
+
+In December, the crate received the following updates:
+
+- [Use new nightly Allocator trait](https://github.com/phil-opp/linked-list-allocator/pull/42)
+- [Build on stable without features](https://github.com/phil-opp/linked-list-allocator/pull/43) <span class="gray">(published as `v0.8.7`)</span>
+- [Fix: do not require alloc crate](https://github.com/phil-opp/linked-list-allocator/pull/44) <span class="gray">(published as `v0.8.8`)</span>
+- [Don't require nightly for `use_spin` feature](https://github.com/phil-opp/linked-list-allocator/pull/46) <span class="gray">(published as `v0.8.9`)</span>
+- [Make hole module public for external uses](https://github.com/phil-opp/linked-list-allocator/pull/47) <span class="gray">(published as `v0.8.10`)</span>
+- [Add new use_spin_nightly feature](https://github.com/phil-opp/linked-list-allocator/pull/49) <span class="gray">(published as `v0.8.11`)</span>
+
+Thanks to [@haraldh](https://github.com/haraldh), [@MarcoCicognani](https://github.com/MarcoCicognani), and [@thalesfragoso](https://github.com/thalesfragoso) for their contributions!.
+
 ### [`lucis-fluxum/ps2-rs`](https://github.com/lucis-fluxum/ps2-rs)
 
 <span class="gray">(Section written by [@lucis-fluxum](https://github.com/lucis-fluxum))</span>
