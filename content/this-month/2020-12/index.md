@@ -62,6 +62,16 @@ In December, we published the following three new releases:
 
 Thanks to [@mental32](https://github.com/mental32), [@vinaychandra](https://github.com/vinaychandra), [@tomaka](https://github.com/tomaka), [@haraldh](https://github.com/haraldh), [@tscs37](https://github.com/tscs37), and [@toku-sa-n](https://github.com/toku-sa-n) for their contributions!
 
+### [`cargo-xbuild`](https://github.com/rust-osdev/cargo-xbuild)
+
+The `cargo-xbuild` project provides `cargo` command wrappers to cross-compile the sysroot crates `core` and `alloc`. This month, we merged a small error reporting improvement:
+
+- [Don't panic on metadata errors](https://github.com/rust-osdev/cargo-xbuild/pull/100) <span class="gray">(published as `v0.6.4`)</span>
+
+Thanks to [@parasyte](https://github.com/parasyte) for this contribution!
+
+Even though we still maintain the `cargo-xbuild` crate, we recommend switching to cargo's own `build-std` feature that is always up-to-date with the latest Rust/Cargo changes. We wrote a short guide on how to switch to it, which is available [in our Readme](https://github.com/rust-osdev/cargo-xbuild#alternative-the-build-std-feature-of-cargo).
+
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
