@@ -84,6 +84,15 @@ Thanks to [@parasyte](https://github.com/parasyte) for this contribution!
 
 Even though we still maintain the `cargo-xbuild` crate, we recommend switching to cargo's own `build-std` feature that is always up-to-date with the latest Rust/Cargo changes. We wrote a short guide on how to switch to it, which is available [in our Readme](https://github.com/rust-osdev/cargo-xbuild#alternative-the-build-std-feature-of-cargo).
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. In December, we merged the following changes:
+
+- [Document the build process](https://github.com/rust-osdev/bootloader/pull/134)
+- [Fix CI after breaking change of Github Actions](https://github.com/rust-osdev/bootloader/compare/530b26f86ae0c7cf8906de0d7f5184bb206bcb7c...d8f7a20bb24e9f1d36f86010e1ce00bdfc51d045)
+
+Thanks to [@Luis-Hebendanz](https://github.com/Luis-Hebendanz) for their contribution!
+
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
