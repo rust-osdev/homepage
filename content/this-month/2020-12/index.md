@@ -34,7 +34,33 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-In December, …
+In December, we published the following three new releases:
+
+#### [`v0.12.4`](https://github.com/rust-osdev/x86_64/pull/220)
+
+- [Add and fix some intra-doc links](https://github.com/rust-osdev/x86_64/pull/208)
+- [GDT: Add `load_unchecked`, `from_raw_slice`, and `as_raw_slice`](https://github.com/rust-osdev/x86_64/pull/210)
+- [Fix bad conversion from llvm_asm! to asm!](https://github.com/rust-osdev/x86_64/pull/218)
+    - _Heads up:_ [Rust does not check the assembly in `asm!` unless its used](https://github.com/rust-lang/rust/issues/80440)
+
+#### [`v0.13.0` (breaking)](https://github.com/rust-osdev/x86_64/pull/223)
+
+- [Also return flags for `MapperAllSizes::translate()`](https://github.com/rust-osdev/x86_64/pull/207)
+- [Restructure the `TranslateResult` type and create separate `Translate` trait](https://github.com/rust-osdev/x86_64/pull/211)
+- [Rename `PhysToVirt` trait to `PageTableFrameMapping`](https://github.com/rust-osdev/x86_64/pull/214))
+- [Use custom error types instead of `()`](https://github.com/rust-osdev/x86_64/pull/199))
+- [Remove deprecated items](https://github.com/rust-osdev/x86_64/pull/223/commits/2df2b97cb53e593b89ab2dbee6669e63d4898386): `UnusedPhysFrame`, `ExceptionStackFrame`, `VirtAddr::new_unchecked`, `interrupts::enable_interrupts_and_hlt`
+- [Make `DescriptorTablePointer::base` a `VirtAddr`](https://github.com/rust-osdev/x86_64/pull/215))
+- [Change return type of `read_rip` to `VirtAddr`](https://github.com/rust-osdev/x86_64/pull/216))
+- [Make writing the RFLAGS register unsafe](https://github.com/rust-osdev/x86_64/pull/219))
+- [Remove `PortReadWrite` trait, which is no longer needed](https://github.com/rust-osdev/x86_64/pull/217))
+- [Relaxe `Sized` requirement for `FrameAllocator` in `Mapper::map_to](https://github.com/rust-osdev/x86_64/pull/204)
+
+#### [`v0.13.1`](https://github.com/rust-osdev/x86_64/commit/4d5058c1a1c3873294b92a628be0bb151d37ca6a)
+
+- [PCID support instructions](https://github.com/rust-osdev/x86_64/pull/169)
+
+Thanks to [@mental32](https://github.com/mental32), [@vinaychandra](https://github.com/vinaychandra), [@tomaka](https://github.com/tomaka), [@haraldh](https://github.com/haraldh), [@tscs37](https://github.com/tscs37), and [@toku-sa-n](https://github.com/toku-sa-n) for their contributions!
 
 ## Personal Projects
 
