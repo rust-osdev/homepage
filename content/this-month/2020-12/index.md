@@ -68,6 +68,12 @@ The `volatile` crate provides a safe wrapper type for implementing volatile read
 
 - [Add methods to restrict access](https://github.com/rust-osdev/volatile/pull/19) <span class="gray">(published as `v0.4.3`)</span>
 
+### [`bootimage`](https://github.com/rust-osdev/bootimage)
+
+The `bootimage` tool allows the creation of bootable disk images for `bootloader`-based kernels. It also provides a runner executable for `cargo` to make `cargo run` and `cargo test` work using QEMU. This month, we fixed a nightly breakage:
+
+- [Fix nightly breakage of doctests in workspaces](https://github.com/rust-osdev/bootimage/pull/69) <span class="gray">(published as `v0.10.2`)</span>
+
 ### [`cargo-xbuild`](https://github.com/rust-osdev/cargo-xbuild)
 
 The `cargo-xbuild` project provides `cargo` command wrappers to cross-compile the sysroot crates `core` and `alloc`. This month, we merged a small error reporting improvement:
