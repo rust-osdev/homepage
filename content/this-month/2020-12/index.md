@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "December 2020"
 authors = [
     "phil-opp",
+    "IsaacWoods",
     # add yourself here
 ]
 +++
@@ -103,6 +104,18 @@ The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wik
 - [Publish new versions of the crates](https://github.com/rust-osdev/uefi-rs/pull/189)
 
 Thanks to [@avirule](https://github.com/avirule) for their contribution!
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern
+computers use to relay information about the hardware to the OS. In December, we:
+
+- [Exposed the Power Management Timer, part of the ACPI hardware platform](https://github.com/rust-osdev/acpi/pull/83). Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for their contribution!
+- [Improved the behaviour of the BIOS RSDP search algorithm](https://github.com/rust-osdev/acpi/issues/79). If
+  you're coming across the same problem as the reporter, try updating to `rsdp v1.1.0` or `acpi v2.2.0`.
+- [Improved codegen for the `choice!` macro](https://github.com/rust-osdev/acpi/commit/47c4aec17e7995beeaad004447505ab08b84578a). This fixes limitations in how large parsers can get before they break `rustc`'s type limit.
+  The new version allows better ergonomics, but also generates much less work for the type checker and so speeds up the compilation of the `aml` crate.
+- Fixed a few bugs in the handling of `DefBuffer` and `DefPackage` objects ([1](https://github.com/rust-osdev/acpi/commit/4286dfc6a9f683dc652cd019bbc6d018e96e8359), [2](https://github.com/rust-osdev/acpi/commit/0c64768a9eb415a0a9081adf0ebec2ff3aa50503), [3](https://github.com/rust-osdev/acpi/commit/6146d0fa2d22a4191f5d13bd653f8d45c1edb796)).
 
 ## Personal Projects
 
