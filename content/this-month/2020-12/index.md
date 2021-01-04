@@ -93,6 +93,17 @@ The `bootloader` crate implements a custom Rust-based bootloader for easy loadin
 
 Thanks to [@Luis-Hebendanz](https://github.com/Luis-Hebendanz) for their contribution!
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. In December, we merged the following changes:
+
+- [Clarify how new protocols can be defined](https://github.com/rust-osdev/uefi-rs/pull/185)
+- [Add support for the device path protocol](https://github.com/rust-osdev/uefi-rs/pull/187)
+- [Fix breakage with the latest nightlies](https://github.com/rust-osdev/uefi-rs/pull/188)
+- [Publish new versions of the crates](https://github.com/rust-osdev/uefi-rs/pull/189)
+
+Thanks to [@avirule](https://github.com/avirule) for their contribution!
+
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
