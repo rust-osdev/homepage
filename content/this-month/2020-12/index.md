@@ -54,7 +54,7 @@ In December, we published the following three new releases:
 - [Change return type of `read_rip` to `VirtAddr`](https://github.com/rust-osdev/x86_64/pull/216))
 - [Make writing the RFLAGS register unsafe](https://github.com/rust-osdev/x86_64/pull/219))
 - [Remove `PortReadWrite` trait, which is no longer needed](https://github.com/rust-osdev/x86_64/pull/217))
-- [Relaxe `Sized` requirement for `FrameAllocator` in `Mapper::map_to](https://github.com/rust-osdev/x86_64/pull/204)
+- [Relaxe `Sized` requirement for `FrameAllocator` in `Mapper::map_to`](https://github.com/rust-osdev/x86_64/pull/204)
 
 #### [`v0.13.1`](https://github.com/rust-osdev/x86_64/commit/4d5058c1a1c3873294b92a628be0bb151d37ca6a)
 
