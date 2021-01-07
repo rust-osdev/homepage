@@ -6,11 +6,11 @@
 
 <h1 style="visibility: hidden; height: 0px; margin: 0px; padding: 0px;">Rust OSDev</h1>
 
-<h2>This Month in Rust OSDev</h2>
-{% set section = get_section(path = "this-month/_index.md") %}
-<p>{{ section.description }}</p>
+{% set this_month = get_section(path = "this-month/_index.md") %}
+<h2>{{ this_month.title }}</h2>
+{{ this_month.content | safe }}
 <ul>
-    {% for page in section.pages %}
+    {% for page in this_month.pages %}
         <li><a href="{{ page.path | safe }}">{{ page.extra.month }}</a></li>
     {% endfor %}
 </ul>
