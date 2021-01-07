@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+{% block title %}{{ page.title | striptags }} | {{ config.title }}{% endblock title %}
 
 {% block main %}
     <h1>{{ page.title | safe}}</h1>
