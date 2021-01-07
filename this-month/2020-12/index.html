@@ -1,0 +1,196 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2020-12/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (December 2020) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (December 2020)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, and <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>
+
+        <br>Published on <time datetime="2021-01-07">
+            Jan 07, 2021
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we will give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our new <a href="https://rust-osdev.com/this-month/2020-12/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (December 2020)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In December, we published the following three new releases:</p>
+<h4 id="v0-12-4"><a href="https://github.com/rust-osdev/x86_64/pull/220"><code>v0.12.4</code></a></h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/208">Add and fix some intra-doc links</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/210">GDT: Add <code>load_unchecked</code>, <code>from_raw_slice</code>, and <code>as_raw_slice</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/218">Fix bad conversion from llvm_asm! to asm!</a>
+<ul>
+<li><em>Heads up:</em> <a href="https://github.com/rust-lang/rust/issues/80440">Rust does not check the assembly in <code>asm!</code> unless its used</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="v0-13-0-breaking"><a href="https://github.com/rust-osdev/x86_64/pull/223"><code>v0.13.0</code> (breaking)</a></h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/207">Also return flags for <code>MapperAllSizes::translate()</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/211">Restructure the <code>TranslateResult</code> type and create separate <code>Translate</code> trait</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/214">Rename <code>PhysToVirt</code> trait to <code>PageTableFrameMapping</code></a>)</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/199">Use custom error types instead of <code>()</code></a>)</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/223/commits/2df2b97cb53e593b89ab2dbee6669e63d4898386">Remove deprecated items</a>: <code>UnusedPhysFrame</code>, <code>ExceptionStackFrame</code>, <code>VirtAddr::new_unchecked</code>, <code>interrupts::enable_interrupts_and_hlt</code></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/215">Make <code>DescriptorTablePointer::base</code> a <code>VirtAddr</code></a>)</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/216">Change return type of <code>read_rip</code> to <code>VirtAddr</code></a>)</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/219">Make writing the RFLAGS register unsafe</a>)</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/217">Remove <code>PortReadWrite</code> trait, which is no longer needed</a>)</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/204">Relaxe <code>Sized</code> requirement for <code>FrameAllocator</code> in <code>Mapper::map_to</code></a></li>
+</ul>
+<h4 id="v0-13-1"><a href="https://github.com/rust-osdev/x86_64/commit/4d5058c1a1c3873294b92a628be0bb151d37ca6a"><code>v0.13.1</code></a></h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/169">PCID support instructions</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/mental32">@mental32</a>, <a href="https://github.com/vinaychandra">@vinaychandra</a>, <a href="https://github.com/tomaka">@tomaka</a>, <a href="https://github.com/haraldh">@haraldh</a>, <a href="https://github.com/tscs37">@tscs37</a>, and <a href="https://github.com/toku-sa-n">@toku-sa-n</a> for their contributions!</p>
+<h3 id="volatile"><a href="https://github.com/rust-osdev/volatile"><code>volatile</code></a></h3>
+<p>The <code>volatile</code> crate provides a safe wrapper type for implementing volatile read and write operations. This is useful for accessing memory regions that have side-effects, such as memory-mapped hardware registers or framebuffers. In December, we added to new methods for creating read/write-only <code>Volatile</code> instances:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/volatile/pull/19">Add methods to restrict access</a> <span class="gray">(published as <code>v0.4.3</code>)</span></li>
+</ul>
+<h3 id="bootimage"><a href="https://github.com/rust-osdev/bootimage"><code>bootimage</code></a></h3>
+<p>The <code>bootimage</code> tool allows the creation of bootable disk images for <code>bootloader</code>-based kernels. It also provides a runner executable for <code>cargo</code> to make <code>cargo run</code> and <code>cargo test</code> work using QEMU. This month, we fixed a nightly breakage:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootimage/pull/69">Fix nightly breakage of doctests in workspaces</a> <span class="gray">(published as <code>v0.10.2</code>)</span></li>
+</ul>
+<h3 id="cargo-xbuild"><a href="https://github.com/rust-osdev/cargo-xbuild"><code>cargo-xbuild</code></a></h3>
+<p>The <code>cargo-xbuild</code> project provides <code>cargo</code> command wrappers to cross-compile the sysroot crates <code>core</code> and <code>alloc</code>. This month, we merged a small error reporting improvement:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/100">Don't panic on metadata errors</a> <span class="gray">(published as <code>v0.6.4</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/parasyte">@parasyte</a> for this contribution!</p>
+<p>Even though we still maintain the <code>cargo-xbuild</code> crate, we recommend switching to cargo's own <code>build-std</code> feature that is always up-to-date with the latest Rust/Cargo changes. We wrote a short guide on how to switch to it, which is available <a href="https://github.com/rust-osdev/cargo-xbuild#alternative-the-build-std-feature-of-cargo">in our Readme</a>.</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. In December, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/134">Document the build process</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/compare/530b26f86ae0c7cf8906de0d7f5184bb206bcb7c...d8f7a20bb24e9f1d36f86010e1ce00bdfc51d045">Fix CI after breaking change of Github Actions</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Luis-Hebendanz">@Luis-Hebendanz</a> for their contribution!</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. In December, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/185">Clarify how new protocols can be defined</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/187">Add support for the device path protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/188">Fix breakage with the latest nightlies</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/189">Publish new versions of the crates</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/avirule">@avirule</a> for their contribution!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern
+computers use to relay information about the hardware to the OS. In December, we:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/83">Exposed the Power Management Timer, part of the ACPI hardware platform</a>. Thanks to <a href="https://github.com/toku-sa-n">@toku-sa-n</a> for their contribution!</li>
+<li><a href="https://github.com/rust-osdev/acpi/issues/79">Improved the behaviour of the BIOS RSDP search algorithm</a>. If
+you're coming across the same problem as the reporter, try updating to <code>rsdp v1.1.0</code> or <code>acpi v2.2.0</code>.</li>
+<li><a href="https://github.com/rust-osdev/acpi/commit/47c4aec17e7995beeaad004447505ab08b84578a">Improved codegen for the <code>choice!</code> macro</a>. This fixes limitations in how large parsers can get before they break <code>rustc</code>'s type limit.
+The new version allows better ergonomics, but also generates much less work for the type checker and so speeds up the compilation of the <code>aml</code> crate.</li>
+<li>Fixed a few bugs in the handling of <code>DefBuffer</code> and <code>DefPackage</code> objects (<a href="https://github.com/rust-osdev/acpi/commit/4286dfc6a9f683dc652cd019bbc6d018e96e8359">1</a>, <a href="https://github.com/rust-osdev/acpi/commit/0c64768a9eb415a0a9081adf0ebec2ff3aa50503">2</a>, <a href="https://github.com/rust-osdev/acpi/commit/6146d0fa2d22a4191f5d13bd653f8d45c1edb796">3</a>).</li>
+</ul>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following changes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/887">Translate post-03 to Japanese</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/890">Rename edition folders</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/894">Minor grammar fixes</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/893">Add filepath to code block</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/888">Fix broken QEMU link</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/woodyZootopia">@woodyZootopia</a>, <a href="https://github.com/JohnTitor">@JohnTitor</a>, <a href="https://github.com/delta1">@delta1</a>, and <a href="https://github.com/16yuki0702">@16yuki0702</a> for their contributions!</p>
+<h4 id="third-edition">Third Edition?</h4>
+<p>Last month, I mentioned that I'm <a href="https://rust-osdev.com/this-month/2020-11/#phil-opp-blog-os">working on a new revision of the blog</a> with support for UEFI booting, a pixel-based framebuffer, and the APIC interrupt controller. I also mentioned that the Cargo team approved my <a href="https://internals.rust-lang.org/t/proposal-move-some-cargo-config-settings-to-cargo-toml/13336">proposal to replicate some <code>cargo/config</code> settings in the <code>Cargo.toml</code></a>, which will be required for the new build system of the blog. In December, we now saw the first pull request based on this proposal: <a href="https://github.com/rust-lang/cargo/pull/9030"><em>Expose build.target .cargo/config setting as packages.target in Cargo.toml</em></a>. Thanks a lot to <a href="https://github.com/Ekleog">@Ekleog</a> for tackling this!</p>
+<p>While I had planned the new revision for a long time already, there was still one open question: Should I integrate the changes into the second edition or start a new, third edition of the blog? Originally, I tended to integrate the changes into the second edition since a new edition is a lot of work and only a few posts would require substantial changes anyway. However, the recent translation efforts by many great people (thanks to all contributors!) have changed my mind on this because I don't want to throw away any of their work. For this reason I decided to start working on a new, <em>third edition of the blog 🎉!</em></p>
+<p>Apart from the changes mentioned above, the new edition will have some additional &quot;fun&quot; posts at the start that show how to create a simple shell and some basic games (instead of directly jumping into interrupt handling and memory management). In addition to the <a href="https://os.phil-opp.com/testing/"><em>Testing</em></a> post we already have, there will be some posts about debugging with GDB and QEMU. There will also be some design improvements such as a refreshed index page and a dark mode. I hope you like these ideas and I look forward to releasing a first draft of the new edition soon!</p>
+<h3 id="phil-opp-linked-list-allocator"><a href="https://github.com/phil-opp/linked-list-allocator"><code>phil-opp/linked-list-allocator</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>The <code>linked_list_allocator</code> crate provides a simple heap allocator that is usable on <code>no_std</code> systems. It keeps track of free memory blocks by turning them into a linked list data structure.</p>
+<p>In December, the crate received the following updates:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/linked-list-allocator/pull/42">Use new nightly Allocator trait</a></li>
+<li><a href="https://github.com/phil-opp/linked-list-allocator/pull/43">Build on stable without features</a> <span class="gray">(published as <code>v0.8.7</code>)</span></li>
+<li><a href="https://github.com/phil-opp/linked-list-allocator/pull/44">Fix: do not require alloc crate</a> <span class="gray">(published as <code>v0.8.8</code>)</span></li>
+<li><a href="https://github.com/phil-opp/linked-list-allocator/pull/46">Don't require nightly for <code>use_spin</code> feature</a> <span class="gray">(published as <code>v0.8.9</code>)</span></li>
+<li><a href="https://github.com/phil-opp/linked-list-allocator/pull/47">Make hole module public for external uses</a> <span class="gray">(published as <code>v0.8.10</code>)</span></li>
+<li><a href="https://github.com/phil-opp/linked-list-allocator/pull/49">Add new use_spin_nightly feature</a> <span class="gray">(published as <code>v0.8.11</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/haraldh">@haraldh</a>, <a href="https://github.com/MarcoCicognani">@MarcoCicognani</a>, and <a href="https://github.com/thalesfragoso">@thalesfragoso</a> for their contributions!.</p>
+<h3 id="lucis-fluxum-ps2-rs"><a href="https://github.com/lucis-fluxum/ps2-rs"><code>lucis-fluxum/ps2-rs</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/lucis-fluxum">@lucis-fluxum</a>)</span></p>
+<p>I pushed <a href="https://docs.rs/ps2/0.1.1/ps2/">release v0.1.1</a> this month, which is mainly a documentation update aiming
+to improve understanding of how to use the library. I've also added links to some reading material that helped me
+understand the PS/2 protocol better and much of the surrounding terminology. May the old keyboards live on!</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
