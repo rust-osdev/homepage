@@ -121,11 +121,28 @@ computers use to relay information about the hardware to the OS. In December, we
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
+
 ### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Translate post-03 to Japanese](https://github.com/phil-opp/blog_os/pull/887)
+- [Rename edition folders](https://github.com/phil-opp/blog_os/pull/890)
+- [Minor grammar fixes](https://github.com/phil-opp/blog_os/pull/894)
+- [Add filepath to code block](https://github.com/phil-opp/blog_os/pull/893)
+- [Fix broken QEMU link](https://github.com/phil-opp/blog_os/pull/888)
+
+Thanks to [@woodyZootopia](https://github.com/woodyZootopia), [@JohnTitor](https://github.com/JohnTitor), [@delta1](https://github.com/delta1), and [@16yuki0702](https://github.com/16yuki0702) for their contributions!
+
+#### Third Edition?
+
+Last month, I mentioned that I'm [working on a new revision of the blog](@/this-month/2020-11/index.md#phil-opp-blog-os) with support for UEFI booting, a pixel-based framebuffer, and the APIC interrupt controller. I also mentioned that the Cargo team approved my [proposal to replicate some `cargo/config` settings in the `Cargo.toml`](https://internals.rust-lang.org/t/proposal-move-some-cargo-config-settings-to-cargo-toml/13336), which will be required for the new build system of the blog. In December, we now saw the first pull request based on this proposal: [_Expose build.target .cargo/config setting as packages.target in Cargo.toml_](https://github.com/rust-lang/cargo/pull/9030). Thanks a lot to [@Ekleog](https://github.com/Ekleog) for tackling this!
+
+While I had planned the new revision for a long time already, there was still one open question: Should I integrate the changes into the second edition or start a new, third edition of the blog? Originally, I tended to integrate the changes into the second edition since a new edition is a lot of work and only a few posts would require substantial changes anyway. However, the recent translation efforts by many great people (thanks to all contributors!) have changed my mind on this because I don't want to throw away any of their work. For this reason I decided to start working on a new, _third edition of the blog 🎉!_
+
+Apart from the changes mentioned above, the new edition will have some additional "fun" posts at the start that show how to create a simple shell and some basic games (instead of directly jumping into interrupt handling and memory management). In addition to the [_Testing_](https://os.phil-opp.com/testing/) post we already have, there will be some posts about debugging with GDB and QEMU. There will also be some design improvements such as a refreshed index page and a dark mode. I hope you like these ideas and I look forward to releasing a first draft of the new edition soon!
 
 ### [`phil-opp/linked-list-allocator`](https://github.com/phil-opp/linked-list-allocator)
 
