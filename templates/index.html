@@ -15,6 +15,15 @@
     {% endfor %}
 </ul>
 
+{% set showcase = get_section(path = "showcase/_index.md") %}
+<h2>{{ showcase.title }}</h2>
+{{ showcase.content | safe }}
+<ul>
+    {% for page in showcase.pages %}
+        <li><a href="{{ page.path | safe }}">{{ page.title | safe }}</a></li>
+    {% endfor %}
+</ul>
+
 {% endblock main %}
 
 {% block after_main %}
