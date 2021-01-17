@@ -10,7 +10,7 @@ authors = ["stlankes"]
 
 Common virtualized environment based on classical virtual machines. In this case, complete machines are emulated or virtualized and on host and guest site are running common operating systems. This technique is established (VMware, Hyper-V, etc.) and widely used. However, it introduces additional overhead especially regarding memory consumption and performance.
 
-![Structure of a common virtualitation environment](../common_vm.png)
+![Structure of a common virtualitation environment](common_vm.png)
 
 An alternative approach to common virtual machines is OS-level
 virtualization, where the kernel allows the existence of multiple
@@ -23,7 +23,7 @@ Often only one application (e.g. a web server) is running in the container or th
 
 Unikernels do not provide system calls in the classical sense, as everything is running with the privilege level of a kernel and what is typically done via system calls is provided via a common function call. At first glance, this sounds more insecure than previous approaches. However, these kernels are expected to run within a virtual machine, which isolated the application from the real system. In addition, common compiler analysis is used to check the complete software stack and even unneeded components can be removed, which can reduce the attack surface of the application.
 
-![Structure of a library operating system](../libos.png)
+![Structure of a library operating system](libos.png)
 
 Well known unikernels are kernels such as [MirageOS](https://mirage.io/)
 and [Unikraft](http://www.unikraft.org/). MirageOS is written in OCaml,
@@ -51,7 +51,7 @@ where both are running as guests inside a virtual machine running on top
 of a Linux-based host system. Especially for small messages RustHermit
 is faster in than Linux.
 
-![Bandwidth of the RustyHermit's exerimental network interface](../bandwidth.png)
+![Bandwidth of the RustyHermit's exerimental network interface](bandwidth.png)
 
 RustyHermit is also a research project to evaluate new operating
 systems designs, which improves the scalability and the security of operating systems in cloud environments. For instance, RustyHermit provides classical
