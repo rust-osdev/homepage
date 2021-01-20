@@ -25,3 +25,17 @@ h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
     font-size: 95%;
     background-color: inherit;
 }
+
+.post-summary p:last-of-type{
+    display: inline;
+}
+
+.read-more {
+    margin-left: 5px;
+}
+
+.showcase-post-intro {
+    color: gray;
+    font-style: italic;
+    margin-left: 1rem;
+}
