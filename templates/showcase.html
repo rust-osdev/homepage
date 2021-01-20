@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% import "snippets.html" as snippets %}
+
+{% block title %}{{ page.title | striptags }} | {{ config.title }}{% endblock title %}
+
+{% block main %}
+    <h1>{{ page.title | safe}}</h1>
+
+    <span class="post-authors post-date">Written by
+        {% for author in page.extra.authors -%}
+            {%- if not loop.first -%}
+                {%- if loop.last %}{% if loop.index0 > 1 %}, and {% else %} and {% endif %}{% else %}, {% endif -%}
+            {%- endif -%}
+            <a href="https://github.com/{{ author }}">@{{ author }}</a>
+        {%- endfor %}
+
+        <br>Published on <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">
+            {{ page.date | date(format="%b %d, %Y") }}
+            {% if page.extra.updated %} (updated on {{ page.extra.updated | date(format="%b %d, %Y") }}) {% endif %}
+        </time>
+    </span>
+
+    {{ page.content | replace(from="<!-- showcase-intro -->", to=snippets::showcase_intro())  | safe }}
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+{% endblock main %}
+
+{% block after_main %}
+    <hr>
+    <div class="PageNavigation">
+        {% if page.earlier %}
+            <a class="prev" href="{{ page.earlier.path | safe }}">&laquo; {{ page.earlier.title }}</a>
+        {% endif %}
+        {% if page.later %}
+            <a class="next" href="{{ page.later.path | safe }}">{{ page.later.title }} &raquo;</a>
+        {% endif %}
+    </div>
+{% endblock after_main %}
