@@ -8,6 +8,10 @@ authors = ["stlankes"]
 
 [RustyHermit](https://github.com/hermitcore/rusty-hermit) is a unikernel, which is completely written Rust. [Unikernels](http://unikernel.org/) are application images that directly contain the kernel as a library, so they do not require an installed operating system (OS). They are typical used in virtualized environments, which build the backbone of typical cloud / edge infrastructures.
 
+<!-- more -->
+
+<!-- showcase-intro -->
+
 ## Virtualization Designs
 
 Common virtualized environment based on classical **_virtual machines_**. In this case, complete machines are emulated or virtualized and common operating systems are running on both host and guest site:
