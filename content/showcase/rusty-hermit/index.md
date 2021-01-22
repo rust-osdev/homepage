@@ -1,6 +1,6 @@
 +++
 title = "The <code>RustyHermit</code> Unikernel"
-date = 2021-01-17
+date = 2021-01-22
 
 [extra]
 authors = ["stlankes"]
