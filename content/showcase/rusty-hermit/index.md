@@ -14,14 +14,14 @@ authors = ["stlankes"]
 
 ## Virtualization Designs
 
-Common virtualized environment based on classical **_virtual machines_**. In this case, complete machines are emulated or virtualized and common operating systems are running on both host and guest site:
+Common virtualized environments are based on classical **_virtual machines_**. In this case, complete machines are emulated or virtualized and common operating systems are running on both host and guest site:
 
 ![Structure of a common virtualitation environment](common_vm.png)
 
 This technique is established (VMware, Hyper-V, etc.) and widely used. However, it introduces additional overhead especially regarding memory consumption and performance.
 
-An alternative approach to common virtual machines is **OS-level
-virtualization**, where the kernel allows the existence of multiple
+An alternative approach to common virtual machines is **_OS-level
+virtualization_**, where the kernel allows the existence of multiple
 isolated user space instances. These isolated instances are also known
 as container. A typical representative is LXC or Docker and promise less
 overhead in comparison to common virtual machines. However, the
@@ -81,10 +81,12 @@ techniques to improve the security behavior like stack guards and
 separating the application stack from the libOS stack. However, a
 library operating system typically uses a common function call to enter
 the kernel. A classical separation of user- and kernel space by
-entering a higher privilege level is missing. We presented in a
+entering a higher privilege level is missing.
+
+We presented in a
 [paper](https://www.ssrg.ece.vt.edu/papers/vee20-mpk.pdf) a modified
 version of RustyHermit, which provides an intra-unikernel isolation with
-_Intel Memory Protection Keys_ (MPK). MPK is a relatively new hard-ware
+_Intel Memory Protection Keys_ (MPK). MPK is a relatively new hardware
 primitive that provides per-thread permission control over groups of
 pages in a single address space with [negligible switching overhead](https://www.usenix.org/conference/atc19/presentation/park-soyeon),
 making it a compelling candidate for use in unikernels.
@@ -144,7 +146,7 @@ hermit-sys = "0.1.*"
 features = ["smoltcp"]
 ```
 
-The feature `smoltcp` is required, if your application tries
+The feature `smoltcp` is required if your application tries
 to establish a TCP connection. In this case, the library operating systems
 includes the TCP/stack [smoltcp](https://github.com/smoltcp-rs/smoltcp).
 In addition _hermit-sys_ depends on the tool [cargo-download](https://crates.io/crates/cargo-download) to download required components and must be installed with the command `cargo install cargo-download`.
