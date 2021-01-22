@@ -7,7 +7,15 @@
         <generator>Zola</generator>
         <language>en</language>
         <atom:link href="https://rust-osdev.com/rss.xml" rel="self" type="application/rss+xml"/>
-        <lastBuildDate>Thu, 07 Jan 2021 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Fri, 22 Jan 2021 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>The &lt;code&gt;RustyHermit&lt;&#x2F;code&gt; Unikernel</title>
+            <pubDate>Fri, 22 Jan 2021 00:00:00 +0000</pubDate>
+            <link>https://rust-osdev.com/showcase/rusty-hermit/</link>
+            <guid>https://rust-osdev.com/showcase/rusty-hermit/</guid>
+            <description>&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;hermitcore&#x2F;rusty-hermit&quot;&gt;RustyHermit&lt;&#x2F;a&gt; is a unikernel, which is completely written Rust. &lt;a href=&quot;http:&#x2F;&#x2F;unikernel.org&#x2F;&quot;&gt;Unikernels&lt;&#x2F;a&gt; are application images that directly contain the kernel as a library, so they do not require an installed operating system (OS). They are typical used in virtualized environments, which build the backbone of typical cloud &#x2F; edge infrastructures.&lt;&#x2F;p&gt;
+</description>
+        </item>
         <item>
             <title>This Month in Rust OSDev (December 2020)</title>
             <pubDate>Thu, 07 Jan 2021 00:00:00 +0000</pubDate>
