@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% import "snippets.html" as snippets %}
+
 {% block title %}{{ page.title | striptags }} | {{ config.title }}{% endblock title %}
 
 {% block main %}
@@ -19,7 +21,7 @@
         </time>
     </span>
 
-    {{ page.content | safe }}
+    {{ page.content | replace(from="<!-- showcase-intro -->", to=snippets::showcase_intro())  | safe }}
 
     <h2 id="comment-form">Comments</h2>
 
