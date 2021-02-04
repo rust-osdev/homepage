@@ -47,7 +47,7 @@ The `uart_16550` crate provides basic support for serial port I/O for 16550-comp
 
 ### [`cargo-xbuild`](https://github.com/rust-osdev/cargo-xbuild)
 
-The `cargo-xbuild` project provides `cargo` command wrappers to cross-compile the sysroot crates `core` and `alloc`. This month, we fixed an error that occured in combination with the `XARGO_RUST_SRC` environment variable:
+The `cargo-xbuild` project provides `cargo` command wrappers to cross-compile the sysroot crates `core` and `alloc`. This month, we fixed an error that occurred in combination with the `XARGO_RUST_SRC` environment variable:
 
 - [Ensure copied Cargo.lock is writable](https://github.com/rust-osdev/cargo-xbuild/pull/98) <span class="gray">(published as `v0.6.5`)</span>
 
