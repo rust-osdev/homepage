@@ -24,17 +24,36 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
     general structure of these posts.
 -->
 
+## Showcase
+
+We started a new [_Showcase_](https://rust-osdev.com/showcase/) section this month, where we introduce and present interesting Rust OSDev projects. The first post of this section is:
+
+- [The `RustyHermit` Unikernel](https://rust-osdev.com/showcase/rusty-hermit/) written by [@stlankes](https://github.com/stlankes)
+
+If you like to present your project too, just let us know!
+
 ## Project Updates
 
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`] organization.
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
-### [`x86_64`](https://github.com/rust-osdev/x86_64)
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
 
-The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. The crate received the following maintenance update in January:
 
-In January, …
+- [Use stabilized `hint::spin_loop` instead of deprecated `atomic::spin_loop_hint`](https://github.com/rust-osdev/uart_16550/commit/cd497a98dabc66ba151218451d07f856950d443d)
+
+
+### [`cargo-xbuild`](https://github.com/rust-osdev/cargo-xbuild)
+
+The `cargo-xbuild` project provides `cargo` command wrappers to cross-compile the sysroot crates `core` and `alloc`. This month, we fixed an error that occured in combination with the `XARGO_RUST_SRC` environment variable:
+
+- [Ensure copied Cargo.lock is writable](https://github.com/rust-osdev/cargo-xbuild/pull/98) <span class="gray">(published as `v0.6.5`)</span>
+
+Thanks to [@astro](https://github.com/astro) for this contribution!
+
+Even though we still maintain the `cargo-xbuild` crate, we recommend switching to cargo's own `build-std` feature that is always up-to-date with the latest Rust/Cargo changes. We wrote a short guide on how to switch to it, which is available [in our Readme](https://github.com/rust-osdev/cargo-xbuild#alternative-the-build-std-feature-of-cargo).
 
 ## Personal Projects
 
