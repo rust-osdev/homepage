@@ -38,6 +38,16 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
+### [`acpi`](https://github.com/rust-osdev/acpi)
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern
+computers use to relay information about the hardware to the OS. In Januar, we added some updates to the `aml` crate:
+
+- [Parse DefNoop](https://github.com/rust-osdev/acpi/commit/8b5b45795be895eab21a8c5b23978a0c4ce8f11f)
+- [Parse DefBreakPoint](https://github.com/rust-osdev/acpi/commit/e4b49be7befca30dcc53b6b1a0c78793e928941a)
+- [Implement DefAdd](https://github.com/rust-osdev/acpi/commit/2fec65aacf5ddc962c87274561f764beb4c69b33)
+- [Fix lack of store in DefAnd](https://github.com/rust-osdev/acpi/commit/501b18023cc8c1f9ae0739ed5075df3ba9861b83)
+
 ### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
 
 The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. The crate received the following maintenance update in January:
