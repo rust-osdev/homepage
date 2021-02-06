@@ -80,6 +80,14 @@ Thanks to [@astro](https://github.com/astro) for this contribution!
 
 Even though we still maintain the `cargo-xbuild` crate, we recommend switching to cargo's own `build-std` feature that is always up-to-date with the latest Rust/Cargo changes. We wrote a short guide on how to switch to it, which is available [in our Readme](https://github.com/rust-osdev/cargo-xbuild#alternative-the-build-std-feature-of-cargo).
 
+### [`rusty-hermit`](https://crates.io/crates/rusty-hermit)
+
+RustyHermit is a unikernel targeting a scalable and predictable runtime for high-performance and cloud computing.
+This month, we revise the paravirtualized network driver (virtio) and add a simple driver for RTL8139, which Qemu is able to emulate.
+With the support of [KubeVirt](https://kubevirt.io), Kubernetes is able to orchestrate RustyHermit applications.
+As [simple show](https://rusty-hermit.k8s.eonerc.rwth-aachen.de/) case is explained in [RustyHermit's wiki](https://github.com/hermitcore/rusty-hermit/wiki/RustyHermit-on-K8S).
+
+Thanks to [@tlambertz](https://github.com/tlambertz) and [@mustermeiszer](https://github.com/mustermeiszer) for the contribution!
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
