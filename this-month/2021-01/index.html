@@ -94,6 +94,12 @@ computers use to relay information about the hardware to the OS. In Januar, we a
 </ul>
 <p>Thanks to <a href="https://github.com/astro">@astro</a> for this contribution!</p>
 <p>Even though we still maintain the <code>cargo-xbuild</code> crate, we recommend switching to cargo's own <code>build-std</code> feature that is always up-to-date with the latest Rust/Cargo changes. We wrote a short guide on how to switch to it, which is available <a href="https://github.com/rust-osdev/cargo-xbuild#alternative-the-build-std-feature-of-cargo">in our Readme</a>.</p>
+<h3 id="rusty-hermit"><a href="https://crates.io/crates/rusty-hermit"><code>rusty-hermit</code></a></h3>
+<p>RustyHermit is a unikernel targeting a scalable and predictable runtime for high-performance and cloud computing.
+This month, we revise the paravirtualized network driver (virtio) and add a simple driver for RTL8139, which Qemu is able to emulate.
+With the support of <a href="https://kubevirt.io">KubeVirt</a>, Kubernetes is able to orchestrate RustyHermit applications.
+As <a href="https://rusty-hermit.k8s.eonerc.rwth-aachen.de/">simple show</a> case is explained in <a href="https://github.com/hermitcore/rusty-hermit/wiki/RustyHermit-on-K8S">RustyHermit's wiki</a>.</p>
+<p>Thanks to <a href="https://github.com/tlambertz">@tlambertz</a> and <a href="https://github.com/mustermeiszer">@mustermeiszer</a> for the contribution!</p>
 <h2 id="personal-projects">Personal Projects</h2>
 <p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
 <h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
