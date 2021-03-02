@@ -46,6 +46,21 @@ In this section, we describe updates to personal projects that are not directly 
 
 This month, ...
 
+### [`cdrzewiecki/celos`](https://gitlab.com/cdrzewiecki/celos)
+
+<span class="gray">(Section written by [@drzewiec](https://github.com/drzewiec))</span>
+
+I have been working on an OS following along with @phil-opp's tutorial series for a while, but recently decided I would rework my OS based on the first edition of the blog (since I preferred to use GRUB as my bootloader). This is the first progress I have to share on CelOS, and indeed the first time I've published one of these updates in general.
+
+In February, I made a lot of great progress on CelOS. I have the complete physical memory (plus the framebuffer provided by GRUB) mapped to virtual memory, and a pixel-based framebuffer working with text output. Things are not very optimized right now (for one thing I'm stretching the `font8x8` font into 8x12), but this is a great first step that I can build on. Next planned steps are:
+
+* Move the kernel in virtual memory so that it occupies the higher half of the 48-bit address space
+* Create some page fault interrupt handling so that the kernel can at least attempt to handle page faults (rather than triple faulting as it does now)
+* Set up memory allocation for the kernel, to get heap allocation
+* Once heap allocation is in place, utilize some existing crate to handle TrueType fonts so that text will look a bit nicer on screen
+
+I probably won't get all of that done in March, but those are my planned next steps. Thanks to this great community and to @phil-opp for being so helpful in the osdev journey!
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
