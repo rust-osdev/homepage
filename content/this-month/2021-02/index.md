@@ -36,6 +36,17 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In February, …
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. In February, we merged the following changes:
+
+- [Add helper function for retrieving the boot filesystem](https://github.com/rust-osdev/uefi-rs/pull/201)
+- [Add support for the block I/O protocol](https://github.com/rust-osdev/uefi-rs/pull/200)
+- [Update `x86_64` dependency to version 0.13.2](https://github.com/rust-osdev/uefi-rs/pull/198) (to fix nightly breakage)
+- [Fix some issues with the documentation of the `DevicePath` and `LoadedImage` protocols](https://github.com/rust-osdev/uefi-rs/pull/193)
+
+Thanks to [@gil0mendes](https://github.com/gil0mendes), [@sreehax](https://github.com/sreehax), and [@avirule](https://github.com/avirule) for their contributions!
+
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
