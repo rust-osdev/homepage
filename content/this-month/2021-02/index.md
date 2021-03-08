@@ -30,16 +30,6 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
-### [`x86_64`](https://github.com/rust-osdev/x86_64)
-
-The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
-
-In February, the unstable [`const_in_array_repeat_expressions` feature](https://github.com/rust-lang/rust/issues/49147) was [removed](https://github.com/rust-lang/rust/pull/80404) from Rust because it [implicitly changed drop behavior](https://github.com/rust-lang/rust/issues/49147#issuecomment-766372999). This lead to a compile error of the `x86_64` crate because it still had that feature enabled. Interestingly, we no longer needed this feature after [#175](https://github.com/rust-osdev/x86_64/pull/175) (and an [accidental stabilization](https://github.com/rust-lang/rust/pull/79270) in Rust), so the fix was quite simple:
-
-- [Fix build on latest nightly](https://github.com/rust-osdev/x86_64/pull/230)
-
-Thanks to [@KernelFreeze](https://github.com/KernelFreeze) for this contribution!
-
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
@@ -51,6 +41,16 @@ The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wik
 - [Fix some issues with the documentation of the `DevicePath` and `LoadedImage` protocols](https://github.com/rust-osdev/uefi-rs/pull/193)
 
 Thanks to [@gil0mendes](https://github.com/gil0mendes), [@sreehax](https://github.com/sreehax), and [@avirule](https://github.com/avirule) for their contributions!
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+In February, the unstable [`const_in_array_repeat_expressions` feature](https://github.com/rust-lang/rust/issues/49147) was [removed](https://github.com/rust-lang/rust/pull/80404) from Rust because it [implicitly changed drop behavior](https://github.com/rust-lang/rust/issues/49147#issuecomment-766372999). This lead to a compile error of the `x86_64` crate because it still had that feature enabled. Interestingly, we no longer needed this feature after [#175](https://github.com/rust-osdev/x86_64/pull/175) (and an [accidental stabilization](https://github.com/rust-lang/rust/pull/79270) in Rust), so the fix was quite simple:
+
+- [Fix build on latest nightly](https://github.com/rust-osdev/x86_64/pull/230) <span class="gray">(published as `v0.13.2`)</span>
+
+Thanks to [@KernelFreeze](https://github.com/KernelFreeze) for this contribution!
 
 ## Personal Projects
 
