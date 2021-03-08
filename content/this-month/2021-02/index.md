@@ -58,6 +58,14 @@ The `uart_16550` crate provides basic support for serial port I/O for 16550-comp
 
 - [Fix build on nightly by updating to x86_64 v0.13.2](https://github.com/rust-osdev/uart_16550/pull/12) <span class="gray">(published as `v0.2.12`)</span>
 
+### [`vga`](https://github.com/rust-osdev/vga)
+
+The work-in-progress `vga` crate allows the configuration of the VGA hardware, e.g. switching from text-based mode to a pixel-based graphics mode. The nightly build error of `x86_64` also affected this crate, so it needed a fix too:
+
+- [fix: should now compile](https://github.com/rust-osdev/vga/pull/20) <span class="gray">(published as `v0.2.6`)</span>
+
+Thanks to [@Pollux3737](https://github.com/Pollux3737) for this contribution!
+
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
