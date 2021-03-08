@@ -52,9 +52,26 @@ In February, the unstable [`const_in_array_repeat_expressions` feature](https://
 
 Thanks to [@KernelFreeze](https://github.com/KernelFreeze) for this contribution!
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged two small updates to fix build errors and warnings on newer Rust nightlies:
+
+- [Fix build on latest nightly by updating x86_64 to v0.13.2](https://github.com/rust-osdev/bootloader/pull/135) <span class="gray">(published as `v0.9.12`)</span>
+- [Fix "panic message is not a string literal"](https://github.com/rust-osdev/bootloader/pull/138) <span class="gray">(published as `v0.9.14`)</span>
+
+Thanks to [@dspencer12](https://github.com/dspencer12) for their contribution!
+
+There was also some more progress on the `uefi` branch, which contains the upcoming new bootloader version with UEFI support:
+
+- [Improve reporting of config parse errors](https://github.com/rust-osdev/bootloader/commit/d55f1c87c34e8bba61adc6abffa78ba431aac69f)
+- [Add a test for the `map-physical-memory` config key](https://github.com/rust-osdev/bootloader/commit/6a0fd74ecb052ef3f1fa7ce3e556c895c66dfc4e)
+- Add more checks for the given `--kernel-manifest` path: it should [point to a file named `Cargo.toml`](https://github.com/rust-osdev/bootloader/commit/38fd48622c3a6f22d64a65528a56d2471168cb78), [exist](https://github.com/rust-osdev/bootloader/commit/9a8ace78650d75189d567618a90a4f039525f369), and the referenced `Cargo.toml` should [depend on the bootloader crate](https://github.com/rust-osdev/bootloader/commit/873351c575bdefd1c6c78b27de2bc0494698c0d5).
+
+The UEFI rewrite is almost done, but we still need to update the docs, improve the configurability of the framebuffer, and add more testing.
+
 ### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
 
-The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. Since the crate depends on `x86_64`, it needed a dependency update to fix the mentioned build error on the latest nightly:
+The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. Since the crate also depends on `x86_64`, it needed a dependency update to fix the mentioned build error on the latest nightly:
 
 - [Fix build on nightly by updating to x86_64 v0.13.2](https://github.com/rust-osdev/uart_16550/pull/12) <span class="gray">(published as `v0.2.12`)</span>
 
