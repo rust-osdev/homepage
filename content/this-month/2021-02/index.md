@@ -97,7 +97,7 @@ This month, ...
 
 <span class="gray">(Section written by [@drzewiec](https://github.com/drzewiec))</span>
 
-I have been working on an OS following along with @phil-opp's tutorial series for a while, but recently decided I would rework my OS based on the first edition of the blog (since I preferred to use GRUB as my bootloader). This is the first progress I have to share on CelOS, and indeed the first time I've published one of these updates in general.
+I have been working on an OS following along with [@phil-opp](https://github.com/phil-opp)'s tutorial series for a while, but recently decided I would rework my OS based on the first edition of the blog (since I preferred to use GRUB as my bootloader). This is the first progress I have to share on CelOS, and indeed the first time I've published one of these updates in general.
 
 In February, I made a lot of great progress on CelOS. I have the complete physical memory (plus the framebuffer provided by GRUB) mapped to virtual memory, and a pixel-based framebuffer working with text output. Things are not very optimized right now (for one thing I'm stretching the `font8x8` font into 8x12), but this is a great first step that I can build on. Next planned steps are:
 
@@ -106,7 +106,7 @@ In February, I made a lot of great progress on CelOS. I have the complete physic
 * Set up memory allocation for the kernel, to get heap allocation
 * Once heap allocation is in place, utilize some existing crate to handle TrueType fonts so that text will look a bit nicer on screen
 
-I probably won't get all of that done in March, but those are my planned next steps. Thanks to this great community and to @phil-opp for being so helpful in the osdev journey!
+I probably won't get all of that done in March, but those are my planned next steps. Thanks to this great community and to [@phil-opp](https://github.com/phil-opp) for being so helpful in the osdev journey!
 
 ## Join Us?
 
