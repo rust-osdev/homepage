@@ -1,6 +1,6 @@
 +++
 title = "This Month in Rust OSDev (February 2021)"
-date = 0000-01-01
+date = 2021-03-08
 
 [extra]
 month = "February 2021"
@@ -10,7 +10,7 @@ authors = [
 ]
 +++
 
-Welcome to a new issue of _"This Month in Rust OSDev"_. In these posts, we will give a regular overview of notable changes in the Rust operating system development ecosystem.
+Welcome to a new issue of _"This Month in Rust OSDev"_. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.
 
 <!-- more -->
 
@@ -129,8 +129,3 @@ I probably won't get all of that done in March, but those are my planned next st
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
-
-
-<!--
-TODO: Update publication date
--->
