@@ -52,6 +52,12 @@ In February, the unstable [`const_in_array_repeat_expressions` feature](https://
 
 Thanks to [@KernelFreeze](https://github.com/KernelFreeze) for this contribution!
 
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+
+The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. Since the crate depends on `x86_64`, it needed a dependency update to fix the mentioned build error on the latest nightly:
+
+- [Fix build on nightly by updating to x86_64 v0.13.2](https://github.com/rust-osdev/uart_16550/pull/12) <span class="gray">(published as `v0.2.12`)</span>
+
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
