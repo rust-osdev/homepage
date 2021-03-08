@@ -91,7 +91,25 @@ In this section, we describe updates to personal projects that are not directly 
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+The [_Writing an OS in Rust_](https://os.phil-opp.com/) blog received the following updates this month:
+
+- [Translate post-08 to Persian](https://github.com/phil-opp/blog_os/pull/913)
+- [Add ja translation for double faults](https://github.com/phil-opp/blog_os/pull/917)
+- [Update post to use x86_64 v0.13.2](https://github.com/phil-opp/blog_os/pull/920)
+- [Remove note on builtin memory optimizations](https://github.com/phil-opp/blog_os/pull/932)
+    - [Remove it from Japanese translation as well](https://github.com/phil-opp/blog_os/pull/935)
+- [Minor fix in post 6](https://github.com/phil-opp/blog_os/pull/928)
+- [Fix typo](https://github.com/phil-opp/blog_os/pull/927)
+
+Thanks to [@MHBahrampour](https://github.com/MHBahrampour), [@garasubo](https://github.com/garasubo), [@dspencer12](https://github.com/dspencer12), [@toku-sa-n](https://github.com/toku-sa-n), and [@16yuki0702](https://github.com/16yuki0702) for their contributions!
+
+I also made some progress on the upcoming third edition. Some potentially interesting commits are:
+
+- [Finish first draft of 'Minimal Kernel' post](https://github.com/phil-opp/blog_os/commit/acb478c0b51b0cdf2124772aca00502f15d6cbb6)
+- [Simplify boot crate](https://github.com/phil-opp/blog_os/commit/aaae70974f180321ab8bc25eca2052f98695b39a)
+- [Add boilerplate for new 'UEFI Booting' post](https://github.com/phil-opp/blog_os/commit/c2fe9960a743bcb32d5a41e5a02e0f84266d950a)
+- [Explain how to create minimal UEFI app](https://github.com/phil-opp/blog_os/commit/033be9ac25a146eb4819d9c6799bd6362d97e036)
+- [Explain how to create FAT filesystem and GPT disk image](https://github.com/phil-opp/blog_os/commit/83be6c7868f269084ebe4758ad82db9d7f187061)
 
 ### [`cdrzewiecki/celos`](https://gitlab.com/cdrzewiecki/celos)
 
