@@ -87,7 +87,20 @@ In this section, we describe updates to personal projects that are not directly 
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+The [_"Writing an OS in Rust"_](https://os.phil-opp.com) blog received the following updates this month:
+
+- [Translate post-05 to Japanese](https://github.com/phil-opp/blog_os/pull/941)
+- [Fix rendering of Japanese translation: Add spaces around some "two asterisk" notations](https://github.com/phil-opp/blog_os/pull/943)
+- [Convert `before_build.py` to python3](https://github.com/phil-opp/blog_os/commit/f87cc129fc660473f2d14e9c8d1f8f1e484e105d)
+- [Lots of grammar and typo fixes](https://github.com/phil-opp/blog_os/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-03-22..2021-03-31+)
+
+Thanks to [@woodyZootopia](https://github.com/woodyZootopia), [@alexxroche](https://github.com/alexxroche), and [@ClementNerma](https://github.com/ClementNerma) for their contributions!
+
+The third edition is making progress too. I mostly worked on the post about UEFI booting this month:
+
+- [Describe how to include the uefi crate](https://github.com/phil-opp/blog_os/commit/8740b619a5debe3fa1069c47c61ceed471a3b2f6)
+- [Describe how to use various UEFI protocols with the `uefi` crate](https://github.com/phil-opp/blog_os/commit/9c1babd0273ff3d4f632b6e1acf288267138b90f)
+- [Provide a high-level explanation on how to create bootloader](https://github.com/phil-opp/blog_os/commit/db47b2702446c1a469e8e064fb090370040bfa2e)
 
 ## Join Us?
 
