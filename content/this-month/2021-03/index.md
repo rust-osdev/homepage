@@ -22,6 +22,26 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2-elf64)
+
+The `multiboot2` crate provides abstraction types for the boot information of multiboot2 bootloaders. We merged the following updates this month:
+
+- [Use `impl Iterator` as return type instead of named types](https://github.com/rust-osdev/multiboot2-elf64/pull/72)
+- [Docs: Remove fragile `asm!` code example](https://github.com/rust-osdev/multiboot2-elf64/pull/73)
+- [Apply `rustfmt`](https://github.com/rust-osdev/multiboot2-elf64/pull/74)
+
+Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for their contributions!
+
+### [`volatile`](https://github.com/rust-osdev/volatile)
+
+The `volatile` crate provides a safe wrapper type for implementing volatile read and write operations. This is useful for accessing memory regions that have side-effects, such as memory-mapped hardware registers or framebuffers. In March, we fixed a build error that was caused by a change in nightly Rust:
+
+- [Replace feature `range_bounds_assert_len` with `slice_range`](https://github.com/rust-osdev/volatile/pull/21) <span class="gray">(published as `v0.4.4`)</span>
+- [Add a test for `slice::as_chunks_mut` usage](https://github.com/rust-osdev/volatile/commit/15bbfac9c7cb42ff56698ac5c00daeddbcdb6a0d)
+    - By using `as_chunks_mut`, it is possible read and write multiple slice elements through a single volatile operation. This allows the compiler to optimize the code better (compared to reading the elements one by one).
+
+Thanks to [@KernelFreeze](https://github.com/KernelFreeze) for their contribution!
+
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
