@@ -108,6 +108,17 @@ the `acpi` and `aml` crates:
   This is important for supporting running on real hardware, which often assumes the existance of these objects.
   <span class="gray">(published as `aml v0.11.0`)</span>
 
+## Call for Participation
+Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!
+
+If you maintain a Rust OSDev project and are looking for contributors, especially for tasks suited to people
+getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the
+`next` branch with the tasks you want to include in the next issue.
+
+- [(`acpi`) Record attempted conversion in `AmlError::IncompatibleValueConversion`](https://github.com/rust-osdev/acpi/issues/53)
+- [(`acpi`) Support the new MADT Multiprocessor Wakeup structure](https://github.com/rust-osdev/acpi/issues/87)
+
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
