@@ -105,7 +105,7 @@ the `acpi` and `aml` crates:
   is also technically a breaking change in `aml v0.11.0`.
 - The AML interpreter now correctly supplies the `\_OS`, `\_OSI`, and `\_REV` objects. These objects were designed
   to allow firmware to detect OS support for new AML features, but [come with a bit of baggage](https://www.kernel.org/doc/html/latest/firmware-guide/acpi/osi.html).
-  This is important for supporting running on real hardware, which often assumes the existance of these objects.
+  This is important for supporting running on real hardware, which often assumes the existence of these objects.
   <span class="gray">(published as `aml v0.11.0`)</span>
 
 ## Call for Participation
