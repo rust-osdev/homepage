@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "March 2021"
 authors = [
     "phil-opp",
+    "IsaacWoods",
     # add yourself here
 ]
 +++
@@ -78,6 +79,34 @@ The `volatile` crate provides a safe wrapper type for implementing volatile read
     - By using `as_chunks_mut`, it is possible read and write multiple slice elements through a single volatile operation. This allows the compiler to optimize the code better (compared to reading the elements one by one).
 
 Thanks to [@KernelFreeze](https://github.com/KernelFreeze) for their contribution!
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern
+computers use to relay information about the hardware to the OS. This month has seen substantial changes to both
+the `acpi` and `aml` crates:
+
+- [We made the types that represent raw ACPI tables public](https://github.com/rust-osdev/acpi/pull/86). This allows library users to work directly with tables such as the
+  [FADT](https://docs.rs/acpi/2.3.1/acpi/fadt/struct.Fadt.html) if they need to, which is needed to access power
+  management features we don't yet expose. <span class="gray">(published as `acpi v2.3.1`)</span>
+- [Native functions are now supported by the AML interpreter!](https://github.com/rust-osdev/acpi/pull/88). A
+  'native function' is an AML method that is defined in Rust, rather than using AML bytecode. This is useful for
+  defining "up-call" methods (where a method is provided by the OS, and called by the firmware), and will hopefully
+  by useful in the future for patching methods in broken tables. A native method can easily be created with
+  the [`AmlValue::native_method` constructor](https://docs.rs/aml/0.11.0/aml/value/enum.AmlValue.html#method.native_method).
+- However, supporting native functions needed a bit of breakage - `AmlValue` no longer implements `PartialEq` or `Eq`. This actually improves correctness,
+  as correctly comparing two `AmlValue`s may require type conversions to be done, and so should be done with the
+  [`AmlValue::cmp`](https://docs.rs/aml/0.11.0/aml/value/enum.AmlValue.html#method.cmp) method, but does make `aml
+  v0.11.0` a breaking change.
+- We also used this opportunity to remove the `legacy_mode` parameter to `AmlContext::new`, which will affect all
+  crate users, but makes user's lives simpler - handling old tables will now be done automatically.
+- Fallout from `AmlValue` no longer being `Eq` also led to some cleanups in how control flow is handled in the
+  interpreter. This is not likely to affect users, but the "fake" error `AmlError::Return` has been removed, which
+  is also technically a breaking change in `aml v0.11.0`.
+- The AML interpreter now correctly supplies the `\_OS`, `\_OSI`, and `\_REV` objects. These objects were designed
+  to allow firmware to detect OS support for new AML features, but [come with a bit of baggage](https://www.kernel.org/doc/html/latest/firmware-guide/acpi/osi.html).
+  This is important for supporting running on real hardware, which often assumes the existance of these objects.
+  <span class="gray">(published as `aml v0.11.0`)</span>
 
 ## Personal Projects
 
