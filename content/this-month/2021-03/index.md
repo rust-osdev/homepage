@@ -142,6 +142,37 @@ The third edition is making progress too. I mostly worked on the post about UEFI
 - [Describe how to use various UEFI protocols with the `uefi` crate](https://github.com/phil-opp/blog_os/commit/9c1babd0273ff3d4f632b6e1acf288267138b90f)
 - [Provide a high-level explanation on how to create bootloader](https://github.com/phil-opp/blog_os/commit/db47b2702446c1a469e8e064fb090370040bfa2e)
 
+### [`rust-embedded/rust-raspberrypi-OS-tutorials`](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials)
+
+<span class="gray">(Section written by [@andre-richter](https://github.com/andre-richter))</span>
+
+The [Operating System development tutorials in Rust on the Raspberry Pi](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials) project
+got two more tutorials this month:
+
+- [Tutorial 15 - `Virtual Memory Part 3: Precomputed Translation Tables`](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/15_virtual_mem_part3_precomputed_tables)
+- [Tutorial 16 - `Virtual Memory Part 4: Higher-Half Kernel`](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/16_virtual_mem_part4_higher_half_kernel)
+
+The two tutorials finally conclude the challenging but rewarding journey of enabling the kernel to execute **from the top of the 64 bit virtual address space**.
+
+Here is a sneak peek of the end result when booting the `kernel` on a **Raspberry Pi 4** (slightly modified to fit on the page):
+
+```console
+[5.011] Booting on: Raspberry Pi 4
+[5.011] MMU online:
+[5.011]   --------------------------------------------------------------------------------------------------------------
+[5.013]                     Virtual                                Physical             Size      Attr       Entity
+[5.015]   --------------------------------------------------------------------------------------------------------------
+[5.017]   0xffff_ffff_8008_0000..0xffff_ffff_8008_ffff --> 0x0008_0000..0x0008_ffff |  64 KiB | C RO X  | Kernel code
+[5.018]   0xffff_ffff_8009_0000..0xffff_ffff_800f_ffff --> 0x0009_0000..0x000f_ffff | 448 KiB | C RW XN | Kernel data
+[5.020]   0xffff_ffff_8011_0000..0xffff_ffff_8018_ffff --> 0x0011_0000..0x0018_ffff | 512 KiB | C RW XN | Kernel stack
+[5.021]   0xffff_ffff_f000_0000..0xffff_ffff_f000_ffff --> 0xfe20_0000..0xfe20_ffff |  64 KiB | D RW XN | BCM GPIO
+[5.023]                                                                                                 | BCM PL011 UART
+[5.024]   0xffff_ffff_f001_0000..0xffff_ffff_f001_ffff --> 0xff84_0000..0xff84_ffff |  64 KiB | D RW XN | GICD
+[5.026]                                                                                                 | GICC
+[5.027]   --------------------------------------------------------------------------------------------------------------
+[5.029] Current privilege level: EL1
+```
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
