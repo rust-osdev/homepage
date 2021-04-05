@@ -1,6 +1,6 @@
 +++
 title = "This Month in Rust OSDev (March 2021)"
-date = 0000-01-01
+date = 2021-04-05
 
 [extra]
 month = "March 2021"
@@ -176,8 +176,3 @@ Here is a sneak peek of the end result when booting the `kernel` on a **Raspberr
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
-
-
-<!--
-TODO: Update publication date
--->
