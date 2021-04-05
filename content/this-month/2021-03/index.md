@@ -159,17 +159,17 @@ Here is a sneak peek of the end result when booting the `kernel` on a **Raspberr
 ```console
 [5.011] Booting on: Raspberry Pi 4
 [5.011] MMU online:
-[5.011]   --------------------------------------------------------------------------------------------------------------
-[5.013]                     Virtual                                Physical             Size      Attr       Entity
-[5.015]   --------------------------------------------------------------------------------------------------------------
-[5.017]   0xffff_ffff_8008_0000..0xffff_ffff_8008_ffff --> 0x0008_0000..0x0008_ffff |  64 KiB | C RO X  | Kernel code
-[5.018]   0xffff_ffff_8009_0000..0xffff_ffff_800f_ffff --> 0x0009_0000..0x000f_ffff | 448 KiB | C RW XN | Kernel data
-[5.020]   0xffff_ffff_8011_0000..0xffff_ffff_8018_ffff --> 0x0011_0000..0x0018_ffff | 512 KiB | C RW XN | Kernel stack
-[5.021]   0xffff_ffff_f000_0000..0xffff_ffff_f000_ffff --> 0xfe20_0000..0xfe20_ffff |  64 KiB | D RW XN | BCM GPIO
-[5.023]                                                                                                 | BCM PL011 UART
-[5.024]   0xffff_ffff_f001_0000..0xffff_ffff_f001_ffff --> 0xff84_0000..0xff84_ffff |  64 KiB | D RW XN | GICD
-[5.026]                                                                                                 | GICC
-[5.027]   --------------------------------------------------------------------------------------------------------------
+[5.011]   --------------------------------------------------------------------------
+[5.013]           Virtual            Physical      Size      Attr       Entity
+[5.015]   --------------------------------------------------------------------------
+[5.017]   0xffff_ffff_8008_0000 --> 0x0008_0000 |  64 KiB | C RO X  | Kernel code
+[5.018]   0xffff_ffff_8009_0000 --> 0x0009_0000 | 448 KiB | C RW XN | Kernel data
+[5.020]   0xffff_ffff_8011_0000 --> 0x0011_0000 | 512 KiB | C RW XN | Kernel stack
+[5.021]   0xffff_ffff_f000_0000 --> 0xfe20_0000 |  64 KiB | D RW XN | BCM GPIO
+[5.023]                                                             | BCM PL011 UART
+[5.024]   0xffff_ffff_f001_0000 --> 0xff84_0000 |  64 KiB | D RW XN | GICD
+[5.026]                                                             | GICC
+[5.027]   --------------------------------------------------------------------------
 [5.029] Current privilege level: EL1
 ```
 
