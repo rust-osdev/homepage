@@ -1,0 +1,208 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2021-03/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (March 2021) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (March 2021)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/IsaacWoods">@IsaacWoods</a>
+
+        <br>Published on <time datetime="2021-04-05">
+            Apr 05, 2021
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2021-03/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we fixed some build errors that were caused by the update to LLVM 12 in recent Rust nightlies:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/139">Fix linker errors on latest nightlies</a> <span class="gray">(published as <code>v0.9.15</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/140">Replace all remaining <code>lea</code>s with <code>mov</code> + <code>offset</code></a> <span class="gray">(published as <code>v0.9.16</code>)</span></li>
+</ul>
+<p>We also made some good progress on the <a href="https://github.com/rust-osdev/bootloader/pull/130">UEFI rewrite</a>:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/130/commits/7f7fec78ffb7125a7eb0312698714d7897bf9fb9">Set up VESA mode properly instead of hardcoding it</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/130/commits/58564910a743ec48e6c1b3113151d96c7b54ca63">Detect actual pixel format instead of hardcoding it (BIOS)</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/130/commits/f7478eba3034c98bde0c7725ce21a7b56a473d61">Use <code>quote</code> crate for creating <code>Config</code> struct instead of debug impls</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/130/commits/ba9d943dbb18ef756979f1d2c14df297c1003b45">Allow specifying addresses as TOML integers too</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/130/commits/536e0f6b53b8dcd53b6125c3383dec3bdb7a3cc3">Add docs for crate and <code>Config</code> struct</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/130/commits/eccb89d61a3e390b36f767d6d8780187bd962e58">Document the created disk images</a></li>
+</ul>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In March, we merged these changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/236">Implement <code>Clone</code> for <code>PageTable</code></a> <span class="gray">(published as <code>v0.13.3</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/237">Implement more fmt traits for addr types</a> <span class="gray">(published as <code>v0.13.4</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/toku-sa-n">@toku-sa-n</a> and <a href="https://github.com/dbeckwith">@dbeckwith</a> for their contributions!</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. In March, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/202">Expose device path types</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/203">Fix running tests in CI</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/204">Fix typo in regular.rs</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/gil0mendes">@gil0mendes</a> and <a href="https://github.com/ocadaruma">@ocadaruma</a> for their contributions!</p>
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/multiboot2-elf64"><code>multiboot2</code></a></h3>
+<p>The <code>multiboot2</code> crate provides abstraction types for the boot information of multiboot2 bootloaders. We merged the following updates this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/multiboot2-elf64/pull/72">Use <code>impl Iterator</code> as return type instead of named types</a></li>
+<li><a href="https://github.com/rust-osdev/multiboot2-elf64/pull/73">Docs: Remove fragile <code>asm!</code> code example</a></li>
+<li><a href="https://github.com/rust-osdev/multiboot2-elf64/pull/74">Apply <code>rustfmt</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/toku-sa-n">@toku-sa-n</a> for their contributions!</p>
+<h3 id="volatile"><a href="https://github.com/rust-osdev/volatile"><code>volatile</code></a></h3>
+<p>The <code>volatile</code> crate provides a safe wrapper type for implementing volatile read and write operations. This is useful for accessing memory regions that have side-effects, such as memory-mapped hardware registers or framebuffers. In March, we fixed a build error that was caused by a change in nightly Rust:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/volatile/pull/21">Replace feature <code>range_bounds_assert_len</code> with <code>slice_range</code></a> <span class="gray">(published as <code>v0.4.4</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/volatile/commit/15bbfac9c7cb42ff56698ac5c00daeddbcdb6a0d">Add a test for <code>slice::as_chunks_mut</code> usage</a>
+<ul>
+<li>By using <code>as_chunks_mut</code>, it is possible read and write multiple slice elements through a single volatile operation. This allows the compiler to optimize the code better (compared to reading the elements one by one).</li>
+</ul>
+</li>
+</ul>
+<p>Thanks to <a href="https://github.com/KernelFreeze">@KernelFreeze</a> for their contribution!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern
+computers use to relay information about the hardware to the OS. This month has seen substantial changes to both
+the <code>acpi</code> and <code>aml</code> crates:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/86">We made the types that represent raw ACPI tables public</a>. This allows library users to work directly with tables such as the
+<a href="https://docs.rs/acpi/2.3.1/acpi/fadt/struct.Fadt.html">FADT</a> if they need to, which is needed to access power
+management features we don't yet expose. <span class="gray">(published as <code>acpi v2.3.1</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/88">Native functions are now supported by the AML interpreter!</a>. A
+'native function' is an AML method that is defined in Rust, rather than using AML bytecode. This is useful for
+defining &quot;up-call&quot; methods (where a method is provided by the OS, and called by the firmware), and will hopefully
+by useful in the future for patching methods in broken tables. A native method can easily be created with
+the <a href="https://docs.rs/aml/0.11.0/aml/value/enum.AmlValue.html#method.native_method"><code>AmlValue::native_method</code> constructor</a>.</li>
+<li>However, supporting native functions needed a bit of breakage - <code>AmlValue</code> no longer implements <code>PartialEq</code> or <code>Eq</code>. This actually improves correctness,
+as correctly comparing two <code>AmlValue</code>s may require type conversions to be done, and so should be done with the
+<a href="https://docs.rs/aml/0.11.0/aml/value/enum.AmlValue.html#method.cmp"><code>AmlValue::cmp</code></a> method, but does make <code>aml v0.11.0</code> a breaking change.</li>
+<li>We also used this opportunity to remove the <code>legacy_mode</code> parameter to <code>AmlContext::new</code>, which will affect all
+crate users, but makes user's lives simpler - handling old tables will now be done automatically.</li>
+<li>Fallout from <code>AmlValue</code> no longer being <code>Eq</code> also led to some cleanups in how control flow is handled in the
+interpreter. This is not likely to affect users, but the &quot;fake&quot; error <code>AmlError::Return</code> has been removed, which
+is also technically a breaking change in <code>aml v0.11.0</code>.</li>
+<li>The AML interpreter now correctly supplies the <code>\_OS</code>, <code>\_OSI</code>, and <code>\_REV</code> objects. These objects were designed
+to allow firmware to detect OS support for new AML features, but <a href="https://www.kernel.org/doc/html/latest/firmware-guide/acpi/osi.html">come with a bit of baggage</a>.
+This is important for supporting running on real hardware, which often assumes the existence of these objects.
+<span class="gray">(published as <code>aml v0.11.0</code>)</span></li>
+</ul>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<p>If you maintain a Rust OSDev project and are looking for contributors, especially for tasks suited to people
+getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the
+<code>next</code> branch with the tasks you want to include in the next issue.</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/issues/53">(<code>acpi</code>) Record attempted conversion in <code>AmlError::IncompatibleValueConversion</code></a></li>
+<li><a href="https://github.com/rust-osdev/acpi/issues/87">(<code>acpi</code>) Support the new MADT Multiprocessor Wakeup structure</a></li>
+</ul>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>The <a href="https://os.phil-opp.com"><em>&quot;Writing an OS in Rust&quot;</em></a> blog received the following updates this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/941">Translate post-05 to Japanese</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/943">Fix rendering of Japanese translation: Add spaces around some &quot;two asterisk&quot; notations</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/commit/f87cc129fc660473f2d14e9c8d1f8f1e484e105d">Convert <code>before_build.py</code> to python3</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-03-22..2021-03-31+">Lots of grammar and typo fixes</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/woodyZootopia">@woodyZootopia</a>, <a href="https://github.com/alexxroche">@alexxroche</a>, and <a href="https://github.com/ClementNerma">@ClementNerma</a> for their contributions!</p>
+<p>The third edition is making progress too. I mostly worked on the post about UEFI booting this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/commit/8740b619a5debe3fa1069c47c61ceed471a3b2f6">Describe how to include the uefi crate</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/commit/9c1babd0273ff3d4f632b6e1acf288267138b90f">Describe how to use various UEFI protocols with the <code>uefi</code> crate</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/commit/db47b2702446c1a469e8e064fb090370040bfa2e">Provide a high-level explanation on how to create bootloader</a></li>
+</ul>
+<h3 id="rust-embedded-rust-raspberrypi-os-tutorials"><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials"><code>rust-embedded/rust-raspberrypi-OS-tutorials</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/andre-richter">@andre-richter</a>)</span></p>
+<p>The <a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials">Operating System development tutorials in Rust on the Raspberry Pi</a> project
+got two more tutorials this month:</p>
+<ul>
+<li><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/15_virtual_mem_part3_precomputed_tables">Tutorial 15 - <code>Virtual Memory Part 3: Precomputed Translation Tables</code></a></li>
+<li><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/16_virtual_mem_part4_higher_half_kernel">Tutorial 16 - <code>Virtual Memory Part 4: Higher-Half Kernel</code></a></li>
+</ul>
+<p>The two tutorials finally conclude the challenging but rewarding journey of enabling the kernel to execute <strong>from the top of the 64 bit virtual address space</strong>.</p>
+<p>Here is a sneak peek of the end result when booting the <code>kernel</code> on a <strong>Raspberry Pi 4</strong> (slightly modified to fit on the page):</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">[5.011] Booting on: Raspberry Pi 4
+[5.011] MMU online:
+[5.011]   --------------------------------------------------------------------------------------------------------------
+[5.013]                     Virtual                                Physical             Size      Attr       Entity
+[5.015]   --------------------------------------------------------------------------------------------------------------
+[5.017]   0xffff_ffff_8008_0000..0xffff_ffff_8008_ffff --&gt; 0x0008_0000..0x0008_ffff |  64 KiB | C RO X  | Kernel code
+[5.018]   0xffff_ffff_8009_0000..0xffff_ffff_800f_ffff --&gt; 0x0009_0000..0x000f_ffff | 448 KiB | C RW XN | Kernel data
+[5.020]   0xffff_ffff_8011_0000..0xffff_ffff_8018_ffff --&gt; 0x0011_0000..0x0018_ffff | 512 KiB | C RW XN | Kernel stack
+[5.021]   0xffff_ffff_f000_0000..0xffff_ffff_f000_ffff --&gt; 0xfe20_0000..0xfe20_ffff |  64 KiB | D RW XN | BCM GPIO
+[5.023]                                                                                                 | BCM PL011 UART
+[5.024]   0xffff_ffff_f001_0000..0xffff_ffff_f001_ffff --&gt; 0xff84_0000..0xff84_ffff |  64 KiB | D RW XN | GICD
+[5.026]                                                                                                 | GICC
+[5.027]   --------------------------------------------------------------------------------------------------------------
+[5.029] Current privilege level: EL1
+</span></code></pre><h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
