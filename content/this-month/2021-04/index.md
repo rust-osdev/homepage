@@ -36,6 +36,14 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In April, …
 
+### [`xhci`](https://github.com/rust-osdev/xhci)
+
+The `xhci` crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs.
+
+Previously the repository was hosted under [`@toku-sa-n`](https://github.com/toku-sa-n). Since April, the Rust OSDev team hosts the repository.
+
+This crate is still under depelopment. Some types or field accessors may be missing. If you find missing features, feel free to send a PR!
+
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
