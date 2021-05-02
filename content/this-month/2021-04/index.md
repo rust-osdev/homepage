@@ -54,6 +54,22 @@ In this section, we describe updates to personal projects that are not directly 
 
 This month, ...
 
+### [`cdrzewiecki/celos`](https://gitlab.com/cdrzewiecki/celos)
+
+<span class="gray">(Section written by [@drzewiec](https://github.com/drzewiec))</span>
+
+Over the past couple of months I have made some great strides on my OS.
+
+* Migrated the kernel to the higher half of virtual memory
+* Added double fault handling
+* Added page fault handling which will attempt to (safely) expand the kernel stack if it overflows
+* Related to the above, added more robust frame allocation
+* Added basic heap allocation
+
+Still working hard on squashing bugs, adding all of the things above gave me some pretty serious memory allocation bugs and it's taken me a while to get those worked out. I still want to do more testing to make sure I have all the bugs here worked out before moving on.
+
+Next steps will be to get nicer font drawing, and then attempt to implement process support.
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
