@@ -44,6 +44,20 @@ Previously the repository was hosted under [`@toku-sa-n`](https://github.com/tok
 
 This crate is still under depelopment. Some types or field accessors may be missing. If you find missing features, feel free to send a PR!
 
+## Call for Participation
+Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!
+
+If you maintain a Rust OSDev project and are looking for contributors, especially for tasks suited to people
+getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the
+`next` branch with the tasks you want to include in the next issue.
+
+<!--
+Please use the following template for adding items:
+
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+
 ## Personal Projects
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
