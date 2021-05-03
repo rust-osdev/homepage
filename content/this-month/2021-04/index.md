@@ -44,6 +44,15 @@ Previously the repository was hosted under [`@toku-sa-n`](https://github.com/tok
 
 This crate is still under depelopment. Some types or field accessors may be missing. If you find missing features, feel free to send a PR!
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. In April, we merged the following changes:
+
+- [Expose NamedFileProtocolInfo's Header types](https://github.com/rust-osdev/uefi-rs/pull/205)
+- [Upgrade to GitHub-native Dependabot](https://github.com/rust-osdev/uefi-rs/pull/207)
+
+Thanks to [@ocadaruma](https://github.com/ocadaruma) for their contribution!
+
 ## Call for Participation
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
 issues in one of our projects and get started!
