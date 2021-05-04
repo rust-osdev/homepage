@@ -76,6 +76,14 @@ Previously the repository was hosted under [`@toku-sa-n`](https://github.com/tok
 
 This crate is still under depelopment. Some types or field accessors may be missing. If you find missing features, feel free to send a PR!
 
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+
+The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. In April, we updated the `x86_64` dependency to fix the build on the latest nightlies:
+
+- [Update x86_64 dependency and make it more robust](https://github.com/rust-osdev/uart_16550/pull/14) <span class="gray">(published as `v0.2.13`)</span>
+
+This pull request also minimizes the number of unstable features that are enabled for the `x86_64` dependency to prevent breakage on future `const_fn` changes.
+
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
 The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. In April, we merged the following changes:
@@ -84,6 +92,13 @@ The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wik
 - [Upgrade to GitHub-native Dependabot](https://github.com/rust-osdev/uefi-rs/pull/207)
 
 Thanks to [@ocadaruma](https://github.com/ocadaruma) for their contribution!
+
+### [`spinning_top`](https://github.com/rust-osdev/spinning_top)
+
+The `spinning_top` crate provides a simple spinlock implementation based on the abstractions of the [`lock_api`](https://docs.rs/lock_api/0.4.1/lock_api/) crate. This month, we fixed a compiler warning:
+
+- [Fix `spin_loop_hint` warning on Rust 1.51](https://github.com/rust-osdev/spinning_top/pull/10) <span class="gray">(published as `v0.2.3`)</span>
+
 
 ## Call for Participation
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
