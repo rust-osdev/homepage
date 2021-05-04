@@ -138,7 +138,23 @@ In this section, we describe updates to personal projects that are not directly 
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+We merged the following improvements to the [_Writing an OS in Rust_] blog this month:
+
+- [Translate common texts into Chinese](https://github.com/phil-opp/blog_os/pull/962)
+- [Remove note about previously updated dependency](https://github.com/phil-opp/blog_os/pull/964)
+- [The `wake_trait` feature is now stable](https://github.com/phil-opp/blog_os/pull/963)
+- [Suggestion for `.cargo/config.toml` Explanation](https://github.com/phil-opp/blog_os/pull/974)
+- [Add missing word](https://github.com/phil-opp/blog_os/pull/960)
+- [Fix typo](https://github.com/phil-opp/blog_os/pull/978)
+
+Thanks to [@alexxroche](https://github.com/alexxroche), [@hi-rustin](https://github.com/hi-rustin), [@moomoolive](https://github.com/moomoolive), and [@kahirokunn](https://github.com/kahirokunn) for their contributions!
+
+We also made some further progress on the upcoming third edition of the blog:
+
+- [Minor improvements to UEFI code examples](https://github.com/phil-opp/blog_os/commit/0b9231f0ba57c189f747660f92bb1e4087e2b20b)
+- [Finish first draft of 'UEFI Booting' post](https://github.com/phil-opp/blog_os/commit/1aa7d21d8b3aabd3d4bb2e345f5590451e4dc2da)
+- [Resolve some TODOs](https://github.com/phil-opp/blog_os/commit/c61c37643aee942bea7c8dbbb235d0dffa6218bf)
+- [Explain how to run the disk images in QEMU (both BIOS and UEFI)](https://github.com/phil-opp/blog_os/commit/b3eace12608d9def1a996f5e2e46549858ba76c4)
 
 ### [`cdrzewiecki/celos`](https://gitlab.com/cdrzewiecki/celos)
 
