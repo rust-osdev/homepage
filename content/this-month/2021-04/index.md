@@ -114,15 +114,21 @@ The `spinning_top` crate provides a simple spinlock implementation based on the 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
 issues in one of our projects and get started!
 
-If you maintain a Rust OSDev project and are looking for contributors, especially for tasks suited to people
-getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the
-`next` branch with the tasks you want to include in the next issue.
-
 <!--
 Please use the following template for adding items:
 
 - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
 -->
+
+<span class="gray">
+
+_No tasks were proposed for this section._
+
+</span>
+
+If you maintain a Rust OSDev project and are looking for contributors, especially for tasks suited to people
+getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the
+`next` branch with the tasks you want to include in the next issue.
 
 ## Personal Projects
 
