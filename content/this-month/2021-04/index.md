@@ -51,6 +51,23 @@ We also prepared a pull request to fix the build on the latest Rust nightlies:
 
 Since `rustfmt` is [currently broken](https://github.com/rust-lang/rust/issues/84538) on the affected newer nightlies, many users are still on older nightlies where the `const_fn_trait_bound` feature does not exist yet (`rustup update` skips nightlies where an installed component is missing). For this reason, we decided to wait with merging the fix until the `rustfmt` component is fixed. For people that want to use the latest nightly already, we pre-published the above fix as version `v0.14.1-beta`.
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we finally merged the UEFI rewrite branch:
+
+- [Rewrite for UEFI support](https://github.com/rust-osdev/bootloader/pull/130) <span class="gray">(published as `v0.10.0`)</span>
+
+This pull request changes the build process completely so that `v0.10.0` is no longer compatible with `v0.9.x` and below. Instead of using the [`bootimage`](https://github.com/rust-osdev/bootimage) crate, it is now recommended to create a custom builder crate. See the [API docs](https://docs.rs/bootloader/0.10.2/bootloader/) for more details. In addition to the build system changes, there are also some API changes such as a new `BootInfo` struct and a different system init state (e.g. a pixel-based framebuffer instead of the VGA text mode). Right now the documentation for the new version is still a bit sparse. We plan to improve this soon, including an update to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog (see below).
+
+In addition to the UEFI pull request, we merged the following changes this month:
+
+- [Fix documented type for entry point function](https://github.com/rust-osdev/bootloader/pull/147)
+- [`llvm_asm!` -> `asm!`](https://github.com/rust-osdev/bootloader/pull/154)
+- [Reduce the number of used unstable features of `x86_64` crate](https://github.com/rust-osdev/bootloader/pull/155) <span class="gray">(published as `v0.10.2`)</span>
+  - Backported as `v0.9.17` to fix compilation on latest nighlies.
+
+Thanks to [@mkroening](https://github.com/mkroening) and [@CraftSpider](https://github.com/CraftSpider) for their contributions!
+
 ### [`xhci`](https://github.com/rust-osdev/xhci)
 
 The `xhci` crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs.
