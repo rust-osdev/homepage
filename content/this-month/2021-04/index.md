@@ -34,7 +34,22 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-In April, …
+In April, we merged the following changes:
+
+- Added XCR0 register ([#239](https://github.com/rust-osdev/x86_64/pull/239)) <span class="gray">(published as `v0.13.5`)</span>
+- _Breaking:_ Fixes for x86-interrupt calling convention ([#242](https://github.com/rust-osdev/x86_64/pull/242)) <span class="gray">(published as `v0.14.0`)</span>
+- Fix some warnings ([#243](https://github.com/rust-osdev/x86_64/pull/243))
+- Add `sidt` support ([#246](https://github.com/rust-osdev/x86_64/pull/246))
+- Fix `Debug` and `PartialEq` implementations for `IDT` entry type ([#249](https://github.com/rust-osdev/x86_64/pull/249))
+- Looser trait bounds for `Port` types ([#247](https://github.com/rust-osdev/x86_64/pull/247))
+
+Thanks to [@Luis-Hebendanz](https://github.com/Luis-Hebendanz), [@CraftSpider](https://github.com/CraftSpider), and [@dbeckwith](https://github.com/dbeckwith) for their contributions!
+
+We also prepared a pull request to fix the build on the latest Rust nightlies:
+
+- Use new `const_fn_trait_bound` feature to fix build on latest nightly ([#250](https://github.com/rust-osdev/x86_64/pull/250))
+
+Since `rustfmt` is [currently broken](https://github.com/rust-lang/rust/issues/84538) on the affected newer nightlies, many users are still on older nightlies where the `const_fn_trait_bound` feature does not exist yet (`rustup update` skips nightlies where an installed component is missing). For this reason, we decided to wait with merging the fix until the `rustfmt` component is fixed. For people that want to use the latest nightly already, we pre-published the above fix as version `v0.14.1-beta`.
 
 ### [`xhci`](https://github.com/rust-osdev/xhci)
 
