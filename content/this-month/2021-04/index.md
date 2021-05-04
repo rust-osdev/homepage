@@ -76,6 +76,10 @@ Previously the repository was hosted under [`@toku-sa-n`](https://github.com/tok
 
 This crate is still under depelopment. Some types or field accessors may be missing. If you find missing features, feel free to send a PR!
 
+### [`acpi`](https://github.com/rust-osdev/acpi)
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. In April, ... TODO
+
 ### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
 
 The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. In April, we updated the `x86_64` dependency to fix the build on the latest nightlies:
