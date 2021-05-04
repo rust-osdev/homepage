@@ -36,12 +36,12 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In April, we merged the following changes:
 
-- Added XCR0 register ([#239](https://github.com/rust-osdev/x86_64/pull/239)) <span class="gray">(published as `v0.13.5`)</span>
-- _Breaking:_ Fixes for x86-interrupt calling convention ([#242](https://github.com/rust-osdev/x86_64/pull/242)) <span class="gray">(published as `v0.14.0`)</span>
-- Fix some warnings ([#243](https://github.com/rust-osdev/x86_64/pull/243))
-- Add `sidt` support ([#246](https://github.com/rust-osdev/x86_64/pull/246))
-- Fix `Debug` and `PartialEq` implementations for `IDT` entry type ([#249](https://github.com/rust-osdev/x86_64/pull/249))
-- Looser trait bounds for `Port` types ([#247](https://github.com/rust-osdev/x86_64/pull/247))
+- [Added XCR0 register](https://github.com/rust-osdev/x86_64/pull/239) <span class="gray">(published as `v0.13.5`)</span>
+- _Breaking:_ [Fixes for x86-interrupt calling convention](https://github.com/rust-osdev/x86_64/pull/242) <span class="gray">(published as `v0.14.0`)</span>
+- [Fix some warnings](https://github.com/rust-osdev/x86_64/pull/243)
+- [Add `sidt` support](https://github.com/rust-osdev/x86_64/pull/246)
+- [Fix `Debug` and `PartialEq` implementations for `IDT` entry type](https://github.com/rust-osdev/x86_64/pull/249)
+- [Looser trait bounds for `Port` types](https://github.com/rust-osdev/x86_64/pull/247)
 
 Thanks to [@Luis-Hebendanz](https://github.com/Luis-Hebendanz), [@CraftSpider](https://github.com/CraftSpider), and [@dbeckwith](https://github.com/dbeckwith) for their contributions!
 
