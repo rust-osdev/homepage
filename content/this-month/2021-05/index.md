@@ -37,6 +37,17 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In May, …
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. In May, we merged the following changes:
+
+- [Switch to the newer `Try` trait API](https://github.com/rust-osdev/uefi-rs/pull/221)
+- [Add `FromResidual<Result<!, Error>>` impl for `Status`](https://github.com/rust-osdev/uefi-rs/pull/223)
+- [Add `PartitionInfo` protocol](https://github.com/rust-osdev/uefi-rs/pull/225)
+- [Add shim lock protocol](https://github.com/rust-osdev/uefi-rs/pull/226)
+
+Thanks to [@phil-opp](https://github.com/phil-opp) and [@nicholasbishop](https://github.com/nicholasbishop) for their contributions!
+
 ### [`xhci`](https://github.com/rust-osdev/xhci)
 
 The `xhci` crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs.
