@@ -7,6 +7,7 @@ month = "May 2021"
 authors = [
     "phil-opp",
     "GabrielMajeri",
+    "IsaacWoods",
     "toku-sa-n",
     # add yourself here
 ]
@@ -55,6 +56,21 @@ The `xhci` crate provides types of xHCI structures such as Contexts, Extended Ca
 
 In May we finished implementing all of these structures and field getters/setters. Still there may exist missings. If you find one, feel free to send a PR!
 
+### [`acpi`](https://github.com/rust-osdev/acpi)
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.
+
+This month was fairly quiet, but an important regression was fixed. When native methods were introduced in March,
+`AmlContext` lost its `Send + Sync`, as these native methods weren't required to be thread-safe. This meant that
+`AmlContext` could no longer be stored in types such as `spin::Once`, or shared between threads/tasks. This is
+undesirable for `AmlContext`, as it is very expensive to construct, and AML does (in theory) provide mechanisms to
+make itself thread-safe, so any probject should only need one.
+
+This was fixed by requiring native methods to be `Send + Sync`. If you're hitting this issue, please upgrade to the
+latest version. <span class="gray">(published as `v0.13.0`)</span>
+
+Thanks to [@michaelmelanson](https://github.com/michaelmelanson) for his contribution!
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
@@ -65,11 +81,8 @@ Please use the following template for adding items:
 - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
 -->
 
-<span class="gray">
-
-_No tasks were proposed for this section._
-
-</span>
+- [(`acpi`) Add initial support for `DefExternal` opcodes](https://github.com/rust-osdev/acpi/issues/96)
+- [(`acpi`) Add test to make sure `AmlContext` remains `Send + Sync`](https://github.com/rust-osdev/acpi/issues/98)
 
 If you maintain a Rust OSDev project and are looking for contributors, especially for tasks suited to people
 getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the
