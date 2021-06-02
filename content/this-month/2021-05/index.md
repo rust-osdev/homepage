@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "May 2021"
 authors = [
     "phil-opp",
+    "toku-sa-n",
     # add yourself here
 ]
 +++
@@ -35,6 +36,12 @@ In this section, we give an overview of notable changes to the projects hosted u
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
 In May, …
+
+### [`xhci`](https://github.com/rust-osdev/xhci)
+
+The `xhci` crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs.
+
+In May we finished implementing all of these structures and field getters/setters. Still there may exist missings. If you find one, feel free to send a PR!
 
 ## Call for Participation
 
