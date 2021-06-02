@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "May 2021"
 authors = [
     "phil-opp",
+    "GabrielMajeri",
     "toku-sa-n",
     # add yourself here
 ]
