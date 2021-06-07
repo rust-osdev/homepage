@@ -33,6 +33,25 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following changes:
+
+- [Change register used in setting SS in stage_4](https://github.com/rust-osdev/bootloader/pull/156) <span class="gray">(published as `v0.10.3`)</span>
+- [Fix build on latest Rust nightly by updating to `uefi` v0.9.0](https://github.com/rust-osdev/bootloader/pull/162)
+- [Fix higher half kernels by identity mapping context switch fn earlier](https://github.com/rust-osdev/bootloader/pull/161) <span class="gray">(published as `v0.10.4`)</span>
+- [Make bootloader v0.10 compatible with latest Rust nightlies by updating uefi-rs dependency](https://github.com/rust-osdev/bootloader/pull/170) <span class="gray">(published as `v0.10.5`)</span>
+- [Add some usage examples](https://github.com/rust-osdev/bootloader/pull/166)
+- [Uefi: Look for an ACPI2 RSDP first](https://github.com/rust-osdev/bootloader/pull/174)
+- [Identity-map GDT into kernel address space](https://github.com/rust-osdev/bootloader/pull/175)
+- [Don't check target architecture for builder crate to support cross-compiling](https://github.com/rust-osdev/bootloader/pull/176) <span class="gray">(published as `v0.10.6`)</span>
+
+Thanks to [@Elekrisk](https://github.com/Elekrisk) for their contribution!
+
+We also published the following backport to `v0.9`:
+
+- [Fix nightly regression by manually passing --gc-sections](https://github.com/rust-osdev/bootloader/pull/168) <span class="gray">(published as `v0.9.18`)</span>
+
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
@@ -70,6 +89,15 @@ This was fixed by requiring native methods to be `Send + Sync`. If you're hittin
 latest version. <span class="gray">(published as `v0.13.0`)</span>
 
 Thanks to [@michaelmelanson](https://github.com/michaelmelanson) for his contribution!
+
+### [`spinning_top`](https://github.com/rust-osdev/spinning_top)
+
+The `spinning_top` crate provides a simple spinlock implementation based on the abstractions of the [`lock_api`](https://docs.rs/lock_api/0.4.1/lock_api/) crate. This month, we released version `v0.2.4` with the following small improvements:
+
+- [Define `MappedSpinlockGuard` alias](https://github.com/rust-osdev/spinning_top/pull/12)
+- [Fix unclosed code block in doc comment](https://github.com/rust-osdev/spinning_top/pull/11/files)
+
+Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for these contributions!
 
 ## Call for Participation
 
