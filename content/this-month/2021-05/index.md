@@ -94,6 +94,17 @@ The `uart_16550` crate provides basic support for serial port I/O for 16550-comp
 
 Thanks to [@josephlr](https://github.com/josephlr) and [@remimimimi](https://github.com/remimimimi) for their contributions!
 
+### [`pic_8259`](https://github.com/rust-osdev/pic8259)
+
+The [`pic_8259`] crate provides abstractions for 8259 and 8259A Programmable Interrupt Controllers (PICs). It is a new fork of the [`pic8259_simple`](https://github.com/emk/toyos-rs/tree/master/crates/pic8259_simple) crate, which appears to be no longer maintained. We merged the following changes on top of the original `pic8259_simple` crate:
+
+- [PIC: Masks](https://github.com/emk/toyos-rs/pull/7)
+- [cpuio: Use new feature flag for const functions](https://github.com/emk/toyos-rs/pull/9)
+- [Replace `cpuio` dependency with `x86_64` crate](https://github.com/rust-osdev/pic8259/commit/92f7a123224e7fa1ce3813fc62b84e290d2fc799)
+- [Rename to pic8259 and bump version to 0.10.0](https://github.com/rust-osdev/pic8259/commit/3e5602aaff3d30f6371c4976149eb693d5838d7c)
+
+Thanks to [@mkroening](https://github.com/mkroening) and [@hanmertens](https://github.com/hanmertens) for their contributions!
+
 ### [`xhci`](https://github.com/rust-osdev/xhci)
 
 The `xhci` crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs.
