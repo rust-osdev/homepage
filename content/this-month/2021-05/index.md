@@ -33,6 +33,27 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables. We merged the following changes this month:
+
+- [Use new const_fn_trait_bound feature to fix build on latest nightly](https://github.com/rust-osdev/x86_64/pull/250) <span class="gray">(published as `v0.14.1`)</span>
+- [Multiple improvements to the inline assembly code](https://github.com/rust-osdev/x86_64/pull/251) <span class="gray">(published as `v0.14.2`)</span>
+- [Minor lint fixes](https://github.com/rust-osdev/x86_64/pull/253)
+- [Cleanup `const_fn!`](https://github.com/rust-osdev/x86_64/pull/255)
+- [Use marker types for Port read/write access](https://github.com/rust-osdev/x86_64/pull/248)
+- [Bump version to 0.14.3](https://github.com/rust-osdev/x86_64/pull/256) <span class="gray">(published as `v0.14.3`)</span>
+
+We also started to [prepare a `v0.15` release](https://github.com/rust-osdev/x86_64/issues/262), for which we already implemented the following breaking changes:
+
+- [Replace software_interrupt! macro with generic function](https://github.com/rust-osdev/x86_64/pull/259)
+- [software_interrupt: Add additional testing](https://github.com/rust-osdev/x86_64/pull/260)
+- [Fix typo in docs](https://github.com/rust-osdev/x86_64/pull/265)
+- [idt: Fixup Options structure and cleanup `set_handler_fn`](https://github.com/rust-osdev/x86_64/pull/226) (resubmitted in [#261](https://github.com/rust-osdev/x86_64/pull/261))
+- [Use SegmentSelector in InterruptStackFrame](https://github.com/rust-osdev/x86_64/pull/263)
+
+Thanks to [@dbeckwith](https://github.com/dbeckwith) and [@Freax13](https://github.com/Freax13) for their contributions!
+
 ### [`bootloader`](https://github.com/rust-osdev/bootloader)
 
 The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following changes:
@@ -51,12 +72,6 @@ Thanks to [@Elekrisk](https://github.com/Elekrisk) for their contribution!
 We also published the following backport to `v0.9`:
 
 - [Fix nightly regression by manually passing --gc-sections](https://github.com/rust-osdev/bootloader/pull/168) <span class="gray">(published as `v0.9.18`)</span>
-
-### [`x86_64`](https://github.com/rust-osdev/x86_64)
-
-The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
-
-In May, …
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
