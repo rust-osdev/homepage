@@ -35,9 +35,11 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
 
-The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables. We merged the following changes this month:
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-- [Use new const_fn_trait_bound feature to fix build on latest nightly](https://github.com/rust-osdev/x86_64/pull/250) <span class="gray">(published as `v0.14.1`)</span>
+In May, we merged the following changes:
+
+- [Use new `const_fn_trait_bound` feature to fix build on latest nightly](https://github.com/rust-osdev/x86_64/pull/250) <span class="gray">(published as `v0.14.1`)</span>
 - [Multiple improvements to the inline assembly code](https://github.com/rust-osdev/x86_64/pull/251) <span class="gray">(published as `v0.14.2`)</span>
 - [Minor lint fixes](https://github.com/rust-osdev/x86_64/pull/253)
 - [Cleanup `const_fn!`](https://github.com/rust-osdev/x86_64/pull/255)
@@ -46,8 +48,8 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 We also started to [prepare a `v0.15` release](https://github.com/rust-osdev/x86_64/issues/262), for which we already implemented the following breaking changes:
 
-- [Replace software_interrupt! macro with generic function](https://github.com/rust-osdev/x86_64/pull/259)
-- [software_interrupt: Add additional testing](https://github.com/rust-osdev/x86_64/pull/260)
+- [Replace `software_interrupt!` macro with generic function](https://github.com/rust-osdev/x86_64/pull/259)
+- [`software_interrupt`: Add additional testing](https://github.com/rust-osdev/x86_64/pull/260)
 - [Fix typo in docs](https://github.com/rust-osdev/x86_64/pull/265)
 - [idt: Fixup Options structure and cleanup `set_handler_fn`](https://github.com/rust-osdev/x86_64/pull/226) (resubmitted in [#261](https://github.com/rust-osdev/x86_64/pull/261))
 - [Use SegmentSelector in InterruptStackFrame](https://github.com/rust-osdev/x86_64/pull/263)
@@ -58,7 +60,7 @@ Thanks to [@dbeckwith](https://github.com/dbeckwith) and [@Freax13](https://gith
 
 The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following changes:
 
-- [Change register used in setting SS in stage_4](https://github.com/rust-osdev/bootloader/pull/156) <span class="gray">(published as `v0.10.3`)</span>
+- [Change register used in setting `SS` in `stage_4`](https://github.com/rust-osdev/bootloader/pull/156) <span class="gray">(published as `v0.10.3`)</span>
 - [Fix build on latest Rust nightly by updating to `uefi` v0.9.0](https://github.com/rust-osdev/bootloader/pull/162)
 - [Fix higher half kernels by identity mapping context switch fn earlier](https://github.com/rust-osdev/bootloader/pull/161) <span class="gray">(published as `v0.10.4`)</span>
 - [Make bootloader v0.10 compatible with latest Rust nightlies by updating uefi-rs dependency](https://github.com/rust-osdev/bootloader/pull/170) <span class="gray">(published as `v0.10.5`)</span>
@@ -71,7 +73,7 @@ Thanks to [@Elekrisk](https://github.com/Elekrisk) for their contribution!
 
 We also published the following backport to `v0.9`:
 
-- [Fix nightly regression by manually passing --gc-sections](https://github.com/rust-osdev/bootloader/pull/168) <span class="gray">(published as `v0.9.18`)</span>
+- [Fix nightly regression by manually passing `--gc-sections`](https://github.com/rust-osdev/bootloader/pull/168) <span class="gray">(published as `v0.9.18`)</span>
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
@@ -86,7 +88,7 @@ Thanks to [@phil-opp](https://github.com/phil-opp) and [@nicholasbishop](https:/
 
 ### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
 
-The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following two changes this month:
+The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following changes this month:
 
 - [SerialPort::new() no longer requires nightly](https://github.com/rust-osdev/uart_16550/pull/16) <span class="gray">(published as `v0.2.14`)</span>
 - [Add support for memory mapped UARTs](https://github.com/rust-osdev/uart_16550/pull/15)
@@ -96,7 +98,9 @@ Thanks to [@josephlr](https://github.com/josephlr) and [@remimimimi](https://git
 
 ### [`pic_8259`](https://github.com/rust-osdev/pic8259)
 
-The [`pic_8259`] crate provides abstractions for 8259 and 8259A Programmable Interrupt Controllers (PICs). It is a new fork of the [`pic8259_simple`](https://github.com/emk/toyos-rs/tree/master/crates/pic8259_simple) crate, which appears to be no longer maintained. We merged the following changes on top of the original `pic8259_simple` crate:
+The `pic_8259` crate provides abstractions for 8259 and 8259A Programmable Interrupt Controllers (PICs). It is a new fork of the [`pic8259_simple`](https://github.com/emk/toyos-rs/tree/master/crates/pic8259_simple) crate, which appears to be no longer maintained.
+
+We merged the following changes on top of the original `pic8259_simple` crate:
 
 - [PIC: Masks](https://github.com/emk/toyos-rs/pull/7)
 - [cpuio: Use new feature flag for const functions](https://github.com/emk/toyos-rs/pull/9)
@@ -104,12 +108,6 @@ The [`pic_8259`] crate provides abstractions for 8259 and 8259A Programmable Int
 - [Rename to pic8259 and bump version to 0.10.0](https://github.com/rust-osdev/pic8259/commit/3e5602aaff3d30f6371c4976149eb693d5838d7c)
 
 Thanks to [@mkroening](https://github.com/mkroening) and [@hanmertens](https://github.com/hanmertens) for their contributions!
-
-### [`xhci`](https://github.com/rust-osdev/xhci)
-
-The `xhci` crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs.
-
-In May we finished implementing all of these structures and field getters/setters. Still there may exist missings. If you find one, feel free to send a PR!
 
 ### [`acpi`](https://github.com/rust-osdev/acpi)
 
@@ -125,6 +123,12 @@ This was fixed by requiring native methods to be `Send + Sync`. If you're hittin
 latest version. <span class="gray">(published as `v0.13.0`)</span>
 
 Thanks to [@michaelmelanson](https://github.com/michaelmelanson) for his contribution!
+
+### [`xhci`](https://github.com/rust-osdev/xhci)
+
+The `xhci` crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs.
+
+In May we finished implementing all of these structures and field getters/setters. Still there may exist missings. If you find one, feel free to send a PR!
 
 ### [`spinning_top`](https://github.com/rust-osdev/spinning_top)
 
