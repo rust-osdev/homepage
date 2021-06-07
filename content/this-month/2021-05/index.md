@@ -182,7 +182,19 @@ In this section, we describe updates to personal projects that are not directly 
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+We merged the following improvements to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Update posts to fix build on latest nightly](https://github.com/phil-opp/blog_os/pull/990)
+    - [Update x86_64 dependency to v0.14.2 to fix nightly breakage](https://github.com/phil-opp/blog_os/pull/984)
+    - Adjust `post-XX` tags for x86_64 v0.14: [`post-05`](https://github.com/phil-opp/blog_os/pull/985), [`post-06`](https://github.com/phil-opp/blog_os/pull/986), [`post-07`](https://github.com/phil-opp/blog_os/pull/987), [`post-08`](https://github.com/phil-opp/blog_os/pull/988)
+    - [Switch to `pic8259` fork](https://github.com/phil-opp/blog_os/pull/987)
+    - [Update `linked_list_allocator` dependency to v0.9.0](https://github.com/phil-opp/blog_os/pull/989)
+- [Translate post 08 to Japanese](https://github.com/phil-opp/blog_os/pull/954)
+- [Remove wrong suggestion part](https://github.com/phil-opp/blog_os/pull/983)
+- [Fix typo](https://github.com/phil-opp/blog_os/pull/978)
+- [Fix typos in edition 3 uefi booting post](https://github.com/phil-opp/blog_os/pull/981)
+
+Thanks to [@woodyZootopia](https://github.com/woodyZootopia), [@kahirokunn](https://github.com/kahirokunn), [@HKalbasi](https://github.com/HKalbasi), and [@bjorn3](https://github.com/bjorn3) for their contributions!
 
 ## Join Us?
 
