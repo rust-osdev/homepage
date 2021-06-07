@@ -69,6 +69,16 @@ The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wik
 
 Thanks to [@phil-opp](https://github.com/phil-opp) and [@nicholasbishop](https://github.com/nicholasbishop) for their contributions!
 
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+
+The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following two changes this month:
+
+- [SerialPort::new() no longer requires nightly](https://github.com/rust-osdev/uart_16550/pull/16) <span class="gray">(published as `v0.2.14`)</span>
+- [Add support for memory mapped UARTs](https://github.com/rust-osdev/uart_16550/pull/15)
+- [Improvements to new MMIO support](https://github.com/rust-osdev/uart_16550/pull/18) <span class="gray">(published as `v0.2.15`)</span>
+
+Thanks to [@josephlr](https://github.com/josephlr) and [@remimimimi](https://github.com/remimimimi) for their contributions!
+
 ### [`xhci`](https://github.com/rust-osdev/xhci)
 
 The `xhci` crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs.
@@ -98,6 +108,23 @@ The `spinning_top` crate provides a simple spinlock implementation based on the 
 - [Fix unclosed code block in doc comment](https://github.com/rust-osdev/spinning_top/pull/11/files)
 
 Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for these contributions!
+
+### [`vga`](https://github.com/rust-osdev/vga)
+
+The work-in-progress `vga` crate allows the configuration of the VGA hardware, e.g. switching from text-based mode to a pixel-based graphics mode. This month, we fixed a nightly build error:
+
+- [Update dependencies to latest versions to fix E0557](https://github.com/rust-osdev/vga/pull/23)
+- [Update testing](https://github.com/rust-osdev/vga/pull/24) <span class="gray">(published as `v0.2.7`)</span>
+
+Thanks to [@ethindp](https://github.com/ethindp) for their contribution!
+
+### [`ps2-mouse`](https://github.com/rust-osdev/ps2-mouse)
+
+The `ps2-mouse` library provides a basic interface for interacting with a PS/2 mouse. It was also affected by the nightly breakage in `x86_64`, so it required a dependency update too:
+
+- [Update x86_64 to 0.14.2](https://github.com/rust-osdev/ps2-mouse/pull/2) <span class="gray">(published as `v0.1.4`)</span>
+
+Thanks to [@littledivy](https://github.com/littledivy) for this contribution!
 
 ## Call for Participation
 
