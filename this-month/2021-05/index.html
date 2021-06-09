@@ -1,0 +1,217 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2021-05/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (May 2021) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (May 2021)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, and <a href="https://github.com/toku-sa-n">@toku-sa-n</a>
+
+        <br>Published on <time datetime="2021-06-07">
+            Jun 07, 2021
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2021-05/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (May 2021)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In May, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/250">Use new <code>const_fn_trait_bound</code> feature to fix build on latest nightly</a> <span class="gray">(published as <code>v0.14.1</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/251">Multiple improvements to the inline assembly code</a> <span class="gray">(published as <code>v0.14.2</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/253">Minor lint fixes</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/255">Cleanup <code>const_fn!</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/248">Use marker types for Port read/write access</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/256">Bump version to 0.14.3</a> <span class="gray">(published as <code>v0.14.3</code>)</span></li>
+</ul>
+<p>We also started to <a href="https://github.com/rust-osdev/x86_64/issues/262">prepare a <code>v0.15</code> release</a>, for which we already implemented the following breaking changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/259">Replace <code>software_interrupt!</code> macro with generic function</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/260"><code>software_interrupt</code>: Add additional testing</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/265">Fix typo in docs</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/226">idt: Fixup Options structure and cleanup <code>set_handler_fn</code></a> (resubmitted in <a href="https://github.com/rust-osdev/x86_64/pull/261">#261</a>)</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/263">Use SegmentSelector in InterruptStackFrame</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/dbeckwith">@dbeckwith</a> and <a href="https://github.com/Freax13">@Freax13</a> for their contributions!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/156">Change register used in setting <code>SS</code> in <code>stage_4</code></a> <span class="gray">(published as <code>v0.10.3</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/162">Fix build on latest Rust nightly by updating to <code>uefi</code> v0.9.0</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/161">Fix higher half kernels by identity mapping context switch fn earlier</a> <span class="gray">(published as <code>v0.10.4</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/170">Make bootloader v0.10 compatible with latest Rust nightlies by updating uefi-rs dependency</a> <span class="gray">(published as <code>v0.10.5</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/166">Add some usage examples</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/174">Uefi: Look for an ACPI2 RSDP first</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/175">Identity-map GDT into kernel address space</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/176">Don't check target architecture for builder crate to support cross-compiling</a> <span class="gray">(published as <code>v0.10.6</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Elekrisk">@Elekrisk</a> for their contribution!</p>
+<p>We also published the following backport to <code>v0.9</code>:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/168">Fix nightly regression by manually passing <code>--gc-sections</code></a> <span class="gray">(published as <code>v0.9.18</code>)</span></li>
+</ul>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. In May, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/221">Switch to the newer <code>Try</code> trait API</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/223">Add <code>FromResidual&lt;Result&lt;!, Error&gt;&gt;</code> impl for <code>Status</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/225">Add <code>PartitionInfo</code> protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/226">Add shim lock protocol</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/nicholasbishop">@nicholasbishop</a> for their contributions!</p>
+<h3 id="uart-16550"><a href="https://github.com/rust-osdev/uart_16550"><code>uart_16550</code></a></h3>
+<p>The <code>uart_16550</code> crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uart_16550/pull/16">SerialPort::new() no longer requires nightly</a> <span class="gray">(published as <code>v0.2.14</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/uart_16550/pull/15">Add support for memory mapped UARTs</a></li>
+<li><a href="https://github.com/rust-osdev/uart_16550/pull/18">Improvements to new MMIO support</a> <span class="gray">(published as <code>v0.2.15</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/josephlr">@josephlr</a> and <a href="https://github.com/remimimimi">@remimimimi</a> for their contributions!</p>
+<h3 id="pic-8259"><a href="https://github.com/rust-osdev/pic8259"><code>pic_8259</code></a></h3>
+<p>The <code>pic_8259</code> crate provides abstractions for 8259 and 8259A Programmable Interrupt Controllers (PICs). It is a new fork of the <a href="https://github.com/emk/toyos-rs/tree/master/crates/pic8259_simple"><code>pic8259_simple</code></a> crate, which appears to be no longer maintained.</p>
+<p>We merged the following changes on top of the original <code>pic8259_simple</code> crate:</p>
+<ul>
+<li><a href="https://github.com/emk/toyos-rs/pull/7">PIC: Masks</a></li>
+<li><a href="https://github.com/emk/toyos-rs/pull/9">cpuio: Use new feature flag for const functions</a></li>
+<li><a href="https://github.com/rust-osdev/pic8259/commit/92f7a123224e7fa1ce3813fc62b84e290d2fc799">Replace <code>cpuio</code> dependency with <code>x86_64</code> crate</a></li>
+<li><a href="https://github.com/rust-osdev/pic8259/commit/3e5602aaff3d30f6371c4976149eb693d5838d7c">Rename to pic8259 and bump version to 0.10.0</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/mkroening">@mkroening</a> and <a href="https://github.com/hanmertens">@hanmertens</a> for their contributions!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.</p>
+<p>This month was fairly quiet, but an important regression was fixed. When native methods were introduced in March,
+<code>AmlContext</code> lost its <code>Send + Sync</code>, as these native methods weren't required to be thread-safe. This meant that
+<code>AmlContext</code> could no longer be stored in types such as <code>spin::Once</code>, or shared between threads/tasks. This is
+undesirable for <code>AmlContext</code>, as it is very expensive to construct, and AML does (in theory) provide mechanisms to
+make itself thread-safe, so any probject should only need one.</p>
+<p>This was fixed by requiring native methods to be <code>Send + Sync</code>. If you're hitting this issue, please upgrade to the
+latest version. <span class="gray">(published as <code>v0.13.0</code>)</span></p>
+<p>Thanks to <a href="https://github.com/michaelmelanson">@michaelmelanson</a> for his contribution!</p>
+<h3 id="xhci"><a href="https://github.com/rust-osdev/xhci"><code>xhci</code></a></h3>
+<p>The <code>xhci</code> crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs.</p>
+<p>In May we finished implementing all of these structures and field getters/setters. Still there may exist missings. If you find one, feel free to send a PR!</p>
+<h3 id="spinning-top"><a href="https://github.com/rust-osdev/spinning_top"><code>spinning_top</code></a></h3>
+<p>The <code>spinning_top</code> crate provides a simple spinlock implementation based on the abstractions of the <a href="https://docs.rs/lock_api/0.4.1/lock_api/"><code>lock_api</code></a> crate. This month, we released version <code>v0.2.4</code> with the following small improvements:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/12">Define <code>MappedSpinlockGuard</code> alias</a></li>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/11/files">Fix unclosed code block in doc comment</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/toku-sa-n">@toku-sa-n</a> for these contributions!</p>
+<h3 id="vga"><a href="https://github.com/rust-osdev/vga"><code>vga</code></a></h3>
+<p>The work-in-progress <code>vga</code> crate allows the configuration of the VGA hardware, e.g. switching from text-based mode to a pixel-based graphics mode. This month, we fixed a nightly build error:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/vga/pull/23">Update dependencies to latest versions to fix E0557</a></li>
+<li><a href="https://github.com/rust-osdev/vga/pull/24">Update testing</a> <span class="gray">(published as <code>v0.2.7</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/ethindp">@ethindp</a> for their contribution!</p>
+<h3 id="ps2-mouse"><a href="https://github.com/rust-osdev/ps2-mouse"><code>ps2-mouse</code></a></h3>
+<p>The <code>ps2-mouse</code> library provides a basic interface for interacting with a PS/2 mouse. It was also affected by the nightly breakage in <code>x86_64</code>, so it required a dependency update too:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/ps2-mouse/pull/2">Update x86_64 to 0.14.2</a> <span class="gray">(published as <code>v0.1.4</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/littledivy">@littledivy</a> for this contribution!</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/issues/96">(<code>acpi</code>) Add initial support for <code>DefExternal</code> opcodes</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/issues/98">(<code>acpi</code>) Add test to make sure <code>AmlContext</code> remains <code>Send + Sync</code></a></li>
+</ul>
+<p>If you maintain a Rust OSDev project and are looking for contributors, especially for tasks suited to people
+getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the
+<code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following improvements to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/990">Update posts to fix build on latest nightly</a>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/984">Update x86_64 dependency to v0.14.2 to fix nightly breakage</a></li>
+<li>Adjust <code>post-XX</code> tags for x86_64 v0.14: <a href="https://github.com/phil-opp/blog_os/pull/985"><code>post-05</code></a>, <a href="https://github.com/phil-opp/blog_os/pull/986"><code>post-06</code></a>, <a href="https://github.com/phil-opp/blog_os/pull/987"><code>post-07</code></a>, <a href="https://github.com/phil-opp/blog_os/pull/988"><code>post-08</code></a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/987">Switch to <code>pic8259</code> fork</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/989">Update <code>linked_list_allocator</code> dependency to v0.9.0</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/954">Translate post 08 to Japanese</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/983">Remove wrong suggestion part</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/978">Fix typo</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/981">Fix typos in edition 3 uefi booting post</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/woodyZootopia">@woodyZootopia</a>, <a href="https://github.com/kahirokunn">@kahirokunn</a>, <a href="https://github.com/HKalbasi">@HKalbasi</a>, and <a href="https://github.com/bjorn3">@bjorn3</a> for their contributions!</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
