@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "June 2021"
 authors = [
     "phil-opp",
+    "IsaacWoods",
     # add yourself here
 ]
 +++
@@ -29,6 +30,28 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`] organization.
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.
+
+This month, both the `rsdp` and `acpi` crates saw breaking changes. These changes should require minimal work to migrate to;
+please file an issue if you encounter any difficulties. <span class="gray">(published as `rsdp v2.0.0` and `acpi v3.0.0`)</span>
+
+- [Basic support for the MADT's new Multiprocessor Wakeup Structure was added](https://github.com/rust-osdev/acpi/pull/99)
+- [`PhysicalMapping` now implements `Send`](https://github.com/rust-osdev/acpi/pull/101)
+- [`PhysicalMapping`'s fields were made private, preventing construction of unsound mappings in safe code](https://github.com/rust-osdev/acpi/pull/102).
+  The `unmap_physical_region` method of `AcpiHandler` also lost its `self` type - handlers that used `self` should
+  instead access themselves through the `PhysicalMapping::handler` method. This prevents a mapping from being
+  unmapped using a different handler to the one that mapped it.
+- [Accesses to potentially unaligned packed field were fixed](https://github.com/rust-osdev/acpi/commit/d58e64b39e9f22367bc76b64a68826a519615226).
+  `repr(packed)` structures are very common in OS Dev, and make sure the layout of Rust's structures matches the
+  hardware's. Unfortunately, they can be slightly tricky to work with - creating an unaligned reference is
+  undefined behaviour, and references can transiently be created by, for example, calling a method on an unaligned
+  field of a packed structure (e.g. `entry.flags.get_bit(4)`). You can read more about this issue [here](https://github.com/rust-lang/rust/issues/82523).
+- [`acpi::platform` no longer re-exports the contents of its `interrupt` submodule](https://github.com/rust-osdev/acpi/commit/fdd88add32497411d439c2d18fe28258a3fe6525)
+
+Thanks to [@wusyong](https://github.com/wusyong) and [@Freax13](https://github.com/wusyong) for their contributions!
 
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
 
