@@ -59,6 +59,24 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In June, …
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. In June, we merged the following changes:
+
+- [Make the `qemu-exit` dependency optional](https://github.com/rust-osdev/uefi-rs/pull/229)
+- [Fix type of the media field in the `BlockIO` protocol](https://github.com/rust-osdev/uefi-rs/pull/234)
+- [Use `newtype_enum` for `DevicePath` enums](https://github.com/rust-osdev/uefi-rs/pull/230)
+- [Make `DevicePath` and `AcpiDevicePath` unaligned](https://github.com/rust-osdev/uefi-rs/pull/231)
+- [Derive `Debug` for `CharConversionError`](https://github.com/rust-osdev/uefi-rs/pull/233)
+- [Rename boot services' `memset` to `set_mem`](https://github.com/rust-osdev/uefi-rs/pull/235)
+- [Implement image loading/starting](https://github.com/rust-osdev/uefi-rs/pull/237)
+- [Add `num_blocks` method to `GptPartitionEntry`](https://github.com/rust-osdev/uefi-rs/pull/238)
+- [`ShimLock` protocol uses `sysv64` function ABI](https://github.com/rust-osdev/uefi-rs/pull/227)
+- [Make using the `stdio` handles require a mutable ref](https://github.com/rust-osdev/uefi-rs/pull/240)
+- [Fix AArch64 build](https://github.com/rust-osdev/uefi-rs/pull/243)
+
+Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@iankronquist](https://github.com/iankronquist) and [@josephlr](https://github.com/josephlr) for their contributions!
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
