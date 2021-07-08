@@ -53,11 +53,6 @@ please file an issue if you encounter any difficulties. <span class="gray">(publ
 
 Thanks to [@wusyong](https://github.com/wusyong) and [@Freax13](https://github.com/wusyong) for their contributions!
 
-### [`x86_64`](https://github.com/rust-osdev/x86_64)
-
-The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
-
-In June, …
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
@@ -76,6 +71,21 @@ The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wik
 - [Fix AArch64 build](https://github.com/rust-osdev/uefi-rs/pull/243)
 
 Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@iankronquist](https://github.com/iankronquist) and [@josephlr](https://github.com/josephlr) for their contributions!
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+In June, we merged the following changes:
+
+- [Add common abstractions for x86 Segments](https://github.com/rust-osdev/x86_64/pull/258)
+- [Specify sysv64 for the calling convention of the external assembly functions](https://github.com/rust-osdev/x86_64/pull/267)
+- [Make IDT module available on stable Rust](https://github.com/rust-osdev/x86_64/pull/271)
+- [Fix off-by-one error in GDT `from_raw_slice()`](https://github.com/rust-osdev/x86_64/pull/269)
+
+We did not issue a new crates.io release with these changes yet, but we plan to do so soon.
+
+Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for their contribution!
 
 ## Call for Participation
 
