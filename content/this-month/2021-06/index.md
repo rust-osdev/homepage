@@ -94,10 +94,15 @@ issues in one of our projects and get started!
 
 <!--
 Please use the following template for adding items:
-- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+
+> **[`repo_name`](link-to-repo):**
+>
+> - [Issue Description](https://example.com/link-to-issue)
 -->
 
-- [(`phil-opp/blog_os`) New Russian translation needs a reviewer](https://github.com/phil-opp/blog_os/pull/1029): We're looking for someone that is speaking Russian to review the new Russian translation of [@MrZloHex](https://github.com/MrZloHex).
+**[`phil-opp/blog_os`](https://github.com/phil-opp/blog_os):**
+
+-  [New Russian translation needs a reviewer](https://github.com/phil-opp/blog_os/pull/1029): We're looking for someone that is speaking Russian to review the new Russian translation of [@MrZloHex](https://github.com/MrZloHex).
 
 If you maintain a Rust OSDev project and are looking for contributors, especially for tasks suited to people
 getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the
