@@ -1,6 +1,6 @@
 +++
 title = "This Month in Rust OSDev (June 2021)"
-date = 0000-01-01
+date = 2021-07-08
 
 [extra]
 month = "June 2021"
@@ -135,8 +135,3 @@ Unfortunately, I didn't have time to work on the upcoming third edition this mon
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
-
-
-<!--
-TODO: Update publication date
--->
