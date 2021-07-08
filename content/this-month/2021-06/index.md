@@ -116,7 +116,21 @@ In this section, we describe updates to personal projects that are not directly 
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+The [_Writing an OS in Rust_](https://os.phil-opp.com/) blog received the following changes this month:
+
+- [Switch comments from utterances to giscus](https://github.com/phil-opp/blog_os/pull/996)
+- [giscus: Use specific search term instead of `og:title`](https://github.com/phil-opp/blog_os/pull/1007)
+- [giscus: Make it possible to set discussion thread manually per post](https://github.com/phil-opp/blog_os/pull/1010)
+- [Translate `post-12` to Japanese](https://github.com/phil-opp/blog_os/pull/977)
+- Lots of smaller improvements and typo fixes: [#1021](https://github.com/phil-opp/blog_os/pull/1021), [#1023](https://github.com/phil-opp/blog_os/pull/1023), [#1026](https://github.com/phil-opp/blog_os/pull/1026), [#1028](https://github.com/phil-opp/blog_os/pull/1028), [#1032](https://github.com/phil-opp/blog_os/pull/1032)
+
+Thanks to:
+
+- [@kahirokunn](https://github.com/kahirokunn) for the new Japanese translation,
+- [@woodyZootopia](https://github.com/woodyZootopia), [@JohnTitor](https://github.com/JohnTitor), and [@sozysozbot](https://github.com/sozysozbot) for reviewing this translation, and
+- [@Foo-x](https://github.com/Foo-x), [@tsao-chi](https://github.com/tsao-chi), and [@conorbros](https://github.com/conorbros) for fixing typos.
+
+Unfortunately, I didn't have time to work on the upcoming third edition this month. I'll try my best to continue working on it soon!
 
 ## Join Us?
 
