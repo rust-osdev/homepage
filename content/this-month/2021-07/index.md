@@ -30,6 +30,24 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. In July, we merged the following changes:
+
+- [Add support for getting/setting variables](https://github.com/rust-osdev/uefi-rs/pull/245)
+- [Better logger that includes filename and line](https://github.com/rust-osdev/uefi-rs/pull/246)
+- [device path: add constants for all subtypes](https://github.com/rust-osdev/uefi-rs/pull/250)
+- [device path: change the length type to u16](https://github.com/rust-osdev/uefi-rs/pull/251)
+- [Implement `BootServices::protocols_per_handle`](https://github.com/rust-osdev/uefi-rs/pull/253)
+- [Add method to get variable names](https://github.com/rust-osdev/uefi-rs/pull/254)
+- [Better `fmt::Debug` for `Time` struct + `fmt::Display`](https://github.com/rust-osdev/uefi-rs/pull/256)
+- [Fix `BltRegion::Full` bounds check](https://github.com/rust-osdev/uefi-rs/pull/257)
+- [Fix procedural macros](https://github.com/rust-osdev/uefi-rs/pull/260)
+- [device path: add header struct](https://github.com/rust-osdev/uefi-rs/pull/263)
+- [device path: add iter method and test](https://github.com/rust-osdev/uefi-rs/pull/264)
+
+Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@MaulingMoneky](https://github.com/MaulingMonkey), [@phip1611](https://github.com/phip1611) and [@necauqua](https://github.com/necauqua) for their contributions!
+
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
