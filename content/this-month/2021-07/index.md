@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "July 2021"
 authors = [
     "phil-opp",
+    "IsaacWoods",
     # add yourself here
 ]
 +++
@@ -47,6 +48,23 @@ The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wik
 - [device path: add iter method and test](https://github.com/rust-osdev/uefi-rs/pull/264)
 
 Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@MaulingMoneky](https://github.com/MaulingMonkey), [@phip1611](https://github.com/phip1611) and [@necauqua](https://github.com/necauqua) for their contributions!
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.
+This month:
+
+- [Definitions were added for the FADT's fixed and architecture flags](https://github.com/rust-osdev/acpi/pull/103)
+- [Table signatures were added for more static tables](https://github.com/rust-osdev/acpi/pull/103)
+- [AML: support was added for the `DefPowerResource` opcode](https://github.com/rust-osdev/acpi/commit/7f6bb2ee53c9abb6c552434dbdb4e13cf38b6b26)
+- [AML: support was added for the `DefThermalZone` opcode](https://github.com/rust-osdev/acpi/commit/a55d82bad3e5b7ffd42d19487a57ca65359e3bad)
+- [AML: support was added for the `DefExternal` opcode](https://github.com/rust-osdev/acpi/commit/188d62fdab853c16e9c3e66bb183acc3e1c9f134)
+- [AML: support was added for the `DefConcat` opcode](https://github.com/rust-osdev/acpi/commit/6f92f675a4b0e21a5bc63edd99de1010efdb61fa)
+- [AML: support was added for the `DefConcatRes` opcode](https://github.com/rust-osdev/acpi/commit/a883868dd57473a61a095c56d3e7490dfe012700)
+- [AML: support was added for the `DefMid` opcode](https://github.com/rust-osdev/acpi/commit/a37008df127c6f2160c1a2ac3ba5f536f8616732)
+
+These changes were published as `acpi v3.1.0` and `aml v0.14.0`. Thanks to [@ethindp](https://github.com/ethindp)
+and [@toku-sa-n](https://github.com/toku-sa-n) for their contributions.
 
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
 
