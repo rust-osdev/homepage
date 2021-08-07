@@ -1,9 +1,9 @@
 +++
-title = "This Month in Rust OSDev (July 2021)"
+title = "This Month in Rust OSDev (August 2021)"
 date = 0000-01-01
 
 [extra]
-month = "July 2021"
+month = "August 2021"
 authors = [
     "phil-opp",
     # add yourself here
@@ -17,7 +17,7 @@ Welcome to a new issue of _"This Month in Rust OSDev"_. In these posts, we give 
 This series is openly developed [on GitHub](https://github.com/rust-osdev/homepage/). Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by [creating an issue](https://github.com/rust-osdev/homepage/issues/new) or using our [_comment form_](#comment-form) at the bottom of this page.
 
 <!--
-    This is a draft for the upcoming "This Month in Rust OSDev (July 2021)" post.
+    This is a draft for the upcoming "This Month in Rust OSDev (August 2021)" post.
     Feel free to create pull requests against the `next` branch to add your
     content here.
     Please take a look at the past posts on https://rust-osdev.com/ to see the
@@ -34,7 +34,7 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-In July, …
+In August, …
 
 ## Call for Participation
 
