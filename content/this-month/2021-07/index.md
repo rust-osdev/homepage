@@ -88,7 +88,21 @@ The following changes were merged this month:
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-In July, …
+In July, we merged the following improvements:
+
+- [feat(idt): make it available in the stable Rust](https://github.com/rust-osdev/x86_64/pull/271)
+- [gdt: Fix off-by-one error in from_raw_slice()](https://github.com/rust-osdev/x86_64/pull/269)
+- [Make align_up and align_down const](https://github.com/rust-osdev/x86_64/pull/270)
+- [Add a SelectorErrorCode to segment_not_present in IDT](https://github.com/rust-osdev/x86_64/pull/274)
+- [Add flags for CR0, CR4 and XCR0, as well as extra checks for modification of XCR0](https://github.com/rust-osdev/x86_64/pull/273)
+- [fix(Changelog.md): typo #278](https://github.com/rust-osdev/x86_64/pull/278)
+- [feat(instructions): define `tables::sgdt`](https://github.com/rust-osdev/x86_64/pull/279)
+- [Create a CI script for automated releases](https://github.com/rust-osdev/x86_64/pull/281)
+- [CI: Use more efficient crates.io API endpoint](https://github.com/rust-osdev/x86_64/pull/282)
+- [Release version to 0.14.4](https://github.com/rust-osdev/x86_64/pull/283)
+- [Rename XCr0 and CR4 flags](https://github.com/rust-osdev/x86_64/pull/275)
+
+Thanks to [@budde25](https://github.com/budde25) and [@toku-sa-n](https://github.com/toku-sa-n) for their contributions.
 
 ## Call for Participation
 
