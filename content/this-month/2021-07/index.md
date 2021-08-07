@@ -70,7 +70,7 @@ and [@toku-sa-n](https://github.com/toku-sa-n) for their contributions.
 
 The `multiboot2` crate provides abstraction types for the boot information of multiboot2 bootloaders.
 
-In July, our `multiboot2` maintanence team gained [@phip1611](https://github.com/phip1611) as a new member. Welcome!
+In July, our `multiboot2` maintenance team gained [@phip1611](https://github.com/phip1611) as a new member. Welcome!
 
 The following changes were merged this month:
 
