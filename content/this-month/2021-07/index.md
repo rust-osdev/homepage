@@ -67,7 +67,7 @@ This month:
 These changes were published as `acpi v3.1.0` and `aml v0.14.0`. Thanks to [@ethindp](https://github.com/ethindp)
 and [@toku-sa-n](https://github.com/toku-sa-n) for their contributions.
 
-### [`multboot2`](https://github.com/rust-osdev/multiboot2)
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
 The `multiboot2` crate provides abstraction types for the boot information of multiboot2 bootloaders.
 
