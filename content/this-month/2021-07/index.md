@@ -7,6 +7,7 @@ month = "July 2021"
 authors = [
     "phil-opp",
     "IsaacWoods",
+    "GabrielMajeri",
     # add yourself here
 ]
 +++
