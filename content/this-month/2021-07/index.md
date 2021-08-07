@@ -133,7 +133,15 @@ In this section, we describe updates to personal projects that are not directly 
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+This month, the [_Writing an OS in Rust_](https://os.phil-opp.com) blog received the following updates:
+
+- [Translate first two posts into Russian](https://github.com/phil-opp/blog_os/pull/1029)
+  - Thanks to [@MrZloHex](https://github.com/MrZloHex) for the translation and [@SnejUgal](https://github.com/SnejUgal) and [@vdjagilev](https://github.com/vdjagilev) for reviewing!
+- [docs: update version of crates](https://github.com/phil-opp/blog_os/pull/1031)
+- [Replace MS doc link in german](https://github.com/phil-opp/blog_os/pull/1034)
+- Typo fixes in the [_Paging Implementation_](https://github.com/phil-opp/blog_os/pull/1032), [_Allocator Designs_](https://github.com/phil-opp/blog_os/pull/1040), and [_Async Await_](https://github.com/phil-opp/blog_os/pull/1036) posts.
+
+Thanks to [@Foo-x](https://github.com/Foo-x), [@adi-g15](https://github.com/adi-g15), [@Kalbiq](https://github.com/Kalbiq), and [@MrZloHex](https://github.com/MrZloHex) for their contributions.
 
 ## Join Us?
 
