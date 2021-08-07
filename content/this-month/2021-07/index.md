@@ -66,6 +66,24 @@ This month:
 These changes were published as `acpi v3.1.0` and `aml v0.14.0`. Thanks to [@ethindp](https://github.com/ethindp)
 and [@toku-sa-n](https://github.com/toku-sa-n) for their contributions.
 
+### [`multboot2`](https://github.com/rust-osdev/multiboot2)
+
+The `multiboot2` crate provides abstraction types for the boot information of multiboot2 bootloaders.
+
+In July, our `multiboot2` maintanence team gained [@phip1611](https://github.com/phip1611) as a new member. Welcome!
+
+The following changes were merged this month:
+
+- [much improved debug output of BootInformation + enum TagType](https://github.com/rust-osdev/multiboot2/pull/76) <span class="gray">(published as `v0.11.0`)</span>
+- [Set up CI on Github Actions](https://github.com/rust-osdev/multiboot2/commit/1d7c0e21fe532550f5ee9757252881e18c88a063)
+- [Add multiboot2 magic number](https://github.com/rust-osdev/multiboot2/pull/77)
+- [Fixing future compiler error "unaligned_references" (82523)](https://github.com/rust-osdev/multiboot2/pull/82)
+- [Rust edition 2018 + formatting + clippy](https://github.com/rust-osdev/multiboot2/pull/84)
+- [**Breaking:** `load` returns a result now (no more assertions that could panic)](https://github.com/rust-osdev/multiboot2/pull/80)
+- [Renamed multiboot2 bootloader magic constant](https://github.com/rust-osdev/multiboot2/pull/85)
+- [Cargo toml prepare relase v0.12 + changelog](https://github.com/rust-osdev/multiboot2/pull/87) <span class="gray">(published as `v0.12.0`)</span>
+- [Rename old Github urls in README](https://github.com/rust-osdev/multiboot2/pull/88)
+
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
