@@ -170,7 +170,16 @@ In this section, we describe updates to personal projects that are not directly 
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+We merged the following improvements to the [_Writing an OS in Rust_](https://os.phil-opp.com) blog:
+
+- [Update crate versions across translations](https://github.com/phil-opp/blog_os/pull/1031)
+- [Replace MS doc link that linked to a German page](https://github.com/phil-opp/blog_os/pull/1034)
+- [Fix link: The const_fn unstable feature no longer exists](https://github.com/phil-opp/blog_os/commit/c1e6a66e356653c166426adbcdbb158792bc408c)
+- [Replace fathom analytics with goatcounter](https://github.com/phil-opp/blog_os/commit/27ab4518acbb132e327ed4f4f0508393e9d4d684)
+- [fix: typo](https://github.com/phil-opp/blog_os/pull/1040)
+- [Fix links in Russian translation](https://github.com/phil-opp/blog_os/pull/1046)
+
+Thanks to [@Foo-x](https://github.com/Foo-x), [@adi-g15](https://github.com/adi-g15), [@Kalbiq](https://github.com/Kalbiq), and [@non-descriptive](https://github.com/non-descriptive) for their contributions!
 
 ## Join Us?
 
