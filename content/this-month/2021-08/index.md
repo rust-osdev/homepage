@@ -101,7 +101,7 @@ The `bootloader` crate implements a custom Rust-based bootloader for easy loadin
 
 This month, we merged the following changes:
 
-- [[v0.9] Set `relocation-model: static` and `panic-strategy: abort` and fix `.intel_syntax` warnings] <span class="gray">(published as `v0.9.19`)</span>
+- [[v0.9] Set `relocation-model: static` and `panic-strategy: abort` and fix `.intel_syntax` warnings](https://github.com/rust-osdev/bootloader/pull/185) <span class="gray">(published as `v0.9.19`)</span>
 - [Fix relocation-model field name in the target spec json](https://github.com/rust-osdev/bootloader/pull/186) <span class="gray">(published as `v0.10.7`)</span>
 - [Pad uefi fat file length](https://github.com/rust-osdev/bootloader/pull/180)
 - [Also check cfg gated target field for bootloader dependency](https://github.com/rust-osdev/bootloader/pull/182) <span class="gray">(published as `v0.10.8`)</span>
