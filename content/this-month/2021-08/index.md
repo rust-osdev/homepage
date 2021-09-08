@@ -69,6 +69,66 @@ Other changes were:
 - [`aml`: implement the `DefIncrement` and `DefDecrement` opcodes](https://github.com/rust-osdev/acpi/commit/b854d5491e48e5a4f332ff259ce185cb357261d0)
 - [`aml`: implement the `ToInteger` opcode](https://github.com/rust-osdev/acpi/commit/00a61d8b7471dae725283296f4ee9c0c20013156)
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+In August, [@nicholasbishop](https://github.com/nicholasbishop) joined as a co-maintainer of the crate. Welcome!
+
+Many improvements were merged this month:
+
+- [Add `BootServices::exit` method; Make `PointerMode`'s fields public for checking against support of a pointer device](https://github.com/rust-osdev/uefi-rs/pull/261)
+- [Implement `PartialEq`+`Eq` for `DevicePath`](https://github.com/rust-osdev/uefi-rs/pull/265)
+- [System table can get debug-formatted](https://github.com/rust-osdev/uefi-rs/pull/248)
+- [loaded image: add set_image function](https://github.com/rust-osdev/uefi-rs/pull/266)
+- [Better `CStr16` to `String` and `str` conversions](https://github.com/rust-osdev/uefi-rs/pull/249)
+- [Add a minimal UEFI application template](https://github.com/rust-osdev/uefi-rs/pull/268)
+- [Use the built-in `aarch64-unknown-uefi` target](https://github.com/rust-osdev/uefi-rs/pull/269)
+- [Make `GraphicsOutput.query_mode(...)` public](https://github.com/rust-osdev/uefi-rs/pull/270)
+- [Publish new versions of all the crates](https://github.com/rust-osdev/uefi-rs/pull/276) <span class="gray">(published `uefi v0.12.0`, `uefi-macros v0.4.0`, and `uefi-services v0.9.0`)</span>
+- [Add newtype enum for variable vendors and add `IMAGE_SECURITY_DATABASE` to it](https://github.com/rust-osdev/uefi-rs/pull/273)
+- [Fix doc link and make CI lints stricter](https://github.com/rust-osdev/uefi-rs/pull/272)
+- [Add num_bytes method to `CStr16`](https://github.com/rust-osdev/uefi-rs/pull/274)
+- [Add `CString16`](https://github.com/rust-osdev/uefi-rs/pull/275)
+- [Enhance `Guid::from_values` and `Guid::fmt`](https://github.com/rust-osdev/uefi-rs/pull/280)
+- [Handle panics by unwinding the stack and implement check_event method](https://github.com/rust-osdev/uefi-rs/pull/282)
+
+Thanks to [@HTG-YT](https://github.com/HTG-YT), [@phip1611](https://github.com/phip1611), [@Andy-Python-Programmer](https://github.com/Andy-Python-Programmer), and [@timrobertsdev](https://github.com/timrobertsdev) for their contributions!
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.
+
+This month, we merged the following changes:
+
+- [[v0.9] Set `relocation-model: static` and `panic-strategy: abort` and fix `.intel_syntax` warnings] <span class="gray">(published as `v0.9.19`)</span>
+- [Fix relocation-model field name in the target spec json](https://github.com/rust-osdev/bootloader/pull/186) <span class="gray">(published as `v0.10.7`)</span>
+- [Pad uefi fat file length](https://github.com/rust-osdev/bootloader/pull/180)
+- [Also check cfg gated target field for bootloader dependency](https://github.com/rust-osdev/bootloader/pull/182) <span class="gray">(published as `v0.10.8`)</span>
+- [Fix typo in link in changelog](https://github.com/rust-osdev/bootloader/pull/194)
+
+Thanks to [@vinc](https://github.com/vinc), [@bjorn3](https://github.com/bjorn3), [@Freax13](https://github.com/Freax13), [@yusdacra](https://github.com/yusdacra), and [@martica](https://github.com/martica) for their contributions!
+
+### [`multboot2`](https://github.com/rust-osdev/multiboot2)
+
+The `multiboot2` crate provides abstraction types for the boot information of multiboot2 bootloaders.
+
+The following changes were merged this month:
+
+- [Unpublic tags bugfix](https://github.com/rust-osdev/multiboot2/pull/89) <span class="gray">(published as `v0.12.1`)</span>
+- [Fix `ModuleTag` cmdline](https://github.com/rust-osdev/multiboot2/pull/91)
+- [Stricter typing + better split of modules + bugfix](https://github.com/rust-osdev/multiboot2/pull/90)
+
+### [`pic_8259`](https://github.com/rust-osdev/pic8259)
+
+The `pic_8259` crate provides abstractions for 8259 and 8259A Programmable Interrupt Controllers (PICs).
+
+In August, we added cargo features to make the crate buildable on stable:
+
+- [Add `nightly` and `stable` feature flags to enable compilation on stable Rust](https://github.com/rust-osdev/pic8259/pull/1) <span class="gray">(published as `v0.10.2`)</span>
+
+Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for this contribution!
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
