@@ -31,12 +31,6 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
-### [`x86_64`](https://github.com/rust-osdev/x86_64)
-
-The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
-
-In August, …
-
 ### [`acpi`](https://github.com/rust-osdev/acpi)
 
 The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.
@@ -94,6 +88,24 @@ Many improvements were merged this month:
 - [Handle panics by unwinding the stack and implement check_event method](https://github.com/rust-osdev/uefi-rs/pull/282)
 
 Thanks to [@HTG-YT](https://github.com/HTG-YT), [@phip1611](https://github.com/phip1611), [@Andy-Python-Programmer](https://github.com/Andy-Python-Programmer), and [@timrobertsdev](https://github.com/timrobertsdev) for their contributions!
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+In August, we merged the following changes:
+
+- [Rename `XCr0` and `CR4` flags](https://github.com/rust-osdev/x86_64/pull/275)
+- [Fix CI tests on Windows](https://github.com/rust-osdev/x86_64/pull/297)
+- [Use `#[cfg(doc)]` instead of docs.rs-specific cfg flag](https://github.com/rust-osdev/x86_64/pull/287)
+- [Expose `MapperFlush::new` and `MapperFlushAll::new`](https://github.com/rust-osdev/x86_64/pull/296)
+- [docs: Update segment register references in `GDT::load*` method to non-deprecated methods](https://github.com/rust-osdev/x86_64/pull/301)
+- [docs(idt): remove a panic note](https://github.com/rust-osdev/x86_64/pull/300)
+- [Fix typo and doc links in GDT docs](https://github.com/rust-osdev/x86_64/pull/302)
+
+These changes were not published yet, but a pull request for a new version is open already: [Release version 0.14.5](https://github.com/rust-osdev/x86_64/pull/304).
+
+Thanks to [@toku-sa-n](https://github.com/toku-sa-n) and [@ncatelli](https://github.com/ncatelli) for their contributions!
 
 ### [`bootloader`](https://github.com/rust-osdev/bootloader)
 
