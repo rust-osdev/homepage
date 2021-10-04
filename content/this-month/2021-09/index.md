@@ -56,8 +56,8 @@ The changes were published as <span class="gray">`v0.12.2`</span>.
 ### [`multboot2-header`](https://github.com/rust-osdev/multiboot2) (**new**)
 The `multiboot2-header` crate provides abstraction types for the Multiboot2 header 
 and a builder struct to construct these headers. The corresponding repository was 
-prepared (<https://github.com/rust-osdev/multiboot2/pull/86>) and the initial release 
-is expected in early October. See <https://github.com/rust-osdev/multiboot2/pull/95> for more details.
+prepared ([#86](https://github.com/rust-osdev/multiboot2/pull/86)) and the initial release 
+is expected in early October. See [#95](https://github.com/rust-osdev/multiboot2/pull/95) for more details.
 
 ## Call for Participation
 
