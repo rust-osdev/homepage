@@ -36,6 +36,29 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In September, …
 
+### [`multboot2`](https://github.com/rust-osdev/multiboot2)
+
+The `multiboot2` crate provides abstraction types for the boot information of multiboot2 bootloaders.
+
+It is now part of a workspace and lives next to the new crate `multiboot2-header`.
+
+The following changes were merged this month:
+
+- [Code style improvements + optional CI job (clippy, rustfmt, rustdoc)](https://github.com/rust-osdev/multiboot2/pull/92)
+- [editorconfig file](https://github.com/rust-osdev/multiboot2/pull/93)
+- [std in tests; hash for TagType](https://github.com/rust-osdev/multiboot2/pull/94) 
+- [editorconfig file](https://github.com/rust-osdev/multiboot2/pull/93)
+- [prepared cargo workspace, as discussed in PR #79](https://github.com/rust-osdev/multiboot2/pull/86)
+
+The changes were published as <span class="gray">`v0.12.2`</span>.
+
+
+### [`multboot2-header`](https://github.com/rust-osdev/multiboot2) (**new**)
+The `multiboot2-header` crate provides abstraction types for the Multiboot2 header 
+and a builder struct to construct these headers. The corresponding repository was 
+prepared (<https://github.com/rust-osdev/multiboot2/pull/86>) and the initial release 
+is expected in early October. See <https://github.com/rust-osdev/multiboot2/pull/95> for more details.
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
