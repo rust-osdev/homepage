@@ -104,11 +104,15 @@ Please use the following template for adding items:
 - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
 -->
 
+- [(`phil-opp/blog_os`) Looking for a reviewer for a French translation](https://github.com/phil-opp/blog_os/pull/1053)
+
+<!--
 <span class="gray">
 
 _No tasks were proposed for this section._
 
 </span>
+-->
 
 If you maintain a Rust OSDev project and are looking for contributors, especially for tasks suited to people
 getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the
@@ -123,7 +127,14 @@ In this section, we describe updates to personal projects that are not directly 
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+We merged two small fixes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Fix typos in code examples in Async/Await post](https://github.com/phil-opp/blog_os/pull/1051)
+- [Fix link syntax in Russian translation](https://github.com/phil-opp/blog_os/pull/1046)
+
+Thanks to [@jongillham](https://github.com/jongillham) and [@non-descriptive](https://github.com/non-descriptive) for these contributions!
+
+I don't have any notable news about the upcoming third edition of the blog yet, but I'm doing my best to get back up to speed soon.
 
 ## Join Us?
 
