@@ -36,6 +36,22 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In September, …
 
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+This month, we merged the following changes:
+
+- [Improve macro errors](https://github.com/rust-osdev/uefi-rs/pull/277)
+- [Implement missing methods of `DebugSupport`](https://github.com/rust-osdev/uefi-rs/pull/290)
+- [macros: add compilation tests](https://github.com/rust-osdev/uefi-rs/pull/286)
+- [Remove attribute to enable `const_panic`](https://github.com/rust-osdev/uefi-rs/pull/296)
+- [Add a test command to build.py and also use it in the CI](https://github.com/rust-osdev/uefi-rs/pull/283)
+
+Thanks to [@necauqua](https://github.com/necauqua) and [@timrobertsdev](https://github.com/timrobertsdev) for their contributions!
+
+
 ### [`multboot2`](https://github.com/rust-osdev/multiboot2)
 
 The `multiboot2` crate provides abstraction types for the boot information of multiboot2 bootloaders.
