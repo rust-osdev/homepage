@@ -1,0 +1,163 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2021-09/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (September 2021) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (September 2021)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/phip1611">@phip1611</a>
+
+        <br>Published on <time datetime="2021-10-07">
+            Oct 07, 2021
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2021-09/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (September 2021)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In September, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/264">Add <code>clean_up</code> and <code>clean_up_with_filter</code></a> for deallocating unused page tables</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/303">Add exception vector type</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/306">Bump <code>bit_field</code> to 0.10.1</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/304">Release version 0.14.5</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/309">Move segment types into a new registers::segmentation module</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/310">Release version 0.14.6</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Freax13">@Freax13</a>, <a href="https://github.com/npmccallum">@npmccallum</a>, and <a href="https://github.com/mkroening">@mkroening</a> for their contributions!</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>This month, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/277">Improve macro errors</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/290">Implement missing methods of <code>DebugSupport</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/286">macros: add compilation tests</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/296">Remove attribute to enable <code>const_panic</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/283">Add a test command to build.py and also use it in the CI</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/necauqua">@necauqua</a> and <a href="https://github.com/timrobertsdev">@timrobertsdev</a> for their contributions!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.</p>
+<p>We finally merged a long-desired feature this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/179">Framebuffer configuration</a> <span class="gray">(published as <code>v0.10.9</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/anellie">@anellie</a> for this contribution!</p>
+<h3 id="multboot2"><a href="https://github.com/rust-osdev/multiboot2"><code>multboot2</code></a></h3>
+<p>The <code>multiboot2</code> crate provides abstraction types for the boot information of multiboot2 bootloaders.</p>
+<p>It is now part of a workspace and lives next to the new crate <code>multiboot2-header</code>.</p>
+<p>The following changes were merged this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/multiboot2/pull/92">Code style improvements + optional CI job (clippy, rustfmt, rustdoc)</a></li>
+<li><a href="https://github.com/rust-osdev/multiboot2/pull/94">std in tests; hash for TagType</a> </li>
+<li><a href="https://github.com/rust-osdev/multiboot2/pull/93">editorconfig file</a></li>
+<li><a href="https://github.com/rust-osdev/multiboot2/pull/86">prepared cargo workspace, as discussed in PR #79</a></li>
+</ul>
+<p>The changes were published as <span class="gray"><code>v0.12.2</code></span>.</p>
+<h3 id="multboot2-header-new"><a href="https://github.com/rust-osdev/multiboot2"><code>multboot2-header</code></a> (<strong>new</strong>)</h3>
+<p>The <code>multiboot2-header</code> crate provides abstraction types for the Multiboot2 header 
+and a builder struct to construct these headers. The corresponding repository was 
+prepared (<a href="https://github.com/rust-osdev/multiboot2/pull/86">#86</a>) and the initial release 
+is expected in early October. See <a href="https://github.com/rust-osdev/multiboot2/pull/95">#95</a> for more details.</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1053">(<code>phil-opp/blog_os</code>) Looking for a reviewer for a French translation</a></li>
+</ul>
+<!--
+<span class="gray">
+
+_No tasks were proposed for this section._
+
+</span>
+-->
+<p>If you maintain a Rust OSDev project and are looking for contributors, especially for tasks suited to people
+getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the
+<code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged two small fixes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1051">Fix typos in code examples in Async/Await post</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1046">Fix link syntax in Russian translation</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/jongillham">@jongillham</a> and <a href="https://github.com/non-descriptive">@non-descriptive</a> for these contributions!</p>
+<p>I don't have any notable news about the upcoming third edition of the blog yet, but I'm doing my best to get back up to speed soon.</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
