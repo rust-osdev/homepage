@@ -34,7 +34,16 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-In September, …
+In September, we merged the following changes:
+
+- [Add `clean_up` and `clean_up_with_filter`](https://github.com/rust-osdev/x86_64/pull/264) for deallocating unused page tables
+- [Add exception vector type](https://github.com/rust-osdev/x86_64/pull/303)
+- [Bump `bit_field` to 0.10.1](https://github.com/rust-osdev/x86_64/pull/306)
+- [Release version 0.14.5](https://github.com/rust-osdev/x86_64/pull/304)
+- [Move segment types into a new registers::segmentation module](https://github.com/rust-osdev/x86_64/pull/309)
+- [Release version 0.14.6](https://github.com/rust-osdev/x86_64/pull/310)
+
+Thanks to [@Freax13](https://github.com/Freax13), [@npmccallum](https://github.com/npmccallum), and [@mkroening](https://github.com/mkroening) for their contributions!
 
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
@@ -51,6 +60,15 @@ This month, we merged the following changes:
 
 Thanks to [@necauqua](https://github.com/necauqua) and [@timrobertsdev](https://github.com/timrobertsdev) for their contributions!
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.
+
+We finally merged a long-desired feature this month:
+
+- [Framebuffer configuration](https://github.com/rust-osdev/bootloader/pull/179) <span class="gray">(published as `v0.10.9`)</span>
+
+Thanks to [@anellie](https://github.com/anellie) for this contribution!
 
 ### [`multboot2`](https://github.com/rust-osdev/multiboot2)
 
