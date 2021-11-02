@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "October 2021"
 authors = [
     "phil-opp",
+    "phip1611"
     # add yourself here
 ]
 +++
@@ -35,6 +36,14 @@ In this section, we give an overview of notable changes to the projects hosted u
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
 In October, …
+
+### [`multiboot2-header`](https://github.com/rust-osdev/multiboot2) (**new**)
+
+The `multiboot2-header` crate provides abstraction types for Multiboot2 headers,
+parsing utilities, and a builder to construct such headers. The initial release took
+place in early October and now is ready to be used. Because lots of code was published
+without any in-depth reviews, further testing and code reviews will be highly appreciated.
+
 
 ## Call for Participation
 
