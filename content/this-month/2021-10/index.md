@@ -32,18 +32,19 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
-### [`x86_64`](https://github.com/rust-osdev/x86_64)
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
-The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
 
-In October, …
+We merged the following PRs this month:
 
-### [`multiboot2-header`](https://github.com/rust-osdev/multiboot2) (**new**)
+- [Implement missing Event-related functions](https://github.com/rust-osdev/uefi-rs/pull/293)
+- [Remove attribute to enable `const_panic`](https://github.com/rust-osdev/uefi-rs/pull/296)
+- [Use build-std-features instead of rlibc](https://github.com/rust-osdev/uefi-rs/pull/298)
+- [Update `set_virtual_address_map()` to allow remapping of `SystemTable`](https://github.com/rust-osdev/uefi-rs/pull/301)
+- [Fix new clippy errors](https://github.com/rust-osdev/uefi-rs/pull/304)
 
-The `multiboot2-header` crate provides abstraction types for Multiboot2 headers,
-parsing utilities, and a builder to construct such headers. The initial release took
-place in early October and now is ready to be used. Because lots of code was published
-without any in-depth reviews, further testing and code reviews will be highly appreciated.
+Thanks to [@timrobertsdev](https://github.com/timrobertsdev), [@YtvwlD](https://github.com/YtvwlD), and [@foxcob](https://github.com/foxcob) for their contributions!
 
 ### [`acpi`](https://github.com/rust-osdev/acpi)
 
@@ -54,6 +55,24 @@ passed from firmware to the OS to communicate information about the state of the
 over, as lots of firmwares like to print display a logo when booting. <span class="gray">(published as `acpi v4.1.0`)</span>
 
 Thanks to [@ethindp](https://github.com/ethindp) for this contribution!
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+In October, we merged the following changes:
+
+- [Enable manipulation of `InterruptStackFrame`](https://github.com/rust-osdev/x86_64/pull/312)
+- [Fix docs for `page_table_index`](https://github.com/rust-osdev/x86_64/pull/318)
+
+Thanks to [@haraldh](https://github.com/haraldh) and [@Freax13](https://github.com/Freax13) for their contributions!
+
+### [`multiboot2-header`](https://github.com/rust-osdev/multiboot2) (**new**)
+
+The `multiboot2-header` crate provides abstraction types for Multiboot2 headers,
+parsing utilities, and a builder to construct such headers. The initial release took
+place in early October and now is ready to be used. Because lots of code was published
+without any in-depth reviews, further testing and code reviews will be highly appreciated.
 
 ## Call for Participation
 
