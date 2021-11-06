@@ -6,7 +6,8 @@ date = 0000-01-01
 month = "October 2021"
 authors = [
     "phil-opp",
-    "phip1611"
+    "phip1611",
+    "IsaacWoods",
     # add yourself here
 ]
 +++
@@ -44,6 +45,15 @@ parsing utilities, and a builder to construct such headers. The initial release 
 place in early October and now is ready to be used. Because lots of code was published
 without any in-depth reviews, further testing and code reviews will be highly appreciated.
 
+### [`acpi`](https://github.com/rust-osdev/acpi)
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.
+
+This month, [support for the Boot Graphics Resource Table (BGRT)](https://github.com/rust-osdev/acpi/pull/113) table was added to `acpi`. This static table is
+passed from firmware to the OS to communicate information about the state of the screen when control is passed
+over, as lots of firmwares like to print display a logo when booting. <span class="gray">(published as `acpi v4.1.0`)</span>
+
+Thanks to [@ethindp](https://github.com/ethindp) for this contribution!
 
 ## Call for Participation
 
