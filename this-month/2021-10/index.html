@@ -1,0 +1,146 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2021-10/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (October 2021) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (October 2021)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/phip1611">@phip1611</a>, and <a href="https://github.com/IsaacWoods">@IsaacWoods</a>
+
+        <br>Published on <time datetime="2021-11-08">
+            Nov 08, 2021
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2021-10/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (October 2021)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/293">Implement missing Event-related functions</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/296">Remove attribute to enable <code>const_panic</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/298">Use build-std-features instead of rlibc</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/301">Update <code>set_virtual_address_map()</code> to allow remapping of <code>SystemTable</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/304">Fix new clippy errors</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/timrobertsdev">@timrobertsdev</a>, <a href="https://github.com/YtvwlD">@YtvwlD</a>, and <a href="https://github.com/foxcob">@foxcob</a> for their contributions!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.</p>
+<p>This month, <a href="https://github.com/rust-osdev/acpi/pull/113">support for the Boot Graphics Resource Table (BGRT)</a> table was added to <code>acpi</code>. This static table is
+passed from firmware to the OS to communicate information about the state of the screen when control is passed
+over, as lots of firmwares like to print display a logo when booting. <span class="gray">(published as <code>acpi v4.1.0</code>)</span></p>
+<p>Thanks to <a href="https://github.com/ethindp">@ethindp</a> for this contribution!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In October, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/312">Enable manipulation of <code>InterruptStackFrame</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/318">Fix docs for <code>page_table_index</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/haraldh">@haraldh</a> and <a href="https://github.com/Freax13">@Freax13</a> for their contributions!</p>
+<h3 id="multiboot2-header-new"><a href="https://github.com/rust-osdev/multiboot2"><code>multiboot2-header</code></a> (<strong>new</strong>)</h3>
+<p>The <code>multiboot2-header</code> crate provides abstraction types for Multiboot2 headers,
+parsing utilities, and a builder to construct such headers. The initial release took
+place in early October and now is ready to be used. Because lots of code was published
+without any in-depth reviews, further testing and code reviews will be highly appreciated.</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<span class="gray">
+<p><em>No tasks were proposed for this section.</em></p>
+</span>
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following changes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1053">Add French translation for the first post</a>
+<ul>
+<li>Thanks to <a href="https://github.com/Alekzus">@Alekzus</a> for this contribution, and <a href="https://github.com/dallenng">@dallenng</a> and <a href="https://github.com/CBenoit">@CBenoit</a> for reviewing!</li>
+<li>Published at <a href="https://os.phil-opp.com/fr/">https://os.phil-opp.com/fr/</a>.</li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1054">Improve our integration of the giscus comment system</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1056">Use Iosevka font for code blocks and inline code</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1057">Initial Dark Mode Support</a> 🌑</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1058">Implement a switch for switching between light and dark mode</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1059">Remember chosen theme in <code>localStorage</code>, add a switch for going back to system theme, improve layout</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1060">Use <code>crate-ci/typos</code> action to check for typos</a></li>
+</ul>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
