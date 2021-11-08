@@ -90,10 +90,7 @@ _No tasks were proposed for this section._
 
 </span>
 
-If you maintain a Rust OSDev project and are looking for contributors, especially for tasks suited to people
-getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the
-`next` branch with the tasks you want to include in the next issue.
-
+If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the `next` branch with the tasks you want to include in the next issue.
 
 ## Personal Projects
 
@@ -103,7 +100,17 @@ In this section, we describe updates to personal projects that are not directly 
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Add French translation for the first post](https://github.com/phil-opp/blog_os/pull/1053)
+  - Thanks to [@Alekzus](https://github.com/Alekzus) for this contribution, and [@dallenng](https://github.com/dallenng) and [@CBenoit](https://github.com/CBenoit) for reviewing!
+  - Published at <https://os.phil-opp.com/fr/>.
+- [Improve our integration of the giscus comment system](https://github.com/phil-opp/blog_os/pull/1054)
+- [Use Iosevka font for code blocks and inline code](https://github.com/phil-opp/blog_os/pull/1056)
+- [Initial Dark Mode Support](https://github.com/phil-opp/blog_os/pull/1057) 🌑
+- [Implement a switch for switching between light and dark mode](https://github.com/phil-opp/blog_os/pull/1058)
+- [Remember chosen theme in `localStorage`, add a switch for going back to system theme, improve layout](https://github.com/phil-opp/blog_os/pull/1059)
+- [Use `crate-ci/typos` action to check for typos](https://github.com/phil-opp/blog_os/pull/1060)
 
 ## Join Us?
 
