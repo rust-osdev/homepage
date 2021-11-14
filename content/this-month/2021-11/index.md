@@ -64,6 +64,16 @@ In this section, we describe updates to personal projects that are not directly 
 
 This month, ...
 
+### [`metta-systems/vesper`](https://github.com/metta-systems/vesper)
+
+<span class="gray">(Section written by [@berkus](https://github.com/berkus))</span>
+
+Vesper is a capability-based single-address-space exokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.
+
+It's in very early stages of development and is a basis for a larger envisioned system. The progress is fairly slow, only allowed as my available time permits. This month to motivate me to move it faster I've decided to start posting monthly development updates. The first post is about the tools I use.
+
+Since [rebooting to Rust](https://metta.systems/blog/reboot-to-rust/) almost 4 years ago I've been constantly amazed by the language ecosystem and what wonders are possible. This time I want to tell about incredible tooling that makes my OSdev experience a sunny warm place in contrast to the barren lands of my previous OSdev environments. [Read the full article here](https://metta.systems/blog/osdev-tooling/).
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
