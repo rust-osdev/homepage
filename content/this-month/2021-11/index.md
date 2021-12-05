@@ -30,6 +30,23 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+We merged the following PRs this month:
+
+- [loaded_image: document size argument unit](https://github.com/rust-osdev/uefi-rs/pull/308)
+- [Revert "Temporarily disable a false-positive clippy lint"](https://github.com/rust-osdev/uefi-rs/pull/312)
+- [Fix `locate_device_path` impl argument pointer](https://github.com/rust-osdev/uefi-rs/pull/310)
+- [Change `Handle` representation to be non-nullable so that `Option<Handle>` is FFI-safe](https://github.com/rust-osdev/uefi-rs/pull/309)
+- [Improve `Handle` buffer handling code](https://github.com/rust-osdev/uefi-rs/pull/314)
+- [Add `CStr16::from_str_with_buf`](https://github.com/rust-osdev/uefi-rs/pull/291)
+- [Update and reorganize documentation](https://github.com/rust-osdev/uefi-rs/pull/315)
+- [Add flag to `build.py` for disabling KVM](https://github.com/rust-osdev/uefi-rs/pull/316)
+
+Thanks to [@necauqua](https://github.com/necauqua) and [@baloo](https://github.com/baloo) for their contributions!
+
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
