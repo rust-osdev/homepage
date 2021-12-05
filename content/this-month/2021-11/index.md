@@ -51,7 +51,26 @@ Thanks to [@necauqua](https://github.com/necauqua) and [@baloo](https://github.c
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-In November, …
+In November, [@Freax13](https://github.com/Freax13) joined our `x86_64` maintenance team after doing [a lot of great work](https://github.com/rust-osdev/x86_64/pulls?q=is%3Apr+is%3Aclosed+author%3AFreax13) on the crate. Welcome!
+
+We merged the following non-breaking changes this month:
+
+- [Add `set_general_handler` macro](https://github.com/rust-osdev/x86_64/pull/285)
+- [Add the VMM Communication Exception (`#VC`) to the `InterruptDescriptorTable`](https://github.com/rust-osdev/x86_64/pull/313)
+- [Derive common traits for number, range and enum types](https://github.com/rust-osdev/x86_64/pull/315)
+- [Remove redundant alignment check](https://github.com/rust-osdev/x86_64/pull/314)
+- [fix(idt): fix panic messages for index and `#VC`](https://github.com/rust-osdev/x86_64/pull/321)
+
+We also merged a number of breaking changes that will go into the [upcoming 0.15 release](https://github.com/rust-osdev/x86_64/issues/262):
+
+- [Implement `Index<u8>` for IDT instead of `Index<usize>`](https://github.com/rust-osdev/x86_64/pull/319)
+- [Fix memory safety of `load_tss` and `GlobalDescriptorTable`](https://github.com/rust-osdev/x86_64/pull/323)
+- [Change type of `InterruptStackFrameValue::cpu_flags` to `RFlags`](https://github.com/rust-osdev/x86_64/pull/324)
+- [Add `InvalidStarSegmentSelectors` error type](https://github.com/rust-osdev/x86_64/pull/317)
+- [Add `PcidTooBig` error](https://github.com/rust-osdev/x86_64/pull/316)
+- [Activate `feature(asm_const)`](https://github.com/rust-osdev/x86_64/pull/320)
+
+Thanks to [@Freax13](https://github.com/Freax13), [@haraldh](https://github.com/haraldh), and [@mpajkowski](https://github.com/mpajkowski) for their contributions!
 
 ## Call for Participation
 
