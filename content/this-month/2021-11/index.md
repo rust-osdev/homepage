@@ -94,12 +94,6 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
-### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
-
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
-
-This month, ...
-
 ### [`metta-systems/vesper`](https://github.com/metta-systems/vesper)
 
 <span class="gray">(Section written by [@berkus](https://github.com/berkus))</span>
@@ -109,6 +103,14 @@ Vesper is a capability-based single-address-space exokernel. This means it is ai
 It's in very early stages of development and is a basis for a larger envisioned system. The progress is fairly slow, only allowed as my available time permits. This month to motivate me to move it faster I've decided to start posting monthly development updates. The first post is about the tools I use.
 
 Since [rebooting to Rust](https://metta.systems/blog/reboot-to-rust/) almost 4 years ago I've been constantly amazed by the language ecosystem and what wonders are possible. This time I want to tell about incredible tooling that makes my OSdev experience a sunny warm place in contrast to the barren lands of my previous OSdev environments. [Read the full article here](https://metta.systems/blog/osdev-tooling/).
+
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+
+<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+There were no visible changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) series this month, but I continued working on the new build system for the upcoming third edition. One particular change that I want to highlight is that I redesigned the configuration of the `bootloader` crate. Instead of passing it via [a `package.metadata.bootloader` section](https://docs.rs/bootloader/0.10.9/bootloader/struct.Config.html) in the kernel's `Cargo.toml`, users will pass a configuration struct to the [`entry_point`](https://docs.rs/bootloader/0.10.9/bootloader/macro.entry_point.html) macro. This struct is then serialized at compile time into a separate section in the ELF executable, which the bootloader can then read on loading. This change should make the build process easier and more flexible.
+
+I plan to simplify the build system further, but I'm currently waiting on some upcoming `cargo` features for that. In particular, I think that [_artifact dependencies_](https://github.com/rust-lang/cargo/pull/9992) and [_per-packet configuration_](https://internals.rust-lang.org/t/proposal-move-some-cargo-config-settings-to-cargo-toml/13336) options will be very useful for the project, especially the config options I mentioned in my [status update comment](https://github.com/phil-opp/blog_os/issues/1063#issuecomment-968341112) on GitHub.
 
 ## Join Us?
 
