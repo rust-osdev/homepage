@@ -1,0 +1,143 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2021-11/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (November 2021) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (November 2021)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>
+
+        <br>Published on <time datetime="2021-12-06">
+            Dec 06, 2021
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2021-11/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (November 2021)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/308">loaded_image: document size argument unit</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/312">Revert &quot;Temporarily disable a false-positive clippy lint&quot;</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/310">Fix <code>locate_device_path</code> impl argument pointer</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/309">Change <code>Handle</code> representation to be non-nullable so that <code>Option&lt;Handle&gt;</code> is FFI-safe</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/314">Improve <code>Handle</code> buffer handling code</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/291">Add <code>CStr16::from_str_with_buf</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/315">Update and reorganize documentation</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/316">Add flag to <code>build.py</code> for disabling KVM</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/necauqua">@necauqua</a> and <a href="https://github.com/baloo">@baloo</a> for their contributions!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In November, <a href="https://github.com/Freax13">@Freax13</a> joined our <code>x86_64</code> maintenance team after doing <a href="https://github.com/rust-osdev/x86_64/pulls?q=is%3Apr+is%3Aclosed+author%3AFreax13">a lot of great work</a> on the crate. Welcome!</p>
+<p>We merged the following non-breaking changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/285">Add <code>set_general_handler</code> macro</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/313">Add the VMM Communication Exception (<code>#VC</code>) to the <code>InterruptDescriptorTable</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/315">Derive common traits for number, range and enum types</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/314">Remove redundant alignment check</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/321">fix(idt): fix panic messages for index and <code>#VC</code></a></li>
+</ul>
+<p>We also merged a number of breaking changes that will go into the <a href="https://github.com/rust-osdev/x86_64/issues/262">upcoming 0.15 release</a>:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/319">Implement <code>Index&lt;u8&gt;</code> for IDT instead of <code>Index&lt;usize&gt;</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/323">Fix memory safety of <code>load_tss</code> and <code>GlobalDescriptorTable</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/324">Change type of <code>InterruptStackFrameValue::cpu_flags</code> to <code>RFlags</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/317">Add <code>InvalidStarSegmentSelectors</code> error type</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/316">Add <code>PcidTooBig</code> error</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/320">Activate <code>feature(asm_const)</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Freax13">@Freax13</a>, <a href="https://github.com/haraldh">@haraldh</a>, and <a href="https://github.com/mpajkowski">@mpajkowski</a> for their contributions!</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<span class="gray">
+<p><em>No tasks were proposed for this section.</em></p>
+</span>
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="personal-projects">Personal Projects</h2>
+<p>In this section, we describe updates to personal projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="metta-systems-vesper"><a href="https://github.com/metta-systems/vesper"><code>metta-systems/vesper</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/berkus">@berkus</a>)</span></p>
+<p>Vesper is a capability-based single-address-space exokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.</p>
+<p>It's in very early stages of development and is a basis for a larger envisioned system. The progress is fairly slow, only allowed as my available time permits. This month to motivate me to move it faster I've decided to start posting monthly development updates. The first post is about the tools I use.</p>
+<p>Since <a href="https://metta.systems/blog/reboot-to-rust/">rebooting to Rust</a> almost 4 years ago I've been constantly amazed by the language ecosystem and what wonders are possible. This time I want to tell about incredible tooling that makes my OSdev experience a sunny warm place in contrast to the barren lands of my previous OSdev environments. <a href="https://metta.systems/blog/osdev-tooling/">Read the full article here</a>.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>There were no visible changes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> series this month, but I continued working on the new build system for the upcoming third edition. One particular change that I want to highlight is that I redesigned the configuration of the <code>bootloader</code> crate. Instead of passing it via <a href="https://docs.rs/bootloader/0.10.9/bootloader/struct.Config.html">a <code>package.metadata.bootloader</code> section</a> in the kernel's <code>Cargo.toml</code>, users will pass a configuration struct to the <a href="https://docs.rs/bootloader/0.10.9/bootloader/macro.entry_point.html"><code>entry_point</code></a> macro. This struct is then serialized at compile time into a separate section in the ELF executable, which the bootloader can then read on loading. This change should make the build process easier and more flexible.</p>
+<p>I plan to simplify the build system further, but I'm currently waiting on some upcoming <code>cargo</code> features for that. In particular, I think that <a href="https://github.com/rust-lang/cargo/pull/9992"><em>artifact dependencies</em></a> and <a href="https://internals.rust-lang.org/t/proposal-move-some-cargo-config-settings-to-cargo-toml/13336"><em>per-packet configuration</em></a> options will be very useful for the project, especially the config options I mentioned in my <a href="https://github.com/phil-opp/blog_os/issues/1063#issuecomment-968341112">status update comment</a> on GitHub.</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
