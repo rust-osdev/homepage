@@ -58,6 +58,16 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to personal projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
+### [`metta-systems/vesper`](https://github.com/metta-systems/vesper)
+
+<span class="gray">(Section written by [@berkus](https://github.com/berkus))</span>
+
+Vesper is a capability-based single-address-space nanokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.
+
+The kernel is in very early stages of development, while I am building up tooling support to make future development fast and painless. This is my second post here and as usual, I will link directly to my blog for more details. [Read the full article here](https://metta.systems/blog/osdev-tooling-2/).
+
+Just a note: since features described in the article are not fully finalized, they are not merged to the main development branch yet and live in [their own branch](https://github.com/metta-systems/vesper/tree/feature/chainboot), which is subject to frequent rebases. Caveat emptor!
+
 ### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
