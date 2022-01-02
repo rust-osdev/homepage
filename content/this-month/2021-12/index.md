@@ -70,6 +70,8 @@ Just a note: since features described in the article are not fully finalized, th
 
 ### [`rusty-hermit`](https://crates.io/crates/rusty-hermit)
 
+<span class="gray">(Section written by [@stlankes](https://github.com/stlankes))</span>
+
 RustyHermit is a unikernel targeting a scalable and predictable runtime for high-performance and cloud computing.
 This month, we integrate a [virtual i/o device driver](https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01.html), which based on memory mapped i/o and doesn't depend on  PCI device specification.
 For instance, micro VMs like [Firecracker](https://firecracker-microvm.github.io) and Qemu's [microvm machine type](https://qemu.readthedocs.io/en/latest/system/i386/microvm.html) doesn't support the PCI specification to accelerate the boot time and to improve the performance.
