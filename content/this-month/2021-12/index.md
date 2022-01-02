@@ -7,6 +7,7 @@ month = "December 2021"
 authors = [
     "phil-opp",
     "IsaacWoods",
+    "GabrielMajeri",
     # add yourself here
 ]
 +++
@@ -48,6 +49,26 @@ However, many platforms implement Link Objects that actually hardcode the interr
 hardcoded object. We now treat these objects correctly as control methods, supporting properly-configured tables. <span class="gray">(published as `aml v0.16.1`)</span>
 
 Thanks to [@Dentosal](https://github.com/Dentosal) for this contribution!
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+We merged the following PRs this month:
+
+- [Implement `open_protocol`, use it to fix flaky screenshot test](https://github.com/rust-osdev/uefi-rs/pull/318)
+- [Change `memory_map_size` to return entry size as well](https://github.com/rust-osdev/uefi-rs/pull/326)
+- [Document how to publish new versions of the crates](https://github.com/rust-osdev/uefi-rs/pull/322)
+- [Improve clippy linting in `build.py` and CI](https://github.com/rust-osdev/uefi-rs/pull/319)
+- [`build.py`: fix `clippy --verbose`](https://github.com/rust-osdev/uefi-rs/pull/323)
+- [`build.py`: deny warnings when running clippy](https://github.com/rust-osdev/uefi-rs/pull/324)
+- [Move `build.py` to the root of the repo](https://github.com/rust-osdev/uefi-rs/pull/334)
+- [Fix unused use warning that shows up with some build configs](https://github.com/rust-osdev/uefi-rs/pull/330)
+- [Fix build error on latest nightly](https://github.com/rust-osdev/uefi-rs/pull/328)
+- [Update the version of `qemu-exit`](https://github.com/rust-osdev/uefi-rs/pull/331)
+- [Add missing `#[must_use]` marker attributes](https://github.com/rust-osdev/uefi-rs/pull/332)
+
+Thanks to [@StevenDoesStuffs](https://github.com/StevenDoesStuffs) and [@toku-sa-n](https://github.com/toku-sa-n) for their contributions!
 
 ## Call for Participation
 
