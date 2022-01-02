@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "December 2021"
 authors = [
     "phil-opp",
+    "IsaacWoods",
     # add yourself here
 ]
 +++
@@ -35,6 +36,18 @@ In this section, we give an overview of notable changes to the projects hosted u
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
 In December, …
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.
+
+December was a fairly quiet month, but [an important bug-fix landed](https://github.com/rust-osdev/acpi/pull/114) that corrected the way we handled `_CRS` objects in a structure
+called the `_PRT`, which are found on PCI root bridges and tell the OS how interrupt pins on PCI devices have been routed to the platform's interrupt controller. Each pin can be
+hardwired to a specific interrupt, or more commonly, can be dynamically assigned using a 'Link Object' through a set of control methods: `_PRS`, `_CRS`, `_SRS`, and `_DIS`.
+However, many platforms implement Link Objects that actually hardcode the interrupts (including QEMU) and this is where the bug slipped in: `_CRS` was being evaluated as a
+hardcoded object. We now treat these objects correctly as control methods, supporting properly-configured tables. <span class="gray">(published as `aml v0.16.1`)</span>
+
+Thanks to [@Dentosal](https://github.com/Dentosal) for this contribution!
 
 ## Call for Participation
 
