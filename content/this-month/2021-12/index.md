@@ -162,7 +162,13 @@ We are working to support Firecracker in the near future.
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+This month, we merged a small translation improvement to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog:
+
+- [Add Chinese translation to `_index.zh-CN.md`](https://github.com/phil-opp/blog_os/pull/1067)
+
+Thanks to [@TisnKu](https://github.com/TisnKu) for this contribution!
+
+My personal focus this month has been on the new bootloader version [mentioned above](#bootloader), which I plan to use for the third edition of the blog. I'm also thinking about writing a post about creating a basic BIOS bootloader in Rust if I can find the time.
 
 ## Join Us?
 
