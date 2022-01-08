@@ -1,6 +1,6 @@
 +++
 title = "This Month in Rust OSDev (December 2021)"
-date = 0000-01-01
+date = 2022-01-08
 
 [extra]
 month = "December 2021"
@@ -173,8 +173,3 @@ My personal focus this month has been on the new bootloader version [mentioned a
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
-
-
-<!--
-TODO: Update publication date
--->
