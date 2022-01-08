@@ -36,7 +36,44 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-In December, …
+We merged the following changes in December:
+
+- [Fix build error on the latest nightly (`asm!` import)](https://github.com/rust-osdev/x86_64/pull/329)
+- [Remove `const_assert!` in favor of std's `assert!`](https://github.com/rust-osdev/x86_64/pull/326)
+- [Enable `unsafe_block_in_unsafe_fn` lint](https://github.com/rust-osdev/x86_64/pull/328)
+- [Move bootloader integration test to separate CI job](https://github.com/rust-osdev/x86_64/pull/330)
+- [**Release version `0.14.7`**](https://github.com/rust-osdev/x86_64/pull/331)
+- [Add an immutable getter for the level 4 page table](https://github.com/rust-osdev/x86_64/pull/327)
+  - <span class="gray">This breaking change will be part of the upcoming `v0.15` release.</span>
+
+Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for their contribution!
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.
+
+This month, we released new patch versions for both `v0.9` and `v0.10` to fix the `asm!` macro imports on the latest Rust nightlies:
+
+- [[v0.9] Update x86_64 dependency to `v0.14.7` to fix nightly breakage](https://github.com/rust-osdev/bootloader/pull/208) <span class="gray">(published as `v0.9.20`)</span>
+- [Fix `asm` imports on latest nightly](https://github.com/rust-osdev/bootloader/pull/209) <span class="gray">(published as `v0.10.10`)</span>
+
+We also continued the work on the upcoming `v0.11` version, which will feature the following improvements:
+
+- Configuration via Rust structs and the `entry_point` macro, instead of a `[package.metadata.bootloader]` table in the `Cargo.toml`.
+  - The config data is serialized at compile time and put into a separate ELF section of the kernel executable.
+  - This makes it possible to read the config data dynamically when loading the kernel, so we no longer need to recompile the bootloader on config changes.
+  - The build process is also simplified as we don't need to read the kernel's `Cargo.toml` anymore.
+- Instead of including the kernel ELF file using the [`include_bytes`](https://doc.rust-lang.org/stable/core/macro.include_bytes.html) macro, we read the file dynamically from disk during the boot process.
+  - The boot image is now a proper FAT partition for both UEFI and BIOS. The kernel file is simply copied to this partition.
+  - In combination with the new config mechanism, the dynamic loading means that the bootloader only needs to be compiled once.
+- The bootloader crate is split into three subcrates:
+  - an API crate that defines the configuration and boot information structs, and provides the `entry_point` macro (this will be used by kernels)
+  - an implementation crate that contains the actual BIOS and UEFI bootloader code
+  - a builder crate that allows to turn kernel ELF files into bootable disk images
+    - includes the compiled implementation crate, either by including a precompiled binary or through cargo's upcoming [_artifact dependencies_](https://github.com/rust-lang/cargo/pull/9992) feature
+
+The [new configuration system](https://github.com/rust-osdev/bootloader/commit/b3df5e8debad2cfd9d0cad5c4b3914568ec613c7) is already done and working for both the BIOS and UEFI implementations. For UEFI, we also implemented the [kernel loading from a FAT partition](https://github.com/rust-osdev/bootloader/commit/a9c8e9e79cf58cd6b0a0a9024fc06be00bc7f2df) already. Unfortunately, this part is more challenging for the BIOS implementation since the loading needs to happen in 16-bit real mode (as it requires calling functions of the BIOS). Parsing a FAT filesystem is not easy using assembly code, so we're currently working on porting all the lower boot stages to Rust. This includes the [boot sector](https://github.com/rust-osdev/bootloader/tree/next/bios/first_stage), which needs to fit into 448 bytes, so we need some trickery to get a Rust executable that is small enough.
+
 
 ### [`acpi`](https://github.com/rust-osdev/acpi)
 
