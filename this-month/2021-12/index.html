@@ -1,0 +1,201 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2021-12/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (December 2021) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (December 2021)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, and <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>
+
+        <br>Published on <time datetime="2022-01-08">
+            Jan 08, 2022
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2021-12/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (December 2021)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following changes in December:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/329">Fix build error on the latest nightly (<code>asm!</code> import)</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/326">Remove <code>const_assert!</code> in favor of std's <code>assert!</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/328">Enable <code>unsafe_block_in_unsafe_fn</code> lint</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/330">Move bootloader integration test to separate CI job</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/331"><strong>Release version <code>0.14.7</code></strong></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/327">Add an immutable getter for the level 4 page table</a>
+<ul>
+<li><span class="gray">This breaking change will be part of the upcoming <code>v0.15</code> release.</span></li>
+</ul>
+</li>
+</ul>
+<p>Thanks to <a href="https://github.com/toku-sa-n">@toku-sa-n</a> for their contribution!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.</p>
+<p>This month, we released new patch versions for both <code>v0.9</code> and <code>v0.10</code> to fix the <code>asm!</code> macro imports on the latest Rust nightlies:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/208">[v0.9] Update x86_64 dependency to <code>v0.14.7</code> to fix nightly breakage</a> <span class="gray">(published as <code>v0.9.20</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/209">Fix <code>asm</code> imports on latest nightly</a> <span class="gray">(published as <code>v0.10.10</code>)</span></li>
+</ul>
+<p>We also continued the work on the upcoming <code>v0.11</code> version, which will feature the following improvements:</p>
+<ul>
+<li>Configuration via Rust structs and the <code>entry_point</code> macro, instead of a <code>[package.metadata.bootloader]</code> table in the <code>Cargo.toml</code>.
+<ul>
+<li>The config data is serialized at compile time and put into a separate ELF section of the kernel executable.</li>
+<li>This makes it possible to read the config data dynamically when loading the kernel, so we no longer need to recompile the bootloader on config changes.</li>
+<li>The build process is also simplified as we don't need to read the kernel's <code>Cargo.toml</code> anymore.</li>
+</ul>
+</li>
+<li>Instead of including the kernel ELF file using the <a href="https://doc.rust-lang.org/stable/core/macro.include_bytes.html"><code>include_bytes</code></a> macro, we read the file dynamically from disk during the boot process.
+<ul>
+<li>The boot image is now a proper FAT partition for both UEFI and BIOS. The kernel file is simply copied to this partition.</li>
+<li>In combination with the new config mechanism, the dynamic loading means that the bootloader only needs to be compiled once.</li>
+</ul>
+</li>
+<li>The bootloader crate is split into three subcrates:
+<ul>
+<li>an API crate that defines the configuration and boot information structs, and provides the <code>entry_point</code> macro (this will be used by kernels)</li>
+<li>an implementation crate that contains the actual BIOS and UEFI bootloader code</li>
+<li>a builder crate that allows to turn kernel ELF files into bootable disk images
+<ul>
+<li>includes the compiled implementation crate, either by including a precompiled binary or through cargo's upcoming <a href="https://github.com/rust-lang/cargo/pull/9992"><em>artifact dependencies</em></a> feature</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The <a href="https://github.com/rust-osdev/bootloader/commit/b3df5e8debad2cfd9d0cad5c4b3914568ec613c7">new configuration system</a> is already done and working for both the BIOS and UEFI implementations. For UEFI, we also implemented the <a href="https://github.com/rust-osdev/bootloader/commit/a9c8e9e79cf58cd6b0a0a9024fc06be00bc7f2df">kernel loading from a FAT partition</a> already. Unfortunately, this part is more challenging for the BIOS implementation since the loading needs to happen in 16-bit real mode (as it requires calling functions of the BIOS). Parsing a FAT filesystem is not easy using assembly code, so we're currently working on porting all the lower boot stages to Rust. This includes the <a href="https://github.com/rust-osdev/bootloader/tree/next/bios/first_stage">boot sector</a>, which needs to fit into 448 bytes, so we need some trickery to get a Rust executable that is small enough.</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.</p>
+<p>December was a fairly quiet month, but <a href="https://github.com/rust-osdev/acpi/pull/114">an important bug-fix landed</a> that corrected the way we handled <code>_CRS</code> objects in a structure
+called the <code>_PRT</code>, which are found on PCI root bridges and tell the OS how interrupt pins on PCI devices have been routed to the platform's interrupt controller. Each pin can be
+hardwired to a specific interrupt, or more commonly, can be dynamically assigned using a 'Link Object' through a set of control methods: <code>_PRS</code>, <code>_CRS</code>, <code>_SRS</code>, and <code>_DIS</code>.
+However, many platforms implement Link Objects that actually hardcode the interrupts (including QEMU) and this is where the bug slipped in: <code>_CRS</code> was being evaluated as a
+hardcoded object. We now treat these objects correctly as control methods, supporting properly-configured tables. <span class="gray">(published as <code>aml v0.16.1</code>)</span></p>
+<p>Thanks to <a href="https://github.com/Dentosal">@Dentosal</a> for this contribution!</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/318">Implement <code>open_protocol</code>, use it to fix flaky screenshot test</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/326">Change <code>memory_map_size</code> to return entry size as well</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/322">Document how to publish new versions of the crates</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/319">Improve clippy linting in <code>build.py</code> and CI</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/323"><code>build.py</code>: fix <code>clippy --verbose</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/324"><code>build.py</code>: deny warnings when running clippy</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/334">Move <code>build.py</code> to the root of the repo</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/330">Fix unused use warning that shows up with some build configs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/328">Fix build error on latest nightly</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/331">Update the version of <code>qemu-exit</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/332">Add missing <code>#[must_use]</code> marker attributes</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/StevenDoesStuffs">@StevenDoesStuffs</a> and <a href="https://github.com/toku-sa-n">@toku-sa-n</a> for their contributions!</p>
+<h3 id="uart-16550"><a href="https://github.com/rust-osdev/uart_16550"><code>uart_16550</code></a></h3>
+<p>The <code>uart_16550</code> crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uart_16550/pull/21">Add <code>send_raw()</code> function to allow sending arbitrary binary data using the serial port</a> <span class="gray">(published as <code>v0.2.16</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/olivercalder">@olivercalder</a> for this contribution and <a href="https://github.com/Kazurin-775">@Kazurin-775</a> for reporting this problem!</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<span class="gray">
+<p><em>No tasks were proposed for this section.</em></p>
+</span>
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="metta-systems-vesper"><a href="https://github.com/metta-systems/vesper"><code>metta-systems/vesper</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/berkus">@berkus</a>)</span></p>
+<p>Vesper is a capability-based single-address-space nanokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.</p>
+<p>The kernel is in very early stages of development, while I am building up tooling support to make future development fast and painless. This is my second post here and as usual, I will link directly to my blog for more details. <a href="https://metta.systems/blog/osdev-tooling-2/">Read the full article here</a>.</p>
+<p>Just a note: since features described in the article are not fully finalized, they are not merged to the main development branch yet and live in <a href="https://github.com/metta-systems/vesper/tree/feature/chainboot">their own branch</a>, which is subject to frequent rebases. Caveat emptor!</p>
+<h3 id="rusty-hermit"><a href="https://crates.io/crates/rusty-hermit"><code>rusty-hermit</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/stlankes">@stlankes</a>)</span></p>
+<p>RustyHermit is a unikernel targeting a scalable and predictable runtime for high-performance and cloud computing.</p>
+<p>This month, we integrated a <a href="https://docs.oasis-open.org/virtio/virtio/v1.1/csprd01/virtio-v1.1-csprd01.html">virtual i/o device driver</a>, which is based on memory mapped i/o and doesn't depend on PCI device specification.
+For instance, micro VMs like <a href="https://firecracker-microvm.github.io">Firecracker</a> and Qemu's <a href="https://qemu.readthedocs.io/en/latest/system/i386/microvm.html">microvm machine type</a> don't support the PCI specification to accelerate the boot time and to improve the performance.
+With this device driver, <code>rusty-hermit</code> is able to run on Qemu's microvm platform.
+We are working to support Firecracker in the near future.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>This month, we merged a small translation improvement to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1067">Add Chinese translation to <code>_index.zh-CN.md</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/TisnKu">@TisnKu</a> for this contribution!</p>
+<p>My personal focus this month has been on the new bootloader version <a href="https://rust-osdev.com/this-month/2021-12/#bootloader">mentioned above</a>, which I plan to use for the third edition of the blog. I'm also thinking about writing a post about creating a basic BIOS bootloader in Rust if I can find the time.</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
