@@ -70,6 +70,14 @@ We merged the following PRs this month:
 
 Thanks to [@StevenDoesStuffs](https://github.com/StevenDoesStuffs) and [@toku-sa-n](https://github.com/toku-sa-n) for their contributions!
 
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+
+The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following changes this month:
+
+- [Add `send_raw()` function to allow sending arbitrary binary data using the serial port](https://github.com/rust-osdev/uart_16550/pull/21) <span class="gray">(published as `v0.2.16`)</span>
+
+Thanks to [@olivercalder](https://github.com/olivercalder) for this contribution and [@Kazurin-775](https://github.com/Kazurin-775) for reporting this problem!
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
