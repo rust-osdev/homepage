@@ -98,7 +98,7 @@ In this section, we describe updates to personal projects that are not directly 
 
 <span class="gray">(Section written by [@berkus](https://github.com/berkus))</span>
 
-Vesper is a capability-based single-address-space exokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.
+Vesper is a capability-based single-address-space nanokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.
 
 It's in very early stages of development and is a basis for a larger envisioned system. The progress is fairly slow, only allowed as my available time permits. This month to motivate me to move it faster I've decided to start posting monthly development updates. The first post is about the tools I use.
 
