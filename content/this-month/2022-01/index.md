@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "January 2022"
 authors = [
     "phil-opp",
+    "ColinFinck",
     # add yourself here
 ]
 +++
@@ -63,6 +64,23 @@ In this section, we describe updates to Rust OS projects that are not directly r
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
 This month, ...
+
+### [`ntfs`](https://github.com/ColinFinck/ntfs)
+
+<span class="gray">(Section written by [@ColinFinck](https://github.com/ColinFinck))</span>
+
+Colin Finck released an initial version of his [ntfs](https://github.com/ColinFinck/ntfs) crate this month, a Rust library to access Microsoft's proprietary NTFS filesystem.
+
+For those of you who are not running Windows:
+NTFS is the primary filesystem in Windows, from Windows NT's release in 1993 up to the current Windows 11.
+Unlike FAT32, NTFS has no practical limits for file and partition sizes, comes with B-Tree Indexes for faster lookups, and adds a few resilience and efficiency features (such as journaling, compression, and sparse files). 
+
+The ntfs crate supports Rust's no_std environment and is therefore not tied to a specific platform API.
+It aims to be embeddable in firmware-level code and kernels just as well as in user-mode applications.
+
+Colin Finck will [talk about NTFS](https://fosdem.org/2022/schedule/event/misc_ntfs_rust/) and his adventures in writing a filesystem crate in Rust on the upcoming FOSDEM conference.
+The talk is on Saturday, 5 February at 17:00 (CET, UTC+1).
+The conference is virtual and admission is free.
 
 ## Join Us?
 
