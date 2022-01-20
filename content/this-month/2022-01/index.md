@@ -88,16 +88,21 @@ The conference is virtual and admission is free.
 <span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
 
 Philipp Schuster released an initial version of his [noto-sans-mono-bitmap](https://github.com/phip1611/noto-sans-mono-bitmap-rs)
-crate this month. It is a replacement for legacy bitmap fonts, such as the [font8x8 crate](https://crates.io/crates/font8x8).
-It is suited to print high quality/good looking text to a framebuffer in bootloaders, kernels, and similar environments,
-where you don't want to use the FPU or you can't.
+crate this month. It provides a pre-rasterized bitmap font from *Noto Sans Mono*, an open font from Google.
+The crate is a replacement for legacy bitmap fonts, such as the [font8x8 crate](https://crates.io/crates/font8x8).
+It is suitable for printing high quality/nice looking text to a framebuffer in bootloaders, kernels and similar 
+environments where you don't want or can't use the FPU.
 
 To avoid CPU intensive soft float workloads, the crate contains pre-rendered symbols from the [Noto Sans Mono font](https://fonts.google.com/noto/specimen/Noto+Sans+Mono)
 in different sizes and font weights (light, regular, bold) as Rust constants paired with a convenient getter function.
-Strictly speaking, it encodes each pixel as byte and not bit. However, the term bitmap font is used
-because it is known when it comes to fonts without calculation/rasterization overhead in low level environments. 
 
-An example of the outcome can be seen in [PR#213](https://github.com/rust-osdev/bootloader/pull/213) of the bootloader crate.
+![Symbols from the crate 'noto-sans-mono-bitmap' in an UEFI framebuffer.](framebuffer-font-noto-sans-mono.png "Symbols from the crate 'noto-sans-mono-bitmap' in an UEFI framebuffer.")
+
+The screenshot above shows text that is rendered into an UEFI framebuffer using the bitmap font 
+from `noto-sans-mono-bitmap`.
+
+An example of usage can be found in [PR#213](https://github.com/rust-osdev/bootloader/pull/213) of the 
+`rust-osdev/bootloader` crate, where this crate was merged and replaced `font8x8`.
 
 ## Join Us?
 
