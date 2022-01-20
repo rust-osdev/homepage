@@ -82,6 +82,23 @@ Colin Finck will [talk about NTFS](https://fosdem.org/2022/schedule/event/misc_n
 The talk is on Saturday, 5 February at 17:00 (CET, UTC+1).
 The conference is virtual and admission is free.
 
+
+### [`phip1611/noto-sans-mono-bitmap-rs`](https://github.com/phip1611/noto-sans-mono-bitmap-rs)
+
+<span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+Philipp Schuster released an initial version of his [noto-sans-mono-bitmap](https://github.com/phip1611/noto-sans-mono-bitmap-rs)
+crate this month. It is a replacement for legacy bitmap fonts, such as the [font8x8 crate](https://crates.io/crates/font8x8).
+It is suited to print high quality/good looking text to a framebuffer in bootloaders, kernels, and similar environments,
+where you don't want to use the FPU or you can't.
+
+To avoid CPU intensive soft float workloads, the crate contains pre-rendered symbols from the [Noto Sans Mono font](https://fonts.google.com/noto/specimen/Noto+Sans+Mono)
+in different sizes and font weights (light, regular, bold) as Rust constants paired with a convenient getter function.
+Strictly speaking, it encodes each pixel as byte and not bit. However, the term bitmap font is used
+because it is known when it comes to fonts without calculation/rasterization overhead in low level environments. 
+
+An example of the outcome can be seen in [PR#213](https://github.com/rust-osdev/bootloader/pull/213) of the bootloader crate.
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
