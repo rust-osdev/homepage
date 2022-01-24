@@ -37,6 +37,14 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In January, …
 
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+
+The `multiboot2` crate provides abstraction types for the boot information of multiboot2 bootloaders.
+The latest release of the `multiboot2`-crate is now `v.0.13.1` (was `v0.12.2`). It contains minor improvements,
+such as new getters that were originally missing.
+
+The combined diff of all changes can be found [here](https://github.com/rust-osdev/multiboot2/compare/multiboot2-header-v0.1.0...multiboot2-v0.13.1).
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
