@@ -72,7 +72,7 @@ We merged the following changes in January:
 - [Remove `vec_spare_capacity` nightly feature](https://github.com/rust-osdev/uefi-rs/pull/347)
 - [uefi-macros: fix new clippy lint](https://github.com/rust-osdev/uefi-rs/pull/350)
 
-Thanks to [@phip1611](https://github.com/phip1611)
+Thanks to [@phip1611](https://github.com/phip1611) for their contribution!
 
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
