@@ -35,7 +35,13 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-In January, …
+In January, we merged the following pull requests:
+
+- [Add `Cr2::read_raw`](https://github.com/rust-osdev/x86_64/pull/334)
+- [Add support for `MXCSR` register](https://github.com/rust-osdev/x86_64/pull/336)
+- [Bump version to `0.14.8`](https://github.com/rust-osdev/x86_64/pull/339)
+
+Thanks to [@jarkkojs](https://github.com/jarkkojs) for their contribution!
 
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
