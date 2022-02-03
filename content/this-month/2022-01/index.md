@@ -104,12 +104,6 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
-### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
-
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
-
-This month, ...
-
 ### [`ntfs`](https://github.com/ColinFinck/ntfs)
 
 <span class="gray">(Section written by [@ColinFinck](https://github.com/ColinFinck))</span>
@@ -148,6 +142,22 @@ from `noto-sans-mono-bitmap`.
 
 An example of usage can be found in [PR#213](https://github.com/rust-osdev/bootloader/pull/213) of the 
 `rust-osdev/bootloader` crate, where this crate was merged and replaced `font8x8`.
+
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+
+<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+This month, we merged three small improvements for the _Writing an OS in Rust_ blog:
+
+- [Add Chinese translation for index page](https://github.com/phil-opp/blog_os/pull/1067)
+- [Upgrade to zola 0.15.3](https://github.com/phil-opp/blog_os/pull/1061)
+- [Remove dark mode warning again](https://github.com/phil-opp/blog_os/commit/b24122a6044879d2305e65d30960dc03cd50ff17)
+
+Thanks to [@TisnKu](https://github.com/TisnKu) for their contribution!
+
+I have also brought the [`edition-3`](https://github.com/phil-opp/blog_os/commits/edition-3) branch up to date again. I marked all the stub posts of the upcoming third edition as drafts, which should allow us to merge the unfinished branch now and then prepare the new edition directly in the `main` branch (without publishing them yet). This way, we can avoid that the branches diverge too much.
+
+Regarding the state of the new edition: I'm planning to release an extra post about UEFI booting first because that article is almost ready. For the main posts of the edition, I'm still waiting for a few cargo features, namely artifact dependencies, a package/target-specific way to enable the unstable `build-std` feature, and fixes for the experimental `package.forced-target` manifest key. I also intend to have the new version of the `bootloader` crate ready soon, which should make the build and test process simpler and more robust.
 
 ## Join Us?
 
