@@ -58,6 +58,22 @@ This month, we merged the following changes:
 
 Thanks to [@abachmann](https://github.com/abachmann), [@Freax13](https://github.com/Freax13), [@phip1611](https://github.com/phip1611), and [@georglauterbach](https://github.com/georglauterbach) for their contributions!
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+We merged the following changes in January:
+
+- [Release version 0.14.0](https://github.com/rust-osdev/uefi-rs/pull/341)
+- [Release `uefi-services` version 0.11.0](https://github.com/rust-osdev/uefi-rs/pull/342)
+- [System Table and Handle: From-implementation to create objects from raw pointers](https://github.com/rust-osdev/uefi-rs/pull/338)
+- [Replace build.py with the xtask pattern](https://github.com/rust-osdev/uefi-rs/pull/335)
+- [Fix logs cut off after screenshot test](https://github.com/rust-osdev/uefi-rs/pull/336)
+- [Remove `vec_spare_capacity` nightly feature](https://github.com/rust-osdev/uefi-rs/pull/347)
+- [uefi-macros: fix new clippy lint](https://github.com/rust-osdev/uefi-rs/pull/350)
+
+Thanks to [@phip1611](https://github.com/phip1611)
+
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
 The `multiboot2` crate provides abstraction types for the boot information of multiboot2 bootloaders.
