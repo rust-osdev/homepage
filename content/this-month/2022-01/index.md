@@ -43,6 +43,21 @@ In January, we merged the following pull requests:
 
 Thanks to [@jarkkojs](https://github.com/jarkkojs) for their contribution!
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.
+
+This month, we merged the following changes:
+
+- [Use `set_reg` method of `CS`, `DS`, `ES` and `SS` segment structs](https://github.com/rust-osdev/bootloader/pull/211)
+- [Remove feature flag for `lang_items`, `asm` and `global_asm`](https://github.com/rust-osdev/bootloader/pull/210) <span class="gray">(published as `v0.10.11`)</span>
+- [Add support for position independent executables](https://github.com/rust-osdev/bootloader/pull/206)
+- [Logger: nicer font rendering into framebuffer](https://github.com/rust-osdev/bootloader/pull/213)
+- [Rework `UsedLevel4Entries`](https://github.com/rust-osdev/bootloader/pull/219)
+- [Add small doc-comment to `entry_point!` macro](https://github.com/rust-osdev/bootloader/pull/220)
+
+Thanks to [@abachmann](https://github.com/abachmann), [@Freax13](https://github.com/Freax13), [@phip1611](https://github.com/phip1611), and [@georglauterbach](https://github.com/georglauterbach) for their contributions!
+
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
 The `multiboot2` crate provides abstraction types for the boot information of multiboot2 bootloaders.
