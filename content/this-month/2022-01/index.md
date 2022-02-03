@@ -1,12 +1,13 @@
 +++
 title = "This Month in Rust OSDev (January 2022)"
-date = 0000-01-01
+date = 2022-02-03
 
 [extra]
 month = "January 2022"
 authors = [
     "phil-opp",
     "ColinFinck",
+    "phip1611",
     # add yourself here
 ]
 +++
@@ -162,8 +163,3 @@ Regarding the state of the new edition: I'm planning to release an extra post ab
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
-
-
-<!--
-TODO: Update publication date
--->
