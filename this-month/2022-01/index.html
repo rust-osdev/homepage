@@ -1,0 +1,174 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2022-01/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (January 2022) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (January 2022)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/ColinFinck">@ColinFinck</a>, and <a href="https://github.com/phip1611">@phip1611</a>
+
+        <br>Published on <time datetime="2022-02-03">
+            Feb 03, 2022
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-01/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (January 2022)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In January, we merged the following pull requests:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/334">Add <code>Cr2::read_raw</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/336">Add support for <code>MXCSR</code> register</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/339">Bump version to <code>0.14.8</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/jarkkojs">@jarkkojs</a> for their contribution!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.</p>
+<p>This month, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/211">Use <code>set_reg</code> method of <code>CS</code>, <code>DS</code>, <code>ES</code> and <code>SS</code> segment structs</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/210">Remove feature flag for <code>lang_items</code>, <code>asm</code> and <code>global_asm</code></a> <span class="gray">(published as <code>v0.10.11</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/206">Add support for position independent executables</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/213">Logger: nicer font rendering into framebuffer</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/219">Rework <code>UsedLevel4Entries</code></a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/220">Add small doc-comment to <code>entry_point!</code> macro</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/abachmann">@abachmann</a>, <a href="https://github.com/Freax13">@Freax13</a>, <a href="https://github.com/phip1611">@phip1611</a>, and <a href="https://github.com/georglauterbach">@georglauterbach</a> for their contributions!</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>We merged the following changes in January:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/341">Release version 0.14.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/342">Release <code>uefi-services</code> version 0.11.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/338">System Table and Handle: From-implementation to create objects from raw pointers</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/335">Replace build.py with the xtask pattern</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/336">Fix logs cut off after screenshot test</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/347">Remove <code>vec_spare_capacity</code> nightly feature</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/350">uefi-macros: fix new clippy lint</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/phip1611">@phip1611</a> for their contribution!</p>
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/multiboot2"><code>multiboot2</code></a></h3>
+<p>The <code>multiboot2</code> crate provides abstraction types for the boot information of multiboot2 bootloaders.
+The latest release of the <code>multiboot2</code>-crate is now <code>v.0.13.1</code> (was <code>v0.12.2</code>). It contains minor improvements,
+such as new getters that were originally missing.</p>
+<p>The combined diff of all changes can be found <a href="https://github.com/rust-osdev/multiboot2/compare/multiboot2-header-v0.1.0...multiboot2-v0.13.1">here</a>.</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<span class="gray">
+<p><em>No tasks were proposed for this section.</em></p>
+</span>
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="ntfs"><a href="https://github.com/ColinFinck/ntfs"><code>ntfs</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/ColinFinck">@ColinFinck</a>)</span></p>
+<p>Colin Finck released an initial version of his <a href="https://github.com/ColinFinck/ntfs">ntfs</a> crate this month, a Rust library to access Microsoft's proprietary NTFS filesystem.</p>
+<p>For those of you who are not running Windows:
+NTFS is the primary filesystem in Windows, from Windows NT's release in 1993 up to the current Windows 11.
+Unlike FAT32, NTFS has no practical limits for file and partition sizes, comes with B-Tree Indexes for faster lookups, and adds a few resilience and efficiency features (such as journaling, compression, and sparse files). </p>
+<p>The ntfs crate supports Rust's no_std environment and is therefore not tied to a specific platform API.
+It aims to be embeddable in firmware-level code and kernels just as well as in user-mode applications.</p>
+<p>Colin Finck will <a href="https://fosdem.org/2022/schedule/event/misc_ntfs_rust/">talk about NTFS</a> and his adventures in writing a filesystem crate in Rust on the upcoming FOSDEM conference.
+The talk is on Saturday, 5 February at 17:00 (CET, UTC+1).
+The conference is virtual and admission is free.</p>
+<h3 id="phip1611-noto-sans-mono-bitmap-rs"><a href="https://github.com/phip1611/noto-sans-mono-bitmap-rs"><code>phip1611/noto-sans-mono-bitmap-rs</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phip1611">@phip1611</a>)</span></p>
+<p>Philipp Schuster released an initial version of his <a href="https://github.com/phip1611/noto-sans-mono-bitmap-rs">noto-sans-mono-bitmap</a>
+crate this month. It provides a pre-rasterized bitmap font from <em>Noto Sans Mono</em>, an open font from Google.
+The crate is a replacement for legacy bitmap fonts, such as the <a href="https://crates.io/crates/font8x8">font8x8 crate</a>.
+It is suitable for printing high quality/nice looking text to a framebuffer in bootloaders, kernels and similar 
+environments where you don't want or can't use the FPU.</p>
+<p>To avoid CPU intensive soft float workloads, the crate contains pre-rendered symbols from the <a href="https://fonts.google.com/noto/specimen/Noto+Sans+Mono">Noto Sans Mono font</a>
+in different sizes and font weights (light, regular, bold) as Rust constants paired with a convenient getter function.</p>
+<p><img src="https://rust-osdev.com/this-month/2022-01/framebuffer-font-noto-sans-mono.png" alt="Symbols from the crate 'noto-sans-mono-bitmap' in an UEFI framebuffer." title="Symbols from the crate 'noto-sans-mono-bitmap' in an UEFI framebuffer." /></p>
+<p>The screenshot above shows text that is rendered into an UEFI framebuffer using the bitmap font 
+from <code>noto-sans-mono-bitmap</code>.</p>
+<p>An example of usage can be found in <a href="https://github.com/rust-osdev/bootloader/pull/213">PR#213</a> of the 
+<code>rust-osdev/bootloader</code> crate, where this crate was merged and replaced <code>font8x8</code>.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>This month, we merged three small improvements for the <em>Writing an OS in Rust</em> blog:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1067">Add Chinese translation for index page</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1061">Upgrade to zola 0.15.3</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/commit/b24122a6044879d2305e65d30960dc03cd50ff17">Remove dark mode warning again</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/TisnKu">@TisnKu</a> for their contribution!</p>
+<p>I have also brought the <a href="https://github.com/phil-opp/blog_os/commits/edition-3"><code>edition-3</code></a> branch up to date again. I marked all the stub posts of the upcoming third edition as drafts, which should allow us to merge the unfinished branch now and then prepare the new edition directly in the <code>main</code> branch (without publishing them yet). This way, we can avoid that the branches diverge too much.</p>
+<p>Regarding the state of the new edition: I'm planning to release an extra post about UEFI booting first because that article is almost ready. For the main posts of the edition, I'm still waiting for a few cargo features, namely artifact dependencies, a package/target-specific way to enable the unstable <code>build-std</code> feature, and fixes for the experimental <code>package.forced-target</code> manifest key. I also intend to have the new version of the <code>bootloader</code> crate ready soon, which should make the build and test process simpler and more robust.</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
