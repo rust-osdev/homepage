@@ -25,7 +25,7 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 We try to collect posts that are relevant to Rust-based OS development each month. Please create pull requests for any posts that you want linked in the next issue.
 
 - [Rust/WinRT Public Preview](https://blogs.windows.com/windowsdeveloper/2020/04/30/rust-winrt-public-preview/)
-- [Georgia Tech CS-3210: Write an OS for the Raspberry Pi in Rust](https://tc.gts3.org/cs3210/2020/spring/lab.html)
+- [Georgia Tech CS-3210: Write an OS for the Raspberry Pi in Rust](https://web.archive.org/web/20210303034834/https://tc.gts3.org/cs3210/2020/spring/lab.html)
 - [Rust-Written Redox OS Booting The 128-Thread AMD Ryzen Threadripper 3990X](https://www.phoronix.com/scan.php?page=news_item&px=Redox-OS-On-Threadripper-3990X)
 
 ## Project Updates
