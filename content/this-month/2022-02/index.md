@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "February 2022"
 authors = [
     "phil-opp",
+    "GabrielMajeri",
     # add yourself here
 ]
 +++
@@ -37,6 +38,36 @@ In this section, we give an overview of notable changes to the projects hosted u
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
 In February, …
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+One of the pain points of developers building software using `uefi-rs` has been the `Completion` type, which is like an expanded `Result` type which also handles warnings (besides successes and errors). There's an [open proposal](https://github.com/rust-osdev/uefi-rs/issues/360#issuecomment-1056004728) to drop this type and revert to using more standard `Result`s everywhere, by treating all warnings as errors. Initial feedback suggests that such a change would be beneficial to the project, but comments and suggestions are welcome on the linked issue.
+
+We merged the following changes in February:
+
+- [Run tests on AArch64 VM in CI](https://github.com/rust-osdev/uefi-rs/pull/353)
+- [Add IA32 target to `xtask` and test it in CI](https://github.com/rust-osdev/uefi-rs/pull/354)
+- [Fix links in project template `README` file](https://github.com/rust-osdev/uefi-rs/pull/356)
+- [Remove `CStr16::as_string`](https://github.com/rust-osdev/uefi-rs/pull/357)
+- [Fix status code check at end of VM test](https://github.com/rust-osdev/uefi-rs/pull/355)
+- [Automatically test latest crate release on latest nightly in CI](https://github.com/rust-osdev/uefi-rs/pull/348)
+- [Fix various phrasing inconsistencies and spelling errors in protocol docs](https://github.com/rust-osdev/uefi-rs/pull/193)
+- [Remove implicit string conversion from `File::open`](https://github.com/rust-osdev/uefi-rs/pull/363)
+- [Expand `Align` trait docstring](https://github.com/rust-osdev/uefi-rs/pull/367)
+- [Add string equality operator impls](https://github.com/rust-osdev/uefi-rs/pull/366)
+- [Fix file info structures' sizes and add tests](https://github.com/rust-osdev/uefi-rs/pull/365)
+- [Implicitly run tests with `+nightly`](https://github.com/rust-osdev/uefi-rs/pull/364)
+- [Remove more implicit string conversions](https://github.com/rust-osdev/uefi-rs/pull/368)
+- [Add a `CHANGELOG.md`](https://github.com/rust-osdev/uefi-rs/pull/369)
+- [Add minimal test for `LoadedImage` protocol](https://github.com/rust-osdev/uefi-rs/pull/370)
+- [Fix `ProtocolsPerHandle` internal slice property](https://github.com/rust-osdev/uefi-rs/pull/374)
+- [Update changelog for file info changes](https://github.com/rust-osdev/uefi-rs/pull/373)
+- [Make the load options API on `LoadedImage` protocol safer](https://github.com/rust-osdev/uefi-rs/pull/375)
+- [Switch all packages to the 2021 edition](https://github.com/rust-osdev/uefi-rs/pull/376)
+
+Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@Stzx](https://github.com/Stzx), [@avirule](https://github.com/avirule) and [@AtsukiTak](https://github.com/AtsukiTak) for their contributions!
 
 ## Call for Participation
 
