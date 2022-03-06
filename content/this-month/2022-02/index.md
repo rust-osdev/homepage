@@ -31,25 +31,6 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
-### [`x86_64`](https://github.com/rust-osdev/x86_64)
-
-<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13), and [@rybot666](https://github.com/orgs/rust-osdev/people/rybot666)</span>
-
-The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
-
-In February, we merged the following pull requests:
-
-- [Remove external assembly](https://github.com/rust-osdev/x86_64/pull/343)
-- [Implement core::iter::Step for VirtAddr and Page](https://github.com/rust-osdev/x86_64/pull/342)
-- [Make fields of `VirtAddrNotValid` and `PhysAddrNotValid` public](https://github.com/rust-osdev/x86_64/pull/340)
-- [Fix: `VirtAddrNotValid` and `PhysAddrNotValid` should contain the whole address](https://github.com/rust-osdev/x86_64/pull/347)
-
-We also merged a few breaking changes, which will be part of the upcoming `v0.15` release:
-
-- [Merge latest changes from master into next and migrate code](https://github.com/rust-osdev/x86_64/pull/338)
-- [Make `Cr2::read` return a result](https://github.com/rust-osdev/x86_64/pull/335)
-- [Remove external_asm and inline_asm features](https://github.com/rust-osdev/x86_64/pull/345)
-
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
 <span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/orgs/rust-osdev/people/nicholasbishop), and [@HadrienG2](https://github.com/orgs/rust-osdev/people/HadrienG2)</span>
@@ -81,6 +62,25 @@ We merged the following changes in February:
 - [Switch all packages to the 2021 edition](https://github.com/rust-osdev/uefi-rs/pull/376)
 
 Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@Stzx](https://github.com/Stzx), [@avirule](https://github.com/avirule) and [@AtsukiTak](https://github.com/AtsukiTak) for their contributions!
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13), and [@rybot666](https://github.com/orgs/rust-osdev/people/rybot666)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+In February, we merged the following pull requests:
+
+- [Remove external assembly](https://github.com/rust-osdev/x86_64/pull/343)
+- [Implement core::iter::Step for VirtAddr and Page](https://github.com/rust-osdev/x86_64/pull/342)
+- [Make fields of `VirtAddrNotValid` and `PhysAddrNotValid` public](https://github.com/rust-osdev/x86_64/pull/340)
+- [Fix: `VirtAddrNotValid` and `PhysAddrNotValid` should contain the whole address](https://github.com/rust-osdev/x86_64/pull/347)
+
+We also merged a few breaking changes, which will be part of the upcoming `v0.15` release:
+
+- [Merge latest changes from master into next and migrate code](https://github.com/rust-osdev/x86_64/pull/338)
+- [Make `Cr2::read` return a result](https://github.com/rust-osdev/x86_64/pull/335)
+- [Remove external_asm and inline_asm features](https://github.com/rust-osdev/x86_64/pull/345)
 
 ### [`bootloader`](https://github.com/rust-osdev/bootloader)
 
