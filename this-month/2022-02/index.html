@@ -1,0 +1,174 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2022-02/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: February 2022 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: February 2022</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>
+
+        <br>Published on <time datetime="2022-03-06">
+            Mar 06, 2022
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-02/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (February 2022)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/orgs/rust-osdev/people/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/orgs/rust-osdev/people/HadrienG2">@HadrienG2</a></span></p>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>One of the pain points of developers building software using <code>uefi-rs</code> has been the <code>Completion</code> type, which is like an expanded <code>Result</code> type which also handles warnings (besides successes and errors). There's an <a href="https://github.com/rust-osdev/uefi-rs/issues/360">open proposal</a> to drop this type and revert to using more standard <code>Result</code>s everywhere, by treating all warnings as errors. Initial feedback suggests that such a change would be beneficial to the project, but comments and suggestions are welcome on the linked issue.</p>
+<p>We merged the following changes in February:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/353">Run tests on AArch64 VM in CI</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/354">Add IA32 target to <code>xtask</code> and test it in CI</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/356">Fix links in project template <code>README</code> file</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/357">Remove <code>CStr16::as_string</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/355">Fix status code check at end of VM test</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/348">Automatically test latest crate release on latest nightly in CI</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/193">Fix various phrasing inconsistencies and spelling errors in protocol docs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/363">Remove implicit string conversion from <code>File::open</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/367">Expand <code>Align</code> trait docstring</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/366">Add string equality operator impls</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/365">Fix file info structures' sizes and add tests</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/364">Implicitly run tests with <code>+nightly</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/368">Remove more implicit string conversions</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/369">Add a <code>CHANGELOG.md</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/370">Add minimal test for <code>LoadedImage</code> protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/374">Fix <code>ProtocolsPerHandle</code> internal slice property</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/373">Update changelog for file info changes</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/375">Make the load options API on <code>LoadedImage</code> protocol safer</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/376">Switch all packages to the 2021 edition</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, <a href="https://github.com/Stzx">@Stzx</a>, <a href="https://github.com/avirule">@avirule</a> and <a href="https://github.com/AtsukiTak">@AtsukiTak</a> for their contributions!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a>, and <a href="https://github.com/orgs/rust-osdev/people/rybot666">@rybot666</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In February, we merged the following pull requests:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/343">Remove external assembly</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/342">Implement <code>core::iter::Step</code> for <code>VirtAddr</code> and <code>Page</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/340">Make fields of <code>VirtAddrNotValid</code> and <code>PhysAddrNotValid</code> public</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/347">Fix: <code>VirtAddrNotValid</code> and <code>PhysAddrNotValid</code> should contain the whole address</a></li>
+</ul>
+<p>We also merged a few breaking changes, which will be part of the upcoming <code>v0.15</code> release:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/338">Merge latest changes from <code>master</code> into <code>next</code> and migrate code</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/335">Make <code>Cr2::read</code> return a result</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/345">Remove <code>external_asm</code> and <code>inline_asm</code> features</a></li>
+</ul>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/rybot666">@rybot666</a>, and <a href="https://github.com/64">@64</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/221">Add ASLR</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/222"><code>maybe_uninit_extra</code> is no longer feature-gated</a> <span class="gray">(published as <code>v0.10.12</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/227">[v0.9] Remove the <code>asm</code> and <code>global_asm</code> features, which are now stable</a> <span class="gray">(published as <code>v0.9.22</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Freax13">@Freax13</a> and <a href="https://github.com/kennystrawnmusic">@kennystrawnmusic</a> for their contributions!</p>
+<p>We also pushed a <a href="https://github.com/rust-osdev/bootloader/commit/8fb5eff0de2f776979271b771e78c94af752135e">big restructuring</a> to the <a href="https://github.com/rust-osdev/bootloader/tree/next"><code>next</code></a> branch, which will become the <code>v0.11</code> version eventually. The branch is still in an experimental state and not documented yet, so it's probably a bit early to try it out. But we are making good progress!</p>
+<h3 id="vga"><a href="https://github.com/rust-osdev/vga"><code>vga</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/RKennedy9064">@RKennedy9064</a></span></p>
+<p>The work-in-progress <code>vga</code> crate allows the configuration of the VGA hardware, e.g. switching from text-based mode to a pixel-based graphics mode. This month, we merged the following pull request:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/vga/pull/26">Set color palette to standard 256 VGA palette</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/clavierpaul">@clavierpaul</a> for this contribution!</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/issues/360">(<code>rust-osdev/uefi</code>) Feedback requested: Treat UEFI warnings as errors</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1079">(<code>phil-opp/blog_os</code>) Looking for a reviewer for a new Korean translation</a></li>
+</ul>
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged two fixes for the <em>Writing an OS in Rust</em> blog this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1077">Fix link to MS Docs</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1080">Fix typo in <code>02-minimal-rust-kernel</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/kITerE">@kITerE</a> and <a href="https://github.com/MaxDesiatov">@MaxDesiatov</a> for these contributions!</p>
+<p>I'm also still working on the third edition of the blog. The current state is the following:</p>
+<ul>
+<li>This month, cargo finally gained <a href="https://github.com/rust-lang/cargo/pull/9992">support for artifact dependencies</a>, which is a feature that I plan to use for the edition. There are still a few issues with it, for example <a href="https://github.com/rust-lang/cargo/issues/10444">a panic in combination with <code>-Zbuild-std</code></a> and that there is currently no way to enable <code>-Zbuild-std=core</code> for an artifact dependency without enabling it globally.</li>
+<li>The upcoming <code>v0.11</code> version of the <code>bootloader</code> crate is already finished for the UEFI part. I'm still working on the BIOS implementation, which is more difficult unfortunately.</li>
+</ul>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
