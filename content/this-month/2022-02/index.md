@@ -71,6 +71,22 @@ We merged the following changes in February:
 
 Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@Stzx](https://github.com/Stzx), [@avirule](https://github.com/avirule) and [@AtsukiTak](https://github.com/AtsukiTak) for their contributions!
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@rybot666](https://github.com/rybot666), and [@64](https://github.com/64)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.
+
+We merged the following changes this month:
+
+- [Add ASLR](https://github.com/rust-osdev/bootloader/pull/221)
+- [`maybe_uninit_extra` is no longer feature-gated](https://github.com/rust-osdev/bootloader/pull/222) <span class="gray">(published as `v0.10.12`)</span>
+- [[v0.9] Remove the `asm` and `global_asm` features, which are now stable](https://github.com/rust-osdev/bootloader/pull/227) <span class="gray">(published as `v0.9.22`)</span>
+
+Thanks to [@Freax13](https://github.com/Freax13) and [@kennystrawnmusic](https://github.com/kennystrawnmusic) for their contributions!
+
+We also pushed a [big restructuring](https://github.com/rust-osdev/bootloader/commit/8fb5eff0de2f776979271b771e78c94af752135e) to the [`next`](https://github.com/rust-osdev/bootloader/tree/next) branch, which will become the `v0.11` version eventually. The branch is still in an experimental state and not documented yet, so it's probably a bit early to try it out. But we are making good progress!
+
 ### [`vga`](https://github.com/rust-osdev/vga)
 
 <span class="maintainers">Maintained by [@RKennedy9064](https://github.com/RKennedy9064)</span>
