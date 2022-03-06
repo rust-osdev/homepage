@@ -130,9 +130,19 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 ### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
 
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+We merged two fixes for the _Writing an OS in Rust_ blog this month:
+
+- [Fix link to MS Docs](https://github.com/phil-opp/blog_os/pull/1077)
+- [Fix typo in `02-minimal-rust-kernel`](https://github.com/phil-opp/blog_os/pull/1080)
+
+Thanks to [@kITerE](https://github.com/kITerE) and [@MaxDesiatov](https://github.com/MaxDesiatov) for these contributions!
+
+I'm also still working on the third edition of the blog. The current state is the following:
+
+- This month, cargo finally gained [support for artifact dependencies](https://github.com/rust-lang/cargo/pull/9992), which is a feature that I plan to use for the edition. There are still a few issues with it, for example [a panic in combination with `-Zbuild-std`](https://github.com/rust-lang/cargo/issues/10444) and that there is currently no way to enable `-Zbuild-std=core` for an artifact dependency without enabling it globally.
+- The upcoming `v0.11` version of the `bootloader` crate is already finished for the UEFI part. I'm still working on the BIOS implementation, which is more difficult unfortunately.
 
 ## Join Us?
 
