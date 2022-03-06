@@ -41,6 +41,8 @@ In February, …
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/orgs/rust-osdev/people/nicholasbishop), and [@HadrienG2](https://github.com/orgs/rust-osdev/people/HadrienG2)</span>
+
 The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
 
 One of the pain points of developers building software using `uefi-rs` has been the `Completion` type, which is like an expanded `Result` type which also handles warnings (besides successes and errors). There's an [open proposal](https://github.com/rust-osdev/uefi-rs/issues/360#issuecomment-1056004728) to drop this type and revert to using more standard `Result`s everywhere, by treating all warnings as errors. Initial feedback suggests that such a change would be beneficial to the project, but comments and suggestions are welcome on the linked issue.
