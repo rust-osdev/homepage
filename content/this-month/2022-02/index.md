@@ -72,15 +72,15 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 In February, we merged the following pull requests:
 
 - [Remove external assembly](https://github.com/rust-osdev/x86_64/pull/343)
-- [Implement core::iter::Step for VirtAddr and Page](https://github.com/rust-osdev/x86_64/pull/342)
+- [Implement `core::iter::Step` for `VirtAddr` and `Page`](https://github.com/rust-osdev/x86_64/pull/342)
 - [Make fields of `VirtAddrNotValid` and `PhysAddrNotValid` public](https://github.com/rust-osdev/x86_64/pull/340)
 - [Fix: `VirtAddrNotValid` and `PhysAddrNotValid` should contain the whole address](https://github.com/rust-osdev/x86_64/pull/347)
 
 We also merged a few breaking changes, which will be part of the upcoming `v0.15` release:
 
-- [Merge latest changes from master into next and migrate code](https://github.com/rust-osdev/x86_64/pull/338)
+- [Merge latest changes from `master` into `next` and migrate code](https://github.com/rust-osdev/x86_64/pull/338)
 - [Make `Cr2::read` return a result](https://github.com/rust-osdev/x86_64/pull/335)
-- [Remove external_asm and inline_asm features](https://github.com/rust-osdev/x86_64/pull/345)
+- [Remove `external_asm` and `inline_asm` features](https://github.com/rust-osdev/x86_64/pull/345)
 
 ### [`bootloader`](https://github.com/rust-osdev/bootloader)
 
