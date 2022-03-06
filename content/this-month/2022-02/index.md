@@ -71,6 +71,16 @@ We merged the following changes in February:
 
 Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@Stzx](https://github.com/Stzx), [@avirule](https://github.com/avirule) and [@AtsukiTak](https://github.com/AtsukiTak) for their contributions!
 
+### [`vga`](https://github.com/rust-osdev/vga)
+
+<span class="maintainers">Maintained by [@RKennedy9064](https://github.com/RKennedy9064)</span>
+
+The work-in-progress `vga` crate allows the configuration of the VGA hardware, e.g. switching from text-based mode to a pixel-based graphics mode. This month, we merged the following pull request:
+
+- [Set color palette to standard 256 VGA palette](https://github.com/rust-osdev/vga/pull/26)
+
+Thanks to [@clavierpaul](https://github.com/clavierpaul) for this contribution!
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
