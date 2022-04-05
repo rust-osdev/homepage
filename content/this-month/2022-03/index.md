@@ -38,6 +38,54 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In March, …
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri) and [@nicholasbishop](https://github.com/orgs/rust-osdev/people/nicholasbishop)</span>
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+One of the pain points of developers building software using `uefi-rs` has been the `Completion` type, which is like an expanded `Result` type which also handles warnings (besides successes and errors). The [RFC for the removal of the `Completion` type](https://github.com/rust-osdev/uefi-rs/issues/360) has been accepted and the corresponding changes [have been merged](https://github.com/rust-osdev/uefi-rs/pull/361) in March: the `Completion` type has been removed and the crate has reverted to using more standard `Result`s everywhere, by treating all warnings as errors.
+
+We merged the following changes in March:
+
+#### New features/protocols
+
+- [Implement the `connect_controller`/`disconnect_controller` methods](https://github.com/rust-osdev/uefi-rs/pull/311)
+- [Implement `BootServices::locate_handle_buffer` function](https://github.com/rust-osdev/uefi-rs/pull/380)
+- [Add rng protocol](https://github.com/rust-osdev/uefi-rs/pull/386)
+- [Add `BootServices::load_image`](https://github.com/rust-osdev/uefi-rs/pull/383)
+- [Add `GptPartitionAttributes` bitflags](https://github.com/rust-osdev/uefi-rs/pull/388)
+- [Add `FileHandle` convenience methods and new file system tests](https://github.com/rust-osdev/uefi-rs/pull/392)
+- [Add `RuntimeServices::query_variable_info`](https://github.com/rust-osdev/uefi-rs/pull/396)
+
+#### Refactorings
+
+- [Make `Error` public](https://github.com/rust-osdev/uefi-rs/pull/382)
+- [Simplify `uefi::Result` type and remove `Completion`](https://github.com/rust-osdev/uefi-rs/pull/361)
+- [Improve `Time` struct](https://github.com/rust-osdev/uefi-rs/pull/395)
+
+#### Bug fixes
+
+- [Fix alignment issues in file info types](https://github.com/rust-osdev/uefi-rs/pull/377)
+- [Update changelog for file info changes](https://github.com/rust-osdev/uefi-rs/pull/373)
+- [Make `LoadedImage`'s load options API safer](https://github.com/rust-osdev/uefi-rs/pull/375)
+- [Fix status to `Result` conversions](https://github.com/rust-osdev/uefi-rs/pull/389)
+
+#### CI & testing
+
+- [Add miri action to `xtask` and CI](https://github.com/rust-osdev/uefi-rs/pull/381)
+- [Don't run doctests with invalid pointers](https://github.com/rust-osdev/uefi-rs/pull/378)
+
+#### Misc & chores
+
+- [Add package sections to changelog](https://github.com/rust-osdev/uefi-rs/pull/385)
+- [Remove some no-longer-needed unstable features](https://github.com/rust-osdev/uefi-rs/pull/387)
+- [Drop maintenance badges from the README](https://github.com/rust-osdev/uefi-rs/pull/393)
+- [Remove no-longer-needed allows for clippy lints](https://github.com/rust-osdev/uefi-rs/pull/394)
+- [Publish new versions of the crates](https://github.com/rust-osdev/uefi-rs/pull/390)
+
+Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@sven-eliasen](https://github.com/sven-eliasen), [@necauqua](https://github.com/necauqua) and [@AtsukiTak](https://github.com/AtsukiTak) for their contributions!
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
