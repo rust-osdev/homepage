@@ -127,6 +127,25 @@ or in a similar `no_std` application. It is part of the roottask in [Philipp's D
 where he wrote a runtime system for a Microkernel in Rust.
 
 
+### [`phip1611/linux-libc-auxv`](https://github.com/phip1611/linux-libc-auxv)
+
+<span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+Philipp Schuster released an initial version of his [linux-libc-auxv](https://github.com/phip1611/linux-libc-auxv)
+crate this month. The crate enables the creation and the parsing of the initial Linux stack layout. This layout is a 
+special data structure that Linux prepares for applications before they start execution. The C runtime behind the 
+`_start` symbol of a libc implementation uses this to find program arguments, environment variables, and the 
+auxiliary vector. The layout is tricky to create because the creator must ensure that the layout is valid in the 
+address space of the target. However, `linux-libc-auxv` found a way to cope with this.  
+
+You can write a "freestanding" binary, i.e., without libc, with this crate, run it under Linux and parse the stack 
+layout yourself. This is similar to what the libc does, before Rust's runtime starts, that eventually calls the 
+main function of a Rust program.
+
+The crate is part of [Philipp's Diplom (Master) Thesis](https://github.com/phip1611/diplomarbeit-impl)
+where he wrote a runtime system for a Microkernel in Rust that can emulate Linux behaviour and run unmodified 
+Linux applications.
+
 ### [`phip1611/diplomarbeit-impl`](https://github.com/phip1611/diplomarbeit-impl)
 
 <span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
