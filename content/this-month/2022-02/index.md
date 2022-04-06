@@ -33,7 +33,7 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
-<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/orgs/rust-osdev/people/nicholasbishop), and [@HadrienG2](https://github.com/orgs/rust-osdev/people/HadrienG2)</span>
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri) and [@nicholasbishop](https://github.com/orgs/rust-osdev/people/nicholasbishop)</span>
 
 The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
 
