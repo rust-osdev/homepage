@@ -118,8 +118,8 @@ This month, ...
 
 <span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
 
-Philipp Schuster released an initial version of his [simple-chunk-allocator](https://github.com/phip1611/simple-chunk-allocator)
-crate this month. It focuses on being a very simple-to-use general purpose allocator that "just works" for various workloads 
+Philipp Schuster recently released an initial version of his [simple-chunk-allocator](https://github.com/phip1611/simple-chunk-allocator)
+crate. It focuses on being a very simple-to-use general purpose allocator that "just works" for various workloads 
 in `no_std` context. A bitmap is used for bookkeeping of used blocks/chunks. This enables a simple algorithm that is easy
 to understand. The allocator uses a combination of the strategies "next fit" and "best fit". It is usable as `#[global_allocator]` 
 and operates on static memory, i.e., no paging mechanism involved. The crate is suited to manage the heap inside a kernel 
@@ -131,8 +131,8 @@ where he wrote a runtime system for a Microkernel in Rust.
 
 <span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
 
-Philipp Schuster released an initial version of his [linux-libc-auxv](https://github.com/phip1611/linux-libc-auxv)
-crate this month. The crate enables the creation and the parsing of the initial Linux stack layout. This layout is a 
+Philipp Schuster recently released an initial version of his [linux-libc-auxv](https://github.com/phip1611/linux-libc-auxv)
+crate. The crate enables the creation and the parsing of the initial Linux stack layout. This layout is a 
 special data structure that Linux prepares for applications before they start execution. The C runtime behind the 
 `_start` symbol of a libc implementation uses this to find program arguments, environment variables, and the 
 auxiliary vector. The layout is tricky to create because the creator must ensure that the layout is valid in the 
