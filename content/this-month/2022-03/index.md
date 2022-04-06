@@ -114,6 +114,29 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 This month, ...
 
+### [`phip1611/simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator)
+
+<span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+Philipp Schuster released an initial version of his [simple-chunk-allocator](https://github.com/phip1611/simple-chunk-allocator)
+crate this month. It focuses on being a very simple-to-use general purpose allocator that "just works" for various workloads 
+in `no_std` context. A bitmap is used for bookkeeping of used blocks/chunks. This enables a simple algorithm that is easy
+to understand. The allocator uses a combination of the strategies "next fit" and "best fit". It is usable as `#[global_allocator]` 
+and operates on static memory, i.e., no paging mechanism involved. The crate is suited to manage the heap inside a kernel 
+or in a similar `no_std` application. It is part of the roottask in [Philipp's Diplom (Master) Thesis](https://github.com/phip1611/diplomarbeit-impl) 
+where he wrote a runtime system for a Microkernel in Rust.
+
+
+### [`phip1611/diplomarbeit-impl`](https://github.com/phip1611/diplomarbeit-impl)
+
+<span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+Philipp Schuster submitted his Diplom (Master) Thesis at TU Dresden where he build a policy-free system-call layer for 
+the Hedron microhypervisor. The project comes with a runtime system written in Rust for the microkernel and involves 
+a roottask that enables the execution of unmodified Linux binaries through an OS personality/Linux emulation. The 
+runtime system covers several interesting aspects of OS development, such as interaction with a kernel, system call
+emulation, and starting programs from ELF files.
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
