@@ -87,6 +87,25 @@ We merged the following changes in March:
 
 Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@sven-eliasen](https://github.com/sven-eliasen), [@necauqua](https://github.com/necauqua) and [@AtsukiTak](https://github.com/AtsukiTak) for their contributions!
 
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following changes this month:
+
+- [Remove stabilized nightly feature `const_ptr_offset`](https://github.com/rust-osdev/uart_16550/pull/22) <span class="gray">(published as `v0.2.17`)</span>
+
+Thanks to [@tsatke](https://github.com/tsatke) for this contribution!
+
+### [`xhci`](https://github.com/rust-osdev/xhci)
+
+<span class="maintainers">Maintained by [@toku-sa-n](https://github.com/toku-sa-n)</span>
+
+The `xhci` crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs. This month, we merged some cleanups:
+
+- [fix: clippy warnings](https://github.com/rust-osdev/xhci/pull/130)
+- [ci(deps): enable dependabot](https://github.com/rust-osdev/xhci/pull/129)
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
