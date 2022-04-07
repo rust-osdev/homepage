@@ -7,6 +7,7 @@ month = "March 2022"
 authors = [
     "phil-opp",
     "GabrielMajeri",
+    "josephlr",
     # add yourself here
 ]
 +++
@@ -37,7 +38,56 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-In March, …
+This month, we released version **`0.14.9`** of the `x86_64` crate with lots of improvements:
+
+#### New Features
+
+- [Add `UCet` and `SCet` registers](https://github.com/rust-osdev/x86_64/pull/349)
+- [Specific MSRV now noted in `README`](https://github.com/rust-osdev/x86_64/pull/355)
+- Use [`rustversion`](https://crates.io/crates/rustversion) to [mark certain functions `const fn` on Rust 1.61](https://github.com/rust-osdev/x86_64/pull/353)
+- [`Entry::handler_addr()` is now public](https://github.com/rust-osdev/x86_64/pull/354)
+- [Increase packed structure alignment](https://github.com/rust-osdev/x86_64/pull/362)
+- [Make more address methods `const fn`](https://github.com/rust-osdev/x86_64/pull/369)
+  - `VirtAddr::as_ptr()`
+  - `VirtAddr::as_mut_ptr()`
+  - `PhysAddr::new()`
+  - `PhysAddr::try_new()`
+
+_Already merged last month:_
+
+- [Remove all uses of external assembly](https://github.com/rust-osdev/x86_64/pull/343)
+  - `external_asm` and `inline_asm` features are deprecated and now have no effect.
+  - `instructions` feature (on by default) now requires Rust 1.59
+- [Implement `core::iter::Step` for `VirtAddr` and `Page`](https://github.com/rust-osdev/x86_64/pull/342)
+  - This trait is only available on nightly.
+  - Gated behind `step_trait` feature flag
+- [Address in `VirtAddrNotValid` and `PhysAddrNotValid` is now public](https://github.com/rust-osdev/x86_64/pull/340)
+  - [This field now contains the whole invalid address](https://github.com/rust-osdev/x86_64/pull/347)
+
+#### Bug fixes and Documentation
+
+- [Fixed overflow bug in `PageRangeInclusive`](https://github.com/rust-osdev/x86_64/pull/351)
+- [Remove stabilized `const_fn_fn_ptr_basics` and `const_fn_trait_bound` features](https://github.com/rust-osdev/x86_64/pull/352)
+- [Don't set `nomem` in `load_tss`](https://github.com/rust-osdev/x86_64/pull/358)
+- [Correctly initialize TSS's IOPB to be empty](https://github.com/rust-osdev/x86_64/pull/357)
+- [Improve `GlobalDescriptorTable::add_entry` error handling](https://github.com/rust-osdev/x86_64/pull/361))
+- [Update `tss_segment` documentation](https://github.com/rust-osdev/x86_64/pull/366))
+
+Thanks to [@jarkkojs](https://github.com/jarkkojs), [@drzewiec](https://github.com/drzewiec), and [@kevinaboos](https://github.com/kevinaboos) for contributing to this release!
+
+#### v0.15
+
+We also merged some breaking changes which will be published in the upcoming `v0.15` release:
+
+- [Allow the GDT to be of any length](https://github.com/rust-osdev/x86_64/pull/360)
+  - [gdt: Check that MAX is in range](https://github.com/rust-osdev/x86_64/pull/365)
+- [`VirtAddr` improvements](https://github.com/rust-osdev/x86_64/pull/370)
+- [Remove `software_interrupt!` macro](https://github.com/rust-osdev/x86_64/pull/363)
+- [Remove usize trait impls](https://github.com/rust-osdev/x86_64/pull/364)
+- [Remove deprecated functions/flags](https://github.com/rust-osdev/x86_64/pull/368)
+- [Update "next" MSRV to 1.59](https://github.com/rust-osdev/x86_64/pull/359)
+
+Special thanks to our co-maintainer [@josephlr](https://github.com/josephlr), who did a lot of great work this month!
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
