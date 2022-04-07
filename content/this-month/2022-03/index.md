@@ -178,12 +178,6 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
-### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
-
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
-
-This month, ...
-
 ### [`phip1611/simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator)
 
 <span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
@@ -225,6 +219,16 @@ the Hedron microhypervisor. The project comes with a runtime system written in R
 a roottask that enables the execution of unmodified Linux binaries through an OS personality/Linux emulation. The 
 runtime system covers several interesting aspects of OS development, such as interaction with a kernel, system call
 emulation, and starting programs from ELF files.
+
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+
+<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged a [new Korean translation](https://github.com/JOE1994) of first post of [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month. Thanks a lot to [@JOE1994](https://github.com/JOE1994) for creating this translation and [@QuqqU](https://github.com/QuqqU) for reviewing it!
+
+We also received lots of smaller fixes, by [@MaxDesiatov](https://github.com/phil-opp/blog_os/pull/1080), [@alaincao](https://github.com/phil-opp/blog_os/pull/1089), [@Programatic](https://github.com/phil-opp/blog_os/pull/1096), [@ruhuang2001](https://github.com/phil-opp/blog_os/pull/1091), [@Hofer-Julian](https://github.com/phil-opp/blog_os/pull/1093), [@SilensAngelusNex](https://github.com/phil-opp/blog_os/pull/1094), and [@julien-me](https://github.com/phil-opp/blog_os/pull/1095). Thank you all for your contributions!
+
+Unfortunately I didn't have time to work on the new version of the `bootloader` crate for the upcoming third edition of the blog this month. However, there was some surprising development on the Rust side that should help us with the new build system: [@bstrie](https://github.com/bstrie) created a _Major Change Proposal_ to [promote the `x86_64-unknown-none` target to Tier 2](https://github.com/rust-lang/compiler-team/issues/499). This is a bare-metal target that should be compatible with our kernel, so we might not need `-Zbuild-std` anymore in the future. Instead, we could download a precompiled version of the `core`/`alloc` crates via `rustup target add`. The great news is that the proposal was already accepted and the [corresponding implementation PR](https://github.com/rust-lang/rust/pull/95705) is ready for review too!
 
 ## Join Us?
 
