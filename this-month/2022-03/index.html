@@ -1,0 +1,255 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2022-03/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev (March 2022) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev (March 2022)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, and <a href="https://github.com/josephlr">@josephlr</a>
+
+        <br>Published on <time datetime="2022-04-07">
+            Apr 07, 2022
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-03/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (March 2022)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a>, and <a href="https://github.com/orgs/rust-osdev/people/rybot666">@rybot666</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>This month, we released version <strong><code>0.14.9</code></strong> of the <code>x86_64</code> crate with lots of improvements:</p>
+<h4 id="new-features">New Features</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/349">Add <code>UCet</code> and <code>SCet</code> registers</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/355">Specific MSRV now noted in <code>README</code></a></li>
+<li>Use <a href="https://crates.io/crates/rustversion"><code>rustversion</code></a> to <a href="https://github.com/rust-osdev/x86_64/pull/353">mark certain functions <code>const fn</code> on Rust 1.61</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/354"><code>Entry::handler_addr()</code> is now public</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/362">Increase packed structure alignment</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/369">Make more address methods <code>const fn</code></a>
+<ul>
+<li><code>VirtAddr::as_ptr()</code></li>
+<li><code>VirtAddr::as_mut_ptr()</code></li>
+<li><code>PhysAddr::new()</code></li>
+<li><code>PhysAddr::try_new()</code></li>
+</ul>
+</li>
+</ul>
+<p><em>Already merged last month:</em></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/343">Remove all uses of external assembly</a>
+<ul>
+<li><code>external_asm</code> and <code>inline_asm</code> features are deprecated and now have no effect.</li>
+<li><code>instructions</code> feature (on by default) now requires Rust 1.59</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/342">Implement <code>core::iter::Step</code> for <code>VirtAddr</code> and <code>Page</code></a>
+<ul>
+<li>This trait is only available on nightly.</li>
+<li>Gated behind <code>step_trait</code> feature flag</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/340">Address in <code>VirtAddrNotValid</code> and <code>PhysAddrNotValid</code> is now public</a>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/347">This field now contains the whole invalid address</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="bug-fixes-and-documentation">Bug fixes and Documentation</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/351">Fixed overflow bug in <code>PageRangeInclusive</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/352">Remove stabilized <code>const_fn_fn_ptr_basics</code> and <code>const_fn_trait_bound</code> features</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/358">Don't set <code>nomem</code> in <code>load_tss</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/357">Correctly initialize TSS's IOPB to be empty</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/361">Improve <code>GlobalDescriptorTable::add_entry</code> error handling</a>)</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/366">Update <code>tss_segment</code> documentation</a>)</li>
+</ul>
+<p>Thanks to <a href="https://github.com/jarkkojs">@jarkkojs</a>, <a href="https://github.com/drzewiec">@drzewiec</a>, and <a href="https://github.com/kevinaboos">@kevinaboos</a> for contributing to this release!</p>
+<h4 id="v0-15">v0.15</h4>
+<p>We also merged some breaking changes which will be published in the upcoming <code>v0.15</code> release:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/360">Allow the GDT to be of any length</a>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/365">gdt: Check that MAX is in range</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/370"><code>VirtAddr</code> improvements</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/363">Remove <code>software_interrupt!</code> macro</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/364">Remove usize trait impls</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/368">Remove deprecated functions/flags</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/359">Update &quot;next&quot; MSRV to 1.59</a></li>
+</ul>
+<p>Special thanks to our co-maintainer <a href="https://github.com/josephlr">@josephlr</a>, who did a lot of great work this month!</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a> and <a href="https://github.com/orgs/rust-osdev/people/nicholasbishop">@nicholasbishop</a></span></p>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>One of the pain points of developers building software using <code>uefi-rs</code> has been the <code>Completion</code> type, which is like an expanded <code>Result</code> type which also handles warnings (besides successes and errors). The <a href="https://github.com/rust-osdev/uefi-rs/issues/360">RFC for the removal of the <code>Completion</code> type</a> has been accepted and the corresponding changes <a href="https://github.com/rust-osdev/uefi-rs/pull/361">have been merged</a> in March: the <code>Completion</code> type has been removed and the crate has reverted to using more standard <code>Result</code>s everywhere, by treating all warnings as errors.</p>
+<p>We merged the following changes in March:</p>
+<h4 id="new-features-protocols">New features/protocols</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/311">Implement the <code>connect_controller</code>/<code>disconnect_controller</code> methods</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/380">Implement <code>BootServices::locate_handle_buffer</code> function</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/386">Add rng protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/383">Add <code>BootServices::load_image</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/388">Add <code>GptPartitionAttributes</code> bitflags</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/392">Add <code>FileHandle</code> convenience methods and new file system tests</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/396">Add <code>RuntimeServices::query_variable_info</code></a></li>
+</ul>
+<h4 id="refactorings">Refactorings</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/382">Make <code>Error</code> public</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/361">Simplify <code>uefi::Result</code> type and remove <code>Completion</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/395">Improve <code>Time</code> struct</a></li>
+</ul>
+<h4 id="bug-fixes">Bug fixes</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/377">Fix alignment issues in file info types</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/373">Update changelog for file info changes</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/375">Make <code>LoadedImage</code>'s load options API safer</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/389">Fix status to <code>Result</code> conversions</a></li>
+</ul>
+<h4 id="ci-testing">CI &amp; testing</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/381">Add miri action to <code>xtask</code> and CI</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/378">Don't run doctests with invalid pointers</a></li>
+</ul>
+<h4 id="misc-chores">Misc &amp; chores</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/385">Add package sections to changelog</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/387">Remove some no-longer-needed unstable features</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/393">Drop maintenance badges from the README</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/394">Remove no-longer-needed allows for clippy lints</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/390">Publish new versions of the crates</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, <a href="https://github.com/sven-eliasen">@sven-eliasen</a>, <a href="https://github.com/necauqua">@necauqua</a> and <a href="https://github.com/AtsukiTak">@AtsukiTak</a> for their contributions!</p>
+<h3 id="uart-16550"><a href="https://github.com/rust-osdev/uart_16550"><code>uart_16550</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>uart_16550</code> crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uart_16550/pull/22">Remove stabilized nightly feature <code>const_ptr_offset</code></a> <span class="gray">(published as <code>v0.2.17</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/tsatke">@tsatke</a> for this contribution!</p>
+<h3 id="xhci"><a href="https://github.com/rust-osdev/xhci"><code>xhci</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/toku-sa-n">@toku-sa-n</a></span></p>
+<p>The <code>xhci</code> crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs. This month, we merged some cleanups:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/xhci/pull/130">fix: clippy warnings</a></li>
+<li><a href="https://github.com/rust-osdev/xhci/pull/129">ci(deps): enable dependabot</a></li>
+</ul>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<span class="gray">
+<p><em>No tasks were proposed for this section.</em></p>
+</span>
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="phip1611-simple-chunk-allocator"><a href="https://github.com/phip1611/simple-chunk-allocator"><code>phip1611/simple-chunk-allocator</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phip1611">@phip1611</a>)</span></p>
+<p>Philipp Schuster recently released an initial version of his <a href="https://github.com/phip1611/simple-chunk-allocator">simple-chunk-allocator</a>
+crate. It focuses on being a very simple-to-use general purpose allocator that &quot;just works&quot; for various workloads 
+in <code>no_std</code> context. A bitmap is used for bookkeeping of used blocks/chunks. This enables a simple algorithm that is easy
+to understand. The allocator uses a combination of the strategies &quot;next fit&quot; and &quot;best fit&quot;. It is usable as <code>#[global_allocator]</code> 
+and operates on static memory, i.e., no paging mechanism involved. The crate is suited to manage the heap inside a kernel 
+or in a similar <code>no_std</code> application. It is part of the roottask in <a href="https://github.com/phip1611/diplomarbeit-impl">Philipp's Diplom (Master) Thesis</a> 
+where he wrote a runtime system for a Microkernel in Rust.</p>
+<h3 id="phip1611-linux-libc-auxv"><a href="https://github.com/phip1611/linux-libc-auxv"><code>phip1611/linux-libc-auxv</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phip1611">@phip1611</a>)</span></p>
+<p>Philipp Schuster recently released an initial version of his <a href="https://github.com/phip1611/linux-libc-auxv">linux-libc-auxv</a>
+crate. The crate enables the creation and the parsing of the initial Linux stack layout. This layout is a 
+special data structure that Linux prepares for applications before they start execution. The C runtime behind the 
+<code>_start</code> symbol of a libc implementation uses this to find program arguments, environment variables, and the 
+auxiliary vector. The layout is tricky to create because the creator must ensure that the layout is valid in the 
+address space of the target. However, <code>linux-libc-auxv</code> found a way to cope with this.</p>
+<p>You can write a &quot;freestanding&quot; binary, i.e., without libc, with this crate, run it under Linux and parse the stack 
+layout yourself. This is similar to what the libc does, before Rust's runtime starts, that eventually calls the 
+main function of a Rust program.</p>
+<p>The crate is part of <a href="https://github.com/phip1611/diplomarbeit-impl">Philipp's Diplom (Master) Thesis</a>
+where he wrote a runtime system for a Microkernel in Rust that can emulate Linux behaviour and run unmodified 
+Linux applications.</p>
+<h3 id="phip1611-diplomarbeit-impl"><a href="https://github.com/phip1611/diplomarbeit-impl"><code>phip1611/diplomarbeit-impl</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phip1611">@phip1611</a>)</span></p>
+<p>Philipp Schuster submitted his Diplom (Master) Thesis at TU Dresden where he build a policy-free system-call layer for 
+the Hedron microhypervisor. The project comes with a runtime system written in Rust for the microkernel and involves 
+a roottask that enables the execution of unmodified Linux binaries through an OS personality/Linux emulation. The 
+runtime system covers several interesting aspects of OS development, such as interaction with a kernel, system call
+emulation, and starting programs from ELF files.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged a <a href="https://github.com/JOE1994">new Korean translation</a> of first post of <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month. Thanks a lot to <a href="https://github.com/JOE1994">@JOE1994</a> for creating this translation and <a href="https://github.com/QuqqU">@QuqqU</a> for reviewing it!</p>
+<p>We also received lots of smaller fixes, by <a href="https://github.com/phil-opp/blog_os/pull/1080">@MaxDesiatov</a>, <a href="https://github.com/phil-opp/blog_os/pull/1089">@alaincao</a>, <a href="https://github.com/phil-opp/blog_os/pull/1096">@Programatic</a>, <a href="https://github.com/phil-opp/blog_os/pull/1091">@ruhuang2001</a>, <a href="https://github.com/phil-opp/blog_os/pull/1093">@Hofer-Julian</a>, <a href="https://github.com/phil-opp/blog_os/pull/1094">@SilensAngelusNex</a>, and <a href="https://github.com/phil-opp/blog_os/pull/1095">@julien-me</a>. Thank you all for your contributions!</p>
+<p>Unfortunately I didn't have time to work on the new version of the <code>bootloader</code> crate for the upcoming third edition of the blog this month. However, there was some surprising development on the Rust side that should help us with the new build system: <a href="https://github.com/bstrie">@bstrie</a> created a <em>Major Change Proposal</em> to <a href="https://github.com/rust-lang/compiler-team/issues/499">promote the <code>x86_64-unknown-none</code> target to Tier 2</a>. This is a bare-metal target that should be compatible with our kernel, so we might not need <code>-Zbuild-std</code> anymore in the future. Instead, we could download a precompiled version of the <code>core</code>/<code>alloc</code> crates via <code>rustup target add</code>. The great news is that the proposal was already accepted and the <a href="https://github.com/rust-lang/rust/pull/95705">corresponding implementation PR</a> is ready for review too!</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>

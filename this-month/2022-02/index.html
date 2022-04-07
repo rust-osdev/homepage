@@ -56,7 +56,7 @@
 <h2 id="project-updates">Project Updates</h2>
 <p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
 <h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
-<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/orgs/rust-osdev/people/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/orgs/rust-osdev/people/HadrienG2">@HadrienG2</a></span></p>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a> and <a href="https://github.com/orgs/rust-osdev/people/nicholasbishop">@nicholasbishop</a></span></p>
 <p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
 <p>One of the pain points of developers building software using <code>uefi-rs</code> has been the <code>Completion</code> type, which is like an expanded <code>Result</code> type which also handles warnings (besides successes and errors). There's an <a href="https://github.com/rust-osdev/uefi-rs/issues/360">open proposal</a> to drop this type and revert to using more standard <code>Result</code>s everywhere, by treating all warnings as errors. Initial feedback suggests that such a change would be beneficial to the project, but comments and suggestions are welcome on the linked issue.</p>
 <p>We merged the following changes in February:</p>
