@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "April 2022"
 authors = [
     "phil-opp",
+    "toku-sa-n",
     # add yourself here
 ]
 +++
@@ -37,6 +38,12 @@ In this section, we give an overview of notable changes to the projects hosted u
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
 In April, …
+
+### [`xhci`](https://github.com/rust-osdev/xhci)
+
+The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
+
+In this month, we released a new version 0.8.3 which includes [a bug fix](https://github.com/rust-osdev/xhci/pull/132) reported and commited by @Yuna-Tomi. The bug was that `EventRingDequeuePointerRegister::event_ring_dequeue_pointer()` did not return the correct address. Thanks for the contribution!.
 
 ## Call for Participation
 
