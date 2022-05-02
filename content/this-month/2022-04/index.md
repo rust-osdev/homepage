@@ -7,7 +7,8 @@ month = "April 2022"
 authors = [
     "phil-opp",
     "toku-sa-n",
-    "phip1611"
+    "phip1611",
+    "andre-richter"
     # add yourself here
 ]
 +++
@@ -76,6 +77,41 @@ In this section, we describe updates to Rust OS projects that are not directly r
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
 This month, ...
+
+### [`rust-embedded/rust-raspberrypi-OS-tutorials`](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials)
+
+<span class="gray">(Section written by [@andre-richter](https://github.com/andre-richter))</span>
+
+The [Operating System development tutorials in Rust on the Raspberry Pi](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials) project
+saw two more tutorial releases:
+
+- [Tutorial 17 - `Kernel Symbols`](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/17_kernel_symbols)
+- [Tutorial 18 - `Backtracing`](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/18_backtrace)
+
+The two tutorials implement the generation of backtraces that show address and symbol information. Here is an example of the of a backtrace generated as part of  the kernel's panic handler:
+
+```console
+[    0.002782] Writing to bottom of address space to address 1 GiB...
+[    0.004623] Kernel panic!
+
+Panic location:
+      File 'kernel/src/_arch/aarch64/exception.rs', line 59, column 5
+
+[...]
+
+Backtrace:
+      ----------------------------------------------------------
+          Address            Function containing address
+      ----------------------------------------------------------
+       1. ffffffffc0001294 | core::fmt::write
+       2. ffffffffc0005560 | libkernel::panic_wait::_panic_print
+       3. ffffffffc00054a0 | rust_begin_unwind
+       4. ffffffffc0002950 | core::panicking::panic_fmt
+       5. ffffffffc0004898 | current_elx_synchronous
+       6. ffffffffc0000a74 | __vector_current_elx_synchronous
+       7. ffffffffc000111c | kernel_init
+      -----------------------------------------------------------
+```
 
 ## Join Us?
 
