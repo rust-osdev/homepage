@@ -7,6 +7,7 @@ month = "April 2022"
 authors = [
     "phil-opp",
     "toku-sa-n",
+    "phip1611"
     # add yourself here
 ]
 +++
@@ -45,21 +46,24 @@ The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
 
 In this month, we released a new version 0.8.3 which includes [a bug fix](https://github.com/rust-osdev/xhci/pull/132) reported and committed by [@Yuna-Tomi](https://github.com/Yuna-Tomi). The bug was that `EventRingDequeuePointerRegister::event_ring_dequeue_pointer()` did not return the correct address. Thanks for the contribution!.
 
+=======
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+
+The `multiboot2` crate provides abstraction types for the multiboot information structure (MBI) of multiboot2 
+bootloaders. The latest release of the `multiboot2`-crate is now `v.0.13.2` (was `v0.13.1`). It contains minor 
+improvements, such as that `TagType` implements `Ord`.
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
 issues in one of our projects and get started!
 
+[(`multiboot2`) Missing Tags](https://github.com/rust-osdev/multiboot2/issues/100)
+
 <!--
 Please use the following template for adding items:
 - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
 -->
-
-<span class="gray">
-
-_No tasks were proposed for this section._
-
-</span>
 
 If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the `next` branch with the tasks you want to include in the next issue.
 
