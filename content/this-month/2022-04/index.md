@@ -47,12 +47,21 @@ The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
 
 In this month, we released a new version 0.8.3 which includes [a bug fix](https://github.com/rust-osdev/xhci/pull/132) reported and committed by [@Yuna-Tomi](https://github.com/Yuna-Tomi). The bug was that `EventRingDequeuePointerRegister::event_ring_dequeue_pointer()` did not return the correct address. Thanks for the contribution!.
 
-=======
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
 The `multiboot2` crate provides abstraction types for the multiboot information structure (MBI) of multiboot2 
 bootloaders. The latest release of the `multiboot2`-crate is now `v.0.13.2` (was `v0.13.1`). It contains minor 
 improvements, such as that `TagType` implements `Ord`.
+
+
+### [`multboot2-header`](https://github.com/rust-osdev/multiboot2)
+
+The `multiboot2-header` crate provides abstraction types for Multiboot2 headers and a builder struct to construct such 
+headers. The latest release of the `multiboot2-header`-crate is now `v0.2.0` (was `v0.1.0`). The changes include a 
+bugfix that prevented the usage in `no_std` contexts. Furthermore, overall code quality was improved. The internal CI 
+was updated to verify `no_std` builds as well as regular builds. 
+Full changelog: <https://github.com/rust-osdev/multiboot2/releases/tag/multiboot2-header-v0.2.0>
+
 
 ## Call for Participation
 
