@@ -54,6 +54,16 @@ The `multiboot2` crate provides abstraction types for the multiboot information 
 bootloaders. The latest release of the `multiboot2`-crate is now `v.0.13.2` (was `v0.13.1`). It contains minor 
 improvements, such as that `TagType` implements `Ord`.
 
+
+### [`multboot2-header`](https://github.com/rust-osdev/multiboot2)
+
+The `multiboot2-header` crate provides abstraction types for Multiboot2 headers and a builder struct to construct such 
+headers. The latest release of the `multiboot2-header`-crate is now `v0.2.0` (was `v0.1.0`). The changes include a 
+bugfix that prevented the usage in `no_std` contexts. Furthermore, overall code quality was improved. The internal CI 
+was updated to verify `no_std` builds as well as regular builds. 
+Full changelog: <https://github.com/rust-osdev/multiboot2/releases/tag/multiboot2-header-v0.2.0>
+
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
