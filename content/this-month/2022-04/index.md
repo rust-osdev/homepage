@@ -9,7 +9,8 @@ authors = [
     "toku-sa-n",
     "phip1611",
     "andre-richter",
-    "berkus"
+    "berkus",
+    "GabrielMajeri",
     # add yourself here
 ]
 +++
@@ -41,6 +42,39 @@ In this section, we give an overview of notable changes to the projects hosted u
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
 In April, …
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri) and [@nicholasbishop](https://github.com/nicholasbishop)</span>
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+We merged the following changes in April:
+
+#### Features
+
+- [Add support to get the file path of loaded image](https://github.com/rust-osdev/uefi-rs/pull/398)
+- [Add `FilePathMediaDevicePath` (and a bunch of supporting code)](https://github.com/rust-osdev/uefi-rs/pull/404)
+- [Improve device path API](https://github.com/rust-osdev/uefi-rs/pull/421)
+
+#### Bug fixes
+
+- [Fix undefined behavior in `File::get_boxed_info`](https://github.com/rust-osdev/uefi-rs/pull/407)
+- [Fix potential undefined behavior in file info](https://github.com/rust-osdev/uefi-rs/pull/408)
+- [Fix `test_get_boxed_info` when `-Zmiri-tag-raw-pointers` is enabled](https://github.com/rust-osdev/uefi-rs/pull/415)
+- [Fix off-by-one test error](https://github.com/rust-osdev/uefi-rs/pull/422)
+
+#### CI and linting
+
+- [Enable the `clippy::ptr_as_ptr` lint](https://github.com/rust-osdev/uefi-rs/pull/410)
+
+#### Documentation improvements
+
+- [Add changelog entries for recent PRs](https://github.com/rust-osdev/uefi-rs/pull/405)
+- [Add documentation on why `UnsafeCell` is used for protocols](https://github.com/rust-osdev/uefi-rs/pull/409)
+- [Add documentation links for `BootServices` and `RuntimeServices`](https://github.com/rust-osdev/uefi-rs/pull/419)
+
+Thanks to [@supdrewin](https://github.com/supdrewin), [@nicholasbishop](https://github.com/nicholasbishop) and [@raccog](https://github.com/raccog) for their contributions!
 
 ### [`xhci`](https://github.com/rust-osdev/xhci)
 

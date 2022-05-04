@@ -35,7 +35,7 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
 
-<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13), and [@rybot666](https://github.com/orgs/rust-osdev/people/rybot666)</span>
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/josephlr), [@Freax13](https://github.com/Freax13), and [@rybot666](https://github.com/rybot666)</span>
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
@@ -92,7 +92,7 @@ Special thanks to our co-maintainer [@josephlr](https://github.com/josephlr), wh
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
-<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri) and [@nicholasbishop](https://github.com/orgs/rust-osdev/people/nicholasbishop)</span>
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri) and [@nicholasbishop](https://github.com/nicholasbishop)</span>
 
 The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
 
