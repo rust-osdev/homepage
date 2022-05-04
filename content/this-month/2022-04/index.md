@@ -8,7 +8,8 @@ authors = [
     "phil-opp",
     "toku-sa-n",
     "phip1611",
-    "andre-richter"
+    "andre-richter",
+    "berkus"
     # add yourself here
 ]
 +++
@@ -47,7 +48,6 @@ The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
 
 In this month, we released a new version 0.8.3 which includes [a bug fix](https://github.com/rust-osdev/xhci/pull/132) reported and committed by [@Yuna-Tomi](https://github.com/Yuna-Tomi). The bug was that `EventRingDequeuePointerRegister::event_ring_dequeue_pointer()` did not return the correct address. Thanks for the contribution!.
 
-=======
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
 The `multiboot2` crate provides abstraction types for the multiboot information structure (MBI) of multiboot2 
@@ -71,6 +71,14 @@ If you maintain a Rust project related to operating system development and are l
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
+
+### [`metta-systems/vesper`](https://github.com/metta-systems/vesper)
+
+<span class="gray">(Section written by [@berkus](https://github.com/berkus))</span>
+
+Vesper is a capability-based single-address-space nanokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.
+
+The kernel is in very early stages of development. This time I will update on the progress of tooling and my next steps. As usual, I will link directly to my blog for more details. [Read the full article here](https://metta.systems/blog/osdev-tooling-3/).
 
 ### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
 
