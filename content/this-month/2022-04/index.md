@@ -94,6 +94,16 @@ bugfix that prevented the usage in `no_std` contexts. Furthermore, overall code 
 was updated to verify `no_std` builds as well as regular builds. 
 Full changelog: <https://github.com/rust-osdev/multiboot2/releases/tag/multiboot2-header-v0.2.0>
 
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following change this month:
+
+- [Remove use of `stable` and `nightly` features](https://github.com/rust-osdev/uart_16550/pull/24) <span class="gray">(published as `v0.2.18`)</span>
+
+Thanks to [@josephlr](https://github.com/josephlr) for this contribution!
+
 ### [`volatile`](https://github.com/rust-osdev/volatile)
 
 <span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
