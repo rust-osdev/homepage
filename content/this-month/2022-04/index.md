@@ -41,7 +41,20 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-In April, …
+In April, we merged the following improvements and fixes:
+
+- [Provide null segment selector as associated constant on SegmentSelector](https://github.com/rust-osdev/x86_64/pull/373)
+- [Correct wrong comment](https://github.com/rust-osdev/x86_64/pull/374)
+- [Fix align functions](https://github.com/rust-osdev/x86_64/pull/375)
+- [Cleanup Segment macros](https://github.com/rust-osdev/x86_64/pull/376)
+- [Update comment and docs](https://github.com/rust-osdev/x86_64/pull/382)
+
+Thanks to [@prinzdezibel](https://github.com/prinzdezibel) for their contribution!
+
+We also merged two updates into the `next` branch for the upcoming `v0.15` release:
+
+- [Add `structures::gdt::Entry` type](https://github.com/rust-osdev/x86_64/pull/380)
+- [Allow GDT to be loaded with shared reference](https://github.com/rust-osdev/x86_64/pull/381)
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
