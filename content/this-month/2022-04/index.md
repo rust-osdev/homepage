@@ -91,6 +91,16 @@ bugfix that prevented the usage in `no_std` contexts. Furthermore, overall code 
 was updated to verify `no_std` builds as well as regular builds. 
 Full changelog: <https://github.com/rust-osdev/multiboot2/releases/tag/multiboot2-header-v0.2.0>
 
+### [`volatile`](https://github.com/rust-osdev/volatile)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `volatile` crate provides a safe wrapper type for implementing volatile read and write operations. This is useful for accessing memory regions that have side-effects, such as memory-mapped hardware registers or framebuffers. In April, we merged the following pull request:
+
+- [Remove the const_generics feature flag](https://github.com/rust-osdev/volatile/pull/25) <span class="gray">(published as `v0.4.5`)</span>
+
+Thanks to [@hawkw](https://github.com/hawkw) for this contribution!
+
 ### [`xhci`](https://github.com/rust-osdev/xhci)
 
 The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
