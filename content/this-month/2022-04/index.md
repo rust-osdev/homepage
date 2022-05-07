@@ -76,6 +76,37 @@ We merged the following changes in April:
 
 Thanks to [@supdrewin](https://github.com/supdrewin), [@nicholasbishop](https://github.com/nicholasbishop) and [@raccog](https://github.com/raccog) for their contributions!
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@rybot666](https://github.com/rybot666), and [@64](https://github.com/64)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following changes:
+
+- [Add dynamic range configuration](https://github.com/rust-osdev/bootloader/pull/229)
+- [Correct typos in `src/binary/level_4_entries.rs`](https://github.com/rust-osdev/bootloader/pull/228)
+
+Thanks to [@Freax13](https://github.com/Freax13) and [@toothbrush7777777](https://github.com/toothbrush7777777) for these contributions!
+
+We also made some good progress on the upcoming `v0.11` version of the crate:
+
+- [Replace artifact dependency with build script](https://github.com/rust-osdev/bootloader/commit/ee9bf20314be3e304f4210c03ba73348d4868c7c)
+- [Add function to create UEFI disk image to library](https://github.com/rust-osdev/bootloader/commit/aefa4aa68fa25c7c52a2d84dbf4f664dee3e6390)
+- [Adjust and merge PR #219 into next](https://github.com/rust-osdev/bootloader/commit/fd7b2cfc1c5ddf0c6253a61fbba9012718c91754)
+- [Integrate latest changes from `main`](https://github.com/rust-osdev/bootloader/commit/fdf9d4bfd10adc66c23c1b3a07ba22f3b716d35a)
+- [Update test framework to rewrite](https://github.com/rust-osdev/bootloader/commit/4d4b5849831c12e81e2c6897fbf051fda73aa02d)
+- [Merge PR #229 into next and adjust it to new config system](https://github.com/rust-osdev/bootloader/commit/3aef58c1b59c1ee1529d079145cf3c2de1c51302)
+- [Remove uefi dependency of common crate](https://github.com/rust-osdev/bootloader/commit/5dbc5038d71af72095315c7de194370f1ddb8540)
+- [Replace `rand_chacha` with `rand_hc`](https://github.com/rust-osdev/bootloader/commit/6134fedfa1ce0cf7adddc3f8b13cca21201f7cbd)
+- [Start integrating BIOS bootloader into build system](https://github.com/rust-osdev/bootloader/commit/eb6d71f244c54031bddbf87042d710bcdd1aa0bb)
+- [Simplify MBR code and choose bootable partition](https://github.com/rust-osdev/bootloader/commit/0d77948df2c331612c94e186672a34a1694f23de)
+- [Refactor FAT creation function to take arbitrary file list](https://github.com/rust-osdev/bootloader/commit/d8b50dcb801dfc775e6f211a8f0e3d3bf2486ad7)
+- [Integrate BIOS bootsector into build system](https://github.com/rust-osdev/bootloader/commit/5310e4b97743094d45dd0711939e1961463da9e3)
+- [Build and load a second stage](https://github.com/rust-osdev/bootloader/commit/b3207dbf62b27202f3afa2fc19e0b8bf4893b1fb)
+- [Use pie relocation model for second stage](https://github.com/rust-osdev/bootloader/commit/4d41efe84c14487d824f5270667ed93baa274772)
+- [Clean up boot sector code](https://github.com/rust-osdev/bootloader/commit/5fd311542c73f3014136ce0b4ecbed133443c01b)
+
+The next steps now are: setting up unreal mode on the CPU, loading the kernel from the FAT partition, loading the memory map, and setting up the page tables.
+
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
 <span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods), [@phip1611](https://github.com/phip1611), [@robert-w-gries](https://github.com/robert-w-gries), [@ahmedcharles](https://github.com/ahmedcharles), and [@Caduser2020](https://github.com/Caduser2020)</span>
