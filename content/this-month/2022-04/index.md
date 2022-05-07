@@ -232,7 +232,15 @@ The kernel is in very early stages of development. This time I will update on th
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This month, ...
+We merged the following improvements for the "Writing an OS in Rust" blog this in April:
+
+- [Korean translation for chapter 2](https://github.com/phil-opp/blog_os/pull/1101)
+- [Update the code in the `post-06` branch](https://github.com/phil-opp/blog_os/pull/1099)
+- [fix: typo](https://github.com/phil-opp/blog_os/pull/1103)
+
+Thanks to [@JOE1994](https://github.com/JOE1994), [@QuqqU](https://github.com/QuqqU), [@ruhuang2001](https://github.com/ruhuang2001), and [@PoorlyDefinedBehaviour](https://github.com/PoorlyDefinedBehaviour) for their contributions!
+
+For the current status of the upcoming third edition, see [my comment](https://github.com/phil-opp/blog_os/issues/1025#issuecomment-1107843473) on the related GitHub issue.
 
 ## Join Us?
 
