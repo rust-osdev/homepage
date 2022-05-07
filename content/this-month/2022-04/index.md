@@ -76,12 +76,6 @@ We merged the following changes in April:
 
 Thanks to [@supdrewin](https://github.com/supdrewin), [@nicholasbishop](https://github.com/nicholasbishop) and [@raccog](https://github.com/raccog) for their contributions!
 
-### [`xhci`](https://github.com/rust-osdev/xhci)
-
-The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
-
-In this month, we released a new version 0.8.3 which includes [a bug fix](https://github.com/rust-osdev/xhci/pull/132) reported and committed by [@Yuna-Tomi](https://github.com/Yuna-Tomi). The bug was that `EventRingDequeuePointerRegister::event_ring_dequeue_pointer()` did not return the correct address. Thanks for the contribution!.
-
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
 The `multiboot2` crate provides abstraction types for the multiboot information structure (MBI) of multiboot2 
@@ -97,13 +91,19 @@ bugfix that prevented the usage in `no_std` contexts. Furthermore, overall code 
 was updated to verify `no_std` builds as well as regular builds. 
 Full changelog: <https://github.com/rust-osdev/multiboot2/releases/tag/multiboot2-header-v0.2.0>
 
+### [`xhci`](https://github.com/rust-osdev/xhci)
+
+The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
+
+In this month, we released a new version 0.8.3 which includes [a bug fix](https://github.com/rust-osdev/xhci/pull/132) reported and committed by [@Yuna-Tomi](https://github.com/Yuna-Tomi). The bug was that `EventRingDequeuePointerRegister::event_ring_dequeue_pointer()` did not return the correct address. Thanks for the contribution!.
+
 
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
 issues in one of our projects and get started!
 
-[(`multiboot2`) Missing Tags](https://github.com/rust-osdev/multiboot2/issues/100)
+- [(`multiboot2`) Missing Tags](https://github.com/rust-osdev/multiboot2/issues/100)
 
 <!--
 Please use the following template for adding items:
@@ -115,20 +115,6 @@ If you maintain a Rust project related to operating system development and are l
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
-
-### [`metta-systems/vesper`](https://github.com/metta-systems/vesper)
-
-<span class="gray">(Section written by [@berkus](https://github.com/berkus))</span>
-
-Vesper is a capability-based single-address-space nanokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.
-
-The kernel is in very early stages of development. This time I will update on the progress of tooling and my next steps. As usual, I will link directly to my blog for more details. [Read the full article here](https://metta.systems/blog/osdev-tooling-3/).
-
-### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
-
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
-
-This month, ...
 
 ### [`rust-embedded/rust-raspberrypi-OS-tutorials`](https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials)
 
@@ -164,6 +150,20 @@ Backtrace:
        7. ffffffffc000111c | kernel_init
       -----------------------------------------------------------
 ```
+
+### [`metta-systems/vesper`](https://github.com/metta-systems/vesper)
+
+<span class="gray">(Section written by [@berkus](https://github.com/berkus))</span>
+
+Vesper is a capability-based single-address-space nanokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.
+
+The kernel is in very early stages of development. This time I will update on the progress of tooling and my next steps. As usual, I will link directly to my blog for more details. [Read the full article here](https://metta.systems/blog/osdev-tooling-3/).
+
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+
+<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+This month, ...
 
 ## Join Us?
 
