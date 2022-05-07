@@ -78,12 +78,15 @@ Thanks to [@supdrewin](https://github.com/supdrewin), [@nicholasbishop](https://
 
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods), [@phip1611](https://github.com/phip1611), [@robert-w-gries](https://github.com/robert-w-gries), [@ahmedcharles](https://github.com/ahmedcharles), and [@Caduser2020](https://github.com/Caduser2020)</span>
+
 The `multiboot2` crate provides abstraction types for the multiboot information structure (MBI) of multiboot2 
 bootloaders. The latest release of the `multiboot2`-crate is now `v.0.13.2` (was `v0.13.1`). It contains minor 
 improvements, such as that `TagType` implements `Ord`.
 
-
 ### [`multboot2-header`](https://github.com/rust-osdev/multiboot2)
+
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods), [@phip1611](https://github.com/phip1611), [@robert-w-gries](https://github.com/robert-w-gries), [@ahmedcharles](https://github.com/ahmedcharles), and [@Caduser2020](https://github.com/Caduser2020)</span>
 
 The `multiboot2-header` crate provides abstraction types for Multiboot2 headers and a builder struct to construct such 
 headers. The latest release of the `multiboot2-header`-crate is now `v0.2.0` (was `v0.1.0`). The changes include a 
@@ -102,6 +105,8 @@ The `volatile` crate provides a safe wrapper type for implementing volatile read
 Thanks to [@hawkw](https://github.com/hawkw) for this contribution!
 
 ### [`xhci`](https://github.com/rust-osdev/xhci)
+
+<span class="maintainers">Maintained by [@toku-sa-n](https://github.com/toku-sa-n)</span>
 
 The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
 
