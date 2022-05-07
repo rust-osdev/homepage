@@ -16,7 +16,7 @@
 
     <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
 
-    <title>This Month in Rust OSDev (March 2022) | Rust OSDev</title>
+    <title>This Month in Rust OSDev: March 2022 | Rust OSDev</title>
 </head>
 
 <body>
@@ -32,10 +32,10 @@
   
         <div class="container content">
             <main>
-    <h1>This Month in Rust OSDev (March 2022)</h1>
+    <h1>This Month in Rust OSDev: March 2022</h1>
 
     <span class="post-authors post-date">Written by
-        <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, and <a href="https://github.com/josephlr">@josephlr</a>
+        <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/josephlr">@josephlr</a>, and <a href="https://github.com/phip1611">@phip1611</a>
 
         <br>Published on <time datetime="2022-04-07">
             Apr 07, 2022
@@ -56,7 +56,7 @@
 <h2 id="project-updates">Project Updates</h2>
 <p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
 <h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
-<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a>, and <a href="https://github.com/orgs/rust-osdev/people/rybot666">@rybot666</a></span></p>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/josephlr">@josephlr</a>, <a href="https://github.com/Freax13">@Freax13</a>, and <a href="https://github.com/rybot666">@rybot666</a></span></p>
 <p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
 <p>This month, we released version <strong><code>0.14.9</code></strong> of the <code>x86_64</code> crate with lots of improvements:</p>
 <h4 id="new-features">New Features</h4>
@@ -121,7 +121,7 @@
 </ul>
 <p>Special thanks to our co-maintainer <a href="https://github.com/josephlr">@josephlr</a>, who did a lot of great work this month!</p>
 <h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
-<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a> and <a href="https://github.com/orgs/rust-osdev/people/nicholasbishop">@nicholasbishop</a></span></p>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a> and <a href="https://github.com/nicholasbishop">@nicholasbishop</a></span></p>
 <p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
 <p>One of the pain points of developers building software using <code>uefi-rs</code> has been the <code>Completion</code> type, which is like an expanded <code>Result</code> type which also handles warnings (besides successes and errors). The <a href="https://github.com/rust-osdev/uefi-rs/issues/360">RFC for the removal of the <code>Completion</code> type</a> has been accepted and the corresponding changes <a href="https://github.com/rust-osdev/uefi-rs/pull/361">have been merged</a> in March: the <code>Completion</code> type has been removed and the crate has reverted to using more standard <code>Result</code>s everywhere, by treating all warnings as errors.</p>
 <p>We merged the following changes in March:</p>

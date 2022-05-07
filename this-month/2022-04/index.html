@@ -1,0 +1,245 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2022-04/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: April 2022 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: April 2022</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/toku-sa-n">@toku-sa-n</a>, <a href="https://github.com/phip1611">@phip1611</a>, <a href="https://github.com/andre-richter">@andre-richter</a>, <a href="https://github.com/berkus">@berkus</a>, and <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>
+
+        <br>Published on <time datetime="2022-05-07">
+            May 07, 2022
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-04/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (April 2022)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a>, and <a href="https://github.com/orgs/rust-osdev/people/rybot666">@rybot666</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In April, we merged the following improvements and fixes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/373">Provide null segment selector as associated constant on SegmentSelector</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/374">Correct wrong comment</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/375">Fix align functions</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/376">Cleanup Segment macros</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/382">Update comment and docs</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/prinzdezibel">@prinzdezibel</a> for their contribution!</p>
+<p>We also merged two updates into the <code>next</code> branch for the upcoming <code>v0.15</code> release:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/380">Add <code>structures::gdt::Entry</code> type</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/381">Allow GDT to be loaded with shared reference</a></li>
+</ul>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a> and <a href="https://github.com/nicholasbishop">@nicholasbishop</a></span></p>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>We merged the following changes in April:</p>
+<h4 id="features">Features</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/398">Add support to get the file path of loaded image</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/404">Add <code>FilePathMediaDevicePath</code> (and a bunch of supporting code)</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/421">Improve device path API</a></li>
+</ul>
+<h4 id="bug-fixes">Bug fixes</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/407">Fix undefined behavior in <code>File::get_boxed_info</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/408">Fix potential undefined behavior in file info</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/415">Fix <code>test_get_boxed_info</code> when <code>-Zmiri-tag-raw-pointers</code> is enabled</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/422">Fix off-by-one test error</a></li>
+</ul>
+<h4 id="ci-and-linting">CI and linting</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/410">Enable the <code>clippy::ptr_as_ptr</code> lint</a></li>
+</ul>
+<h4 id="documentation-improvements">Documentation improvements</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/405">Add changelog entries for recent PRs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/409">Add documentation on why <code>UnsafeCell</code> is used for protocols</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/419">Add documentation links for <code>BootServices</code> and <code>RuntimeServices</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/supdrewin">@supdrewin</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a> and <a href="https://github.com/raccog">@raccog</a> for their contributions!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/rybot666">@rybot666</a>, and <a href="https://github.com/64">@64</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/229">Add dynamic range configuration</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/228">Correct typos in <code>src/binary/level_4_entries.rs</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Freax13">@Freax13</a> and <a href="https://github.com/toothbrush7777777">@toothbrush7777777</a> for these contributions!</p>
+<p>We also made some good progress on the upcoming <code>v0.11</code> version of the crate:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/ee9bf20314be3e304f4210c03ba73348d4868c7c">Replace artifact dependency with build script</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/aefa4aa68fa25c7c52a2d84dbf4f664dee3e6390">Add function to create UEFI disk image to library</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/fd7b2cfc1c5ddf0c6253a61fbba9012718c91754">Adjust and merge PR #219 into next</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/fdf9d4bfd10adc66c23c1b3a07ba22f3b716d35a">Integrate latest changes from <code>main</code></a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/4d4b5849831c12e81e2c6897fbf051fda73aa02d">Update test framework to rewrite</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/3aef58c1b59c1ee1529d079145cf3c2de1c51302">Merge PR #229 into next and adjust it to new config system</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/5dbc5038d71af72095315c7de194370f1ddb8540">Remove uefi dependency of common crate</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/6134fedfa1ce0cf7adddc3f8b13cca21201f7cbd">Replace <code>rand_chacha</code> with <code>rand_hc</code></a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/eb6d71f244c54031bddbf87042d710bcdd1aa0bb">Start integrating BIOS bootloader into build system</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/0d77948df2c331612c94e186672a34a1694f23de">Simplify MBR code and choose bootable partition</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/d8b50dcb801dfc775e6f211a8f0e3d3bf2486ad7">Refactor FAT creation function to take arbitrary file list</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/5310e4b97743094d45dd0711939e1961463da9e3">Integrate BIOS bootsector into build system</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/b3207dbf62b27202f3afa2fc19e0b8bf4893b1fb">Build and load a second stage</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/4d41efe84c14487d824f5270667ed93baa274772">Use pie relocation model for second stage</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/5fd311542c73f3014136ce0b4ecbed133443c01b">Clean up boot sector code</a></li>
+</ul>
+<p>The next steps now are: setting up unreal mode on the CPU, loading the kernel from the FAT partition, loading the memory map, and setting up the page tables.</p>
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/multiboot2"><code>multiboot2</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, <a href="https://github.com/phip1611">@phip1611</a>, <a href="https://github.com/robert-w-gries">@robert-w-gries</a>, <a href="https://github.com/ahmedcharles">@ahmedcharles</a>, and <a href="https://github.com/Caduser2020">@Caduser2020</a></span></p>
+<p>The <code>multiboot2</code> crate provides abstraction types for the multiboot information structure (MBI) of multiboot2 
+bootloaders. The latest release of the <code>multiboot2</code>-crate is now <code>v.0.13.2</code> (was <code>v0.13.1</code>). It contains minor 
+improvements, such as that <code>TagType</code> implements <code>Ord</code>.</p>
+<h3 id="multboot2-header"><a href="https://github.com/rust-osdev/multiboot2"><code>multboot2-header</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, <a href="https://github.com/phip1611">@phip1611</a>, <a href="https://github.com/robert-w-gries">@robert-w-gries</a>, <a href="https://github.com/ahmedcharles">@ahmedcharles</a>, and <a href="https://github.com/Caduser2020">@Caduser2020</a></span></p>
+<p>The <code>multiboot2-header</code> crate provides abstraction types for Multiboot2 headers and a builder struct to construct such 
+headers. The latest release of the <code>multiboot2-header</code>-crate is now <code>v0.2.0</code> (was <code>v0.1.0</code>). The changes include a 
+bugfix that prevented the usage in <code>no_std</code> contexts. Furthermore, overall code quality was improved. The internal CI 
+was updated to verify <code>no_std</code> builds as well as regular builds. 
+Full changelog: <a href="https://github.com/rust-osdev/multiboot2/releases/tag/multiboot2-header-v0.2.0">https://github.com/rust-osdev/multiboot2/releases/tag/multiboot2-header-v0.2.0</a></p>
+<h3 id="uart-16550"><a href="https://github.com/rust-osdev/uart_16550"><code>uart_16550</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>uart_16550</code> crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following change this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uart_16550/pull/24">Remove use of <code>stable</code> and <code>nightly</code> features</a> <span class="gray">(published as <code>v0.2.18</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/josephlr">@josephlr</a> for this contribution!</p>
+<h3 id="volatile"><a href="https://github.com/rust-osdev/volatile"><code>volatile</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>volatile</code> crate provides a safe wrapper type for implementing volatile read and write operations. This is useful for accessing memory regions that have side-effects, such as memory-mapped hardware registers or framebuffers. In April, we merged the following pull request:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/volatile/pull/25">Remove the const_generics feature flag</a> <span class="gray">(published as <code>v0.4.5</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/hawkw">@hawkw</a> for this contribution!</p>
+<h3 id="xhci"><a href="https://github.com/rust-osdev/xhci"><code>xhci</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/toku-sa-n">@toku-sa-n</a></span></p>
+<p>The <code>xhci</code> crate provides types of xHCI structires, such as Registers and TRBs.</p>
+<p>In this month, we released a new version 0.8.3 which includes <a href="https://github.com/rust-osdev/xhci/pull/132">a bug fix</a> reported and committed by <a href="https://github.com/Yuna-Tomi">@Yuna-Tomi</a>. The bug was that <code>EventRingDequeuePointerRegister::event_ring_dequeue_pointer()</code> did not return the correct address. Thanks for the contribution!.</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/multiboot2/issues/100">(<code>multiboot2</code>) Missing Tags</a></li>
+</ul>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="rust-embedded-rust-raspberrypi-os-tutorials"><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials"><code>rust-embedded/rust-raspberrypi-OS-tutorials</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/andre-richter">@andre-richter</a>)</span></p>
+<p>The <a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials">Operating System development tutorials in Rust on the Raspberry Pi</a> project
+saw two more tutorial releases:</p>
+<ul>
+<li><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/17_kernel_symbols">Tutorial 17 - <code>Kernel Symbols</code></a></li>
+<li><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/18_backtrace">Tutorial 18 - <code>Backtracing</code></a></li>
+</ul>
+<p>The two tutorials implement the generation of backtraces that show address and symbol information. Here is an example of the of a backtrace generated as part of  the kernel's panic handler:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">[    0.002782] Writing to bottom of address space to address 1 GiB...
+[    0.004623] Kernel panic!
+
+Panic location:
+      File &#39;kernel/src/_arch/aarch64/exception.rs&#39;, line 59, column 5
+
+[...]
+
+Backtrace:
+      ----------------------------------------------------------
+          Address            Function containing address
+      ----------------------------------------------------------
+       1. ffffffffc0001294 | core::fmt::write
+       2. ffffffffc0005560 | libkernel::panic_wait::_panic_print
+       3. ffffffffc00054a0 | rust_begin_unwind
+       4. ffffffffc0002950 | core::panicking::panic_fmt
+       5. ffffffffc0004898 | current_elx_synchronous
+       6. ffffffffc0000a74 | __vector_current_elx_synchronous
+       7. ffffffffc000111c | kernel_init
+      -----------------------------------------------------------
+</span></code></pre><h3 id="metta-systems-vesper"><a href="https://github.com/metta-systems/vesper"><code>metta-systems/vesper</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/berkus">@berkus</a>)</span></p>
+<p>Vesper is a capability-based single-address-space nanokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.</p>
+<p>The kernel is in very early stages of development. This time I will update on the progress of tooling and my next steps. As usual, I will link directly to my blog for more details. <a href="https://metta.systems/blog/osdev-tooling-3/">Read the full article here</a>.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="gray">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following improvements for the &quot;Writing an OS in Rust&quot; blog this in April:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1101">Korean translation for chapter 2</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1099">Update the code in the <code>post-06</code> branch</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1103">fix: typo</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/JOE1994">@JOE1994</a>, <a href="https://github.com/QuqqU">@QuqqU</a>, <a href="https://github.com/ruhuang2001">@ruhuang2001</a>, and <a href="https://github.com/PoorlyDefinedBehaviour">@PoorlyDefinedBehaviour</a> for their contributions!</p>
+<p>For the current status of the upcoming third edition, see <a href="https://github.com/phil-opp/blog_os/issues/1025#issuecomment-1107843473">my comment</a> on the related GitHub issue.</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
