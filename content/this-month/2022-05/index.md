@@ -100,7 +100,7 @@ Please use the following template for adding items:
 
 <span class="gray">
 
-_No tasks were proposed for this section._
+_No tasks were proposed for this section this month._
 
 </span>
 
@@ -110,11 +110,11 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
-### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="gray">
 
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+_No projects were proposed for this section this month._
 
-This month, ...
+</span>
 
 ## Join Us?
 
