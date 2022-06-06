@@ -38,6 +38,17 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In May, …
 
+### [`pci_types`](https://github.com/rust-osdev/pci_types)
+
+The `pci_types` library provides types for accessing and configuring PCI devices from Rust operating systems. Lots of this code (e.g. identifying devices by class codes) can be shared
+between projects, and would benefit from community contributions.
+
+We merged the following change in May:
+
+- [PCI capabilities and status register support](https://github.com/rust-osdev/pci_types/pull/3)
+
+Thanks to [@alesharik](https://github.com/alesharik) for this contribution!
+
 ### [`xhci`](https://github.com/rust-osdev/xhci)
 
 <span class="maintainers">Maintained by [@toku-sa-n](https://github.com/toku-sa-n)</span>
