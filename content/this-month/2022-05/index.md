@@ -55,6 +55,16 @@ We merged the following changes in May:
 
 Thanks to [@JonahPlusPlus](https://github.com/JonahPlusPlus), [@raccog](https://github.com/raccog), and [@verticalegg](https://github.com/verticalegg) for their contributions!
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@rybot666](https://github.com/rybot666), and [@64](https://github.com/64)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following new feature:
+
+- [Add UEFI PXE support](https://github.com/rust-osdev/bootloader/pull/237) to load a kernel from a TFTP server
+
+This feature will be part of the upcoming `v0.11` release. Thanks to [@Freax13](https://github.com/Freax13) for this contribution!
+
 ### [`pci_types`](https://github.com/rust-osdev/pci_types)
 
 The `pci_types` library provides types for accessing and configuring PCI devices from Rust operating systems. Lots of this code (e.g. identifying devices by class codes) can be shared
