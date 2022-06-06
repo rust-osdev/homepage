@@ -38,6 +38,18 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In May, …
 
+### [`xhci`](https://github.com/rust-osdev/xhci)
+
+<span class="maintainers">Maintained by [@toku-sa-n](https://github.com/toku-sa-n)</span>
+
+The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
+
+We merged the following fix this month:
+
+- [fix(StructuralParameters2): Bit range in `max_scratchpad_buffers_hi`](https://github.com/rust-osdev/xhci/pull/134) <span class="gray">([published](https://github.com/rust-osdev/xhci/pull/135) as `v0.8.4`)</span>
+
+Thanks to [@Yuna-Tomi](https://github.com/Yuna-Tomi) for this contribution!
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
