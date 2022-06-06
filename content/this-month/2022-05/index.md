@@ -30,6 +30,30 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri) and [@nicholasbishop](https://github.com/nicholasbishop)</span>
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+We merged the following changes in May:
+
+#### Improvements
+
+- [Change logger max level to be set by feature](https://github.com/rust-osdev/uefi-rs/pull/429)
+- [Release new versions of the crates](https://github.com/rust-osdev/uefi-rs/pull/432) <span class="gray">(published `uefi v0.16.0`, `uefi-macros v0.7.0`, and `uefi-services v0.13.0`)</span>
+- [Implement `Deref` and `DerefMut` for `ScopedProtocol`](https://github.com/rust-osdev/uefi-rs/pull/434)
+- [Implement `core::fmt::Write` for `Serial`](https://github.com/rust-osdev/uefi-rs/pull/437)
+- [Add documentation links](https://github.com/rust-osdev/uefi-rs/pull/426)
+
+#### Fixes
+
+- [Fix an accidental `*const` conversion](https://github.com/rust-osdev/uefi-rs/pull/423)
+- [Fix compilation of the xtask package under Windows and add to CI](https://github.com/rust-osdev/uefi-rs/pull/438)
+- [Switch back to automatic `Debug` derive for `Header` struct](https://github.com/rust-osdev/uefi-rs/pull/435)
+- [Check table version before calling UEFI 2.0+ functions](https://github.com/rust-osdev/uefi-rs/pull/436)
+
+Thanks to [@JonahPlusPlus](https://github.com/JonahPlusPlus), [@raccog](https://github.com/raccog), and [@verticalegg](https://github.com/verticalegg) for their contributions!
 
 ### [`pci_types`](https://github.com/rust-osdev/pci_types)
 
