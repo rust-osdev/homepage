@@ -30,13 +30,6 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
-### [`x86_64`](https://github.com/rust-osdev/x86_64)
-
-<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13), and [@rybot666](https://github.com/orgs/rust-osdev/people/rybot666)</span>
-
-The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
-
-In May, …
 
 ### [`pci_types`](https://github.com/rust-osdev/pci_types)
 
