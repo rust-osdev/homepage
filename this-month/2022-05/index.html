@@ -1,0 +1,145 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2022-05/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: May 2022 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: May 2022</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a>
+
+        <br>Published on <time datetime="2022-06-08">
+            Jun 08, 2022
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-05/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (May 2022)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a> and <a href="https://github.com/nicholasbishop">@nicholasbishop</a></span></p>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>We merged the following changes in May:</p>
+<h4 id="improvements">Improvements</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/429">Change logger max level to be set by feature</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/432">Release new versions of the crates</a> <span class="gray">(published <code>uefi v0.16.0</code>, <code>uefi-macros v0.7.0</code>, and <code>uefi-services v0.13.0</code>)</span></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/434">Implement <code>Deref</code> and <code>DerefMut</code> for <code>ScopedProtocol</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/437">Implement <code>core::fmt::Write</code> for <code>Serial</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/426">Add documentation links</a></li>
+</ul>
+<h4 id="fixes">Fixes</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/423">Fix an accidental <code>*const</code> conversion</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/438">Fix compilation of the xtask package under Windows and add to CI</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/435">Switch back to automatic <code>Debug</code> derive for <code>Header</code> struct</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/436">Check table version before calling UEFI 2.0+ functions</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/JonahPlusPlus">@JonahPlusPlus</a>, <a href="https://github.com/raccog">@raccog</a>, and <a href="https://github.com/verticalegg">@verticalegg</a> for their contributions!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/rybot666">@rybot666</a>, and <a href="https://github.com/64">@64</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following new feature:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/237">Add UEFI PXE support</a> to load a kernel from a TFTP server</li>
+</ul>
+<p>This feature will be part of the upcoming <code>v0.11</code> release. Thanks to <a href="https://github.com/Freax13">@Freax13</a> for this contribution!</p>
+<h3 id="pci-types"><a href="https://github.com/rust-osdev/pci_types"><code>pci_types</code></a></h3>
+<p>The <code>pci_types</code> library provides types for accessing and configuring PCI devices from Rust operating systems. Lots of this code (e.g. identifying devices by class codes) can be shared
+between projects, and would benefit from community contributions.</p>
+<p>We merged the following change in May:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/3">PCI capabilities and status register support</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/alesharik">@alesharik</a> for this contribution!</p>
+<h3 id="xhci"><a href="https://github.com/rust-osdev/xhci"><code>xhci</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/toku-sa-n">@toku-sa-n</a></span></p>
+<p>The <code>xhci</code> crate provides types of xHCI structires, such as Registers and TRBs.</p>
+<p>We merged the following fix this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/xhci/pull/134">fix(StructuralParameters2): Bit range in <code>max_scratchpad_buffers_hi</code></a> <span class="gray">(<a href="https://github.com/rust-osdev/xhci/pull/135">published</a> as <code>v0.8.4</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Yuna-Tomi">@Yuna-Tomi</a> for this contribution!</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<span class="gray">
+<p><em>No tasks were proposed for this section this month.</em></p>
+</span>
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<span class="gray">
+<p><em>No projects were proposed for this section this month.</em></p>
+</span>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
