@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "June 2022"
 authors = [
     "phil-opp",
+    "phip1611",
     # add yourself here
 ]
 +++
@@ -37,6 +38,16 @@ In this section, we give an overview of notable changes to the projects hosted u
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
 In June, …
+
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods), [@phip1611](https://github.com/phip1611), [@robert-w-gries](https://github.com/robert-w-gries), [@ahmedcharles](https://github.com/ahmedcharles), and [@Caduser2020](https://github.com/Caduser2020)</span>
+
+The `multiboot2` crate provides abstraction types for the multiboot information structure (MBI)
+of multiboot2 bootloaders. The latest release of the `multiboot2`-crate is now `v.0.14.0` (was
+`v0.13.2`). It contains some small breaking changes because so far, we used some unsafe code and
+relied on having not to verify UTF-8 strings. For a full changelog, please refer to the 
+[GitHub repo](https://github.com/rust-osdev/multiboot2/blob/main/multiboot2/Changelog.md).
 
 ## Call for Participation
 
