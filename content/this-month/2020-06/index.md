@@ -93,6 +93,16 @@ In June, I pushed two small improvements to the `blog_os` repository and the _Wr
 
 There were also [lots of small contributions](https://github.com/phil-opp/blog_os/pulls?q=is%3Apr+is%3Aclosed+merged%3A2020-06-01..2020-07-01) this month that fixed typos and dead links and updated the Chinese translation. Thanks a lot to all contributors!
 
+### [`vinc/moros`](https://github.com/vinc/moros)
+
+<span class="gray">(Section written by [@vinc](https://github.com/vinc))</span>
+
+MOROS is a text-based hobby operating system targeting computers with a x86-64 architecture and a BIOS. It is inspired by Unix and ITS but is closer to a modern DOS at the moment in term of features.
+
+In the last month I finally managed to run rust programs (without alloc) inside the OS after being limited to nasm programs for a long time. This triggered a lot of refactoring and improvements in the shell and the lisp language used for scripting.
+
+Next step will be publishing a 0.8.0 release and working on userspace allocation.
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
