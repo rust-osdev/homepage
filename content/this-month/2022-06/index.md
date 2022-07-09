@@ -49,6 +49,30 @@ of multiboot2 bootloaders. The latest release of the `multiboot2`-crate is now `
 relied on having not to verify UTF-8 strings. For a full changelog, please refer to the 
 [GitHub repo](https://github.com/rust-osdev/multiboot2/blob/main/multiboot2/Changelog.md).
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri) and [@nicholasbishop](https://github.com/nicholasbishop)</span>
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+We merged the following changes in June:
+
+#### Fixes
+
+- [Remove `exts::allocate_buffer`](https://github.com/rust-osdev/uefi-rs/pull/443)
+- [Fix incorrect pointer cast in get_rng](https://github.com/rust-osdev/uefi-rs/pull/447)
+
+#### Improvements
+
+- [Remove unused `From<ucs2::Error>` impls](https://github.com/rust-osdev/uefi-rs/pull/450)
+- [Remove `eh_personality` lang item](https://github.com/rust-osdev/uefi-rs/pull/451)
+- [Simplify `uefi-services` panic handler](https://github.com/rust-osdev/uefi-rs/pull/453)
+
+#### Internal changes
+
+- [Fix `query_variable_info` test](https://github.com/rust-osdev/uefi-rs/pull/442)
+- [Fix errors due to deprecations in the `clap` API](https://github.com/rust-osdev/uefi-rs/pull/445)
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
