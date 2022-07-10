@@ -104,7 +104,7 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In June, we merged the following pull request:
 
-- [Add `registers::debug`](https://github.com/rust-osdev/x86_64/pull/286)
+- [Add `registers::debug`](https://github.com/rust-osdev/x86_64/pull/286) <span class="gray">([published](https://github.com/rust-osdev/x86_64/pull/386) as `v0.14.10`)</span>
 
 Thanks to [@mkroening](https://github.com/mkroening) for this contribution!
 
