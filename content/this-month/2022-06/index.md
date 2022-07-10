@@ -128,11 +128,15 @@ Please use the following template for adding items:
 - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
 -->
 
-<span class="gray">
+- [(`rust-osdev/volatile`) New design based on pointer types](https://github.com/rust-osdev/volatile/pull/28)
+
+  We are currently discussing a new design for the `volatile` crate based on raw pointer types in order to avoid potential undefined behavior. The linked pull requests proposes an implementation where the volatile wrapper type is `Copy` and its methods take `self` by value. We haven't reached a decision yet, so if anyone has more input on this, please join the discussion. For more context, see also [PR #22](https://github.com/rust-osdev/volatile/pull/22).
+
+<!-- <span class="gray">
 
 _No tasks were proposed for this section._
 
-</span>
+</span> -->
 
 If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the `next` branch with the tasks you want to include in the next issue.
 
