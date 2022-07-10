@@ -1,0 +1,200 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2022-06/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: June 2022 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: June 2022</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/phip1611">@phip1611</a>
+
+        <br>Published on <time datetime="2022-07-10">
+            Jul 10, 2022
+            
+        </time>
+    </span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-06/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (June 2022)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="project-updates">Project Updates</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="linked-list-allocator"><a href="https://github.com/rust-osdev/linked-list-allocator"><code>linked-list-allocator</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/jamesmunns">@jamesmunns</a></span></p>
+<p>The <code>linked-list-allocator</code> crate provides a basic <code>no_std</code> allocator that builds a linked list from freed memory blocks and thus needs no additional data structures.</p>
+<p>This month, <a href="https://github.com/jamesmunns">@jamesmunns</a> redesigned the internal API for traversing the linked list in order to pass the strict tests of <a href="https://github.com/rust-lang/miri"><code>miri</code></a>, which is an experimental interpreter for Rust's intermediate representation (MIR). Among other things, <code>miri</code> checks that pointers are correctly aligned and that no invalid aliasing occurs (based on different formal models). By checking our implementation against <code>miri</code>, we make it more robust and reduce the chance that undefined behavior occurs with future compiler versions.</p>
+<p>The change was implemented across the following pull requests:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/linked-list-allocator/pull/62">Refactor with Cursor-based API, and passing Miri tests</a> <span class="gray">(published as <code>v0.10.0</code>, but yanked later)</span></li>
+<li>(<a href="https://github.com/rust-osdev/linked-list-allocator/pull/63">fix(deallocate_middle): advance to next in <code>try_insert_after</code></a>)</li>
+<li><a href="https://github.com/rust-osdev/linked-list-allocator/pull/64">Fix free logic</a> <span class="gray">(<a href="https://github.com/rust-osdev/linked-list-allocator/pull/65">published</a> as <code>v0.10.1</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/jamesmunns">@jamesmunns</a> for the redesign and <a href="https://github.com/haraldh">@haraldh</a> for reporting a critical issue in the <code>v0.10.0</code> release and providing a fix! Also, we would like to welcome <a href="https://github.com/jamesmunns">@jamesmunns</a> as a maintainer of this crate!</p>
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/multiboot2"><code>multiboot2</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, <a href="https://github.com/phip1611">@phip1611</a>, <a href="https://github.com/robert-w-gries">@robert-w-gries</a>, <a href="https://github.com/ahmedcharles">@ahmedcharles</a>, and <a href="https://github.com/Caduser2020">@Caduser2020</a></span></p>
+<p>The <code>multiboot2</code> crate provides abstraction types for the multiboot information structure (MBI)
+of multiboot2 bootloaders. The latest release of the <code>multiboot2</code>-crate is now <code>v.0.14.0</code> (was
+<code>v0.13.2</code>). It contains some small breaking changes because so far, we used some unsafe code and
+relied on having not to verify UTF-8 strings. For a full changelog, please refer to the 
+<a href="https://github.com/rust-osdev/multiboot2/blob/main/multiboot2/Changelog.md">GitHub repo</a>.</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a> and <a href="https://github.com/nicholasbishop">@nicholasbishop</a></span></p>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>We merged the following changes in June:</p>
+<h4 id="fixes">Fixes</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/443">Remove <code>exts::allocate_buffer</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/447">Fix incorrect pointer cast in get_rng</a></li>
+</ul>
+<h4 id="improvements">Improvements</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/450">Remove unused <code>From&lt;ucs2::Error&gt;</code> impls</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/451">Remove <code>eh_personality</code> lang item</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/453">Simplify <code>uefi-services</code> panic handler</a></li>
+</ul>
+<h4 id="internal-changes">Internal changes</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/442">Fix <code>query_variable_info</code> test</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/445">Fix errors due to deprecations in the <code>clap</code> API</a></li>
+</ul>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/rybot666">@rybot666</a>, and <a href="https://github.com/64">@64</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we made more progress on the upcoming <code>v0.11</code> version:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/3b6aa00dc33005f4353568c5dccad694d0f54f90">WIP: try to start loading FAT partition in second stage</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/abfdba522e990fcaf865302b7b7d91f0abef04a7">Start custom FAT implementation based on <code>mini_fat</code> crate</a> (to keep the executable size down)</li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/96d2bdbae6fdc91c8df958fd09d4207a3ab20020">Read root dir entries from FAT partition</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/eef2109861d718e0da82b3c5e4c2d9308d34da56">Use segment-based addressing for DAP to support loading larger second stages</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/1d7ff1f0627fa33dab3f811af150a547e1f48172">Implement looking up <code>kernel-x86_64</code> file on FAT partition</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/06d3b9521cc8bac981068bafe0ab84b5c4a7e8c0">Read FAT clusters of kernel file</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/6e8f9fa964bfcd23b95fe902fe3a5f2c55065e27">Ensure proper alignment of DAP target buffer</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/7a24837692d96c8e9b04377fa2e7646648637dcb">Enter unreal mode</a></li>
+</ul>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a>, and <a href="https://github.com/orgs/rust-osdev/people/rybot666">@rybot666</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In June, we merged the following pull request:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/286">Add <code>registers::debug</code></a> <span class="gray">(<a href="https://github.com/rust-osdev/x86_64/pull/386">published</a> as <code>v0.14.10</code>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/mkroening">@mkroening</a> for this contribution!</p>
+<h3 id="cargo-xbuild"><a href="https://github.com/rust-osdev/cargo-xbuild"><code>cargo-xbuild</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>cargo-xbuild</code> project provides <code>cargo</code> command wrappers to cross-compile the sysroot crates <code>core</code> and <code>alloc</code>. It is mostly useful in situations, where cargo's unstable <code>-Zbuild-std</code> flag is not usable.</p>
+<p>This month, we fixed a build error of the <code>alloc</code> crate on the latest nightlies:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/cargo-xbuild/pull/105">Fix: The alloc crate uses the Rust 2021 edition now</a> <span class="gray">(published as <code>v0.6.6</code>)</span></li>
+</ul>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
+issues in one of our projects and get started!</p>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<ul>
+<li>
+<p><a href="https://github.com/rust-osdev/volatile/pull/28">(<code>rust-osdev/volatile</code>) New design based on pointer types</a></p>
+<p>We are currently discussing a new design for the <code>volatile</code> crate based on raw pointer types in order to avoid potential undefined behavior. The linked pull requests proposes an implementation where the volatile wrapper type is <code>Copy</code> and its methods take <code>self</code> by value. We haven't reached a decision yet, so if anyone has more input on this, please join the discussion. For more context, see also <a href="https://github.com/rust-osdev/volatile/pull/22">PR #22</a>.</p>
+</li>
+</ul>
+<!-- <span class="gray">
+
+_No tasks were proposed for this section._
+
+</span> -->
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="google-gpt-disk-rs"><a href="https://github.com/google/gpt-disk-rs"><code>google/gpt-disk-rs</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/nicholasbishop">@nicholasbishop</a>)</span></p>
+<p><code>gpt-disk-rs</code> is a collection of three libraries related to <a href="https://en.wikipedia.org/wiki/GUID_Partition_Table">GPT</a> (GUID Partition Table) disk data. The crates are no-std by default, have minimal dependencies, and include a lot of documentation. I'm hoping they'll be a suitable base for any project that wants to read or write GPT data.</p>
+<ul>
+<li><a href="https://crates.io/crates/uguid"><code>uguid</code></a>: GUID data type.</li>
+<li><a href="https://crates.io/crates/gpt_disk_types"><code>gpt_disk_types</code></a>: all the GPT types defined by the UEFI specification</li>
+<li><a href="https://crates.io/crates/gpt_disk_io"><code>gpt_disk_io</code></a>: types for reading and writing GPT data to an abstract block IO device.</li>
+</ul>
+<h3 id="vinc-moros"><a href="https://github.com/vinc/moros"><code>vinc/moros</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/vinc">@vinc</a>)</span></p>
+<p>MOROS is a text-based hobby operating system targeting computers with a x86-64 architecture and a BIOS. It is inspired by Unix and ITS but is closer to a modern DOS at the moment in term of features.</p>
+<p>In the last month I finally managed to run rust programs (without alloc) inside the OS after being limited to nasm programs for a long time. This triggered a lot of refactoring and improvements in the shell and the lisp language used for scripting.</p>
+<p>Next step will be publishing a 0.8.0 release and working on userspace allocation.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>This month, we merged the following improvements:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1121">[Translation][Korean] post-03 (edition-2)</a>
+<ul>
+<li>Thanks to <a href="https://github.com/JOE1994">@JOE1994</a> for creating the translation and <a href="https://github.com/QuqqU">@QuqqU</a> for reviewing it!</li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1122">Fix typo in Japanese translation</a> (thanks to <a href="https://github.com/KisaragiEffective">@KisaragiEffective</a>)</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1118">Translate the giscus comment system</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1116">Move comment threads for translated posts to separate category</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1117">Remove goatcounter analytics again</a></li>
+</ul>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>

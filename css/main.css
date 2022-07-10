@@ -41,6 +41,7 @@ h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .maintainers {
+    border-top: 1px solid #ddd;
     display: block;
     margin-top: -.5rem;
     color: #9a9a9a;

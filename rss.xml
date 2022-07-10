@@ -7,7 +7,15 @@
         <generator>Zola</generator>
         <language>en</language>
         <atom:link href="https://rust-osdev.com/rss.xml" rel="self" type="application/rss+xml"/>
-        <lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Sun, 10 Jul 2022 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>This Month in Rust OSDev: June 2022</title>
+            <pubDate>Sun, 10 Jul 2022 00:00:00 +0000</pubDate>
+            <link>https://rust-osdev.com/this-month/2022-06/</link>
+            <guid>https://rust-osdev.com/this-month/2022-06/</guid>
+            <description>&lt;p&gt;Welcome to a new issue of &lt;em&gt;&amp;quot;This Month in Rust OSDev&amp;quot;&lt;&#x2F;em&gt;. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.&lt;&#x2F;p&gt;
+</description>
+        </item>
         <item>
             <title>This Month in Rust OSDev: May 2022</title>
             <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
