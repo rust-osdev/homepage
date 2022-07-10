@@ -39,6 +39,22 @@ The `x86_64` crate provides various abstractions for `x86_64` systems, including
 
 In June, …
 
+### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@jamesmunns](https://github.com/jamesmunns)</span>
+
+The `linked-list-allocator` crate provides a basic `no_std` allocator that builds a linked list from freed memory blocks and thus needs no additional data structures.
+
+This month, [@jamesmunns](https://github.com/jamesmunns) redesigned the internal API for traversing the linked list in order to pass the strict tests of [`miri`](https://github.com/rust-lang/miri), which is an experimental interpreter for Rust's intermediate representation (MIR). Among other things, `miri` checks that pointers are correctly aligned and that no invalid aliasing occurs (based on different formal models). By checking our implementation against `miri`, we make it more robust and reduce the chance that undefined behavior occurs with future compiler versions.
+
+The change was implemented across the following pull requests:
+
+- [Refactor with Cursor-based API, and passing Miri tests](https://github.com/rust-osdev/linked-list-allocator/pull/62) <span class="gray">(published as `v0.10.0`, but yanked later)</span>
+- ([fix(deallocate_middle): advance to next in `try_insert_after`](https://github.com/rust-osdev/linked-list-allocator/pull/63))
+- [Fix free logic](https://github.com/rust-osdev/linked-list-allocator/pull/64) <span class="gray">([published](https://github.com/rust-osdev/linked-list-allocator/pull/65) as `v0.10.1`)</span>
+
+Thanks to [@jamesmunns](https://github.com/jamesmunns) for the redesign and [@haraldh](https://github.com/haraldh) for reporting a critical issue in the `v0.10.0` release and providing a fix! Also, we would like to welcome [@jamesmunns](https://github.com/jamesmunns) as a maintainer of this crate!
+
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
 <span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods), [@phip1611](https://github.com/phip1611), [@robert-w-gries](https://github.com/robert-w-gries), [@ahmedcharles](https://github.com/ahmedcharles), and [@Caduser2020](https://github.com/Caduser2020)</span>
