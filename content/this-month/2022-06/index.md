@@ -144,12 +144,6 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
-### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
-
-<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
-
-This month, ...
-
 ### [`google/gpt-disk-rs`](https://github.com/google/gpt-disk-rs)
 
 <span class="maintainers">(Section written by [@nicholasbishop](https://github.com/nicholasbishop))</span>
@@ -169,6 +163,19 @@ MOROS is a text-based hobby operating system targeting computers with a x86-64 a
 In the last month I finally managed to run rust programs (without alloc) inside the OS after being limited to nasm programs for a long time. This triggered a lot of refactoring and improvements in the shell and the lisp language used for scripting.
 
 Next step will be publishing a 0.8.0 release and working on userspace allocation.
+
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+This month, we merged the following improvements:
+
+- [[Translation][Korean] post-03 (edition-2)](https://github.com/phil-opp/blog_os/pull/1121)
+  - Thanks to [@JOE1994](https://github.com/JOE1994) for creating the translation and [@QuqqU](https://github.com/QuqqU) for reviewing it!
+- [Fix typo in Japanese translation](https://github.com/phil-opp/blog_os/pull/1122) (thanks to [@KisaragiEffective](https://github.com/KisaragiEffective))
+- [Translate the giscus comment system](https://github.com/phil-opp/blog_os/pull/1118)
+- [Move comment threads for translated posts to separate category](https://github.com/phil-opp/blog_os/pull/1116)
+- [Remove goatcounter analytics again](https://github.com/phil-opp/blog_os/pull/1117)
 
 ## Join Us?
 
