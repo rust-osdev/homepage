@@ -31,14 +31,6 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
-### [`x86_64`](https://github.com/rust-osdev/x86_64)
-
-<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13), and [@rybot666](https://github.com/orgs/rust-osdev/people/rybot666)</span>
-
-The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
-
-In June, …
-
 ### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
 
 <span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@jamesmunns](https://github.com/jamesmunns)</span>
@@ -103,6 +95,18 @@ The `bootloader` crate implements a custom Rust-based bootloader for easy loadin
 - [Read FAT clusters of kernel file](https://github.com/rust-osdev/bootloader/commit/06d3b9521cc8bac981068bafe0ab84b5c4a7e8c0)
 - [Ensure proper alignment of DAP target buffer](https://github.com/rust-osdev/bootloader/commit/6e8f9fa964bfcd23b95fe902fe3a5f2c55065e27)
 - [Enter unreal mode](https://github.com/rust-osdev/bootloader/commit/7a24837692d96c8e9b04377fa2e7646648637dcb)
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13), and [@rybot666](https://github.com/orgs/rust-osdev/people/rybot666)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+In June, we merged the following pull request:
+
+- [Add `registers::debug`](https://github.com/rust-osdev/x86_64/pull/286)
+
+Thanks to [@mkroening](https://github.com/mkroening) for this contribution!
 
 ### [`cargo-xbuild`](https://github.com/rust-osdev/cargo-xbuild)
 
