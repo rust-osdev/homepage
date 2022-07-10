@@ -142,13 +142,13 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 ### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
 
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
 This month, ...
 
 ### [`google/gpt-disk-rs`](https://github.com/google/gpt-disk-rs)
 
-<span class="gray">(Section written by [@nicholasbishop](https://github.com/nicholasbishop))</span>
+<span class="maintainers">(Section written by [@nicholasbishop](https://github.com/nicholasbishop))</span>
 
 `gpt-disk-rs` is a collection of three libraries related to [GPT](https://en.wikipedia.org/wiki/GUID_Partition_Table) (GUID Partition Table) disk data. The crates are no-std by default, have minimal dependencies, and include a lot of documentation. I'm hoping they'll be a suitable base for any project that wants to read or write GPT data.
 
@@ -158,7 +158,7 @@ This month, ...
 
 ### [`vinc/moros`](https://github.com/vinc/moros)
 
-<span class="gray">(Section written by [@vinc](https://github.com/vinc))</span>
+<span class="maintainers">(Section written by [@vinc](https://github.com/vinc))</span>
 
 MOROS is a text-based hobby operating system targeting computers with a x86-64 architecture and a BIOS. It is inspired by Unix and ITS but is closer to a modern DOS at the moment in term of features.
 
