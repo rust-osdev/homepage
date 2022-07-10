@@ -104,6 +104,16 @@ The `bootloader` crate implements a custom Rust-based bootloader for easy loadin
 - [Ensure proper alignment of DAP target buffer](https://github.com/rust-osdev/bootloader/commit/6e8f9fa964bfcd23b95fe902fe3a5f2c55065e27)
 - [Enter unreal mode](https://github.com/rust-osdev/bootloader/commit/7a24837692d96c8e9b04377fa2e7646648637dcb)
 
+### [`cargo-xbuild`](https://github.com/rust-osdev/cargo-xbuild)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `cargo-xbuild` project provides `cargo` command wrappers to cross-compile the sysroot crates `core` and `alloc`. It is mostly useful in situations, where cargo's unstable `-Zbuild-std` flag is not usable.
+
+This month, we fixed a build error of the `alloc` crate on the latest nightlies:
+
+- [Fix: The alloc crate uses the Rust 2021 edition now](https://github.com/rust-osdev/cargo-xbuild/pull/105) <span class="gray">(published as `v0.6.6`)</span>
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
