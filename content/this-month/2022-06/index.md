@@ -1,6 +1,6 @@
 +++
 title = "This Month in Rust OSDev: June 2022"
-date = 0000-01-01
+date = 2022-07-10
 
 [extra]
 month = "June 2022"
@@ -180,9 +180,3 @@ This month, we merged the following improvements:
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
-
-
-<!--
-TODO: Update publication date
--->
-Footer
