@@ -101,6 +101,16 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 This month, ...
 
+### [`google/gpt-disk-rs`](https://github.com/google/gpt-disk-rs)
+
+<span class="gray">(Section written by [@nicholasbishop](https://github.com/nicholasbishop))</span>
+
+`gpt-disk-rs` is a collection of three libraries related to [GPT](https://en.wikipedia.org/wiki/GUID_Partition_Table) (GUID Partition Table) disk data. The crates are no-std by default, have minimal dependencies, and include a lot of documentation. I'm hoping they'll be a suitable base for any project that wants to read or write GPT data.
+
+* [`uguid`](https://crates.io/crates/uguid): GUID data type.
+* [`gpt_disk_types`](https://crates.io/crates/gpt_disk_types): all the GPT types defined by the UEFI specification
+* [`gpt_disk_io`](https://crates.io/crates/gpt_disk_io): types for reading and writing GPT data to an abstract block IO device.
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
