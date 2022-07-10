@@ -89,6 +89,21 @@ We merged the following changes in June:
 - [Fix `query_variable_info` test](https://github.com/rust-osdev/uefi-rs/pull/442)
 - [Fix errors due to deprecations in the `clap` API](https://github.com/rust-osdev/uefi-rs/pull/445)
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@rybot666](https://github.com/rybot666), and [@64](https://github.com/64)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we made more progress on the upcoming `v0.11` version:
+
+- [WIP: try to start loading FAT partition in second stage](https://github.com/rust-osdev/bootloader/commit/3b6aa00dc33005f4353568c5dccad694d0f54f90)
+- [Start custom FAT implementation based on `mini_fat` crate](https://github.com/rust-osdev/bootloader/commit/abfdba522e990fcaf865302b7b7d91f0abef04a7) (to keep the executable size down)
+- [Read root dir entries from FAT partition](https://github.com/rust-osdev/bootloader/commit/96d2bdbae6fdc91c8df958fd09d4207a3ab20020)
+- [Use segment-based addressing for DAP to support loading larger second stages](https://github.com/rust-osdev/bootloader/commit/eef2109861d718e0da82b3c5e4c2d9308d34da56)
+- [Implement looking up `kernel-x86_64` file on FAT partition](https://github.com/rust-osdev/bootloader/commit/1d7ff1f0627fa33dab3f811af150a547e1f48172)
+- [Read FAT clusters of kernel file](https://github.com/rust-osdev/bootloader/commit/06d3b9521cc8bac981068bafe0ab84b5c4a7e8c0)
+- [Ensure proper alignment of DAP target buffer](https://github.com/rust-osdev/bootloader/commit/6e8f9fa964bfcd23b95fe902fe3a5f2c55065e27)
+- [Enter unreal mode](https://github.com/rust-osdev/bootloader/commit/7a24837692d96c8e9b04377fa2e7646648637dcb)
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
