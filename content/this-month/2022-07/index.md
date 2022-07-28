@@ -60,6 +60,37 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
+### Comparison between [`phip1611/simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator) and [`rust-osdev/linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+
+<span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+In March 2022, Philipp Schuster proposed his [`simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator)
+crate. It focuses on being a very simple-to-use general purpose allocator that "just works" for various workloads
+in `no_std` context. However, there are other allocators, such as [`rust-osdev/linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator).
+When you choose an allocator, you should not only consider the API and how to set it up, but actually the runtime 
+characteristics. OS research has shown us that there is no perfect allocator. You can optimize an allocator for speed,
+memory utilization (i.e., prevent fragmentation), code simplicity, and worst case execution time. There exist different
+strategies to reach those goals: first-fit, next-fit, best-fit
+
+Recently, Philipp benchmarked his `simple-chunk-allocator` against [`rust-osdev/linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator) 
+to learn under which conditions which performs better. But at first, let's point out some differences. `simple-chunk-allocator` needs 
+a static backing storage for heap and an additional static backing storage for its internal bookkeeping. `linked-list-allocator`
+can solve this better by organizing the heap with the heap backing memory itself. `simple-chunk-allocator` uses a slightly
+adjusted variant of best-fit that tries to reduce fragmentation. `linked-list-allocator` is a first-fit allocator that 
+has a lower performance to more heap is used.
+
+The relevant outcome is that `simple-chunk-allocator` always outperforms `linked-list-allocator` in median allocation time.
+For stress tests with a low heap consumption, thus, no long stress test with 90% and more heap usage, `simple-chunk-allocator`
+also outperforms `linked-list-allocator` in average allocation time. However, if the heap is full and frequent allocations
+happen, the average (but not the median) allocation time of `linked-list-allocator` is better. Also, `linked-list-allocator`
+can come close to 100% heap usage which is not the case for `simple-chunk-allocator`, because it suffers from internal
+fragmentation under certain circumstances. Last but not least, even small allocations always takes up a multiple of the
+used chunk size in `simple-chunk-allocator`.
+
+In the end, there is no optimal allocator. You must choose which properties are more relevant for your scenario.
+For concrete measurements, please head to the README of [`simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator).
+
+
 ### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
 
 <span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
