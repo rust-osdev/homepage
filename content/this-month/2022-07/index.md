@@ -6,6 +6,7 @@ date = 0000-01-01
 month = "July 2022"
 authors = [
     "phil-opp",
+    "ColinFinck",
     # add yourself here
 ]
 +++
@@ -90,6 +91,21 @@ used chunk size in `simple-chunk-allocator`.
 In the end, there is no optimal allocator. You must choose which properties are more relevant for your scenario.
 For concrete measurements, please head to the README of [`simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator).
 
+### [`nt-list`: Windows Linked Lists in idiomatic Rust](https://colinfinck.de/posts/nt-list-windows-linked-lists-in-idiomatic-rust/)
+
+<span class="gray">(Section written by [@ColinFinck](https://github.com/ColinFinck))</span>
+
+On his quest to develop a ReactOS/Windows bootloader in Rust, Colin Finck released another building block as a reusable `no_std` crate this month.
+After [nt-hive](https://github.com/ColinFinck/nt-hive) for reading Windows registry hive files and [ntfs](https://github.com/ColinFinck/ntfs) to access Microsoft's proprietary NTFS filesystem, the [nt-list](https://github.com/ColinFinck/nt-list) crate provides a type-safe and idiomatic Rust interface to work with Windows Linked Lists, known as [`LIST_ENTRY`](https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-list_entry) and [`SINGLE_LIST_ENTRY`](https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-single_list_entry).
+This is what Windows, Windows drivers, and components influenced by Windows (e.g. UEFI) have been using for a long time to uniformly handle linked lists.
+
+[Colin's blog post](https://colinfinck.de/posts/nt-list-windows-linked-lists-in-idiomatic-rust/) goes into detail about some of the differences between textbook and Windows linked lists and the challenges in coming up with a safe Rust implementation.
+The final interface provided by nt-list is as simple to use as `Vec` while being fully compatible to the original `LIST_ENTRY`.
+The compatibility is proven in a WinDbg debugging session:
+
+[![Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate](windbg.png "Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate")](windbg.png)
+
+If you want to give it a spin, the crate is available on [crates.io](https://crates.io/crates/nt-list), and make sure to also check the [docs](https://docs.rs/nt-list/).
 
 ### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
 
