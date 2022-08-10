@@ -98,6 +98,14 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
+### [`rust-lang/rust`](https://github.com/rust-lang/rust/)
+
+<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+This Month, [@dvdhrm](https://github.com/dvdhrm) started an initiative to get the `*-unknown-uefi` targets to [Tier-2](https://doc.rust-lang.org/nightly/rustc/platform-support.html#tier-2). As a first step, they [added a detailed description of the platform](https://github.com/rust-lang/rust/pull/99760) to the rustc book. The entry is already published [in the nightly release of the book](https://doc.rust-lang.org/nightly/rustc/platform-support/unknown-uefi.html).
+
+Please reach out if you would like to help with this!
+
 ### Comparison between [`phip1611/simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator) and [`rust-osdev/linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
 
 <span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
