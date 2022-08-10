@@ -4,9 +4,8 @@ date = 2022-08-10
 
 [extra]
 month = "July 2022"
-authors = [
+editors = [
     "phil-opp",
-    "ColinFinck",
     # add yourself here
 ]
 +++
