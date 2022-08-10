@@ -150,12 +150,6 @@ The compatibility is proven in a WinDbg debugging session:
 
 If you want to give it a spin, the crate is available on [crates.io](https://crates.io/crates/nt-list), and make sure to also check the [docs](https://docs.rs/nt-list/).
 
-### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
-
-<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
-
-This month, ...
-
 ### [Theseus OS](https://github.com/theseus-os/Theseus)
 
 <span class="maintainers">(Section written by [Kevin Boos](https://www.theseus-os.com/kevinaboos/) ([@kevinaboos](https://github.com/kevinaboos)))</span>
