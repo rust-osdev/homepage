@@ -31,13 +31,51 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+We merged the following changes in July:
+
+- [Protocol safety improvements](https://github.com/rust-osdev/uefi-rs/pull/460)
+- [Add MemoryProtection protocol](https://github.com/rust-osdev/uefi-rs/pull/454)
+- [`EqStrUntilNul` trait to compare Rust strings (`str`, `String`) against `CStr16` and `CString16`](https://github.com/rust-osdev/uefi-rs/pull/462)
+- [cargo: additive panic-handler feature](https://github.com/rust-osdev/uefi-rs/pull/456) (_breaking_)
+- [Allow qemu test to work under Windows without WSL](https://github.com/rust-osdev/uefi-rs/pull/463)
+- [xtask: Fix channel of cargo operations](https://github.com/rust-osdev/uefi-rs/pull/466)
+- [Improve entry macro tests](https://github.com/rust-osdev/uefi-rs/pull/471)
+
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
 
 <span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13), and [@rybot666](https://github.com/orgs/rust-osdev/people/rybot666)</span>
 
 The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
 
-In July, …
+In July, we merged the following changes:
+
+- [Add getters for the page table frame mapping](https://github.com/rust-osdev/x86_64/pull/385)
+- [Release `v0.14.10`](https://github.com/rust-osdev/x86_64/pull/386)
+- [Add missing IDT entries `#CP` and `#HV`](https://github.com/rust-osdev/x86_64/pull/387)
+
+Thanks to [@Zildj1an](https://github.com/Zildj1an) for their contribution!
+
+### [`xhci`](https://github.com/rust-osdev/xhci)
+
+<span class="maintainers">Maintained by [@toku-sa-n](https://github.com/toku-sa-n)</span>
+
+The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
+
+We merged the following changes this month:
+
+- [Remove the line number limitation](https://github.com/rust-osdev/xhci/pull/138)
+- [feat: added `TryFrom<[u32; 4]>` to Command/Transfer TRB structs](https://github.com/rust-osdev/xhci/pull/137)
+- [Release 0.8.5](https://github.com/rust-osdev/xhci/pull/139)
+- [Fix `try_from!` macro not checking MSb of type](https://github.com/rust-osdev/xhci/pull/140)
+- [Release 0.8.6](https://github.com/rust-osdev/xhci/pull/141)
+
+Thanks to [@Demindiro](https://github.com/Demindiro) and [@ytoml](https://github.com/ytoml) for their contributions!
 
 ## Call for Participation
 
@@ -49,11 +87,10 @@ Please use the following template for adding items:
 - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
 -->
 
-<span class="gray">
+- [(`rust-osdev/volatile`) Various improvements for the new design](https://github.com/rust-osdev/volatile/pull/28)
 
-_No tasks were proposed for this section._
+  We are currently discussing a new design for the `volatile` crate based on raw pointer types in order to avoid potential undefined behavior. The linked pull requests proposes an implementation where the volatile wrapper type is `Copy` and its methods take `self` by value. We haven't reached a decision yet, so if anyone has more input on this, please join the discussion. For more context, see also [PR #22](https://github.com/rust-osdev/volatile/pull/22).
 
-</span>
 
 If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the `next` branch with the tasks you want to include in the next issue.
 
