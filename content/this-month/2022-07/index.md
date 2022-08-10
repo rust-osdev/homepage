@@ -25,7 +25,7 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
     general structure of these posts.
 -->
 
-## Project Updates
+## `rust-osdev` Projects
 
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`] organization.
 
