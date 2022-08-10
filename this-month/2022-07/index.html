@@ -1,0 +1,209 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2022-07/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: July 2022 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: July 2022</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2022-08-10">
+            Aug 10, 2022
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-07/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (July 2022)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>We merged the following changes in July:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/460">Protocol safety improvements</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/454">Add MemoryProtection protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/462"><code>EqStrUntilNul</code> trait to compare Rust strings (<code>str</code>, <code>String</code>) against <code>CStr16</code> and <code>CString16</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/456">cargo: additive panic-handler feature</a> (<em>breaking</em>)</li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/463">Allow qemu test to work under Windows without WSL</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/466">xtask: Fix channel of cargo operations</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/471">Improve entry macro tests</a></li>
+</ul>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a>, and <a href="https://github.com/orgs/rust-osdev/people/rybot666">@rybot666</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>In July, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/385">Add getters for the page table frame mapping</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/386">Release <code>v0.14.10</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/387">Add missing IDT entries <code>#CP</code> and <code>#HV</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Zildj1an">@Zildj1an</a> for their contribution!</p>
+<h3 id="xhci"><a href="https://github.com/rust-osdev/xhci"><code>xhci</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/toku-sa-n">@toku-sa-n</a></span></p>
+<p>The <code>xhci</code> crate provides types of xHCI structires, such as Registers and TRBs.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/xhci/pull/138">Remove the line number limitation</a></li>
+<li><a href="https://github.com/rust-osdev/xhci/pull/137">feat: added <code>TryFrom&lt;[u32; 4]&gt;</code> to Command/Transfer TRB structs</a></li>
+<li><a href="https://github.com/rust-osdev/xhci/pull/139">Release 0.8.5</a></li>
+<li><a href="https://github.com/rust-osdev/xhci/pull/140">Fix <code>try_from!</code> macro not checking MSb of type</a></li>
+<li><a href="https://github.com/rust-osdev/xhci/pull/141">Release 0.8.6</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Demindiro">@Demindiro</a> and <a href="https://github.com/ytoml">@ytoml</a> for their contributions!</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Help with one of these outstanding issues!</p>
+<!--
+Please use the following template for adding items:
+- [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<ul>
+<li>
+<p><a href="https://github.com/rust-osdev/volatile/pull/28">(<code>rust-osdev/volatile</code>) Various improvements for the new design</a></p>
+<p>We are currently discussing a new design for the <code>volatile</code> crate based on raw pointer types in order to avoid potential undefined behavior. The linked pull requests proposes an implementation where the volatile wrapper type is <code>Copy</code> and its methods take <code>self</code> by value. We haven't reached a decision yet, so if anyone has more input on this, please join the discussion. For more context, see also <a href="https://github.com/rust-osdev/volatile/pull/22">PR #22</a>.</p>
+</li>
+</ul>
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="rust-lang-rust"><a href="https://github.com/rust-lang/rust/"><code>rust-lang/rust</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>This Month, <a href="https://github.com/dvdhrm">@dvdhrm</a> started an initiative to get the <code>*-unknown-uefi</code> targets to <a href="https://doc.rust-lang.org/nightly/rustc/platform-support.html#tier-2">Tier-2</a>. As a first step, they <a href="https://github.com/rust-lang/rust/pull/99760">added a detailed description of the platform</a> to the rustc book. The entry is already published <a href="https://doc.rust-lang.org/nightly/rustc/platform-support/unknown-uefi.html">in the nightly release of the book</a>.</p>
+<p>Please reach out if you would like to help with this!</p>
+<h3 id="theseus-os"><a href="https://github.com/theseus-os/Theseus">Theseus OS</a></h3>
+<p><span class="maintainers">(Section written by <a href="https://www.theseus-os.com/kevinaboos/">Kevin Boos</a> (<a href="https://github.com/kevinaboos">@kevinaboos</a>))</span></p>
+<p>Theseus is a safe-language OS written from scratch in Rust that is in the process of migrating from pure academic research objectives to more general usability and legacy compatibility.</p>
+<p>Theseus dynamically loads and links all components at runtime, and executes everything in a single address space and at a single privilege level.
+With this, Theseus employs <em>intralingual</em> design principles to maximally leverage the strengths of the Rust language, allowing the compiler to both view and semantically understand (and thus extend its safety checks to) all components from top-level apps to low-level kernel entities.
+Theseus strives to not only ensure isolation between different entity components and subsystems in the OS, but also to go further than language safety to provide various invariants that guarantee properties about most system-provided types.
+For more, check out <a href="https://www.theseus-os.com/Theseus/book/index.html">the Theseus OS Book</a> or our <a href="https://www.theseus-os.com/Theseus/book/misc/papers_presentations.html">academic papers and presentations</a>.</p>
+<p>Theseus is fully open-source and always welcomes <a href="https://www.theseus-os.com/Theseus/book/contribute/contribute.html">contributions</a> from anyone.</p>
+<p>Over the past month (or two), Theseus OS made significant progress on a variety of topics:</p>
+<ul>
+<li>Finished the first known port of Wasmtime to <code>no_std</code>, enabling us to <a href="https://github.com/theseus-os/Theseus/pull/556">run WASM binary workloads on Theseus</a> with relative ease.
+<ul>
+<li>Importantly, this overcomes the classic limitation of safe-language OSes -- that all components must be written in that safe language -- to allow unsafe (e.g., C, C++) programs to run on Theseus in a sandboxed WASM environment.</li>
+<li>See our <a href="https://www.theseus-os.com/2022/06/21/wasmtime-complete-no_std-port.html">blog post with more info</a> on this endeavor.</li>
+</ul>
+</li>
+<li>Thanks to funding from Futurewei Technologies, Theseus Systems <a href="https://www.theseus-os.com/2022/04/29/Theseus-Is-Hiring.html">hired two developers</a> to work on Theseus's next several milestones, <a href="https://github.com/NathanRoyer">Nathan Royer</a> and <a href="https://github.com/tsoutsman/">Klim Tsoutsman</a>.,
+<ul>
+<li>Thanks to everyone who reached out to us and participated in interviews; we received a lot more interest than expected!</li>
+</ul>
+</li>
+<li>Began work on porting the Rust <code>std</code> library to Theseus.</li>
+<li>Designed a <a href="https://github.com/theseus-os/Theseus/pull/522">completely new configuration interface based on cargo features</a>, which enables one to easily include or exclude specific Theseus crates in a build of Theseus, but in a safe, dependency-aware manner.</li>
+<li>Significantly improved speed and memory usage of our runtime loader and linker:
+<ul>
+<li>Introduced a <a href="https://github.com/theseus-os/Theseus/pull/562">custom linker script and linker pass</a> that performs partial relinking of object files to merge their per-function/per-data sections together.
+<ul>
+<li>This results in a <strong>30-40%</strong> reduction in object file size and a <strong>15-18x</strong> improvement in loading/linking times. For example, loading and linking the full Wasmtime project (60+ crates) now takes ~100ms instead of 15 seconds.</li>
+</ul>
+</li>
+<li><a href="https://github.com/theseus-os/Theseus/pull/549">De-duplicated strings in our metadata</a> related to crate loading, which reduces heap usage by about 20%.</li>
+</ul>
+</li>
+<li>Added support for <a href="https://github.com/theseus-os/Theseus/pull/541">booting Theseus using the <code>limine</code> bootloader</a> and for <a href="https://github.com/theseus-os/Theseus/pull/536">building Theseus on non-Debian Linux distributions like Fedora</a>.</li>
+<li>Improved support for the <a href="https://github.com/theseus-os/Theseus/pull/523">IXGBE ethernet NIC</a>.</li>
+<li><a href="https://github.com/theseus-os/Theseus/pull/565">Sped up post-<code>rustc</code> build steps by about 15-20 seconds</a> with simple Makefile loop parallelization.</li>
+</ul>
+<p>Check out the <a href="https://www.theseus-os.com/">Theseus OS blog</a> for the latest details.</p>
+<h3 id="nt-list-windows-linked-lists-in-idiomatic-rust"><a href="https://colinfinck.de/posts/nt-list-windows-linked-lists-in-idiomatic-rust/"><code>nt-list</code>: Windows Linked Lists in idiomatic Rust</a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/ColinFinck">@ColinFinck</a>)</span></p>
+<p>On his quest to develop a ReactOS/Windows bootloader in Rust, Colin Finck released another building block as a reusable <code>no_std</code> crate this month.
+After <a href="https://github.com/ColinFinck/nt-hive">nt-hive</a> for reading Windows registry hive files and <a href="https://github.com/ColinFinck/ntfs">ntfs</a> to access Microsoft's proprietary NTFS filesystem, the <a href="https://github.com/ColinFinck/nt-list">nt-list</a> crate provides a type-safe and idiomatic Rust interface to work with Windows Linked Lists, known as <a href="https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-list_entry"><code>LIST_ENTRY</code></a> and <a href="https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-single_list_entry"><code>SINGLE_LIST_ENTRY</code></a>.
+This is what Windows, Windows drivers, and components influenced by Windows (e.g. UEFI) have been using for a long time to uniformly handle linked lists.</p>
+<p><a href="https://colinfinck.de/posts/nt-list-windows-linked-lists-in-idiomatic-rust/">Colin's blog post</a> goes into detail about some of the differences between textbook and Windows linked lists and the challenges in coming up with a safe Rust implementation.
+The final interface provided by nt-list is as simple to use as <code>Vec</code> while being fully compatible to the original <code>LIST_ENTRY</code>.
+The compatibility is proven in a WinDbg debugging session:</p>
+<p><a href="https://rust-osdev.com/this-month/2022-07/windbg.png"><img src="https://rust-osdev.com/this-month/2022-07/windbg.png" alt="Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate" title="Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate" /></a></p>
+<p>If you want to give it a spin, the crate is available on <a href="https://crates.io/crates/nt-list">crates.io</a>, and make sure to also check the <a href="https://docs.rs/nt-list/">docs</a>.</p>
+<h3 id="comparison-between-phip1611-simple-chunk-allocator-and-rust-osdev-linked-list-allocator">Comparison between <a href="https://github.com/phip1611/simple-chunk-allocator"><code>phip1611/simple-chunk-allocator</code></a> and <a href="https://github.com/rust-osdev/linked-list-allocator"><code>rust-osdev/linked-list-allocator</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phip1611">@phip1611</a>)</span></p>
+<p>In March 2022, Philipp Schuster proposed his <a href="https://github.com/phip1611/simple-chunk-allocator"><code>simple-chunk-allocator</code></a>
+crate. It focuses on being a very simple-to-use general purpose allocator that &quot;just works&quot; for various workloads
+in <code>no_std</code> context. However, there are other allocators, such as <a href="https://github.com/rust-osdev/linked-list-allocator"><code>rust-osdev/linked-list-allocator</code></a>.
+When you choose an allocator, you should not only consider the API and how to set it up, but actually the runtime
+characteristics. OS research has shown us that there is no perfect allocator. You can optimize an allocator for speed,
+memory utilization (i.e., prevent fragmentation), code simplicity, and worst case execution time. There exist different
+strategies to reach those goals: first-fit, next-fit, best-fit</p>
+<p>Recently, Philipp benchmarked his <code>simple-chunk-allocator</code> against <a href="https://github.com/rust-osdev/linked-list-allocator"><code>rust-osdev/linked-list-allocator</code></a>
+to learn under which conditions which performs better. But at first, let's point out some differences. <code>simple-chunk-allocator</code> needs
+a static backing storage for heap and an additional static backing storage for its internal bookkeeping. <code>linked-list-allocator</code>
+can solve this better by organizing the heap with the heap backing memory itself. <code>simple-chunk-allocator</code> uses a slightly
+adjusted variant of best-fit that tries to reduce fragmentation. <code>linked-list-allocator</code> is a first-fit allocator that
+has a lower performance to more heap is used.</p>
+<p>The relevant outcome is that <code>simple-chunk-allocator</code> always outperforms <code>linked-list-allocator</code> in median allocation time.
+For stress tests with a low heap consumption, thus, no long stress test with 90% and more heap usage, <code>simple-chunk-allocator</code>
+also outperforms <code>linked-list-allocator</code> in average allocation time. However, if the heap is full and frequent allocations
+happen, the average (but not the median) allocation time of <code>linked-list-allocator</code> is better. Also, <code>linked-list-allocator</code>
+can come close to 100% heap usage which is not the case for <code>simple-chunk-allocator</code>, because it suffers from internal
+fragmentation under certain circumstances. Last but not least, even small allocations always takes up a multiple of the
+used chunk size in <code>simple-chunk-allocator</code>.</p>
+<p>In the end, there is no optimal allocator. You must choose which properties are more relevant for your scenario.
+For concrete measurements, please head to the README of <a href="https://github.com/phip1611/simple-chunk-allocator"><code>simple-chunk-allocator</code></a>.</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
