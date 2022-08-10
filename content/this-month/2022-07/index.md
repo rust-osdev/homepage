@@ -99,7 +99,7 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 ### [`rust-lang/rust`](https://github.com/rust-lang/rust/)
 
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
 This Month, [@dvdhrm](https://github.com/dvdhrm) started an initiative to get the `*-unknown-uefi` targets to [Tier-2](https://doc.rust-lang.org/nightly/rustc/platform-support.html#tier-2). As a first step, they [added a detailed description of the platform](https://github.com/rust-lang/rust/pull/99760) to the rustc book. The entry is already published [in the nightly release of the book](https://doc.rust-lang.org/nightly/rustc/platform-support/unknown-uefi.html).
 
@@ -107,7 +107,7 @@ Please reach out if you would like to help with this!
 
 ### Comparison between [`phip1611/simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator) and [`rust-osdev/linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
 
-<span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
 
 In March 2022, Philipp Schuster proposed his [`simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator)
 crate. It focuses on being a very simple-to-use general purpose allocator that "just works" for various workloads
@@ -137,7 +137,7 @@ For concrete measurements, please head to the README of [`simple-chunk-allocator
 
 ### [`nt-list`: Windows Linked Lists in idiomatic Rust](https://colinfinck.de/posts/nt-list-windows-linked-lists-in-idiomatic-rust/)
 
-<span class="gray">(Section written by [@ColinFinck](https://github.com/ColinFinck))</span>
+<span class="maintainers">(Section written by [@ColinFinck](https://github.com/ColinFinck))</span>
 
 On his quest to develop a ReactOS/Windows bootloader in Rust, Colin Finck released another building block as a reusable `no_std` crate this month.
 After [nt-hive](https://github.com/ColinFinck/nt-hive) for reading Windows registry hive files and [ntfs](https://github.com/ColinFinck/ntfs) to access Microsoft's proprietary NTFS filesystem, the [nt-list](https://github.com/ColinFinck/nt-list) crate provides a type-safe and idiomatic Rust interface to work with Windows Linked Lists, known as [`LIST_ENTRY`](https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-list_entry) and [`SINGLE_LIST_ENTRY`](https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-single_list_entry).
@@ -153,13 +153,13 @@ If you want to give it a spin, the crate is available on [crates.io](https://cra
 
 ### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
 
-<span class="gray">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
 This month, ...
 
 ### [Theseus OS](https://github.com/theseus-os/Theseus)
 
-<span class="gray">(Section written by [Kevin Boos](https://www.theseus-os.com/kevinaboos/) ([@kevinaboos](https://github.com/kevinaboos))</span>
+<span class="maintainers">(Section written by [Kevin Boos](https://www.theseus-os.com/kevinaboos/) ([@kevinaboos](https://github.com/kevinaboos)))</span>
 
 Theseus is a safe-language OS written from scratch in Rust that is in the process of migrating from pure academic research objectives to more general usability and legacy compatibility.
 
