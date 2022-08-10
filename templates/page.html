@@ -5,18 +5,32 @@
 {% block main %}
     <h1>{{ page.title | safe}}</h1>
 
-    <span class="post-authors post-date">Written by
+    <span class="post-authors post-date">
+        {%- if page.extra.authors -%}
+        Written by
         {% for author in page.extra.authors -%}
             {%- if not loop.first -%}
                 {%- if loop.last %}{% if loop.index0 > 1 %}, and {% else %} and {% endif %}{% else %}, {% endif -%}
             {%- endif -%}
             <a href="https://github.com/{{ author }}">@{{ author }}</a>
         {%- endfor %}
+        <br>
+        {%- endif -%}
 
-        <br>Published on <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">
+        Published on <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">
             {{ page.date | date(format="%b %d, %Y") }}
             {% if page.extra.updated %} (updated on {{ page.extra.updated | date(format="%b %d, %Y") }}) {% endif %}
         </time>
+        {%- if page.extra.editors -%}
+        (edited by
+        {% for author in page.extra.editors -%}
+            {%- if not loop.first -%}
+                {%- if loop.last %}{% if loop.index0 > 1 %}, and {% else %} and {% endif %}{% else %}, {% endif -%}
+            {%- endif -%}
+            <a href="https://github.com/{{ author }}">@{{ author }}</a>
+        {%- endfor -%}
+        )
+        {%- endif -%}
     </span>
 
     {{ page.content | safe }}

@@ -1,0 +1,12 @@
+[package]
+name = "collect-changes"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+chrono = "0.4.21"
+eyre = "0.6.8"
+octocrab = "0.16.0"
+tokio = { version = "1.20.1", features = ["full"] }
