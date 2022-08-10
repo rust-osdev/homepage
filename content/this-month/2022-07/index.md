@@ -79,8 +79,7 @@ Thanks to [@Demindiro](https://github.com/Demindiro) and [@ytoml](https://github
 
 ## Call for Participation
 
-Want to contribute to a Rust OSDev project, but don't know where to start? Pick up one of these outstanding
-issues in one of our projects and get started!
+Want to contribute to a Rust OSDev project, but don't know where to start? Help with one of these outstanding issues!
 
 <!--
 Please use the following template for adding items:
