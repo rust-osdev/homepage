@@ -104,52 +104,6 @@ This Month, [@dvdhrm](https://github.com/dvdhrm) started an initiative to get th
 
 Please reach out if you would like to help with this!
 
-### Comparison between [`phip1611/simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator) and [`rust-osdev/linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
-
-<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
-
-In March 2022, Philipp Schuster proposed his [`simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator)
-crate. It focuses on being a very simple-to-use general purpose allocator that "just works" for various workloads
-in `no_std` context. However, there are other allocators, such as [`rust-osdev/linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator).
-When you choose an allocator, you should not only consider the API and how to set it up, but actually the runtime 
-characteristics. OS research has shown us that there is no perfect allocator. You can optimize an allocator for speed,
-memory utilization (i.e., prevent fragmentation), code simplicity, and worst case execution time. There exist different
-strategies to reach those goals: first-fit, next-fit, best-fit
-
-Recently, Philipp benchmarked his `simple-chunk-allocator` against [`rust-osdev/linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator) 
-to learn under which conditions which performs better. But at first, let's point out some differences. `simple-chunk-allocator` needs 
-a static backing storage for heap and an additional static backing storage for its internal bookkeeping. `linked-list-allocator`
-can solve this better by organizing the heap with the heap backing memory itself. `simple-chunk-allocator` uses a slightly
-adjusted variant of best-fit that tries to reduce fragmentation. `linked-list-allocator` is a first-fit allocator that 
-has a lower performance to more heap is used.
-
-The relevant outcome is that `simple-chunk-allocator` always outperforms `linked-list-allocator` in median allocation time.
-For stress tests with a low heap consumption, thus, no long stress test with 90% and more heap usage, `simple-chunk-allocator`
-also outperforms `linked-list-allocator` in average allocation time. However, if the heap is full and frequent allocations
-happen, the average (but not the median) allocation time of `linked-list-allocator` is better. Also, `linked-list-allocator`
-can come close to 100% heap usage which is not the case for `simple-chunk-allocator`, because it suffers from internal
-fragmentation under certain circumstances. Last but not least, even small allocations always takes up a multiple of the
-used chunk size in `simple-chunk-allocator`.
-
-In the end, there is no optimal allocator. You must choose which properties are more relevant for your scenario.
-For concrete measurements, please head to the README of [`simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator).
-
-### [`nt-list`: Windows Linked Lists in idiomatic Rust](https://colinfinck.de/posts/nt-list-windows-linked-lists-in-idiomatic-rust/)
-
-<span class="maintainers">(Section written by [@ColinFinck](https://github.com/ColinFinck))</span>
-
-On his quest to develop a ReactOS/Windows bootloader in Rust, Colin Finck released another building block as a reusable `no_std` crate this month.
-After [nt-hive](https://github.com/ColinFinck/nt-hive) for reading Windows registry hive files and [ntfs](https://github.com/ColinFinck/ntfs) to access Microsoft's proprietary NTFS filesystem, the [nt-list](https://github.com/ColinFinck/nt-list) crate provides a type-safe and idiomatic Rust interface to work with Windows Linked Lists, known as [`LIST_ENTRY`](https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-list_entry) and [`SINGLE_LIST_ENTRY`](https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-single_list_entry).
-This is what Windows, Windows drivers, and components influenced by Windows (e.g. UEFI) have been using for a long time to uniformly handle linked lists.
-
-[Colin's blog post](https://colinfinck.de/posts/nt-list-windows-linked-lists-in-idiomatic-rust/) goes into detail about some of the differences between textbook and Windows linked lists and the challenges in coming up with a safe Rust implementation.
-The final interface provided by nt-list is as simple to use as `Vec` while being fully compatible to the original `LIST_ENTRY`.
-The compatibility is proven in a WinDbg debugging session:
-
-[![Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate](windbg.png "Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate")](windbg.png)
-
-If you want to give it a spin, the crate is available on [crates.io](https://crates.io/crates/nt-list), and make sure to also check the [docs](https://docs.rs/nt-list/).
-
 ### [Theseus OS](https://github.com/theseus-os/Theseus)
 
 <span class="maintainers">(Section written by [Kevin Boos](https://www.theseus-os.com/kevinaboos/) ([@kevinaboos](https://github.com/kevinaboos)))</span>
@@ -180,6 +134,52 @@ Over the past month (or two), Theseus OS made significant progress on a variety 
 * [Sped up post-`rustc` build steps by about 15-20 seconds](https://github.com/theseus-os/Theseus/pull/565) with simple Makefile loop parallelization.
 
 Check out the [Theseus OS blog](https://www.theseus-os.com/) for the latest details.
+
+### [`nt-list`: Windows Linked Lists in idiomatic Rust](https://colinfinck.de/posts/nt-list-windows-linked-lists-in-idiomatic-rust/)
+
+<span class="maintainers">(Section written by [@ColinFinck](https://github.com/ColinFinck))</span>
+
+On his quest to develop a ReactOS/Windows bootloader in Rust, Colin Finck released another building block as a reusable `no_std` crate this month.
+After [nt-hive](https://github.com/ColinFinck/nt-hive) for reading Windows registry hive files and [ntfs](https://github.com/ColinFinck/ntfs) to access Microsoft's proprietary NTFS filesystem, the [nt-list](https://github.com/ColinFinck/nt-list) crate provides a type-safe and idiomatic Rust interface to work with Windows Linked Lists, known as [`LIST_ENTRY`](https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-list_entry) and [`SINGLE_LIST_ENTRY`](https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-single_list_entry).
+This is what Windows, Windows drivers, and components influenced by Windows (e.g. UEFI) have been using for a long time to uniformly handle linked lists.
+
+[Colin's blog post](https://colinfinck.de/posts/nt-list-windows-linked-lists-in-idiomatic-rust/) goes into detail about some of the differences between textbook and Windows linked lists and the challenges in coming up with a safe Rust implementation.
+The final interface provided by nt-list is as simple to use as `Vec` while being fully compatible to the original `LIST_ENTRY`.
+The compatibility is proven in a WinDbg debugging session:
+
+[![Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate](windbg.png "Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate")](windbg.png)
+
+If you want to give it a spin, the crate is available on [crates.io](https://crates.io/crates/nt-list), and make sure to also check the [docs](https://docs.rs/nt-list/).
+
+### Comparison between [`phip1611/simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator) and [`rust-osdev/linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+In March 2022, Philipp Schuster proposed his [`simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator)
+crate. It focuses on being a very simple-to-use general purpose allocator that "just works" for various workloads
+in `no_std` context. However, there are other allocators, such as [`rust-osdev/linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator).
+When you choose an allocator, you should not only consider the API and how to set it up, but actually the runtime
+characteristics. OS research has shown us that there is no perfect allocator. You can optimize an allocator for speed,
+memory utilization (i.e., prevent fragmentation), code simplicity, and worst case execution time. There exist different
+strategies to reach those goals: first-fit, next-fit, best-fit
+
+Recently, Philipp benchmarked his `simple-chunk-allocator` against [`rust-osdev/linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+to learn under which conditions which performs better. But at first, let's point out some differences. `simple-chunk-allocator` needs
+a static backing storage for heap and an additional static backing storage for its internal bookkeeping. `linked-list-allocator`
+can solve this better by organizing the heap with the heap backing memory itself. `simple-chunk-allocator` uses a slightly
+adjusted variant of best-fit that tries to reduce fragmentation. `linked-list-allocator` is a first-fit allocator that
+has a lower performance to more heap is used.
+
+The relevant outcome is that `simple-chunk-allocator` always outperforms `linked-list-allocator` in median allocation time.
+For stress tests with a low heap consumption, thus, no long stress test with 90% and more heap usage, `simple-chunk-allocator`
+also outperforms `linked-list-allocator` in average allocation time. However, if the heap is full and frequent allocations
+happen, the average (but not the median) allocation time of `linked-list-allocator` is better. Also, `linked-list-allocator`
+can come close to 100% heap usage which is not the case for `simple-chunk-allocator`, because it suffers from internal
+fragmentation under certain circumstances. Last but not least, even small allocations always takes up a multiple of the
+used chunk size in `simple-chunk-allocator`.
+
+In the end, there is no optimal allocator. You must choose which properties are more relevant for your scenario.
+For concrete measurements, please head to the README of [`simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator).
 
 ## Join Us?
 
