@@ -55,6 +55,17 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
+### ['cdrzewiecki/celos'](https://gitlab.com/cdrzewiecki/celos)
+<span class="maintainers">(Section written by [@drzewiec](https://github.com/drzewiec))</span>
+
+It's been a while since my last project update! That's partly because life has been busy, but also because this update concerns a huge feature. I'm very pleased to report that I have been able to add preemptive multitasking to CelOS.
+
+This was feature that took a good bit of foundation to be able to implement (hence why it took me so long). I had to spend a good bit of time getting memory allocation (both physical and virtual) into a happier place, as well as add support for ACPI and the APIC. And, of course, there were many snags along the way as I learned (at least some of) the traps that are easy to step into when doing something as delicate as context switching.
+
+Now that I have finished this key feature, I plan to work on setting up the other infrastructure needed to begin writing services in userspace (such as message passing and synchronization primitives). And, hopefully soon, finally make the jump into ring 3!
+
+As always, many thanks to [@phil-opp](https://github.com/phil-opp) for his hard work on supporting the Rust osdev community, and for writing the [apic](https://github.com/rust-osdev/apic) crate which helped serve as a sanity check while I wrote my own driver for the IOAPIC and LAPIC. Thanks as well to the maintainers of the excellent [acpi](https://github.com/rust-osdev/acpi) crate, you guys are doing incredible work out there!
+
 <!--
     Please use the following template:
 
