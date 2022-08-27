@@ -55,7 +55,7 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
-### ['cdrzewiecki/celos'](https://gitlab.com/cdrzewiecki/celos)
+### [`cdrzewiecki/celos`](https://gitlab.com/cdrzewiecki/celos)
 <span class="maintainers">(Section written by [@drzewiec](https://github.com/drzewiec))</span>
 
 It's been a while since my last project update! That's partly because life has been busy, but also because this update concerns a huge feature. I'm very pleased to report that I have been able to add preemptive multitasking to CelOS.
