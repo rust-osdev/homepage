@@ -63,6 +63,29 @@ We also published a subset of the above changes as a new `v0.16.1` release:
 
 Thanks to [@kendase3](https://github.com/kendase3), [@JonahPlusPlus](https://github.com/JonahPlusPlus), and [@e820](https://github.com/e820) for their contributions!
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@rybot666](https://github.com/rybot666), and [@64](https://github.com/64)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.
+
+This month, we finally finished the new BIOS boot implementation for the [upcoming `v0.11` release](https://github.com/rust-osdev/bootloader/pull/232). It's now almost completely written in Rust (instead of assembly), which should make further improvements much easier.
+
+Some selected commits that might be interesting:
+
+- [Load a third stage](https://github.com/rust-osdev/bootloader/pull/232/commits/6492eab051b71a19b58a4f70185e7898fabb2c46)
+- [Load the kernel into buffer memory](https://github.com/rust-osdev/bootloader/pull/232/commits/84eea29b69ac75c0d7ce9c36e0d2a1369052dc2b)
+- [Copy kernel to protected mode](https://github.com/rust-osdev/bootloader/pull/232/commits/52ad3e2afab4f902ef5acb3241d7bc34c2a16e94)
+- [Jump to third stage](https://github.com/rust-osdev/bootloader/pull/232/commits/7cf073eae6a5c6e30684a67cdac66016c7dcfdf2)
+- [Set up paging and enter long mode (compatibility mode)](https://github.com/rust-osdev/bootloader/pull/232/commits/824786b0498a8f02e4d79ca8c8477ed68dae0068)
+- [Create prototype for long mode stage 4 and load it](https://github.com/rust-osdev/bootloader/pull/232/commits/39ba5269eada8ad40963d2ec7c92c4a6410060ab)
+- [Load long mode `GDT` and jump to 4th stage](https://github.com/rust-osdev/bootloader/pull/232/commits/05130d1d356e7e1566f7e576245580fc542184e6)
+- [Query vesa modes and filter by resolution](https://github.com/rust-osdev/bootloader/pull/232/commits/d8931970365a2ac26088320678cc8ce6ae60150d)
+- [Enable VESA framebuffer and update screen writer in stages 3 and 4](https://github.com/rust-osdev/bootloader/pull/232/commits/557c03427f5d143ee814fb908b05c584ec37b87a)
+- [Load `E820` memory map and put everything together](https://github.com/rust-osdev/bootloader/pull/232/commits/48cd6dcd109778032ce586735f5be1f1dac67117)
+
+All the tests are passing now, so we only need to do some cleanup and write proper documentation, then we should be ready to publish an alpha release for testing.
+
 ### [`xhci`](https://github.com/rust-osdev/xhci)
 
 <span class="maintainers">Maintained by [@toku-sa-n](https://github.com/toku-sa-n)</span>
