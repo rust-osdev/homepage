@@ -92,7 +92,7 @@ All the tests are passing now, so we only need to do some cleanup and write prop
 
 The `linked-list-allocator` crate provides a basic `no_std` allocator that builds a linked list from freed memory blocks and thus needs no additional data structures.
 
-In August, [Evan Richter](https://github.com/evanrichter) discovered a _vulnerability in `Heap::extend`_ that could lead to out-of-bound writes. The issue occured when `extend` was called with a size smaller than `size_of::<usize> * 2`, i.e., a size too small to store the metadata for the new memory region.
+In August, [Evan Richter](https://github.com/evanrichter) discovered a _vulnerability in `Heap::extend`_ that could lead to out-of-bound writes. The issue occurred when `extend` was called with a size smaller than `size_of::<usize> * 2`, i.e., a size too small to store the metadata for the new memory region.
 
 Upon investigating this issue, we found several similar issues:
 
