@@ -86,6 +86,29 @@ Some selected commits that might be interesting:
 
 All the tests are passing now, so we only need to do some cleanup and write proper documentation, then we should be ready to publish an alpha release for testing.
 
+### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@jamesmunns](https://github.com/jamesmunns)</span>
+
+The `linked-list-allocator` crate provides a basic `no_std` allocator that builds a linked list from freed memory blocks and thus needs no additional data structures.
+
+In August, [Evan Richter](https://github.com/evanrichter) discovered a _vulnerability in `Heap::extend`_ that could lead to out-of-bound writes. The issue occured when `extend` was called with a size smaller than `size_of::<usize> * 2`, i.e., a size too small to store the metadata for the new memory region.
+
+Upon investigating this issue, we found several similar issues:
+
+- Initializing a heap with a size smaller than `size_of::<usize> * 3` could result in an out-of-bounds write too.
+- Calling `extend` on an uninitialized heap could also result in an out-of-bounds write.
+- Calling `extend` on a heap whose size is not a multiple of the size of two `usize`s resulted in unaligned writes.
+
+We created a [security advisory](https://github.com/rust-osdev/linked-list-allocator/security/advisories/GHSA-xg8p-34w2-j49j) with more details and released a fix in `v0.10.2`, with the following changes:
+
+- The initialization functions now panic if the given size is not large enough to store the necessary metadata. Depending on the alignment of the heap bottom pointer, the minimum size is between `2 * size_of::<usize>` and `3 * size_of::<usize>`.
+- The `extend` method now panics when trying to extend an unitialized heap.
+- Extend calls with a size smaller than `size_of::<usize>() * 2` are now buffered internally and not added to the list directly. The buffered region will be merged with future `extend` calls.
+- The `size()` method now returns the _usable_ size of the heap, which might be slightly smaller than the `top() - bottom()` difference because of alignment constraints.
+
+Thanks to [@evanrichter](https://github.com/evanrichter) for reporting this vulnerability and working with us on a fix.
+
 ### [`xhci`](https://github.com/rust-osdev/xhci)
 
 <span class="maintainers">Maintained by [@toku-sa-n](https://github.com/toku-sa-n)</span>
