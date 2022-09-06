@@ -240,5 +240,13 @@
             <description>&lt;p&gt;Welcome to the first issue of &lt;em&gt;&amp;quot;This Month in Rust OSDev&amp;quot;&lt;&#x2F;em&gt;. In these posts, we will give a regular overview of notable changes in the Rust operating system development community.&lt;&#x2F;p&gt;
 </description>
         </item>
+        <item>
+            <title>This Month in Rust OSDev: August 2022</title>
+            <pubDate>Sat, 01 Jan 0000 00:00:00 +0000</pubDate>
+            <link>https://rust-osdev.com/this-month/2022-08/</link>
+            <guid>https://rust-osdev.com/this-month/2022-08/</guid>
+            <description>&lt;p&gt;Welcome to a new issue of &lt;em&gt;&amp;quot;This Month in Rust OSDev&amp;quot;&lt;&#x2F;em&gt;. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.&lt;&#x2F;p&gt;
+</description>
+        </item>
     </channel>
 </rss>

@@ -1,0 +1,230 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2022-08/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: August 2022 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: August 2022</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="0000-01-01">
+            Jan 01, 0000
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-08/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (August 2022)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>We merged the following changes in August:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/467">Add <code>DiskIo</code> and <code>DiskIo2</code> protocols</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/430">Added macros <code>print!</code> and <code>println!</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/487">Use <code>doc_auto_cfg</code> to show feature requirements on docs.rs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/493">add <code>Ord</code> and <code>PartialOrd</code> for <code>Guid</code> struct</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/474">QEMU/OVMF improvements</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/480">Update <code>nix</code> requirement from 0.24.1 to 0.25.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/485">Update deprecation version in <code>ScopedProtocol::interface</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/482">Relax version requirements for various deps</a></li>
+</ul>
+<p>We also published a subset of the above changes as a new <code>v0.16.1</code> release:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/490">Cherry-pick fixes to the <code>version-0.16</code> branch</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/492">Update changelog for 0.16.1</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/kendase3">@kendase3</a>, <a href="https://github.com/JonahPlusPlus">@JonahPlusPlus</a>, and <a href="https://github.com/e820">@e820</a> for their contributions!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/rybot666">@rybot666</a>, and <a href="https://github.com/64">@64</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.</p>
+<p>This month, we finally finished the new BIOS boot implementation for the <a href="https://github.com/rust-osdev/bootloader/pull/232">upcoming <code>v0.11</code> release</a>. It's now almost completely written in Rust (instead of assembly), which should make further improvements much easier.</p>
+<p>Some selected commits that might be interesting:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/232/commits/6492eab051b71a19b58a4f70185e7898fabb2c46">Load a third stage</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/232/commits/84eea29b69ac75c0d7ce9c36e0d2a1369052dc2b">Load the kernel into buffer memory</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/232/commits/52ad3e2afab4f902ef5acb3241d7bc34c2a16e94">Copy kernel to protected mode</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/232/commits/7cf073eae6a5c6e30684a67cdac66016c7dcfdf2">Jump to third stage</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/232/commits/824786b0498a8f02e4d79ca8c8477ed68dae0068">Set up paging and enter long mode (compatibility mode)</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/232/commits/39ba5269eada8ad40963d2ec7c92c4a6410060ab">Create prototype for long mode stage 4 and load it</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/232/commits/05130d1d356e7e1566f7e576245580fc542184e6">Load long mode <code>GDT</code> and jump to 4th stage</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/232/commits/d8931970365a2ac26088320678cc8ce6ae60150d">Query vesa modes and filter by resolution</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/232/commits/557c03427f5d143ee814fb908b05c584ec37b87a">Enable VESA framebuffer and update screen writer in stages 3 and 4</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/232/commits/48cd6dcd109778032ce586735f5be1f1dac67117">Load <code>E820</code> memory map and put everything together</a></li>
+</ul>
+<p>All the tests are passing now, so we only need to do some cleanup and write proper documentation, then we should be ready to publish an alpha release for testing.</p>
+<h3 id="linked-list-allocator"><a href="https://github.com/rust-osdev/linked-list-allocator"><code>linked-list-allocator</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/jamesmunns">@jamesmunns</a></span></p>
+<p>The <code>linked-list-allocator</code> crate provides a basic <code>no_std</code> allocator that builds a linked list from freed memory blocks and thus needs no additional data structures.</p>
+<p>In August, <a href="https://github.com/evanrichter">Evan Richter</a> discovered a <em>vulnerability in <code>Heap::extend</code></em> that could lead to out-of-bound writes. The issue occurred when <code>extend</code> was called with a size smaller than <code>size_of::&lt;usize&gt; * 2</code>, i.e., a size too small to store the metadata for the new memory region.</p>
+<p>Upon investigating this issue, we found several similar issues:</p>
+<ul>
+<li>Initializing a heap with a size smaller than <code>size_of::&lt;usize&gt; * 3</code> could result in an out-of-bounds write too.</li>
+<li>Calling <code>extend</code> on an uninitialized heap could also result in an out-of-bounds write.</li>
+<li>Calling <code>extend</code> on a heap whose size is not a multiple of the size of two <code>usize</code>s resulted in unaligned writes.</li>
+</ul>
+<p>We created a <a href="https://github.com/rust-osdev/linked-list-allocator/security/advisories/GHSA-xg8p-34w2-j49j">security advisory</a> with more details and released a fix in <code>v0.10.2</code>, with the following changes:</p>
+<ul>
+<li>The initialization functions now panic if the given size is not large enough to store the necessary metadata. Depending on the alignment of the heap bottom pointer, the minimum size is between <code>2 * size_of::&lt;usize&gt;</code> and <code>3 * size_of::&lt;usize&gt;</code>.</li>
+<li>The <code>extend</code> method now panics when trying to extend an unitialized heap.</li>
+<li>Extend calls with a size smaller than <code>size_of::&lt;usize&gt;() * 2</code> are now buffered internally and not added to the list directly. The buffered region will be merged with future <code>extend</code> calls.</li>
+<li>The <code>size()</code> method now returns the <em>usable</em> size of the heap, which might be slightly smaller than the <code>top() - bottom()</code> difference because of alignment constraints.</li>
+</ul>
+<p>Thanks to <a href="https://github.com/evanrichter">@evanrichter</a> for reporting this vulnerability and working with us on a fix.</p>
+<h3 id="xhci"><a href="https://github.com/rust-osdev/xhci"><code>xhci</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/toku-sa-n">@toku-sa-n</a></span></p>
+<p>The <code>xhci</code> crate provides types of xHCI structires, such as Registers and TRBs.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/xhci/pull/143">Rename <code>InterruptRegisterSet</code> to <code>InterrupterRegisterSet</code></a> <span class="gray">(<a href="https://github.com/rust-osdev/xhci/pull/144">published as <code>0.8.7</code></a>)</span></li>
+<li><a href="https://github.com/rust-osdev/xhci/pull/142">Allow updating single fields of InterrupterRegisterSet</a> <span class="gray">(<a href="https://github.com/rust-osdev/xhci/pull/145">published as <code>0.9.0</code></a>)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Demindiro">@Demindiro</a> for their contribution!</p>
+<h3 id="pci-types"><a href="https://github.com/rust-osdev/pci_types"><code>pci_types</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>The <code>pci_types</code> library provides types for accessing and configuring PCI devices from Rust operating systems.</p>
+<p>We merged the following change in August:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/6">64-bit <code>BAR</code> clarification</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/0Killian">@0Killian</a> for this contribution!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, <a href="https://github.com/Restioson">@Restioson</a>, and <a href="https://github.com/Gegy">@Gegy</a></span></p>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/121">fix <code>HpetInfo::num_comparators</code></a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/123">Various comments, fix <code>PM_TMR_BLK</code> checking of <code>PM_TMR_LEN</code> to match spec</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/semiviral">@semiviral</a>, and <a href="https://github.com/Freax13">@Freax13</a> for their contributions!</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Help with one of these outstanding issues!</p>
+<!--
+    Please use the following template for adding items:
+    - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="cdrzewiecki-celos"><a href="https://gitlab.com/cdrzewiecki/celos"><code>cdrzewiecki/celos</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/drzewiec">@drzewiec</a>)</span></p>
+<p>It's been a while since my last project update! That's partly because life has been busy, but also because this update concerns a huge feature. I'm very pleased to report that I have been able to add preemptive multitasking to CelOS.</p>
+<p>This was feature that took a good bit of foundation to be able to implement (hence why it took me so long). I had to spend a good bit of time getting memory allocation (both physical and virtual) into a happier place, as well as add support for ACPI and the APIC. And, of course, there were many snags along the way as I learned (at least some of) the traps that are easy to step into when doing something as delicate as context switching.</p>
+<p>Now that I have finished this key feature, I plan to work on setting up the other infrastructure needed to begin writing services in userspace (such as message passing and synchronization primitives). And, hopefully soon, finally make the jump into ring 3!</p>
+<p>As always, many thanks to <a href="https://github.com/phil-opp">@phil-opp</a> for his hard work on supporting the Rust osdev community, and for writing the <a href="https://github.com/rust-osdev/apic">apic</a> crate which helped serve as a sanity check while I wrote my own driver for the IOAPIC and LAPIC. Thanks as well to the maintainers of the excellent <a href="https://github.com/rust-osdev/acpi">acpi</a> crate, you guys are doing incredible work out there!</p>
+<h3 id="blog-post-gnu-ld-discards-section-containing-code-section-flags-in-assembly-are-important">Blog Post: GNU ld Discards Section Containing Code – Section Flags in Assembly are Important</h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phip1611">@phip1611</a>)</span></p>
+<p>In late August/early September, I encountered problems when building my Rust kernel. I faced
+unintuitive interaction between my global assembly code and the linker. I specified a custom
+section in assembly with executable code with <code>.section .bootcode</code>. The linker never linked
+the code where I specified it in my linker script. It's address was not what it is supposed to be.
+<code>readelf</code> didn't show the section inside the binary either. The section was discarded no matter
+how hard I tried to modify the linker, thus, <code>KEEP((.bootcode));</code> also didn't work. An experienced
+colleague ensured me that my linker script is correct.</p>
+<p>Section names such as <code>.init</code> or <code>.text.bootcode</code> worked by the way. Only my custom name was
+rejected somehow. In the end, I figured out writing <code>.section .bootcode, &quot;ax&quot;</code> does the trick. The
+difference is small, but the impact to the object file and final executable of those section flags
+is big. I could find the answer in the ELF specification. A section needs to be allocatable
+(<code>a</code>-flag) so that it can be properly placed in a LOAD segment/program header. The section names
+<code>.init</code> and <code>.text.*</code> have this pre-configured but my custom section name <code>.bootcode</code> has not.</p>
+<p>I traced it down to a minimal reproducible example that can be found <a href="https://github.com/phip1611/gnu-linker-discards-code-section-that-is-not-in-text-section">on GitHub</a>.
+A comprehensive write-up can be found on my website <a href="https://phip1611.de/blog/gnu-ld-discards-section-containing-code/">Phip's Blog</a>.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>This month, we merged a pull request that fixes numerous grammar and punctuation errors across all posts of the <a href="https://os.phil-opp.com/"><em>&quot;Writing an OS in Rust&quot;</em></a> series. Thanks to <a href="https://github.com/hecatia-elegua">@hecatia-elegua</a> for this contribution!</p>
+<p>We also received multiple pull requests to add and update translations:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1127">Fix Japanese translation of &quot;Double Faults&quot;</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1131">Update the chinese translation</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1135">[Translation][Korean] post-04</a></li>
+</ul>
+<p>We are still looking for reviewers for the last two PRs. If you speak Chinese or Korean, it would be great if you could take a look!</p>
+<p>Thanks to <a href="https://github.com/ykomatsu">@ykomatsu</a>, <a href="https://github.com/liuyuran">@liuyuran</a>, and <a href="https://github.com/JOE1994">@JOE1994</a> for contributing these translations!</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+<!--
+TODO: Update publication date
+-->
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
