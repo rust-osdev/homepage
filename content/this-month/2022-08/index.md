@@ -159,17 +159,17 @@ As always, many thanks to [@phil-opp](https://github.com/phil-opp) for his hard 
 
 <span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
 
-In late August/early September, I encountered problems when building my Rust kernel. I faced 
-unintuitive interaction between my global assembly code and the linker. I specified a custom 
-section in assembly with executable code with `.section .bootcode`. The linker never linked 
-the code where I specified it in my linker script. It's address was not what it is supposed to be. 
-`readelf` didn't show the section inside the binary either. The section was discarded no matter 
+In late August/early September, I encountered problems when building my Rust kernel. I faced
+unintuitive interaction between my global assembly code and the linker. I specified a custom
+section in assembly with executable code with `.section .bootcode`. The linker never linked
+the code where I specified it in my linker script. It's address was not what it is supposed to be.
+`readelf` didn't show the section inside the binary either. The section was discarded no matter
 how hard I tried to modify the linker, thus, `KEEP((.bootcode));` also didn't work. An experienced
-colleague ensured me that my linker script is correct. 
+colleague ensured me that my linker script is correct.
 
-Section names such as `.init` or `.text.bootcode` worked by the way. Only my custom name was 
-rejected somehow. In the end, I figured out writing `.section .bootcode, "ax"` does the trick. The 
-difference is small, but the impact to the object file and final executable of those section flags 
+Section names such as `.init` or `.text.bootcode` worked by the way. Only my custom name was
+rejected somehow. In the end, I figured out writing `.section .bootcode, "ax"` does the trick. The
+difference is small, but the impact to the object file and final executable of those section flags
 is big. I could find the answer in the ELF specification. A section needs to be allocatable
 (`a`-flag) so that it can be properly placed in a LOAD segment/program header. The section names
 `.init` and `.text.*` have this pre-configured but my custom section name `.bootcode` has not.
