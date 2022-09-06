@@ -155,6 +155,28 @@ Now that I have finished this key feature, I plan to work on setting up the othe
 
 As always, many thanks to [@phil-opp](https://github.com/phil-opp) for his hard work on supporting the Rust osdev community, and for writing the [apic](https://github.com/rust-osdev/apic) crate which helped serve as a sanity check while I wrote my own driver for the IOAPIC and LAPIC. Thanks as well to the maintainers of the excellent [acpi](https://github.com/rust-osdev/acpi) crate, you guys are doing incredible work out there!
 
+### Blog Post: GNU ld Discards Section Containing Code – Section Flags in Assembly are Important
+
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+In late August/early September, I encountered problems when building my Rust kernel. I faced
+unintuitive interaction between my global assembly code and the linker. I specified a custom
+section in assembly with executable code with `.section .bootcode`. The linker never linked
+the code where I specified it in my linker script. It's address was not what it is supposed to be.
+`readelf` didn't show the section inside the binary either. The section was discarded no matter
+how hard I tried to modify the linker, thus, `KEEP((.bootcode));` also didn't work. An experienced
+colleague ensured me that my linker script is correct.
+
+Section names such as `.init` or `.text.bootcode` worked by the way. Only my custom name was
+rejected somehow. In the end, I figured out writing `.section .bootcode, "ax"` does the trick. The
+difference is small, but the impact to the object file and final executable of those section flags
+is big. I could find the answer in the ELF specification. A section needs to be allocatable
+(`a`-flag) so that it can be properly placed in a LOAD segment/program header. The section names
+`.init` and `.text.*` have this pre-configured but my custom section name `.bootcode` has not.
+
+I traced it down to a minimal reproducible example that can be found [on GitHub](https://github.com/phip1611/gnu-linker-discards-code-section-that-is-not-in-text-section).
+A comprehensive write-up can be found on my website [Phip's Blog](https://phip1611.de/blog/gnu-ld-discards-section-containing-code/).
+
 <!--
     Please use the following template:
 
