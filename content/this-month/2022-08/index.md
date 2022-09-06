@@ -200,6 +200,22 @@ is big. I could find the answer in the ELF specification. A section needs to be 
 I traced it down to a minimal reproducible example that can be found [on GitHub](https://github.com/phip1611/gnu-linker-discards-code-section-that-is-not-in-text-section).
 A comprehensive write-up can be found on my website [Phip's Blog](https://phip1611.de/blog/gnu-ld-discards-section-containing-code/).
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+This month, we merged a pull request that fixes numerous grammar and punctuation errors across all posts of the [_"Writing an OS in Rust"_](https://os.phil-opp.com/) series. Thanks to [@hecatia-elegua](https://github.com/hecatia-elegua) for this contribution!
+
+We also received multiple pull requests to add and update translations:
+
+- [Fix Japanese translation of "Double Faults"](https://github.com/phil-opp/blog_os/pull/1127)
+- [Update the chinese translation](https://github.com/phil-opp/blog_os/pull/1131)
+- [[Translation][Korean] post-04](https://github.com/phil-opp/blog_os/pull/1135)
+
+We are still looking for reviewers for the last two PRs. If you speak Chinese or Korean, it would be great if you could take a look!
+
+Thanks to [@ykomatsu](https://github.com/ykomatsu), [@liuyuran](https://github.com/liuyuran), and [@JOE1994](https://github.com/JOE1994) for contributing these translations!
+
 <!--
     Please use the following template:
 
