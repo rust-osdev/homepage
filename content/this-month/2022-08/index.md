@@ -170,7 +170,7 @@ colleague ensured me that my linker script is correct.
 Section names such as `.init` or `.text.bootcode` worked by the way. Only my custom name was 
 rejected somehow. In the end, I figured out writing `.section .bootcode, "ax"` does the trick. The 
 difference is small, but the impact to the object file and final executable of those section flags 
-is big. I could fine the answer in the ELF specification. A section needs to be allocatable 
+is big. I could find the answer in the ELF specification. A section needs to be allocatable
 (`a`-flag) so that it can be properly placed in a LOAD segment/program header. The section names
 `.init` and `.text.*` have this pre-configured but my custom section name `.bootcode` has not.
 
