@@ -157,7 +157,7 @@ As always, many thanks to [@phil-opp](https://github.com/phil-opp) for his hard 
 
 ### Blog Post: GNU ld Discards Section Containing Code – Section Flags in Assembly are Important
 
-<span class="gray">(Section written by [@phip1611](https://github.com/phip1611))</span>
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
 
 In late August/early September, I encountered problems when building my Rust kernel. I faced 
 unintuitive interaction between my global assembly code and the linker. I specified a custom 
