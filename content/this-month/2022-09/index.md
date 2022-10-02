@@ -119,6 +119,10 @@ Want to contribute to a Rust OSDev project, but don't know where to start? Help 
     - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
 -->
 
+- [(`phil-opp/blog_os`) Looking for a reviewer for a Chinese translation](https://github.com/phil-opp/blog_os/pull/1131#issuecomment-1251963782)
+- [(`phil-opp/blog_os`) Looking for a reviewer for a Korean translation](https://github.com/phil-opp/blog_os/pull/1135#issuecomment-1264665246)
+- [(`phil-opp/blog_os`) Looking for a reviewer for a French translation](https://github.com/phil-opp/blog_os/pull/1144)
+
 If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the `next` branch with the tasks you want to include in the next issue.
 
 ## Other Projects
@@ -134,6 +138,17 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes this month:
+
+- [Translate post-07 to Japanese](https://github.com/phil-opp/blog_os/pull/1141)
+- [Copyedit edition 2 `paging-introduction/index.md`](https://github.com/phil-opp/blog_os/pull/1129)
+- [Fix typo in french translation `01-freestanding-rust-binary`](https://github.com/phil-opp/blog_os/pull/1142)
+
+Thanks to [@shimomura1004](https://github.com/shimomura1004), [@woodyZootopia](https://github.com/woodyZootopia), [@bolded](https://github.com/bolded), and [@Firenezz](https://github.com/Firenezz) for their contributions!
 
 ## Join Us?
 
