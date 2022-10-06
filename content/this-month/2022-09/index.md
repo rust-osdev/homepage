@@ -56,7 +56,7 @@ We fixed the issues in the following way:
 
 Thanks to [@hawkw](https://github.com/hawkw) and [@Freax13](https://github.com/Freax13) for these contributions!
 
-We also brought the [upcoming `v0.11` release](https://github.com/rust-osdev/bootloader/pull/232) even closed to the finish line. Thanks to an extensive review of [@Freax13](https://github.com/Freax13), we found and fixed multiple remaining issues. Also thanks to [@asensio-project](https://github.com/asensio-project) and [@TheBotlyNoob](https://github.com/TheBotlyNoob) for testing the new version and reporting bugs! Some notable changes are:
+We also brought the [upcoming `v0.11` release](https://github.com/rust-osdev/bootloader/pull/232) even closer to the finish line. Thanks to an extensive review of [@Freax13](https://github.com/Freax13), we found and fixed multiple remaining issues. Also thanks to [@asensio-project](https://github.com/asensio-project) and [@TheBotlyNoob](https://github.com/TheBotlyNoob) for testing the new version and reporting bugs! Some notable changes are:
 
 - [Allocate kernel as normal UEFI loader data](https://github.com/rust-osdev/bootloader/commit/08e4b5829bf5882d9d396e641e32b65de72704b2)
 - [Preserve `RUNTIME_SERVICES_*` memory regions](https://github.com/rust-osdev/bootloader/commit/667e57f552e214f9c19848306e03b00d91a8114f)
