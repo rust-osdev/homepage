@@ -138,6 +138,46 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [Theseus OS](https://github.com/theseus-os/Theseus)
+
+<span class="maintainers">(Section written by [Kevin Boos](https://www.theseus-os.com/kevinaboos/) ([@kevinaboos](https://github.com/kevinaboos)))</span>
+
+Theseus is a safe-language OS written from scratch in Rust that is in the process of migrating from pure academic research objectives to more general usability and legacy compatibility.
+As a fully open-source project, we welcome and encourage contributions from everyone!
+
+Since our [last update](https://rust-osdev.com/this-month/2022-07/index.html#theseus-os) here two months ago, we have worked on the following things:
+* Continued our port of Rust `std` to Theseus
+    * Follow our progress in [this tracking issue](https://github.com/theseus-os/rust/issues/12)
+    * Completed: [environment variables](https://github.com/theseus-os/Theseus/pull/581), [RNGs](https://github.com/theseus-os/Theseus/pull/582) 
+    * In progress: timekeeping, proper virtual filesystem implementation, raw synchronization primitives
+* Began adding support for the `aarch64` ARM architecture to Theseus
+    * Still an early work-in-progress
+* [Redesigned our Local APIC implementation](https://github.com/theseus-os/Theseus/pull/592) to avoid unnecessary conditionals and panics
+    * Now the abstraction of functionality across xAPIC and x2APIC is cleaner
+* Only disable preemption, not interrupts, during sensitive task management functions
+    * Introduced a [safe abstraction for a preemption-disabling guard type](https://github.com/theseus-os/Theseus/pull/595)
+    * Added a [preemption-safe `Mutex` and `RwLock` implementation](https://github.com/theseus-os/Theseus/pull/627)
+    * We now use preemption-safe guards for [task switching](https://github.com/theseus-os/Theseus/pull/603), [task lifecycle/cleanup functions](https://github.com/theseus-os/Theseus/pull/616), and [runqueue management](https://github.com/theseus-os/Theseus/pull/629)
+* Improved task management functions to expediently clean up existed tasks
+    * Introduced a clear concept of a [post-context switch action](https://github.com/theseus-os/Theseus/pull/600)
+        * Guarantees that the post-context switch action will *always* occur, even when switching to a brand new task or switching away from an exited task
+    * Clarified the [ownership of the next task's `TaskRef` during a task switch](https://github.com/theseus-os/Theseus/pull/630), ensuring that it is dropped at the right time to avoid delays in its cleanup
+    * Ensured that [orphaned tasks are properly reaped](https://github.com/theseus-os/Theseus/pull/614) via the `JoinableTaskRef` type
+* [Avoided using `lazy_static` where possible](https://github.com/theseus-os/Theseus/pull/605) in favor of plain `const` expressions
+    * Rust's `const_btree_new` nightly feature allows `BTree::new()` to be `const`
+    * Also [contributed a PR to the `rangemap` crate](https://github.com/jeffparsons/rangemap/pull/52) such that it can optionally use that new feature
+        * This makes it [faster to access and generate TLS data images](https://github.com/theseus-os/Theseus/pull/606) for new Task creation in Theseus
+* Refactored all interrupt handlers into a more conventional design
+    * Previously, the single `interrupts` crate would statically register device-specific interrupt handlers
+    * Now, each device crate dynamically registers their interrupt handlers with the `interrupts` crate when they initialize themselves
+        * Examples: PS2 [mouse](https://github.com/theseus-os/Theseus/commit/5423124bd54003c015ec66b68c797d1a7686b550), [keyboard](https://github.com/theseus-os/Theseus/commit/0bebdc1c9a2e058ed50f09313968a6eaf1b4fec2), [ATA disks](https://github.com/theseus-os/Theseus/pull/611), 
+    * The original design favored explicit dependencies from `interrupts` to `<device crate>` for predictable behavior over dynamically-registered states, but causes problems with inverted and cyclic dependencies
+* Introduced `clippy` CI action and [addressed most lint warnings](https://github.com/theseus-os/Theseus/issues/526)
+    * `rustfmt` is next, with the hope of standardizing our code base
+
+
+Check out the [Theseus OS blog](https://www.theseus-os.com/) for the latest details.
+
 ### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
 
 <span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
