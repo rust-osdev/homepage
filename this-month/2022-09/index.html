@@ -1,0 +1,254 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2022-09/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: September 2022 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: September 2022</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2022-10-07">
+            Oct 07, 2022
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-09/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (September 2022)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/rybot666">@rybot666</a>, and <a href="https://github.com/64">@64</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.</p>
+<p>We encountered various boot issues with the new <code>v7.1.0</code> release of QEMU in September. This also affected downstream projects such as <a href="https://github.com/phil-opp/blog_os/issues/1138"><code>phil-opp/blog_os</code></a> and <a href="https://github.com/hawkw/mycelium/issues/321"><code>hawkw/mycelium</code></a>. After some debugging, we found out that QEMU now reports a new memory region at offset ~1 TiB in the physical memory map, which was much higher than expected by the bootloader crate. As a result, BIOS booting became unusably slow (because of the initial identity mapping) and the automated offset selection for the physical memory map ran into a panic. For full details, see the <a href="https://github.com/rust-osdev/bootloader/issues/259">summary issue</a>.</p>
+<p>We fixed the issues in the following way:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/260">Limit BIOS bootloader's <code>max_phys_addr</code> to 4 GiB</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/265">Only perform a single TLB flush after identity mapping</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/263">fix <code>get_free_address</code> for large sizes (0.10)</a> <span class="gray">(published as <code>0.10.13</code>)</li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/264">allow allocating more than one level 4 entry (0.9)</a>  <span class="gray">(published as <code>0.9.23</code>)</li>
+</ul>
+<p>Thanks to <a href="https://github.com/hawkw">@hawkw</a> and <a href="https://github.com/Freax13">@Freax13</a> for these contributions!</p>
+<p>We also brought the <a href="https://github.com/rust-osdev/bootloader/pull/232">upcoming <code>v0.11</code> release</a> even closer to the finish line. Thanks to an extensive review of <a href="https://github.com/Freax13">@Freax13</a>, we found and fixed multiple remaining issues. Also thanks to <a href="https://github.com/asensio-project">@asensio-project</a> and <a href="https://github.com/TheBotlyNoob">@TheBotlyNoob</a> for testing the new version and reporting bugs! Some notable changes are:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/08e4b5829bf5882d9d396e641e32b65de72704b2">Allocate kernel as normal UEFI loader data</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/667e57f552e214f9c19848306e03b00d91a8114f">Preserve <code>RUNTIME_SERVICES_*</code> memory regions</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/commit/454f70740df13107d4748d63b1d646f176f6fa62">Update usage instructions and architecture description in README</a></li>
+</ul>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/515">Add an mdBook</a>
+<ul>
+<li>Read it at <a href="https://rust-osdev.github.io/uefi-rs/HEAD/">https://rust-osdev.github.io/uefi-rs/HEAD/</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/478">More protocol safety improvements</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/497">Implement <code>HardDriveMediaDevicePath</code> (along with MBR and GPT tests). </a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/479">Drop use of unstable try_trait_v2 feature</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/475">&quot;is_regular_file&quot; for file trait + integration test</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/506"><code>CStr8</code> cleanup and enhancements</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/476">Transform feature &quot;ignore-logger-errors&quot; to additive feature.</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/513">Release <code>uefi-macros-0.8.0</code>, <code>uefi-0.17.0</code>, <code>uefi-services-0.14.0</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/518">Add <code>PhysicalAddress</code> and <code>VirtualAddress</code> type aliases</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/514">Change DevicePath[From|To]Text methods to return a Result</a></li>
+</ul>
+<!--
+- [`is_media_preset` -> `is_media_present` in `BlockIOMedia`](https://github.com/rust-osdev/uefi-rs/pull/495)
+- [Update changelog](https://github.com/rust-osdev/uefi-rs/pull/499)
+- [Add rust-toolchain.toml and pin to a working nightly](https://github.com/rust-osdev/uefi-rs/pull/502)
+- [Create `pull_request_template.md`](https://github.com/rust-osdev/uefi-rs/pull/503)
+- [Update changelog for uefi-macros](https://github.com/rust-osdev/uefi-rs/pull/505)
+- [Temporarily revert use of `core::ffi::CStr`](https://github.com/rust-osdev/uefi-rs/pull/509)
+- [Update uefi changelog](https://github.com/rust-osdev/uefi-rs/pull/512)
+- [ci: Test the build on an old nightly](https://github.com/rust-osdev/uefi-rs/pull/517)
+- [Switch the toolchain back to latest nightly](https://github.com/rust-osdev/uefi-rs/pull/516)
+- [Update clap requirement from 3.2.1 to 4.0.4](https://github.com/rust-osdev/uefi-rs/pull/521)
+
+-->
+<p>Thanks to <a href="https://github.com/ColinFinck">@ColinFinck</a> for their contribution!</p>
+<h3 id="xhci"><a href="https://github.com/rust-osdev/xhci"><code>xhci</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/toku-sa-n">@toku-sa-n</a></span></p>
+<p>The <code>xhci</code> crate provides types of xHCI structires, such as Registers and TRBs.</p>
+<p>We merged the following changes in September:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/xhci/pull/147">Implement Default for registers without RsvdP bits</a></li>
+<li><a href="https://github.com/rust-osdev/xhci/pull/148">Add set_0_* to rw1c! macro</a></li>
+<li><a href="https://github.com/rust-osdev/xhci/pull/149">Release 0.9.1</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Demindiro">@Demindiro</a> for their contribution!</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Help with one of these outstanding issues!</p>
+<!--
+    Please use the following template for adding items:
+    - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1131#issuecomment-1251963782">(<code>phil-opp/blog_os</code>) Looking for a reviewer for a Chinese translation</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1135#issuecomment-1264665246">(<code>phil-opp/blog_os</code>) Looking for a reviewer for a Korean translation</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1144">(<code>phil-opp/blog_os</code>) Looking for a reviewer for a French translation</a></li>
+</ul>
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="theseus-os"><a href="https://github.com/theseus-os/Theseus">Theseus OS</a></h3>
+<p><span class="maintainers">(Section written by <a href="https://www.theseus-os.com/kevinaboos/">Kevin Boos</a> (<a href="https://github.com/kevinaboos">@kevinaboos</a>))</span></p>
+<p>Theseus is a safe-language OS written from scratch in Rust that is in the process of migrating from pure academic research objectives to more general usability and legacy compatibility.
+As a fully open-source project, we welcome and encourage contributions from everyone!</p>
+<p>Since our <a href="https://rust-osdev.com/this-month/2022-07/index.html#theseus-os">last update</a> here two months ago, we have worked on the following things:</p>
+<ul>
+<li>Continued our port of Rust <code>std</code> to Theseus
+<ul>
+<li>Follow our progress in <a href="https://github.com/theseus-os/rust/issues/12">this tracking issue</a></li>
+<li>Completed: <a href="https://github.com/theseus-os/Theseus/pull/581">environment variables</a>, <a href="https://github.com/theseus-os/Theseus/pull/582">RNGs</a> </li>
+<li>In progress: timekeeping, proper virtual filesystem implementation, raw synchronization primitives</li>
+</ul>
+</li>
+<li>Began adding support for the <code>aarch64</code> ARM architecture to Theseus
+<ul>
+<li>Still an early work-in-progress</li>
+</ul>
+</li>
+<li><a href="https://github.com/theseus-os/Theseus/pull/592">Redesigned our Local APIC implementation</a> to avoid unnecessary conditionals and panics
+<ul>
+<li>Now the abstraction of functionality across xAPIC and x2APIC is cleaner</li>
+</ul>
+</li>
+<li>Only disable preemption, not interrupts, during sensitive task management functions
+<ul>
+<li>Introduced a <a href="https://github.com/theseus-os/Theseus/pull/595">safe abstraction for a preemption-disabling guard type</a></li>
+<li>Added a <a href="https://github.com/theseus-os/Theseus/pull/627">preemption-safe <code>Mutex</code> and <code>RwLock</code> implementation</a></li>
+<li>We now use preemption-safe guards for <a href="https://github.com/theseus-os/Theseus/pull/603">task switching</a>, <a href="https://github.com/theseus-os/Theseus/pull/616">task lifecycle/cleanup functions</a>, and <a href="https://github.com/theseus-os/Theseus/pull/629">runqueue management</a></li>
+</ul>
+</li>
+<li>Improved task management functions to expediently clean up existed tasks
+<ul>
+<li>Introduced a clear concept of a <a href="https://github.com/theseus-os/Theseus/pull/600">post-context switch action</a>
+<ul>
+<li>Guarantees that the post-context switch action will <em>always</em> occur, even when switching to a brand new task or switching away from an exited task</li>
+</ul>
+</li>
+<li>Clarified the <a href="https://github.com/theseus-os/Theseus/pull/630">ownership of the next task's <code>TaskRef</code> during a task switch</a>, ensuring that it is dropped at the right time to avoid delays in its cleanup</li>
+<li>Ensured that <a href="https://github.com/theseus-os/Theseus/pull/614">orphaned tasks are properly reaped</a> via the <code>JoinableTaskRef</code> type</li>
+</ul>
+</li>
+<li><a href="https://github.com/theseus-os/Theseus/pull/605">Avoided using <code>lazy_static</code> where possible</a> in favor of plain <code>const</code> expressions
+<ul>
+<li>Rust's <code>const_btree_new</code> nightly feature allows <code>BTree::new()</code> to be <code>const</code></li>
+<li>Also <a href="https://github.com/jeffparsons/rangemap/pull/52">contributed a PR to the <code>rangemap</code> crate</a> such that it can optionally use that new feature
+<ul>
+<li>This makes it <a href="https://github.com/theseus-os/Theseus/pull/606">faster to access and generate TLS data images</a> for new Task creation in Theseus</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Refactored all interrupt handlers into a more conventional design
+<ul>
+<li>Previously, the single <code>interrupts</code> crate would statically register device-specific interrupt handlers</li>
+<li>Now, each device crate dynamically registers their interrupt handlers with the <code>interrupts</code> crate when they initialize themselves
+<ul>
+<li>Examples: PS2 <a href="https://github.com/theseus-os/Theseus/commit/5423124bd54003c015ec66b68c797d1a7686b550">mouse</a>, <a href="https://github.com/theseus-os/Theseus/commit/0bebdc1c9a2e058ed50f09313968a6eaf1b4fec2">keyboard</a>, <a href="https://github.com/theseus-os/Theseus/pull/611">ATA disks</a>, </li>
+</ul>
+</li>
+<li>The original design favored explicit dependencies from <code>interrupts</code> to <code>&lt;device crate&gt;</code> for predictable behavior over dynamically-registered states, but causes problems with inverted and cyclic dependencies</li>
+</ul>
+</li>
+<li>Introduced <code>clippy</code> CI action and <a href="https://github.com/theseus-os/Theseus/issues/526">addressed most lint warnings</a>
+<ul>
+<li><code>rustfmt</code> is next, with the hope of standardizing our code base</li>
+</ul>
+</li>
+</ul>
+<p>Check out the <a href="https://www.theseus-os.com/">Theseus OS blog</a> for the latest details.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1141">Translate post-07 to Japanese</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1129">Copyedit edition 2 <code>paging-introduction/index.md</code></a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1142">Fix typo in french translation <code>01-freestanding-rust-binary</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/shimomura1004">@shimomura1004</a>, <a href="https://github.com/woodyZootopia">@woodyZootopia</a>, <a href="https://github.com/bolded">@bolded</a>, and <a href="https://github.com/Firenezz">@Firenezz</a> for their contributions!</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
