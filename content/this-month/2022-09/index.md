@@ -100,7 +100,7 @@ Thanks to [@ColinFinck](https://github.com/ColinFinck) for their contribution!
 
 <span class="maintainers">Maintained by [@toku-sa-n](https://github.com/toku-sa-n)</span>
 
-The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
+The `xhci` crate provides types of xHCI structures, such as Registers and TRBs.
 
 We merged the following changes in September:
 

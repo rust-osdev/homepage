@@ -162,7 +162,7 @@ Thanks to [@hawkw](https://github.com/hawkw) for this contribution!
 
 <span class="maintainers">Maintained by [@toku-sa-n](https://github.com/toku-sa-n)</span>
 
-The `xhci` crate provides types of xHCI structires, such as Registers and TRBs.
+The `xhci` crate provides types of xHCI structures, such as Registers and TRBs.
 
 In this month, we released a new version 0.8.3 which includes [a bug fix](https://github.com/rust-osdev/xhci/pull/132) reported and committed by [@Yuna-Tomi](https://github.com/Yuna-Tomi). The bug was that `EventRingDequeuePointerRegister::event_ring_dequeue_pointer()` did not return the correct address. Thanks for the contribution!.
 
