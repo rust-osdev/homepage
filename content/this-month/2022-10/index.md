@@ -67,14 +67,15 @@ In this section, we describe updates to Rust OS projects that are not directly r
 ### [`d-sonuga/blog-blasterball`](https://github.com/d-sonuga/blog-blasterball/)
 <span class="maintainers">(Section written by [@d-sonuga](https://github.com/d-sonuga))</span>
 
-<a href="https://d-sonuga.netlify.app" target="_blank">Demilade Sonuga's Blog</a> is a new blog on writing a
+[Demilade Sonuga's Blog](https://d-sonuga.netlify.app/) is a new blog on writing a
 simple blasterball game with no OS, no engine and minimal external crates. The blog's aim is to take a Rust
 beginner from starting the project to finishing it and understanding everything involved in the project's
 creation.
 
 The project is still in it's early stages, so lots of feedback is very much needed.
 
-If you're interested, please take a look, and send your thoughts to @d_sonuga.
+If you're interested, please take a look, and send your thoughts to [@d_sonuga](https://twitter.com/d_sonuga/)
+on Twitter.
 
 ## Join Us?
 
