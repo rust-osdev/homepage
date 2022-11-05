@@ -77,6 +77,19 @@ The project is still in it's early stages, so lots of feedback is very much need
 If you're interested, please take a look, and send your thoughts to [@d_sonuga](https://twitter.com/d_sonuga/)
 on Twitter.
 
+### Talk on Windows Linked Lists in safe and idiomatic Rust
+<span class="maintainers">(Section written by [@ColinFinck](https://github.com/ColinFinck))</span>
+
+At the first ever EuroRust conference from 13th to 14th October, Colin Finck gave a talk about the challenges of developing his [nt-list](https://github.com/ColinFinck/nt-list) crate.
+The crate provides a safe and idiomatic Rust wrapper around the Windows variant of Linked Lists.
+It was presented on this blog [in July](/this-month/2022-07/#nt-list-windows-linked-lists-in-idiomatic-rust).
+
+A recording of the talk has just been uploaded.
+Check it out, and also check out the other videos from that conference for some great takes on Rust!
+
+[![Preview of video: Windows linked lists in safe and idiomatic Rust - Colin Finck - EuroRust 2022](nt-list-video.jpg "Preview of video: Windows linked lists in safe and idiomatic Rust - Colin Finck - EuroRust 2022")](https://www.youtube.com/watch?v=IxhZIyXOIw8)
+
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
