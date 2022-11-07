@@ -156,6 +156,24 @@ Check it out, and also check out the [other videos](https://www.youtube.com/chan
 
 The new [`good_memory_allocator`](https://crates.io/crates/good_memory_allocator) crate implements a `no_std`-compatible linked list allocator, inspired by the [`dlmalloc`](https://gee.cs.oswego.edu/dl/html/malloc.html) algorithm. It stores an additional `usize` of metadata per allocation, which decreases memory efficiency, but increased runtime efficiency. The `README` includes promising [benchmark results](https://github.com/MaderNoob/galloc#benchmarks) that compare the crate against the [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator) and [`simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator) crates.
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Korean translation of _Testing_ post](https://github.com/phil-opp/blog_os/pull/1135)
+  - Read it at <https://os.phil-opp.com/ko/testing/>
+  - Thanks to [@JOE1994](https://github.com/JOE1994) for creating the translation and to [@SNOOPYOF](https://github.com/SNOOPYOF) and [@dalinaum](https://github.com/dalinaum) for reviewing!
+- [Korean translation of _CPU Exceptions_ post](https://github.com/phil-opp/blog_os/pull/1162)
+  - Read it at <https://os.phil-opp.com/ko/cpu-exceptions/>
+  - Thanks to [@JOE1994](https://github.com/JOE1994) for creating the translation and to [@KimWang906](https://github.com/KimWang906) for reviewing!
+- [French translation of _A Minimal Rust Kernel_ post](https://github.com/phil-opp/blog_os/pull/1144)
+  - Read it at <https://os.phil-opp.com/fr/minimal-rust-kernel/>
+  - Thanks to [@TheMimiCodes](https://github.com/TheMimiCodes) and [@maximevaillancourt](https://github.com/maximevaillancourt) for creating the translation and to [@alaincao](https://github.com/alaincao) for reviewing (and for [fixing links](https://github.com/phil-opp/blog_os/pull/1166))!
+- [Update zola to v0.16.1](https://github.com/phil-opp/blog_os/pull/1147)
+- [Fixes bad URL from `post-09` address calculation section](https://github.com/phil-opp/blog_os/pull/1146) <span class="gray">(thanks to [@seewishnew](https://github.com/seewishnew))</span>
+- [Remove warning output from QEMU command](https://github.com/phil-opp/blog_os/pull/1151) <span class="gray">(thanks to [@lovemeforareason](https://github.com/lovemeforareason))</span>
+
 
 ## Join Us?
 
