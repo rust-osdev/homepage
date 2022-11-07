@@ -4,7 +4,7 @@ date = 2022-11-07
 
 [extra]
 month = "October 2022"
-editors = ["phil-opp"]
+editors = ["phil-opp", "IsaacWoods"]
 +++
 
 Welcome to a new issue of _"This Month in Rust OSDev"_. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.
@@ -96,6 +96,17 @@ Thanks to [@phip1611](https://github.com/phip1611), and [@Freax13](https://githu
 
 ### [`acpi`](https://github.com/rust-osdev/acpi)
 <span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+This month, we began work to remove `acpi`'s dependence on the `alloc` crate for allocations, instead directly
+using the [`core::alloc::Allocator`](https://doc.rust-lang.org/beta/core/alloc/trait.Allocator.html) API. This
+improves support for bootloaders and kernels that want to treat memory allocation as fallible, allowing them to
+more gracefully recover from out-of-memory situations. In the future, we hope that this support will be brought
+into `alloc`, so that the library can return to using the standard containers.
+
+These changes are not yet finished or released, but a new major version will likely be out in December with these
+changes, as well as better support for PCI topologies with multiple segment groups, and a few other changes. If
+you'd like to make use of these new features as they're developed, they're already in `main`, so you can use a Git
+dependency.
 
 - [Rework crate to work without allocations](https://github.com/rust-osdev/acpi/pull/131)
 - [Add Debug implementations](https://github.com/rust-osdev/acpi/pull/128)
