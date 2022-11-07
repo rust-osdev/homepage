@@ -1,0 +1,251 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2022-10/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: October 2022 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: October 2022</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2022-11-07">
+            Nov 07, 2022
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/IsaacWoods">@IsaacWoods</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-10/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (October 2022)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/507">Change <code>Event</code> to be FFI-safe using <code>NonNull</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/536">Add <code>guid!</code> macro</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/535">Add Guid methods to convert to/from byte arrays</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/529">Fixes and improvements for <code>Revision</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/539">Replace <code>UnalignedCStr16</code> with <code>UnalignedSlice</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/537">Add new <code>DeviceSubType</code> values</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/538">Fix clippy warnings</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/526">uefi-services: Change panic handler log message.</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/timrobertsdev">@timrobertsdev</a> and <a href="https://github.com/raccog">@raccog</a> for their contributions!</p>
+<!--
+- [Copy license file to uefi-macros and uefi-services](https://github.com/rust-osdev/uefi-rs/pull/520)
+- [Fix clippy lint by removing unnecessary cast](https://github.com/rust-osdev/uefi-rs/pull/525)
+- [Update documentation section of readme](https://github.com/rust-osdev/uefi-rs/pull/519)
+- [Fix warning from unneeded `macro_use`](https://github.com/rust-osdev/uefi-rs/pull/527)
+- [Add option to disable network tests](https://github.com/rust-osdev/uefi-rs/pull/528)
+- [Tweak pull request template wrapping](https://github.com/rust-osdev/uefi-rs/pull/533)
+- [ci: Simplify some jobs with ubuntu-22.04 runner](https://github.com/rust-osdev/uefi-rs/pull/532)
+-->
+<h3 id="linked-list-allocator"><a href="https://github.com/rust-osdev/linked-list-allocator"><code>linked-list-allocator</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/jamesmunns">@jamesmunns</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/linked-list-allocator/pull/71">Consider regions that lead to very small back paddings as unsuitable</a>
+<ul>
+<li>Fixes a potential <a href="https://github.com/rust-osdev/linked-list-allocator/issues/66">memory leak</a> that was introduced with <code>v0.10</code>.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/linked-list-allocator/pull/69">Add a random action fuzzer</a>
+<ul>
+<li>Runs randomized tests against the <code>allocate_first_fit</code>, <code>deallocate</code>, and <code>extend</code> methods</li>
+<li>This is the fuzzer that was used to discover the <a href="https://github.com/rust-osdev/linked-list-allocator/security/advisories/GHSA-xg8p-34w2-j49j">possible out-of-bounds writes in versions <code>&lt;=0.10.1</code></a></li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/linked-list-allocator/pull/72">Run new cargo-fuzz job on CI with time limit</a>
+<ul>
+<li>Fuzzes each commit and PR for 5 minutes as a guard against regressions</li>
+<li>The CI job is also run on schedule every day to test against the latest Rust nightly and to increase the chance of finding improbably bugs over time.</li>
+</ul>
+</li>
+</ul>
+<p>Thanks to <a href="https://github.com/evanrichter">@evanrichter</a> for their contribution!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/rybot666">@rybot666</a>, and <a href="https://github.com/64">@64</a></span></p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/267">Update <code>noto-sans-mono-bitmap</code> to <code>v0.2.0</code></a>
+<ul>
+<li>now supports more unicode ranges, including the fallback character <code>�</code></li>
+<li>code ranges are optional via cargo features to minimize binary size</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/269">implement read-only relocations</a>
+<ul>
+<li>implements <code>GNU_RELRO</code> program header handling to make relocations read-only</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/268">allow booting without a UEFI graphics output</a>
+<ul>
+<li>don't error if no UEFI framebuffer is detected</li>
+<li>this was merged into the <code>next</code> branch for the upcoming <code>v0.11</code> release</li>
+</ul>
+</li>
+</ul>
+<p>Thanks to <a href="https://github.com/phip1611">@phip1611</a>, and <a href="https://github.com/Freax13">@Freax13</a> for their contributions!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>This month, we began work to remove <code>acpi</code>'s dependence on the <code>alloc</code> crate for allocations, instead directly
+using the <a href="https://doc.rust-lang.org/beta/core/alloc/trait.Allocator.html"><code>core::alloc::Allocator</code></a> API. This
+improves support for bootloaders and kernels that want to treat memory allocation as fallible, allowing them to
+more gracefully recover from out-of-memory situations. In the future, we hope that this support will be brought
+into <code>alloc</code>, so that the library can return to using the standard containers.</p>
+<p>These changes are not yet finished or released, but a new major version will likely be out in December with these
+changes, as well as better support for PCI topologies with multiple segment groups, and a few other changes. If
+you'd like to make use of these new features as they're developed, they're already in <code>main</code>, so you can use a Git
+dependency.</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/131">Rework crate to work without allocations</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/128">Add Debug implementations</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/semiviral">@semiviral</a>, and <a href="https://github.com/mattfbacon">@mattfbacon</a> for their contributions!</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Help with one of these outstanding issues!</p>
+<!--
+    Please use the following template for adding items:
+    - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="d-sonuga-blog-blasterball"><a href="https://github.com/d-sonuga/blog-blasterball/"><code>d-sonuga/blog-blasterball</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/d-sonuga">@d-sonuga</a>)</span></p>
+<p><a href="https://d-sonuga.netlify.app/">Demilade Sonuga's Blog</a> is a new blog on writing a
+simple blasterball game with no OS, no engine and minimal external crates. The blog's aim is to take a Rust
+beginner from starting the project to finishing it and understanding everything involved in the project's
+creation.</p>
+<p>The project is still in it's early stages, so lots of feedback is very much needed.</p>
+<p>If you're interested, please take a look, and send your thoughts to <a href="https://twitter.com/d_sonuga/">@d_sonuga</a>
+on Twitter.</p>
+<h3 id="talk-on-windows-linked-lists-in-safe-and-idiomatic-rust">Talk on Windows Linked Lists in safe and idiomatic Rust</h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/ColinFinck">@ColinFinck</a>)</span></p>
+<p>At the first ever EuroRust conference from 13th to 14th October, Colin Finck gave a talk about the challenges of developing his <a href="https://github.com/ColinFinck/nt-list"><code>nt-list</code></a> crate.
+The crate provides a safe and idiomatic Rust wrapper around the Windows variant of Linked Lists.
+It was presented on this blog <a href="/this-month/2022-07/#nt-list-windows-linked-lists-in-idiomatic-rust">in July</a>.</p>
+<p>A <a href="https://www.youtube.com/watch?v=IxhZIyXOIw8">recording</a> of the talk has just been uploaded.
+Check it out, and also check out the <a href="https://www.youtube.com/channel/UCR3gXcme1HMK7_TrUaNZOqw/videos">other videos</a> from that conference for some great takes on Rust!</p>
+<p><a href="https://www.youtube.com/watch?v=IxhZIyXOIw8"><img src="https://rust-osdev.com/this-month/2022-10/nt-list-video.jpg" alt="Preview of video: Windows linked lists in safe and idiomatic Rust - Colin Finck - EuroRust 2022" title="Preview of video: Windows linked lists in safe and idiomatic Rust - Colin Finck - EuroRust 2022" /></a></p>
+<h3 id="madernoob-galloc"><a href="https://github.com/MaderNoob/galloc"><code>MaderNoob/galloc</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>The new <a href="https://crates.io/crates/good_memory_allocator"><code>good_memory_allocator</code></a> crate implements a <code>no_std</code>-compatible linked list allocator, inspired by the <a href="https://gee.cs.oswego.edu/dl/html/malloc.html"><code>dlmalloc</code></a> algorithm. It stores an additional <code>usize</code> of metadata per allocation, which decreases memory efficiency, but increased runtime efficiency. The <code>README</code> includes promising <a href="https://github.com/MaderNoob/galloc#benchmarks">benchmark results</a> that compare the crate against the <a href="https://github.com/rust-osdev/linked-list-allocator"><code>linked-list-allocator</code></a> and <a href="https://github.com/phip1611/simple-chunk-allocator"><code>simple-chunk-allocator</code></a> crates.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following changes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1135">Korean translation of <em>Testing</em> post</a>
+<ul>
+<li>Read it at <a href="https://os.phil-opp.com/ko/testing/">https://os.phil-opp.com/ko/testing/</a></li>
+<li>Thanks to <a href="https://github.com/JOE1994">@JOE1994</a> for creating the translation and to <a href="https://github.com/SNOOPYOF">@SNOOPYOF</a> and <a href="https://github.com/dalinaum">@dalinaum</a> for reviewing!</li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1162">Korean translation of <em>CPU Exceptions</em> post</a>
+<ul>
+<li>Read it at <a href="https://os.phil-opp.com/ko/cpu-exceptions/">https://os.phil-opp.com/ko/cpu-exceptions/</a></li>
+<li>Thanks to <a href="https://github.com/JOE1994">@JOE1994</a> for creating the translation and to <a href="https://github.com/KimWang906">@KimWang906</a> for reviewing!</li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1144">French translation of <em>A Minimal Rust Kernel</em> post</a>
+<ul>
+<li>Read it at <a href="https://os.phil-opp.com/fr/minimal-rust-kernel/">https://os.phil-opp.com/fr/minimal-rust-kernel/</a></li>
+<li>Thanks to <a href="https://github.com/TheMimiCodes">@TheMimiCodes</a> and <a href="https://github.com/maximevaillancourt">@maximevaillancourt</a> for creating the translation and to <a href="https://github.com/alaincao">@alaincao</a> for reviewing (and for <a href="https://github.com/phil-opp/blog_os/pull/1166">fixing links</a>)!</li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1147">Update zola to v0.16.1</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1146">Fixes bad URL from <code>post-09</code> address calculation section</a> <span class="gray">(thanks to <a href="https://github.com/seewishnew">@seewishnew</a>)</span></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1151">Remove warning output from QEMU command</a> <span class="gray">(thanks to <a href="https://github.com/lovemeforareason">@lovemeforareason</a>)</span></li>
+</ul>
+<h2 id="other-news">Other News</h2>
+<ul>
+<li><a href="https://www.phoronix.com/news/Rust-UEFI-Promoted-Tier-2">Rust UEFI Firmware Targets Promoted To Tier-2 Status</a></li>
+<li><a href="https://twitter.com/dwizzzleMSFT/status/1578532292662005760">Microsoft seems to ship Rust code in Windows Font Parsing (dwrite)</a></li>
+<li>Announcement of <a href="https://github.com/pop-os/cosmic-text">COSMIC Text</a>, a pure Rust library for font shaping, layout, and rendering
+<ul>
+<li>Based on <a href="https://github.com/RazrFalcon/rustybuzz"><code>rustybuzz</code></a> and <a href="https://github.com/dfrg/swash"><code>swash</code></a>, with custom layout and font fallback implementations</li>
+<li>Developed for the upcoming Rust-based desktop environment for <a href="https://pop.system76.com/">Pop_OS</a> and also usable for <a href="https://www.redox-os.org/">Redox OS</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
