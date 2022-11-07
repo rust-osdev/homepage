@@ -39,45 +39,6 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
-### [`bootloader`](https://github.com/rust-osdev/bootloader)
-<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@rybot666](https://github.com/rybot666), and [@64](https://github.com/64)</span>
-
-We merged the following changes this month:
-
-- [Update `noto-sans-mono-bitmap` to `v0.2.0`](https://github.com/rust-osdev/bootloader/pull/267)
-  - now supports more unicode ranges, including the fallback character `�`
-  - code ranges are optional via cargo features to minimize binary size
-- [implement read-only relocations](https://github.com/rust-osdev/bootloader/pull/269)
-  - implements `GNU_RELRO` program header handling to make relocations read-only
-- [allow booting without a UEFI graphics output](https://github.com/rust-osdev/bootloader/pull/268)
-  - don't error if no UEFI framebuffer is detected
-  - this was merged into the `next` branch for the upcoming `v0.11` release
-
-Thanks to [@phip1611](https://github.com/phip1611), and [@Freax13](https://github.com/Freax13) for their contributions!
-
-### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
-<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@jamesmunns](https://github.com/jamesmunns)</span>
-
-- [Consider regions that lead to very small back paddings as unsuitable](https://github.com/rust-osdev/linked-list-allocator/pull/71)
-  - Fixes a potential [memory leak](https://github.com/rust-osdev/linked-list-allocator/issues/66) that was introduced with `v0.10`.
-- [Add a random action fuzzer](https://github.com/rust-osdev/linked-list-allocator/pull/69)
-  - Runs randomized tests against the `allocate_first_fit`, `deallocate`, and `extend` methods
-  - This is the fuzzer that was used to discover the [possible out-of-bounds writes in versions `<=0.10.1`](https://github.com/rust-osdev/linked-list-allocator/security/advisories/GHSA-xg8p-34w2-j49j)
-- [Run new cargo-fuzz job on CI with time limit](https://github.com/rust-osdev/linked-list-allocator/pull/72)
-  - Fuzzes each commit and PR for 5 minutes as a guard against regressions
-  - The CI job is also run on schedule every day to test against the latest Rust nightly and to increase the chance of finding improbably bugs over time.
-
-Thanks to [@evanrichter](https://github.com/evanrichter) for their contribution!
-
-### [`acpi`](https://github.com/rust-osdev/acpi)
-<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
-
-- [Rework crate to work without allocations](https://github.com/rust-osdev/acpi/pull/131)
-- [Add Debug implementations](https://github.com/rust-osdev/acpi/pull/128)
-
-Thanks to [@semiviral](https://github.com/semiviral), and [@mattfbacon](https://github.com/mattfbacon) for their contributions!
-
-
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 <span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
 
@@ -101,6 +62,45 @@ Thanks to [@timrobertsdev](https://github.com/timrobertsdev) and [@raccog](https
 - [Tweak pull request template wrapping](https://github.com/rust-osdev/uefi-rs/pull/533)
 - [ci: Simplify some jobs with ubuntu-22.04 runner](https://github.com/rust-osdev/uefi-rs/pull/532)
 -->
+
+
+### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@jamesmunns](https://github.com/jamesmunns)</span>
+
+- [Consider regions that lead to very small back paddings as unsuitable](https://github.com/rust-osdev/linked-list-allocator/pull/71)
+  - Fixes a potential [memory leak](https://github.com/rust-osdev/linked-list-allocator/issues/66) that was introduced with `v0.10`.
+- [Add a random action fuzzer](https://github.com/rust-osdev/linked-list-allocator/pull/69)
+  - Runs randomized tests against the `allocate_first_fit`, `deallocate`, and `extend` methods
+  - This is the fuzzer that was used to discover the [possible out-of-bounds writes in versions `<=0.10.1`](https://github.com/rust-osdev/linked-list-allocator/security/advisories/GHSA-xg8p-34w2-j49j)
+- [Run new cargo-fuzz job on CI with time limit](https://github.com/rust-osdev/linked-list-allocator/pull/72)
+  - Fuzzes each commit and PR for 5 minutes as a guard against regressions
+  - The CI job is also run on schedule every day to test against the latest Rust nightly and to increase the chance of finding improbably bugs over time.
+
+Thanks to [@evanrichter](https://github.com/evanrichter) for their contribution!
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@rybot666](https://github.com/rybot666), and [@64](https://github.com/64)</span>
+
+We merged the following changes this month:
+
+- [Update `noto-sans-mono-bitmap` to `v0.2.0`](https://github.com/rust-osdev/bootloader/pull/267)
+  - now supports more unicode ranges, including the fallback character `�`
+  - code ranges are optional via cargo features to minimize binary size
+- [implement read-only relocations](https://github.com/rust-osdev/bootloader/pull/269)
+  - implements `GNU_RELRO` program header handling to make relocations read-only
+- [allow booting without a UEFI graphics output](https://github.com/rust-osdev/bootloader/pull/268)
+  - don't error if no UEFI framebuffer is detected
+  - this was merged into the `next` branch for the upcoming `v0.11` release
+
+Thanks to [@phip1611](https://github.com/phip1611), and [@Freax13](https://github.com/Freax13) for their contributions!
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+- [Rework crate to work without allocations](https://github.com/rust-osdev/acpi/pull/131)
+- [Add Debug implementations](https://github.com/rust-osdev/acpi/pull/128)
+
+Thanks to [@semiviral](https://github.com/semiviral), and [@mattfbacon](https://github.com/mattfbacon) for their contributions!
 
 ## Call for Participation
 
