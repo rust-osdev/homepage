@@ -39,6 +39,56 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@rybot666](https://github.com/rybot666), and [@64](https://github.com/64)</span>
+
+- [allow booting without a UEFI graphics output](https://github.com/rust-osdev/bootloader/pull/268)
+- [fb/logger: bump noto-sans-mono-bitmap + improvements](https://github.com/rust-osdev/bootloader/pull/267)
+- [implement read-only relocations](https://github.com/rust-osdev/bootloader/pull/269)
+
+Thanks to [@phip1611](https://github.com/phip1611), and [@Freax13](https://github.com/Freax13) for their contributions!
+
+
+### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@jamesmunns](https://github.com/jamesmunns)</span>
+
+- [random action fuzzer](https://github.com/rust-osdev/linked-list-allocator/pull/69)
+- [Run new cargo-fuzz job on CI with time limit](https://github.com/rust-osdev/linked-list-allocator/pull/72)
+- [Consider regions that lead to very small back paddings as unsuitable](https://github.com/rust-osdev/linked-list-allocator/pull/71)
+
+Thanks to [@evanrichter](https://github.com/evanrichter), and [@phil-opp](https://github.com/phil-opp) for their contributions!
+
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+- [Add Debug implementations](https://github.com/rust-osdev/acpi/pull/128)
+- [rework crate to allocationless](https://github.com/rust-osdev/acpi/pull/131)
+
+Thanks to [@semiviral](https://github.com/semiviral), and [@mattfbacon](https://github.com/mattfbacon) for their contributions!
+
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+- [Copy license file to uefi-macros and uefi-services](https://github.com/rust-osdev/uefi-rs/pull/520)
+- [Fix clippy lint by removing unnecessary cast](https://github.com/rust-osdev/uefi-rs/pull/525)
+- [Update documentation section of readme](https://github.com/rust-osdev/uefi-rs/pull/519)
+- [uefi-services: Change panic handler log message.](https://github.com/rust-osdev/uefi-rs/pull/526)
+- [Fix warning from unneeded `macro_use`](https://github.com/rust-osdev/uefi-rs/pull/527)
+- [Add option to disable network tests](https://github.com/rust-osdev/uefi-rs/pull/528)
+- [Change `Event` to be FFI-safe using `NonNull`](https://github.com/rust-osdev/uefi-rs/pull/507)
+- [Add `guid!` macro](https://github.com/rust-osdev/uefi-rs/pull/536)
+- [Add Guid methods to convert to/from byte arrays](https://github.com/rust-osdev/uefi-rs/pull/535)
+- [Tweak pull request template wrapping](https://github.com/rust-osdev/uefi-rs/pull/533)
+- [ci: Simplify some jobs with ubuntu-22.04 runner](https://github.com/rust-osdev/uefi-rs/pull/532)
+- [Fix clippy warnings](https://github.com/rust-osdev/uefi-rs/pull/538)
+- [Fixes and improvements for `Revision`](https://github.com/rust-osdev/uefi-rs/pull/529)
+- [Replace `UnalignedCStr16` with `UnalignedSlice`](https://github.com/rust-osdev/uefi-rs/pull/539)
+- [Add new `DeviceSubType` values](https://github.com/rust-osdev/uefi-rs/pull/537)
+
+Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@timrobertsdev](https://github.com/timrobertsdev), and [@raccog](https://github.com/raccog) for their contributions!
+
 
 ## Call for Participation
 
