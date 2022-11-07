@@ -174,6 +174,13 @@ We merged the following changes to the [_Writing an OS in Rust_](https://os.phil
 - [Fixes bad URL from `post-09` address calculation section](https://github.com/phil-opp/blog_os/pull/1146) <span class="gray">(thanks to [@seewishnew](https://github.com/seewishnew))</span>
 - [Remove warning output from QEMU command](https://github.com/phil-opp/blog_os/pull/1151) <span class="gray">(thanks to [@lovemeforareason](https://github.com/lovemeforareason))</span>
 
+## Other News
+
+- [Rust UEFI Firmware Targets Promoted To Tier-2 Status](https://www.phoronix.com/news/Rust-UEFI-Promoted-Tier-2)
+- [Microsoft seems to ship Rust code in Windows Font Parsing (dwrite)](https://twitter.com/dwizzzleMSFT/status/1578532292662005760)
+- Announcement of [COSMIC Text](https://github.com/pop-os/cosmic-text), a pure Rust library for font shaping, layout, and rendering
+  - Based on [`rustybuzz`](https://github.com/RazrFalcon/rustybuzz) and [`swash`](https://github.com/dfrg/swash), with custom layout and font fallback implementations
+  - Developed for the upcoming Rust-based desktop environment for [Pop_OS](https://pop.system76.com/) and also usable for [Redox OS](https://www.redox-os.org/)
 
 ## Join Us?
 
