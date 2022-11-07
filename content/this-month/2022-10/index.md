@@ -135,7 +135,7 @@ The crate provides a safe and idiomatic Rust wrapper around the Windows variant 
 It was presented on this blog [in July](/this-month/2022-07/#nt-list-windows-linked-lists-in-idiomatic-rust).
 
 A recording of the talk has just been uploaded.
-Check it out, and also check out the other videos from that conference for some great takes on Rust!
+Check it out, and also check out the [other videos](https://www.youtube.com/channel/UCR3gXcme1HMK7_TrUaNZOqw/videos) from that conference for some great takes on Rust!
 
 [![Preview of video: Windows linked lists in safe and idiomatic Rust - Colin Finck - EuroRust 2022](nt-list-video.jpg "Preview of video: Windows linked lists in safe and idiomatic Rust - Colin Finck - EuroRust 2022")](https://www.youtube.com/watch?v=IxhZIyXOIw8)
 
