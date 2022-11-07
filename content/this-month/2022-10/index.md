@@ -151,6 +151,11 @@ Check it out, and also check out the [other videos](https://www.youtube.com/chan
 
 [![Preview of video: Windows linked lists in safe and idiomatic Rust - Colin Finck - EuroRust 2022](nt-list-video.jpg "Preview of video: Windows linked lists in safe and idiomatic Rust - Colin Finck - EuroRust 2022")](https://www.youtube.com/watch?v=IxhZIyXOIw8)
 
+### [`MaderNoob/galloc`](https://github.com/MaderNoob/galloc)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+The new [`good_memory_allocator`](https://crates.io/crates/good_memory_allocator) crate implements a `no_std`-compatible linked list allocator, inspired by the [`dlmalloc`](https://gee.cs.oswego.edu/dl/html/malloc.html) algorithm. It stores an additional `usize` of metadata per allocation, which decreases memory efficiency, but increased runtime efficiency. The `README` includes promising [benchmark results](https://github.com/MaderNoob/galloc#benchmarks) that compare the crate against the [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator) and [`simple-chunk-allocator`](https://github.com/phip1611/simple-chunk-allocator) crates.
+
 
 ## Join Us?
 
