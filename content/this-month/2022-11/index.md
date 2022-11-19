@@ -70,6 +70,37 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`bendudson/EuraliOS`](https://github.com/bendudson/EuraliOS)
+    <span class="maintainers">(Section written by [@bendudson](https://github.com/bendudson))</span>
+
+EuraliOS is a hobby multitasking operating system written in
+Rust. It's based on a microkernel ("Merriwig") that provides on-demand
+paging, stack and heap memory management for multi-threaded user
+processes. Drivers run in Ring 3 and communication between processes
+is by Rendezvous message passing. Each process can have its own
+virtual file system, enabling multiple users to be isolated from each
+other.
+
+This still has many rough edges and doesn't have many drivers:
+EuraliOS only has ramdisk storage, but does have a TCP stack thanks to
+the [smoltcp](https://github.com/smoltcp-rs/smoltcp) crate. The only
+user programs are a simple shell and a
+[Gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)) client; I'm
+trying to port the [kibi](https://github.com/ilai-deutel/kibi) text
+editor but have a lot of work to do on the standard library.
+
+This was based on [Phil's blog](https://os.phil-opp.com/) and uses
+many rust-osdev crates including
+[x86_64](https://github.com/rust-osdev/x86_64),
+[bootloader](https://github.com/rust-osdev/bootloader) and
+[vga](https://github.com/rust-osdev/vga). Thanks to Phil and
+Rust-OS contributors for all their work supporting this community!
+
+I've tried to
+[document](https://github.com/bendudson/EuraliOS#documentation) the
+development steps and hope these are useful for others, particularly
+the sections on getting into Ring 3, implementing syscalls and
+switching stacks with =swapgs=. Suggestions for improvement welcome!
 
 ## Other News
 
