@@ -94,13 +94,13 @@ many rust-osdev crates including
 [x86_64](https://github.com/rust-osdev/x86_64),
 [bootloader](https://github.com/rust-osdev/bootloader) and
 [vga](https://github.com/rust-osdev/vga). Thanks to Phil and
-Rust-OS contributors for all their work supporting this community!
+Rust-OSdev contributors for all their work supporting this community!
 
 I've tried to
 [document](https://github.com/bendudson/EuraliOS#documentation) the
 development steps and hope these are useful for others, particularly
 the sections on getting into Ring 3, implementing syscalls and
-switching stacks with =swapgs=. Suggestions for improvement welcome!
+switching stacks with `swapgs`. Suggestions for improvement welcome!
 
 ## Other News
 
