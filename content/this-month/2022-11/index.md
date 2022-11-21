@@ -71,7 +71,7 @@ In this section, we describe updates to Rust OS projects that are not directly r
 -->
 
 ### [`bendudson/EuraliOS`](https://github.com/bendudson/EuraliOS)
-    <span class="maintainers">(Section written by [@bendudson](https://github.com/bendudson))</span>
+<span class="maintainers">(Section written by [@bendudson](https://github.com/bendudson))</span>
 
 EuraliOS is a hobby multitasking operating system written in
 Rust. It's based on a microkernel ("Merriwig") that provides on-demand
