@@ -23,6 +23,7 @@ skip_prefixes = [
     "https://crates.io/crates", # see https://github.com/rust-lang/crates.io/issues/788
     "https://github.com", # because of rate limiting
     "https://rusty-hermit.k8s.eonerc.rwth-aachen.de/", # RustyHermit show case
+    "https://www.linux-kvm.org", # see https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/
 ]
 
 [extra]
