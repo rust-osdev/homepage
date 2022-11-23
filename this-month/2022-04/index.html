@@ -43,7 +43,7 @@
 
     <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
 <span id="continue-reading"></span>
-<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-04/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
 <!--
     This is a draft for the upcoming "This Month in Rust OSDev (April 2022)" post.
     Feel free to create pull requests against the `next` branch to add your
@@ -177,12 +177,11 @@ saw two more tutorial releases:</p>
 <li><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/18_backtrace">Tutorial 18 - <code>Backtracing</code></a></li>
 </ul>
 <p>The two tutorials implement the generation of backtraces that show address and symbol information. Here is an example of the of a backtrace generated as part of  the kernel's panic handler:</p>
-<pre style="background-color:#2b303b;">
-<code><span style="color:#c0c5ce;">[    0.002782] Writing to bottom of address space to address 1 GiB...
+<pre data-lang="console" class="language-console "><code class="language-console" data-lang="console">[    0.002782] Writing to bottom of address space to address 1 GiB...
 [    0.004623] Kernel panic!
 
 Panic location:
-      File &#39;kernel/src/_arch/aarch64/exception.rs&#39;, line 59, column 5
+      File &#x27;kernel&#x2F;src&#x2F;_arch&#x2F;aarch64&#x2F;exception.rs&#x27;, line 59, column 5
 
 [...]
 
@@ -198,7 +197,8 @@ Backtrace:
        6. ffffffffc0000a74 | __vector_current_elx_synchronous
        7. ffffffffc000111c | kernel_init
       -----------------------------------------------------------
-</span></code></pre><h3 id="metta-systems-vesper"><a href="https://github.com/metta-systems/vesper"><code>metta-systems/vesper</code></a></h3>
+</code></pre>
+<h3 id="metta-systems-vesper"><a href="https://github.com/metta-systems/vesper"><code>metta-systems/vesper</code></a></h3>
 <p><span class="gray">(Section written by <a href="https://github.com/berkus">@berkus</a>)</span></p>
 <p>Vesper is a capability-based single-address-space nanokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.</p>
 <p>The kernel is in very early stages of development. This time I will update on the progress of tooling and my next steps. As usual, I will link directly to my blog for more details. <a href="https://metta.systems/blog/osdev-tooling-3/">Read the full article here</a>.</p>

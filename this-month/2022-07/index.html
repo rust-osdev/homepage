@@ -42,7 +42,7 @@
 
     <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
 <span id="continue-reading"></span>
-<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2022-07/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
 <!--
     This is a draft for the upcoming "This Month in Rust OSDev (July 2022)" post.
     Feel free to create pull requests against the `next` branch to add your
@@ -152,7 +152,7 @@ This is what Windows, Windows drivers, and components influenced by Windows (e.g
 <p><a href="https://colinfinck.de/posts/nt-list-windows-linked-lists-in-idiomatic-rust/">Colin's blog post</a> goes into detail about some of the differences between textbook and Windows linked lists and the challenges in coming up with a safe Rust implementation.
 The final interface provided by nt-list is as simple to use as <code>Vec</code> while being fully compatible to the original <code>LIST_ENTRY</code>.
 The compatibility is proven in a WinDbg debugging session:</p>
-<p><a href="https://rust-osdev.com/this-month/2022-07/windbg.png"><img src="https://rust-osdev.com/this-month/2022-07/windbg.png" alt="Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate" title="Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate" /></a></p>
+<p><a href="windbg.png"><img src="https://rust-osdev.com/this-month/2022-07/windbg.png" alt="Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate" title="Using WinDbg to traverse a Windows Linked List created by the nt-list Rust crate" /></a></p>
 <p>If you want to give it a spin, the crate is available on <a href="https://crates.io/crates/nt-list">crates.io</a>, and make sure to also check the <a href="https://docs.rs/nt-list/">docs</a>.</p>
 <h3 id="comparison-between-phip1611-simple-chunk-allocator-and-rust-osdev-linked-list-allocator">Comparison between <a href="https://github.com/phip1611/simple-chunk-allocator"><code>phip1611/simple-chunk-allocator</code></a> and <a href="https://github.com/rust-osdev/linked-list-allocator"><code>rust-osdev/linked-list-allocator</code></a></h3>
 <p><span class="maintainers">(Section written by <a href="https://github.com/phip1611">@phip1611</a>)</span></p>
