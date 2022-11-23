@@ -114,18 +114,18 @@ MPK controls per-thread permission on groups of pages. Each core has a PKRU regi
 <p>By entering the library operating system through the application binary interface the protection keys will be automatically changed, which allows access to the kernel stack and the kernel heap. Unauthorized access from within the application will trigger a pagefault, which will be handled by the library operating system.</p>
 <h3 id="example-project">Example Project</h3>
 <p>To give you an example on how to build an RustyHermit application, lets create a new cargo project:</p>
-<pre data-lang="sh" class="language-sh "><code class="language-sh" data-lang="sh">cargo new hello_world
-cd hello_world
-</code></pre>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">cargo</span><span> new hello_world
+</span><span style="color:#96b5b4;">cd</span><span> hello_world
+</span></code></pre>
 <p>RustyHermit currently requires the nightly versions of the Rust toolchain.
 To simplify the workflow, we recommend to create the configuration
 <em>rust-toolchain</em> as follows to define the required components and to
 tested version of nightly compiler:</p>
-<pre data-lang="toml" class="language-toml "><code class="language-toml" data-lang="toml">[toolchain]
-channel = &quot;nightly-2020-12-23&quot;
-components = [ &quot;rustfmt&quot;, &quot;rust-src&quot;, &quot;llvm-tools-preview&quot;]
-targets = [ &quot;x86_64-unknown-hermit&quot; ]
-</code></pre>
+<pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[toolchain]
+</span><span style="color:#bf616a;">channel </span><span>= &quot;</span><span style="color:#a3be8c;">nightly-2020-12-23</span><span>&quot;
+</span><span style="color:#bf616a;">components </span><span>= [ &quot;</span><span style="color:#a3be8c;">rustfmt</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">rust-src</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">llvm-tools-preview</span><span>&quot;]
+</span><span style="color:#bf616a;">targets </span><span>= [ &quot;</span><span style="color:#a3be8c;">x86_64-unknown-hermit</span><span>&quot; ]
+</span></code></pre>
 <p>The configuration file specifies the required components and the version of the nightly compiler to use.</p>
 <p>The RustyHermit's target <code>x86_64-unknown-hermit</code> is part of Rust
 supported platforms, but doesn't belong to the <em>tier 1</em> platforms,
@@ -133,19 +133,19 @@ which means that official binary releases aren't available and the
 standard runtime must be build from scratch.
 To simplify this build process, we recommend to create the configuration
 file <code>.cargo/config</code> as follows:</p>
-<pre data-lang="toml" class="language-toml "><code class="language-toml" data-lang="toml">[unstable]
-build-std = [&quot;std&quot;, &quot;core&quot;, &quot;alloc&quot;, &quot;panic_abort&quot;]
-
-[build]
-target = &quot;x86_64-unknown-hermit&quot;
-</code></pre>
+<pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[unstable]
+</span><span style="color:#bf616a;">build-std </span><span>= [&quot;</span><span style="color:#a3be8c;">std</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">core</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">alloc</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">panic_abort</span><span>&quot;]
+</span><span>
+</span><span>[build]
+</span><span style="color:#bf616a;">target </span><span>= &quot;</span><span style="color:#a3be8c;">x86_64-unknown-hermit</span><span>&quot;
+</span></code></pre>
 <p>To bind the library operating system to the application, we have to add the crate <a href="https://crates.io/crates/hermit-sys"><code>hermit-sys</code></a> to the dependencies in the file <code>Cargo.toml</code>:</p>
-<pre data-lang="toml" class="language-toml "><code class="language-toml" data-lang="toml"># Cargo.toml
-
-[target.&#x27;cfg(target_os = &quot;hermit&quot;)&#x27;.dependencies]
-hermit-sys = &quot;0.1.*&quot;
-features = [&quot;smoltcp&quot;]
-</code></pre>
+<pre data-lang="toml" style="background-color:#2b303b;color:#c0c5ce;" class="language-toml "><code class="language-toml" data-lang="toml"><span style="color:#65737e;"># Cargo.toml
+</span><span>
+</span><span>[target.&#39;</span><span style="color:#a3be8c;">cfg(target_os = &quot;hermit&quot;)</span><span>&#39;.dependencies]
+</span><span style="color:#bf616a;">hermit-sys </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.*</span><span>&quot;
+</span><span style="color:#bf616a;">features </span><span>= [&quot;</span><span style="color:#a3be8c;">smoltcp</span><span>&quot;]
+</span></code></pre>
 <p>The feature <code>smoltcp</code> is required if your application tries
 to establish a TCP connection. In this case, the library operating systems
 includes the TCP/stack <a href="https://github.com/smoltcp-rs/smoltcp">smoltcp</a>.
@@ -156,11 +156,11 @@ To start the application within a common virtual machine, a loader is required, 
 We provide a simple loader on <a href="https://github.com/hermitcore/rusty-loader">GitHub</a>.
 A makefile to build the loader is part of the project.
 After that, Qemu can be used to start RustyHermit in a VM as follows:</p>
-<pre data-lang="sh" class="language-sh "><code class="language-sh" data-lang="sh">qemu-system-x86_64 -display none -smp 1 -m 64M -serial stdio  -kernel path_to_loader&#x2F;rusty-loader -initrd path_to_app&#x2F;app -cpu qemu64,apic,fsgsbase,rdtscp,xsave,fxsr
-</code></pre>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">qemu-system-x86_64 -display</span><span> none</span><span style="color:#bf616a;"> -smp</span><span> 1</span><span style="color:#bf616a;"> -m</span><span> 64M</span><span style="color:#bf616a;"> -serial</span><span> stdio</span><span style="color:#bf616a;">  -kernel</span><span> path_to_loader/rusty-loader</span><span style="color:#bf616a;"> -initrd</span><span> path_to_app/app</span><span style="color:#bf616a;"> -cpu</span><span> qemu64,apic,fsgsbase,rdtscp,xsave,fxsr
+</span></code></pre>
 <p>To improve the performance, KVM can be used to use the virtualization extension of modern processors.</p>
-<pre data-lang="sh" class="language-sh "><code class="language-sh" data-lang="sh">qemu-system-x86_64 -display none -smp 1 -m 64M -serial stdio  -kernel path_to_loader&#x2F;rusty-loader -initrd path_to_hello_world&#x2F;hello_world -enable-kvm -cpu host
-</code></pre>
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#bf616a;">qemu-system-x86_64 -display</span><span> none</span><span style="color:#bf616a;"> -smp</span><span> 1</span><span style="color:#bf616a;"> -m</span><span> 64M</span><span style="color:#bf616a;"> -serial</span><span> stdio</span><span style="color:#bf616a;">  -kernel</span><span> path_to_loader/rusty-loader</span><span style="color:#bf616a;"> -initrd</span><span> path_to_hello_world/hello_world</span><span style="color:#bf616a;"> -enable-kvm -cpu</span><span> host
+</span></code></pre>
 <h3 id="roadmap">Roadmap</h3>
 <p>For the near future, we plan to stabilize the interface to the hardware.
 For instance, the support of <a href="https://virtio-fs.gitlab.io/">Virtio-fs</a>

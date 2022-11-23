@@ -177,27 +177,27 @@ saw two more tutorial releases:</p>
 <li><a href="https://github.com/rust-embedded/rust-raspberrypi-OS-tutorials/tree/master/18_backtrace">Tutorial 18 - <code>Backtracing</code></a></li>
 </ul>
 <p>The two tutorials implement the generation of backtraces that show address and symbol information. Here is an example of the of a backtrace generated as part of  the kernel's panic handler:</p>
-<pre data-lang="console" class="language-console "><code class="language-console" data-lang="console">[    0.002782] Writing to bottom of address space to address 1 GiB...
-[    0.004623] Kernel panic!
-
-Panic location:
-      File &#x27;kernel&#x2F;src&#x2F;_arch&#x2F;aarch64&#x2F;exception.rs&#x27;, line 59, column 5
-
-[...]
-
-Backtrace:
-      ----------------------------------------------------------
-          Address            Function containing address
-      ----------------------------------------------------------
-       1. ffffffffc0001294 | core::fmt::write
-       2. ffffffffc0005560 | libkernel::panic_wait::_panic_print
-       3. ffffffffc00054a0 | rust_begin_unwind
-       4. ffffffffc0002950 | core::panicking::panic_fmt
-       5. ffffffffc0004898 | current_elx_synchronous
-       6. ffffffffc0000a74 | __vector_current_elx_synchronous
-       7. ffffffffc000111c | kernel_init
-      -----------------------------------------------------------
-</code></pre>
+<pre data-lang="console" style="background-color:#2b303b;color:#c0c5ce;" class="language-console "><code class="language-console" data-lang="console"><span>[    0.002782] Writing to bottom of address space to address 1 GiB...
+</span><span>[    0.004623] Kernel panic!
+</span><span>
+</span><span>Panic location:
+</span><span>      File &#39;kernel/src/_arch/aarch64/exception.rs&#39;, line 59, column 5
+</span><span>
+</span><span>[...]
+</span><span>
+</span><span>Backtrace:
+</span><span>      ----------------------------------------------------------
+</span><span>          Address            Function containing address
+</span><span>      ----------------------------------------------------------
+</span><span>       1. ffffffffc0001294 | core::fmt::write
+</span><span>       2. ffffffffc0005560 | libkernel::panic_wait::_panic_print
+</span><span>       3. ffffffffc00054a0 | rust_begin_unwind
+</span><span>       4. ffffffffc0002950 | core::panicking::panic_fmt
+</span><span>       5. ffffffffc0004898 | current_elx_synchronous
+</span><span>       6. ffffffffc0000a74 | __vector_current_elx_synchronous
+</span><span>       7. ffffffffc000111c | kernel_init
+</span><span>      -----------------------------------------------------------
+</span></code></pre>
 <h3 id="metta-systems-vesper"><a href="https://github.com/metta-systems/vesper"><code>metta-systems/vesper</code></a></h3>
 <p><span class="gray">(Section written by <a href="https://github.com/berkus">@berkus</a>)</span></p>
 <p>Vesper is a capability-based single-address-space nanokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.</p>

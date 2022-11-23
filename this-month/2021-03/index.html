@@ -160,21 +160,21 @@ got two more tutorials this month:</p>
 </ul>
 <p>The two tutorials finally conclude the challenging but rewarding journey of enabling the kernel to execute <strong>from the top of the 64 bit virtual address space</strong>.</p>
 <p>Here is a sneak peek of the end result when booting the <code>kernel</code> on a <strong>Raspberry Pi 4</strong> (slightly modified to fit on the page):</p>
-<pre data-lang="console" class="language-console "><code class="language-console" data-lang="console">[5.011] Booting on: Raspberry Pi 4
-[5.011] MMU online:
-[5.011]   --------------------------------------------------------------------------
-[5.013]           Virtual            Physical      Size      Attr       Entity
-[5.015]   --------------------------------------------------------------------------
-[5.017]   0xffff_ffff_8008_0000 --&gt; 0x0008_0000 |  64 KiB | C RO X  | Kernel code
-[5.018]   0xffff_ffff_8009_0000 --&gt; 0x0009_0000 | 448 KiB | C RW XN | Kernel data
-[5.020]   0xffff_ffff_8011_0000 --&gt; 0x0011_0000 | 512 KiB | C RW XN | Kernel stack
-[5.021]   0xffff_ffff_f000_0000 --&gt; 0xfe20_0000 |  64 KiB | D RW XN | BCM GPIO
-[5.023]                                                             | BCM PL011 UART
-[5.024]   0xffff_ffff_f001_0000 --&gt; 0xff84_0000 |  64 KiB | D RW XN | GICD
-[5.026]                                                             | GICC
-[5.027]   --------------------------------------------------------------------------
-[5.029] Current privilege level: EL1
-</code></pre>
+<pre data-lang="console" style="background-color:#2b303b;color:#c0c5ce;" class="language-console "><code class="language-console" data-lang="console"><span>[5.011] Booting on: Raspberry Pi 4
+</span><span>[5.011] MMU online:
+</span><span>[5.011]   --------------------------------------------------------------------------
+</span><span>[5.013]           Virtual            Physical      Size      Attr       Entity
+</span><span>[5.015]   --------------------------------------------------------------------------
+</span><span>[5.017]   0xffff_ffff_8008_0000 --&gt; 0x0008_0000 |  64 KiB | C RO X  | Kernel code
+</span><span>[5.018]   0xffff_ffff_8009_0000 --&gt; 0x0009_0000 | 448 KiB | C RW XN | Kernel data
+</span><span>[5.020]   0xffff_ffff_8011_0000 --&gt; 0x0011_0000 | 512 KiB | C RW XN | Kernel stack
+</span><span>[5.021]   0xffff_ffff_f000_0000 --&gt; 0xfe20_0000 |  64 KiB | D RW XN | BCM GPIO
+</span><span>[5.023]                                                             | BCM PL011 UART
+</span><span>[5.024]   0xffff_ffff_f001_0000 --&gt; 0xff84_0000 |  64 KiB | D RW XN | GICD
+</span><span>[5.026]                                                             | GICC
+</span><span>[5.027]   --------------------------------------------------------------------------
+</span><span>[5.029] Current privilege level: EL1
+</span></code></pre>
 <h2 id="join-us">Join Us?</h2>
 <p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
 
