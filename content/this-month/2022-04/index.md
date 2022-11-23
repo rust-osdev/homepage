@@ -19,7 +19,7 @@ Welcome to a new issue of _"This Month in Rust OSDev"_. In these posts, we give 
 
 <!-- more -->
 
-This series is openly developed [on GitHub](https://github.com/rust-osdev/homepage/). Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by [creating an issue](https://github.com/rust-osdev/homepage/issues/new) or using our [_comment form_](#comment-form) at the bottom of this page.
+This series is openly developed [on GitHub](https://github.com/rust-osdev/homepage/). Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by [creating an issue](https://github.com/rust-osdev/homepage/issues/new) or using our <a href="#comment-form">_comment form_</a> at the bottom of this page.
 
 <!--
     This is a draft for the upcoming "This Month in Rust OSDev (April 2022)" post.
