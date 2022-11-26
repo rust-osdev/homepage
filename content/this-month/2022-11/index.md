@@ -113,6 +113,29 @@ The initial nightlies containing the prebuilt UEFI targets revealed some issues 
 Finally, we [changed the C compiler for the UEFI targets from gcc to clang](https://github.com/rust-lang/rust/pull/104622), which resolved some linker problems. 
 As of the 2022-11-22 nightly, the three UEFI targets should be fully usable, which means you no longer need to use the unstable `-Zbuild-std` feature.
 
+### [`hermitcore/hermit-sync`](https://github.com/hermitcore/hermit-sync)
+<span class="maintainers">(Section written by [@mkroening](https://github.com/mkroening))</span>
+
+While working on the [`libhermit-rs`] kernel, I moved the synchronization primitives targeted at kernel development into a separate crate: [`hermit-sync`].
+Whilst I was there, I also enhanced the code and made it independent from libhermit, so the code can now be used in other projects as well; at least x86_64 and aarch64 ones for the moment.
+
+The crate contains the following features:
+
+* a function for running a closure without interrupts
+* a simple spinlock with exponential backoff
+* a fair ticket lock with exponential backoff
+* `OnceCell` and `Lazy` based on [`generic_once_cell`] (another recent project of mine)
+
+All of these primitives are available with and without interrupt safety.
+See the [API docs] for more details.
+
+Any feedback is very welcome of course.
+
+[`libhermit-rs`]: https://github.com/hermitcore/libhermit-rs
+[`hermit-sync`]: https://github.com/hermitcore/hermit-sync
+[`generic_once_cell`]: https://github.com/mkroening/generic_once_cell
+[API docs]: https://docs.rs/hermit-sync
+
 ## Other News
 
 <!--
