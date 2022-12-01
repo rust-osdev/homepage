@@ -136,6 +136,18 @@ Any feedback is very welcome of course.
 [`generic_once_cell`]: https://github.com/mkroening/generic_once_cell
 [API docs]: https://docs.rs/hermit-sync
 
+### [`phip1611/paging-calculator`](https://github.com/phip1611/paging-calculator)
+
+<span class="maintainer">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+I worked on setting up page tables in a low-level project and noticed that there is lots of room for
+confusion. For example, x86 has at least four different modes of paging: 32-bit paging, 32-bit 
+paging with PAE, 64-bit 4-level paging, and 64-bit 5-level paging. 32-bit without PAE paging uses 10
+bits to index into a page table while 64-bit paging uses 9 bits to index into the table of each
+level. To demystify the magic a little, I created a CLI utility called `paging-calculator` that 
+takes a virtual address as input and shows you the indices the hardware will use. You can find the
+utility on [crates.io](https://crates.io/crates/paging-calculator).
+
 ## Other News
 
 <!--
