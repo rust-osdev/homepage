@@ -13,6 +13,8 @@ Welcome to a new issue of _"This Month in Rust OSDev"_. In these posts, we give 
 
 This series is openly developed [on GitHub](https://github.com/rust-osdev/homepage/). Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by [creating an issue](https://github.com/rust-osdev/homepage/issues/new) or using our <a href="#comment-form">_comment form_</a> at the bottom of this page.
 
+We have some new sections this month, we hope you like the content!
+
 <!--
     This is a draft for the upcoming "This Month in Rust OSDev (November 2022)" post.
     Feel free to create pull requests against the `next` branch to add your
@@ -23,7 +25,7 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 ## Infrastructure and Tooling
 
-In this new section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
+In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
 
 ### UEFI Targets are now Tier 2
 <span class="maintainers">(Section written by [@nicholasbishop](https://github.com/nicholasbishop))</span>
@@ -35,6 +37,27 @@ https://github.com/rust-lang/rust/pull/101703) for the x86_64 UEFI target to hel
 The initial nightlies containing the prebuilt UEFI targets revealed some issues in `compiler_builtins` which we fixed and are in the [0.1.84](https://github.com/rust-lang/compiler-builtins/compare/0.1.83...0.1.84) release.
 Finally, we [changed the C compiler for the UEFI targets from gcc to clang](https://github.com/rust-lang/rust/pull/104622), which resolved some linker problems.
 As of the 2022-11-22 nightly, the three UEFI targets should be fully usable, which means you no longer need to use the unstable `-Zbuild-std` feature.
+
+## Announcements, News, and Blog Posts
+
+- [Redox OS 0.8.0](https://www.redox-os.org/news/release-0.8.0/)
+- <span class="gray">\[Talk\]</span> [FerrOS: Rust-y unikernels on seL4](https://www.youtube.com/watch?v=osepBlSQjY8)
+- [Aero, a new modern OS made in rust and is now able to run Xorg](https://www.reddit.com/r/rust/comments/ytrpss/aero_a_new_modern_os_made_in_rust_and_is_now_able/)
+- [Tales of the M1 GPU](https://asahilinux.org/2022/11/tales-of-the-m1-gpu/)
+  - Asahi Lina shares her experience with writing a Linux kernel driver for the Apple M1 GPU in Rust.
+- [Memory Safe Languages in Android 13](https://security.googleblog.com/2022/12/memory-safe-languages-in-android-13.html)
+  - There are now ~1.5 million lines of Rust code in AOSP.
+  - "Based on this historical vulnerability density, it’s likely that using Rust has already prevented hundreds of vulnerabilities from reaching production."
+- [Rust Developers Move Ahead With Preparing To Upstream More Code Into The Linux Kernel](https://www.phoronix.com/news/More-Rust-Upstream-Prep-Linux)
+
+<!--
+Here we collect news, blog posts, etc. related to OS development in Rust.
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+
 
 ## `rust-osdev` Projects
 
@@ -246,15 +269,6 @@ bits to index into a page table while 64-bit paging uses 9 bits to index into th
 level. To demystify the magic a little, I created a CLI utility called `paging-calculator` that
 takes a virtual address as input and shows you the indices the hardware will use. You can find the
 utility on [crates.io](https://crates.io/crates/paging-calculator).
-
-## Other News
-
-<!--
-Here we collect other news, blog posts, etc. related to OS development in Rust. Follow this template:
-
-- [Title](https://example.com)
-
--->
 
 
 ## Join Us?
