@@ -54,6 +54,67 @@ See our [README](https://github.com/rust-osdev/bootloader/blob/main/README.md) f
 
 Thanks a lot to the numerous people that tested our beta releases and reported issues!
 
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+#### Features
+
+- [Make the `cstr16!` macro usable in const contexts](https://github.com/rust-osdev/uefi-rs/pull/544)
+- [const fn for trivial getters where possible](https://github.com/rust-osdev/uefi-rs/pull/545)
+- [Support ISA-specific `MemoryAttribute`s in `MemoryDescriptor`s](https://github.com/rust-osdev/uefi-rs/pull/549)
+- [Allow uefi-services to work when the "logger" feature is disabled in uefi](https://github.com/rust-osdev/uefi-rs/pull/552)
+- [Unicode collation](https://github.com/rust-osdev/uefi-rs/pull/551)
+- [Add structs for all device path node types and a new `DevicePathBuilder`](https://github.com/rust-osdev/uefi-rs/pull/547)
+- [Implement additional `BootServices` functions](https://github.com/rust-osdev/uefi-rs/pull/550)
+- [Publish new releases](https://github.com/rust-osdev/uefi-rs/pull/571)
+- [const fn wherever possible](https://github.com/rust-osdev/uefi-rs/pull/546)
+- [rename crate features](https://github.com/rust-osdev/uefi-rs/pull/561)
+- [Several small improvements to EqStrUntilNul](https://github.com/rust-osdev/uefi-rs/pull/580)
+- [`TryFrom<core::ffi::CStr>` implementation for `CStr8`](https://github.com/rust-osdev/uefi-rs/pull/581)
+- [`Directory::read_entry_boxed` plus common abstraction `make_boxed`](https://github.com/rust-osdev/uefi-rs/pull/559)
+- [Implement Error trait for `uefi::Error`](https://github.com/rust-osdev/uefi-rs/pull/587)
+- [Added `read_entry_boxed_in` and `get_boxed_info_in` that use the `allocator_api`](https://github.com/rust-osdev/uefi-rs/pull/584)
+
+#### Docs
+
+- [Add uefi/README.md](https://github.com/rust-osdev/uefi-rs/pull/577)
+- [Install UEFI targets via rustup](https://github.com/rust-osdev/uefi-rs/pull/555)
+- [book: Add a graphics example](https://github.com/rust-osdev/uefi-rs/pull/586)
+- [documentation and code improvements for Status, Error, and read()](https://github.com/rust-osdev/uefi-rs/pull/556)
+- [Clean up crate feature list documentation](https://github.com/rust-osdev/uefi-rs/pull/589)
+- [Add `unstable` feature and improve CI for feature flags](https://github.com/rust-osdev/uefi-rs/pull/590)
+- [Doc updates: add "Running on Hardware" to book and drop BUILDING.md](https://github.com/rust-osdev/uefi-rs/pull/588)
+
+#### Internal
+
+- [Update `mbrman` to 0.5.0](https://github.com/rust-osdev/uefi-rs/pull/543)
+- [Don't explicitly require compiler-builtins(-mem)](https://github.com/rust-osdev/uefi-rs/pull/534)
+- [Add temporary workaround for yanked dependency](https://github.com/rust-osdev/uefi-rs/pull/574)
+- [workspace: uefi (main library) is in a dedicated directory now](https://github.com/rust-osdev/uefi-rs/pull/566)
+- [Copy LICENSE to the new uefi directory](https://github.com/rust-osdev/uefi-rs/pull/576)
+- [Improve clap help for `--target`](https://github.com/rust-osdev/uefi-rs/pull/578)
+- [several unrelated cleanups](https://github.com/rust-osdev/uefi-rs/pull/562)
+- [uefi-test-runner: Assume that we're running in the special QEMU env](https://github.com/rust-osdev/uefi-rs/pull/579)
+- [Simplify serial usage in test-runner and check that tests completed](https://github.com/rust-osdev/uefi-rs/pull/582)
+- [clippy: require must_use_candidate lint](https://github.com/rust-osdev/uefi-rs/pull/592)
+- [doc: add '--document-private-items' to `cargo xtask doc`](https://github.com/rust-osdev/uefi-rs/pull/569)
+- [test-runner: Make some tests stricter](https://github.com/rust-osdev/uefi-rs/pull/595)
+- [test-runner: Open serial device in exclusive mode](https://github.com/rust-osdev/uefi-rs/pull/598)
+- [Make GOP test work on aarch64](https://github.com/rust-osdev/uefi-rs/pull/599)
+
+<!--
+#### Other, less notable changes
+- [Fix `cargo xtask test` help text](https://github.com/rust-osdev/uefi-rs/pull/542)
+- [Fix location of a changelog item](https://github.com/rust-osdev/uefi-rs/pull/548)
+- [fs-tests: doc improvements](https://github.com/rust-osdev/uefi-rs/pull/558)
+- [changelog: add publish date to all versions](https://github.com/rust-osdev/uefi-rs/pull/567)
+- [update PUBLISHING.md](https://github.com/rust-osdev/uefi-rs/pull/568)
+- [build(deps): update nix requirement from 0.25.0 to 0.26.1](https://github.com/rust-osdev/uefi-rs/pull/597)
+-->
+
+Thanks to [@blitz](https://github.com/blitz), [@YtvwlD](https://github.com/YtvwlD), [@timrobertsdev](https://github.com/timrobertsdev), [@NathanRoyer](https://github.com/NathanRoyer), and [@d-sonuga](https://github.com/d-sonuga) for their contributions!
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Help with one of these outstanding issues!
@@ -119,12 +180,12 @@ switching stacks with `swapgs`. Suggestions for improvement welcome!
 ### [`rust-lang/rust` UEFI news](https://github.com/rust-lang/rust)
 <span class="maintainers">(Section written by [@nicholasbishop](https://github.com/nicholasbishop))</span>
 
-The [MCP to raise the three UEFI targets to tier 2](https://github.com/rust-lang/compiler-team/issues/555) by [@dvdhrm](https://github.com/dvdhrm) was recently approved. 
+The [MCP to raise the three UEFI targets to tier 2](https://github.com/rust-lang/compiler-team/issues/555) by [@dvdhrm](https://github.com/dvdhrm) was recently approved.
 Following that we merged a PR to [dist builds of the UEFI targets](https://github.com/rust-lang/rust/pull/103933) so that you can install them via rustup (e.g. `rustup target add --toolchain nightly x86_64-unknown-uefi`), and a PR to [add an initial QEMU test](
 https://github.com/rust-lang/rust/pull/101703) for the x86_64 UEFI target to help prevent regressions from landing.
 
 The initial nightlies containing the prebuilt UEFI targets revealed some issues in `compiler_builtins` which we fixed and are in the [0.1.84](https://github.com/rust-lang/compiler-builtins/compare/0.1.83...0.1.84) release.
-Finally, we [changed the C compiler for the UEFI targets from gcc to clang](https://github.com/rust-lang/rust/pull/104622), which resolved some linker problems. 
+Finally, we [changed the C compiler for the UEFI targets from gcc to clang](https://github.com/rust-lang/rust/pull/104622), which resolved some linker problems.
 As of the 2022-11-22 nightly, the three UEFI targets should be fully usable, which means you no longer need to use the unstable `-Zbuild-std` feature.
 
 ### [`hermitcore/hermit-sync`](https://github.com/hermitcore/hermit-sync)
@@ -155,10 +216,10 @@ Any feedback is very welcome of course.
 <span class="maintainer">(Section written by [@phip1611](https://github.com/phip1611))</span>
 
 I worked on setting up page tables in a low-level project and noticed that there is lots of room for
-confusion. For example, x86 has at least four different modes of paging: 32-bit paging, 32-bit 
+confusion. For example, x86 has at least four different modes of paging: 32-bit paging, 32-bit
 paging with PAE, 64-bit 4-level paging, and 64-bit 5-level paging. 32-bit without PAE paging uses 10
 bits to index into a page table while 64-bit paging uses 9 bits to index into the table of each
-level. To demystify the magic a little, I created a CLI utility called `paging-calculator` that 
+level. To demystify the magic a little, I created a CLI utility called `paging-calculator` that
 takes a virtual address as input and shows you the indices the hardware will use. You can find the
 utility on [crates.io](https://crates.io/crates/paging-calculator).
 
