@@ -115,6 +115,26 @@ Thanks a lot to the numerous people that tested our beta releases and reported i
 
 Thanks to [@blitz](https://github.com/blitz), [@YtvwlD](https://github.com/YtvwlD), [@timrobertsdev](https://github.com/timrobertsdev), [@NathanRoyer](https://github.com/NathanRoyer), and [@d-sonuga](https://github.com/d-sonuga) for their contributions!
 
+
+
+### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@jamesmunns](https://github.com/jamesmunns)</span>
+
+We merged the following tooling changes this month to make the crate more reliable:
+
+- [Detect fragmentation when fuzzing](https://github.com/rust-osdev/linked-list-allocator/pull/73)
+- [Fix miri test failures caused by address unleaking of heap data in tests](https://github.com/rust-osdev/linked-list-allocator/pull/75)
+
+Thanks to [@evanrichter](https://github.com/evanrichter) for their contribution!
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+- [Improve `PciConfigRegions` API](https://github.com/rust-osdev/acpi/pull/132)
+
+Thanks to [@semiviral](https://github.com/semiviral) for their contribution!
+
+
 ## Call for Participation
 
 Want to contribute to a Rust OSDev project, but don't know where to start? Help with one of these outstanding issues!
