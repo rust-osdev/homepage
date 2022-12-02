@@ -260,7 +260,7 @@ Any feedback is very welcome of course.
 
 ### [`phip1611/paging-calculator`](https://github.com/phip1611/paging-calculator)
 
-<span class="maintainer">(Section written by [@phip1611](https://github.com/phip1611))</span>
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
 
 I worked on setting up page tables in a low-level project and noticed that there is lots of room for
 confusion. For example, x86 has at least four different modes of paging: 32-bit paging, 32-bit
