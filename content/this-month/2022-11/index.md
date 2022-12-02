@@ -39,6 +39,20 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+Just a few days ago, we finally [released](https://github.com/rust-osdev/bootloader/pull/293) version `0.11.0` of the the `bootloader` crate. This release is a [major rewrite](https://github.com/rust-osdev/bootloader/pull/232) with various new features and also breaking changes:
+
+- **Separate API crate:** The bootloader is now split into two parts: A [`bootloader_api`](https://docs.rs/bootloader_api/0.11.0/bootloader_api/) crate to make kernels loadable by the bootloader and the actual bootloader implementation. This makes the build process for kernels much easier and faster.
+- **New config system:** Instead of configuring the bootloader via a special table in the `Cargo.toml`, the configuration now happens through a normal Rust struct, which is part of the [`entry_point!` macro](https://docs.rs/bootloader_api/0.11.0/bootloader_api/macro.entry_point.html). The macro then serializes the config struct at compile time and places it in a special ELF output section. The compile time serialization happens through a manually implemented `const fn` of the config struct.
+- **Load the kernel at runtime:** Up to version `0.10`, the bootloader used to link the kernel at compile time, which required recompiling the bootloader whenever the kernel was modified. In `v0.11`, we now load both the kernel and the configuration at runtime, so no rebuilding of the bootloader is needed anymore.
+- **Split into sub-crates:** Since the bootloader build process does not need access to the kernel executable or its `Cargo.toml` anymore, we can build the different parts of the bootloader independently. For example, the BIOS boot sector is now a separate crate, and the UEFI bootloader is too. (We plan to make them proper [artifact dependencies](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#artifact-dependencies) as soon as they're allowed on crates.io.)
+- **Library to create disk images:** To create an abstraction the complex build steps of the different bootloader executables, we compile them inside cargo build scripts. At the top level, we provide a [`bootloader`](https://docs.rs/bootloader/0.11.0/bootloader/) _library_ crate, which compiles everything as part of its build script. This library includes functions for creating BIOS and UEFI disk images for a given kernel. These functions can be used e.g. from a builder crate or a build script of the downstream operating system.
+
+See our [README](https://github.com/rust-osdev/bootloader/blob/main/README.md) for detailed usage instructions. We also created [migration guides](https://github.com/rust-osdev/bootloader/tree/main/docs/migration) that explain how to update from `v0.9` and `v0.10`.
+
+Thanks a lot to the numerous people that tested our beta releases and reported issues!
 
 ## Call for Participation
 
