@@ -21,6 +21,21 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
     general structure of these posts.
 -->
 
+## Infrastructure and Tooling
+
+In this new section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
+
+### UEFI Targets are now Tier 2
+<span class="maintainers">(Section written by [@nicholasbishop](https://github.com/nicholasbishop))</span>
+
+The [MCP to raise the three UEFI targets to tier 2](https://github.com/rust-lang/compiler-team/issues/555) by [@dvdhrm](https://github.com/dvdhrm) was recently approved.
+Following that we merged a PR to [dist builds of the UEFI targets](https://github.com/rust-lang/rust/pull/103933) so that you can install them via rustup (e.g. `rustup target add --toolchain nightly x86_64-unknown-uefi`), and a PR to [add an initial QEMU test](
+https://github.com/rust-lang/rust/pull/101703) for the x86_64 UEFI target to help prevent regressions from landing.
+
+The initial nightlies containing the prebuilt UEFI targets revealed some issues in `compiler_builtins` which we fixed and are in the [0.1.84](https://github.com/rust-lang/compiler-builtins/compare/0.1.83...0.1.84) release.
+Finally, we [changed the C compiler for the UEFI targets from gcc to clang](https://github.com/rust-lang/rust/pull/104622), which resolved some linker problems.
+As of the 2022-11-22 nightly, the three UEFI targets should be fully usable, which means you no longer need to use the unstable `-Zbuild-std` feature.
+
 ## `rust-osdev` Projects
 
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`] organization.
@@ -196,17 +211,6 @@ I've tried to
 development steps and hope these are useful for others, particularly
 the sections on getting into Ring 3, implementing syscalls and
 switching stacks with `swapgs`. Suggestions for improvement welcome!
-
-### [`rust-lang/rust` UEFI news](https://github.com/rust-lang/rust)
-<span class="maintainers">(Section written by [@nicholasbishop](https://github.com/nicholasbishop))</span>
-
-The [MCP to raise the three UEFI targets to tier 2](https://github.com/rust-lang/compiler-team/issues/555) by [@dvdhrm](https://github.com/dvdhrm) was recently approved.
-Following that we merged a PR to [dist builds of the UEFI targets](https://github.com/rust-lang/rust/pull/103933) so that you can install them via rustup (e.g. `rustup target add --toolchain nightly x86_64-unknown-uefi`), and a PR to [add an initial QEMU test](
-https://github.com/rust-lang/rust/pull/101703) for the x86_64 UEFI target to help prevent regressions from landing.
-
-The initial nightlies containing the prebuilt UEFI targets revealed some issues in `compiler_builtins` which we fixed and are in the [0.1.84](https://github.com/rust-lang/compiler-builtins/compare/0.1.83...0.1.84) release.
-Finally, we [changed the C compiler for the UEFI targets from gcc to clang](https://github.com/rust-lang/rust/pull/104622), which resolved some linker problems.
-As of the 2022-11-22 nightly, the three UEFI targets should be fully usable, which means you no longer need to use the unstable `-Zbuild-std` feature.
 
 ### [`hermitcore/hermit-sync`](https://github.com/hermitcore/hermit-sync)
 <span class="maintainers">(Section written by [@mkroening](https://github.com/mkroening))</span>
