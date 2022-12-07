@@ -45,6 +45,23 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Kernel/Boot: Cope with a Relocation by a Bootloader in 32-bit x86 Assembly Code](https://phip1611.de/blog/kernel-boot-cope-with-a-relocation-by-a-bootloader-in-32-bit-x86-assembly-code/) \
+  In this blogpost, [@phip1611](https://github.com/phip1611) shows you how you can cope with a
+  relocation by a bootloader in x86 32-bit assembly code.
+- [How Does the “File Size is Smaller Than Mem Size” Optimization Work in GNU ld for the .bss Section?](https://phip1611.de/blog/how-does-the-file-size-is-smaller-than-mem-size-optimization-work-in-gnu-ld/) \
+  In this blogpost, [@phip1611](https://github.com/phip1611) explains what properties bring the GNU 
+  linker ld to save disk space, as symbols in the `.bss` section do not need to be statically 
+  allocated inside the ELF. Symbols in the `.bss` segment are expected to be initialized to all 
+  zeroes.
+- [GNU ld: Linking .bss into .data to Ensure that Mem Size Equals File Size For Each LOAD Segment (.bss in a PROGBITS Section)](https://phip1611.de/blog/linking-bss-into-data-to-ensure-the-mem-size-equals-file-size-for-each-load-segment-bss-in-a-progbits-section/) \
+  In this blogpost, [@phip1611](https://github.com/phip1611) explains what steps you have to do
+  that the GNU linker put's all symbols of the `.bss` section "as they are" into the binary
+  so that they occupy zeroed memory in the ELF. This is relevant for some very rudimentary 
+  ELF loaders that are found in some microkernels to bootstrap their initial process.
+- [The Probably Simplest x86 Driver Written in Assembly – Printing to QEMU’s debugcon-Device)](https://phip1611.de/blog/the-probably-simplest-x86-driver-written-in-assembly-printing-to-qemus-debugcon-device/) \
+  In this blogpost, [@phip1611](https://github.com/phip1611) codes with you probably the simplest
+  driver that one can write in assembly. *This blogpost is from September but wasn't mentioned here 
+  earlier.*
 
 ## `rust-osdev` Projects
 
