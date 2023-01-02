@@ -112,6 +112,18 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
+### [`Andy-Python-Programmer/Aero`](https://github.com/Andy-Python-Programmer/aero)
+
+<span class="maintainers">(Section written by [@Andy-Python-Programmer](https://github.com/Andy-Python-Programmer))</span>
+
+Aero is a new modern, experimental, unix-like operating system following the monolithic kernel design. Supporting modern PC features such as long mode, 5-level paging, and SMP (multicore), to name a few. 
+
+This month, Aero successfully managed to get [`mesa-demos`](https://github.com/freedesktop/mesa-demos) and [`alacritty`](https://github.com/alacritty/alacritty) running.
+
+![Aero](aero.png)
+
+In addition, `deps.sh` script was added to automate the process of installing the required dependencies on the host to build the sysroot.
+
 <!--
     Please use the following template:
 
