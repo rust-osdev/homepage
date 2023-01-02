@@ -90,6 +90,61 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS.
+
+We merged the following changes last month:
+
+#### Features
+
+- [Implement `SIMPLE_NETWORK_PROTOCOL`](https://github.com/rust-osdev/uefi-rs/pull/606)
+- [Initial support for TCG TPM protocols](https://github.com/rust-osdev/uefi-rs/pull/605)
+- [Add `unsafe_protocol` macro and drop use of the unstable `negative_impls` feature](https://github.com/rust-osdev/uefi-rs/pull/607)
+- [`UnalignedSlice`: impl `Clone` and improve `Debug`](https://github.com/rust-osdev/uefi-rs/pull/603)
+- [Implement `Error` and `Display` traits for `FromStrError`](https://github.com/rust-osdev/uefi-rs/pull/610)
+- [Simplification: No longer return "impl Iterator"](https://github.com/rust-osdev/uefi-rs/pull/619)
+- [uefi: Add `ptr_meta` dependency](https://github.com/rust-osdev/uefi-rs/pull/621)
+- [Drop unstable `maybe_uninit_slice` and `vec_into_raw_parts` features](https://github.com/rust-osdev/uefi-rs/pull/622)
+
+#### Fixes
+
+- [uefi: bug fix found by clippy](https://github.com/rust-osdev/uefi-rs/pull/620)
+
+#### Docs
+
+- [Add list of possible errors to `BootServices::open_protocol` docs](https://github.com/rust-osdev/uefi-rs/pull/600)
+- [Add list of possible errors to some `BootServices` function docs](https://github.com/rust-osdev/uefi-rs/pull/602)
+- [Add docs to `BootServices` functions describing error cases](https://github.com/rust-osdev/uefi-rs/pull/604)
+- [Shortened error documentation for all methods in `BootServices`](https://github.com/rust-osdev/uefi-rs/pull/608)
+- [Replaced UEFI chapter numbers with function identifiers in the docs](https://github.com/rust-osdev/uefi-rs/pull/611)
+- [Add some documentation for media protocols](https://github.com/rust-osdev/uefi-rs/pull/614)
+
+#### Tooling
+
+- [xtask: Update to mbrman 0.5.1](https://github.com/rust-osdev/uefi-rs/pull/601)
+- [Editorconfig: switch to max line width of 80](https://github.com/rust-osdev/uefi-rs/pull/615)
+
+
+Thanks to [@veluca93](https://github.com/veluca93), [@phip1611](https://github.com/phip1611), and [@raccog](https://github.com/raccog) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13), and [@rybot666](https://github.com/orgs/rust-osdev/people/rybot666)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following changes in December:
+
+- [Adding `next_higher_level` to `PageLevelIndex`](https://github.com/rust-osdev/x86_64/pull/400)
+- [Adding `is_empty` to `PageTable`](https://github.com/rust-osdev/x86_64/pull/399)
+- [fix `Page::from_page_table_indices`](https://github.com/rust-osdev/x86_64/pull/398) <span class="gray">(for upcoming `v0.15` release)</span>
+
+Thanks to [@TornaxO7](https://github.com/TornaxO7) for their contribution!
+
 
 ## Call for Participation
 
