@@ -44,6 +44,13 @@ This new ABI would be very useful for operating system development because there
 For example, user-space programs communicate with the kernel using [system calls](https://en.wikipedia.org/wiki/System_call), and with each other porgrams using different forms of [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication).
 With new `extern "interop"` ABI, these communication boundaries could use safe, higher-level types when both sides are written in Rust.
 
+### [`default_alloc_error_handler` has been stabilized](https://github.com/rust-lang/rust/pull/102318)
+
+On `no_std` targets, enabling `alloc` requires providing an OOM (out-of-memory) handler. The usual implementation of this handler just panics, but implementing the handler requires an unstable feature: [`alloc_error_handler`]. The newly-stabilized `default_alloc_error_handler` automatically provides an OOM handler that panics if no custom handler is implemented. This is an [important step towards using some targets on the stable channel][towards-stable].
+
+[`alloc_error_handler`]: https://doc.rust-lang.org/unstable-book/language-features/alloc-error-handler.html#alloc_error_handler
+[towards-stable]: https://github.com/rust-lang/rust/pull/102318#issuecomment-1331865137
+
 ## Announcements, News, and Blog Posts
 
 <!--
