@@ -174,6 +174,70 @@ If you maintain a Rust project related to operating system development and are l
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
+### [Theseus OS](https://github.com/theseus-os/Theseus)
+
+<span class="maintainers">(Section written by [Kevin Boos](https://www.theseus-os.com/kevinaboos/) ([@kevinaboos](https://github.com/kevinaboos)))</span>
+
+Theseus is a safe-language OS written from scratch in Rust that is in the midst of a shift from academic research to usability and legacy compatibility. 
+Theseus loads and links all components at runtime, and executes everything at a single priveilege level in a single address space, relying on Rust safety for isolation and correctness.
+
+As a fully open-source project, we welcome and encourage contributions from everyone!
+
+Since our [last update](https://rust-osdev.com/this-month/2022-09/index.html#theseus-os) here a few months ago, we have worked on the following things:
+* Introduced `dreadnought`, a basic async executor that brings Rust's `async`/`await` syntax to Theseus
+    * Usable by both applications and low-level kernel components
+    * Integrated the concept of wakers with Theseus's native task subsystem
+    * Currently, there is a 1-to-1 relationship between async `dreadnought` tasks and native Theseus tasks
+* Rewrote our networking interface to offer better, simpler, and cleaner abstractions
+    * It now supports the latest `smoltcp` version, `0.8`
+* Added support for booting Theseus on UEFI
+    * Previously, Theseus could boot from only multiboot2-compliant bootloaders using legacy BIOS
+    * UEFI on x86_64 now successfully boots after significant redesign of early bootstrap routines
+    * New custom `uefi_loader` tool, loosely based on the rust-osdev org's `bootloader` project
+    * Early graphical display for basic text printing is a work-in-progress
+    * UEFI is required to boot Theseus on aarch64; this is also a work-in-progress
+* Almost completed porting core subsystems to aarch64
+    * Bootstrap and logging over UART
+    * Memory management: page table modification, arch-agnostic PTE flags and basic memory types, etc
+    * Basic context switching and task bootstrap
+    * SMP multicore, plus identification of CPU cores
+    * Interrupt handling via GIC
+* Redesigned the drivers for PS/2 controller, keyboard, and mouse in an intralingual manner that fully leverages Rust's strong type system.  
+* Started implementing a brand new graphics stack and window manager, `Porthole`, from scratch
+    * Added support for x86's Page Attribute Table, which allows Theseus to control the caching properties of individual memory pages
+    * We now map graphics video memory as *write-combining* instead of cache-disabled, which significantly improves performance
+* Redesigned task management to give arbitrary tasks fewer privileges
+    * Two new types: `JoinableTaskRef` and `ExitableTaskRef`
+        * `JoinableTaskRef` is similar to `std::task::JoinHandle`, but is fully safe
+            * Ensures that a task can only be `join`ed by the "parent" task that spawned it
+            * Remove distinction between `join`ing a task and obtaining its `ExitValue`
+            * Automatically reaps "orphan" tasks that are no longer joinable
+        * `ExitableTaskRef` statically ensures that only a task itself can mark itself as exited
+            * Now, a given task can no longer invalidly mark another arbitrary task as exited
+    * Refactored scheduler and task switching to not hold any `TaskRef`s during a context switch
+        * Ensures that exited tasks are dropped and cleaned up expediently
+    * Native ELF Thread-Local Storage (TLS) variables are used to store the current task
+        * Accessing the current task is much faster, albeit slightly more complicated to initialize
+* Implemented a new shell called `hull`, plus new terminal, console, and TTY components
+    * Theseus can now run headlessly, e.g., interactively over a serial port instead of via a graphical display. 
+* Removed usage of `owning_ref`, a crate with unsoundness, in favor of our own types:
+    * `BorrowedMappedPages<T>`: a pseudo-self-referential type that allows persistent, efficient borrowing of a `MappedPages` memory region as a specific type `T`
+        * Accepts a `Mutability` type parameter for either immutable (`&T`) or mutable (`&mut T`) borrowing 
+        * Sister type `BorrowedSliceMappedPages` also supports dynamically-sized slices, i.e., `&[T]` and `&mut [T]`
+        * Much more efficient than `owning_ref` because `MappedPages` is always pinned in memory, avoiding the need for `Box` allocation
+    * `dereffer`: a new library crate that provides `DerefsTo<T>`, a generic wrapper type that allows the enclosed object `T` to be arbitrarily dereferenced to *any* inner type reachable from that object `T`
+        * Supports much more arbitrary and complex deref functions than `std::ops::Deref`
+* Canonicalized the content of Theseus's `x86_64-unknown-theseus` target spec
+    * Codegen flags are now moved into the target spec, making out-of-tree builds easier and more repeatable
+    * Target specs are now ready to be upstreamed into `rustc` as built-in targets
+* `owned_borrowed_trait`: a new library crate that abstracts over Owned values vs. Borrowed refs
+    * Uses traits and marker types instead of the existing enum-based designs (like `Cow`)
+    * Doesn't require `Clone` or care about any characteristics of the inner type `T`
+    * Allows you to use generics and associated `const`s to conditionally branch based on whether an owned value or borrowed reference was passed into a function
+    * Allows you to return a different (generic) type from a function based on whether an owned value or borrowed reference was passed in
+
+Check out the [Theseus OS blog](https://www.theseus-os.com/) for more.
+
 ### [`Andy-Python-Programmer/Aero`](https://github.com/Andy-Python-Programmer/aero)
 
 <span class="maintainers">(Section written by [@Andy-Python-Programmer](https://github.com/Andy-Python-Programmer))</span>
