@@ -61,6 +61,7 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Linux 6.1 Released With MGLRU, Initial Rust Code](https://www.phoronix.com/news/Linux-6.1-Released)
 - [Kernel/Boot: Cope with a Relocation by a Bootloader in 32-bit x86 Assembly Code](https://phip1611.de/blog/kernel-boot-cope-with-a-relocation-by-a-bootloader-in-32-bit-x86-assembly-code/) \
   In this blogpost, [@phip1611](https://github.com/phip1611) shows you how you can cope with a
   relocation by a bootloader in x86 32-bit assembly code.
