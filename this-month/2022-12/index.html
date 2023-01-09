@@ -1,0 +1,341 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2022-12/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: December 2022 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: December 2022</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2023-01-09">
+            Jan 09, 2023
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (December 2022)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+    ### Summary
+    <span class="maintainers">(Section written by [@author](https://github.com/author))</span>
+
+    <text>
+-->
+<h3 id="experimental-feature-gate-proposal-interoperable-abi"><a href="https://github.com/rust-lang/rust/pull/105586">Experimental feature gate proposal <code>interoperable_abi</code></a></h3>
+<p>This Rust language proposal suggests to create a new <code>extern &quot;interop&quot;</code> ABI as a strict superset of the C ABI.
+The goal of this new ABI is to &quot;define a standard way to make calls across high-level languages, passing high-level data types, without dropping to the lowest common denominator of C&quot;.
+For example, it will define a specific memory representation for strings, tuples, and common standard library types such as <code>Option</code> and <code>Result</code>.</p>
+<p>This new ABI would be very useful for operating system development because there are often multiple executables that need to communicate with each other using a stable ABI.
+For example, user-space programs communicate with the kernel using <a href="https://en.wikipedia.org/wiki/System_call">system calls</a>, and with each other porgrams using different forms of <a href="https://en.wikipedia.org/wiki/Inter-process_communication">inter-process communication</a>.
+With new <code>extern &quot;interop&quot;</code> ABI, these communication boundaries could use safe, higher-level types when both sides are written in Rust.</p>
+<h3 id="default-alloc-error-handler-has-been-stabilized"><a href="https://github.com/rust-lang/rust/pull/102318"><code>default_alloc_error_handler</code> has been stabilized</a></h3>
+<p>On <code>no_std</code> targets, enabling <code>alloc</code> requires providing an OOM (out-of-memory) handler. The usual implementation of this handler just panics, but implementing the handler requires an unstable feature: <a href="https://doc.rust-lang.org/unstable-book/language-features/alloc-error-handler.html#alloc_error_handler"><code>alloc_error_handler</code></a>. The newly-stabilized <code>default_alloc_error_handler</code> automatically provides an OOM handler that panics if no custom handler is implemented. This is an <a href="https://github.com/rust-lang/rust/pull/102318#issuecomment-1331865137">important step towards using some targets on the stable channel</a>.</p>
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<!--
+Here we collect news, blog posts, etc. related to OS development in Rust.
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://www.phoronix.com/news/Linux-6.1-Released">Linux 6.1 Released With MGLRU, Initial Rust Code</a></li>
+<li><a href="https://phip1611.de/blog/kernel-boot-cope-with-a-relocation-by-a-bootloader-in-32-bit-x86-assembly-code/">Kernel/Boot: Cope with a Relocation by a Bootloader in 32-bit x86 Assembly Code</a> <br />
+In this blogpost, <a href="https://github.com/phip1611">@phip1611</a> shows you how you can cope with a
+relocation by a bootloader in x86 32-bit assembly code.</li>
+<li><a href="https://phip1611.de/blog/how-does-the-file-size-is-smaller-than-mem-size-optimization-work-in-gnu-ld/">How Does the “File Size is Smaller Than Mem Size” Optimization Work in GNU ld for the .bss Section?</a> <br />
+In this blogpost, <a href="https://github.com/phip1611">@phip1611</a> explains what properties bring the GNU 
+linker ld to save disk space, as symbols in the <code>.bss</code> section do not need to be statically 
+allocated inside the ELF. Symbols in the <code>.bss</code> segment are expected to be initialized to all 
+zeroes.</li>
+<li><a href="https://phip1611.de/blog/linking-bss-into-data-to-ensure-the-mem-size-equals-file-size-for-each-load-segment-bss-in-a-progbits-section/">GNU ld: Linking .bss into .data to Ensure that Mem Size Equals File Size For Each LOAD Segment (.bss in a PROGBITS Section)</a> <br />
+In this blogpost, <a href="https://github.com/phip1611">@phip1611</a> explains what steps you have to do
+that the GNU linker put's all symbols of the <code>.bss</code> section &quot;as they are&quot; into the binary
+so that they occupy zeroed memory in the ELF. This is relevant for some very rudimentary 
+ELF loaders that are found in some microkernels to bootstrap their initial process.</li>
+<li><a href="https://phip1611.de/blog/the-probably-simplest-x86-driver-written-in-assembly-printing-to-qemus-debugcon-device/">The Probably Simplest x86 Driver Written in Assembly – Printing to QEMU’s debugcon-Device)</a> <br />
+In this blogpost, <a href="https://github.com/phip1611">@phip1611</a> codes with you probably the simplest
+driver that one can write in assembly. <em>This blogpost is from September but wasn't mentioned here 
+earlier.</em></li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.</p>
+<p>We merged the following changes last month:</p>
+<h4 id="features">Features</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/606">Implement <code>SIMPLE_NETWORK_PROTOCOL</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/605">Initial support for TCG TPM protocols</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/607">Add <code>unsafe_protocol</code> macro and drop use of the unstable <code>negative_impls</code> feature</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/603"><code>UnalignedSlice</code>: impl <code>Clone</code> and improve <code>Debug</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/610">Implement <code>Error</code> and <code>Display</code> traits for <code>FromStrError</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/619">Simplification: No longer return &quot;impl Iterator&quot;</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/621">uefi: Add <code>ptr_meta</code> dependency</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/622">Drop unstable <code>maybe_uninit_slice</code> and <code>vec_into_raw_parts</code> features</a></li>
+</ul>
+<h4 id="fixes">Fixes</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/620">uefi: bug fix found by clippy</a></li>
+</ul>
+<h4 id="docs">Docs</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/600">Add list of possible errors to <code>BootServices::open_protocol</code> docs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/602">Add list of possible errors to some <code>BootServices</code> function docs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/604">Add docs to <code>BootServices</code> functions describing error cases</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/608">Shortened error documentation for all methods in <code>BootServices</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/611">Replaced UEFI chapter numbers with function identifiers in the docs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/614">Add some documentation for media protocols</a></li>
+</ul>
+<h4 id="tooling">Tooling</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/601">xtask: Update to mbrman 0.5.1</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/615">Editorconfig: switch to max line width of 80</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/veluca93">@veluca93</a>, <a href="https://github.com/phip1611">@phip1611</a>, and <a href="https://github.com/raccog">@raccog</a> for their contributions!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a>, and <a href="https://github.com/orgs/rust-osdev/people/rybot666">@rybot666</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following changes in December:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/400">Adding <code>next_higher_level</code> to <code>PageLevelIndex</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/399">Adding <code>is_empty</code> to <code>PageTable</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/398">fix <code>Page::from_page_table_indices</code></a> <span class="gray">(for upcoming <code>v0.15</code> release)</span></li>
+</ul>
+<p>Thanks to <a href="https://github.com/TornaxO7">@TornaxO7</a> for their contribution!</p>
+<h2 id="call-for-participation">Call for Participation</h2>
+<p>Want to contribute to a Rust OSDev project, but don't know where to start? Help with one of these outstanding issues!</p>
+<!--
+    Please use the following template for adding items:
+    - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
+-->
+<span class="gray">
+<p><em>No tasks were proposed for this section this month.</em></p>
+</span>
+<p>If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please <a href="https://github.com/rust-osdev/homepage/pulls">create a PR</a> against the <code>next</code> branch with the tasks you want to include in the next issue.</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="theseus-os"><a href="https://github.com/theseus-os/Theseus">Theseus OS</a></h3>
+<p><span class="maintainers">(Section written by <a href="https://www.theseus-os.com/kevinaboos/">Kevin Boos</a> (<a href="https://github.com/kevinaboos">@kevinaboos</a>))</span></p>
+<p>Theseus is a safe-language OS written from scratch in Rust that is in the midst of a shift from academic research to usability and legacy compatibility. 
+Theseus loads and links all components at runtime, and executes everything at a single privilege level in a single address space, relying on Rust safety for isolation and correctness.</p>
+<p>As a fully open-source project, we welcome and encourage contributions from everyone!</p>
+<p>Since our <a href="https://rust-osdev.com/this-month/2022-09/index.html#theseus-os">last update</a> here a few months ago, we have worked on the following things:</p>
+<ul>
+<li>Introduced <code>dreadnought</code>, a basic async executor that brings Rust's <code>async</code>/<code>await</code> syntax to Theseus
+<ul>
+<li>Usable by both applications and low-level kernel components</li>
+<li>Integrated the concept of wakers with Theseus's native task subsystem</li>
+<li>Currently, there is a 1-to-1 relationship between async <code>dreadnought</code> tasks and native Theseus tasks</li>
+</ul>
+</li>
+<li>Rewrote our networking interface to offer better, simpler, and cleaner abstractions
+<ul>
+<li>It now supports the latest <code>smoltcp</code> version, <code>0.8</code></li>
+</ul>
+</li>
+<li>Added support for booting Theseus on UEFI
+<ul>
+<li>Previously, Theseus could boot from only multiboot2-compliant bootloaders using legacy BIOS</li>
+<li>UEFI on x86_64 now successfully boots after significant redesign of early bootstrap routines</li>
+<li>New custom <code>uefi_loader</code> tool, loosely based on the rust-osdev org's <code>bootloader</code> project</li>
+<li>Early graphical display for basic text printing is a work-in-progress</li>
+<li>UEFI is required to boot Theseus on aarch64; this is also a work-in-progress</li>
+</ul>
+</li>
+<li>Almost completed porting core subsystems to aarch64
+<ul>
+<li>Bootstrap and logging over UART</li>
+<li>Memory management: page table modification, arch-agnostic PTE flags and basic memory types, etc</li>
+<li>Basic context switching and task bootstrap</li>
+<li>SMP multicore, plus identification of CPU cores</li>
+<li>Interrupt handling via GIC</li>
+</ul>
+</li>
+<li>Redesigned the drivers for PS/2 controller, keyboard, and mouse in an intralingual manner that fully leverages Rust's strong type system.</li>
+<li>Started implementing a brand new graphics stack and window manager, <code>Porthole</code>, from scratch
+<ul>
+<li>Added support for x86's Page Attribute Table, which allows Theseus to control the caching properties of individual memory pages</li>
+<li>We now map graphics video memory as <em>write-combining</em> instead of cache-disabled, which significantly improves performance</li>
+</ul>
+</li>
+<li>Redesigned task management to give arbitrary tasks fewer privileges
+<ul>
+<li>Two new types: <code>JoinableTaskRef</code> and <code>ExitableTaskRef</code>
+<ul>
+<li><code>JoinableTaskRef</code> is similar to <code>std::task::JoinHandle</code>, but is fully safe
+<ul>
+<li>Ensures that a task can only be <code>join</code>ed by the &quot;parent&quot; task that spawned it</li>
+<li>Remove distinction between <code>join</code>ing a task and obtaining its <code>ExitValue</code></li>
+<li>Automatically reaps &quot;orphan&quot; tasks that are no longer joinable</li>
+</ul>
+</li>
+<li><code>ExitableTaskRef</code> statically ensures that only a task itself can mark itself as exited
+<ul>
+<li>Now, a given task can no longer invalidly mark another arbitrary task as exited</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Refactored scheduler and task switching to not hold any <code>TaskRef</code>s during a context switch
+<ul>
+<li>Ensures that exited tasks are dropped and cleaned up expediently</li>
+</ul>
+</li>
+<li>Native ELF Thread-Local Storage (TLS) variables are used to store the current task
+<ul>
+<li>Accessing the current task is much faster, albeit slightly more complicated to initialize</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Implemented a new shell called <code>hull</code>, plus new terminal, console, and TTY components
+<ul>
+<li>Theseus can now run headlessly, e.g., interactively over a serial port instead of via a graphical display. </li>
+</ul>
+</li>
+<li>Removed usage of <code>owning_ref</code>, a crate with unsoundness, in favor of our own types:
+<ul>
+<li><code>BorrowedMappedPages&lt;T&gt;</code>: a pseudo-self-referential type that allows persistent, efficient borrowing of a <code>MappedPages</code> memory region as a specific type <code>T</code>
+<ul>
+<li>Accepts a <code>Mutability</code> type parameter for either immutable (<code>&amp;T</code>) or mutable (<code>&amp;mut T</code>) borrowing </li>
+<li>Sister type <code>BorrowedSliceMappedPages</code> also supports dynamically-sized slices, i.e., <code>&amp;[T]</code> and <code>&amp;mut [T]</code></li>
+<li>Much more efficient than <code>owning_ref</code> because <code>MappedPages</code> is always pinned in memory, avoiding the need for <code>Box</code> allocation</li>
+</ul>
+</li>
+<li><code>dereffer</code>: a new library crate that provides <code>DerefsTo&lt;T&gt;</code>, a generic wrapper type that allows the enclosed object <code>T</code> to be arbitrarily dereferenced to <em>any</em> inner type reachable from that object <code>T</code>
+<ul>
+<li>Supports much more arbitrary and complex deref functions than <code>std::ops::Deref</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Canonicalized the content of Theseus's <code>x86_64-unknown-theseus</code> target spec
+<ul>
+<li>Codegen flags are now moved into the target spec, making out-of-tree builds easier and more repeatable</li>
+<li>Target specs are now ready to be upstreamed into <code>rustc</code> as built-in targets</li>
+</ul>
+</li>
+<li><code>owned_borrowed_trait</code>: a new library crate that abstracts over Owned values vs. Borrowed refs
+<ul>
+<li>Uses traits and marker types instead of the existing enum-based designs (like <code>Cow</code>)</li>
+<li>Doesn't require <code>Clone</code> or care about any characteristics of the inner type <code>T</code></li>
+<li>Allows you to use generics and associated <code>const</code>s to conditionally branch based on whether an owned value or borrowed reference was passed into a function</li>
+<li>Allows you to return a different (generic) type from a function based on whether an owned value or borrowed reference was passed in</li>
+</ul>
+</li>
+</ul>
+<p>Check out the <a href="https://www.theseus-os.com/">Theseus OS blog</a> for more.</p>
+<h3 id="andy-python-programmer-aero"><a href="https://github.com/Andy-Python-Programmer/aero"><code>Andy-Python-Programmer/Aero</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/Andy-Python-Programmer">@Andy-Python-Programmer</a>)</span></p>
+<p>Aero is a new modern, experimental, unix-like operating system following the monolithic kernel design. Supporting modern PC features such as long mode, 5-level paging, and SMP (multicore), to name a few. </p>
+<p>This month, Aero successfully managed to get <a href="https://github.com/freedesktop/mesa-demos"><code>mesa-demos</code></a> and <a href="https://github.com/alacritty/alacritty"><code>alacritty</code></a> running.</p>
+<p><img src="https://rust-osdev.com/this-month/2022-12/aero.png" alt="Aero" /></p>
+<p>In addition, <code>deps.sh</code> script was added to automate the process of installing the required dependencies on the host to build the sysroot.</p>
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following changes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog in the past two months:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1131">[Chinese] Translate posts 5-8 and improve translation of posts 1-4</a>
+<ul>
+<li>Thanks to <a href="https://github.com/liuyuran">@liuyuran</a> for creating this translation.</li>
+<li>Thanks to <a href="https://github.com/JiangengDong">@JiangengDong</a> and <a href="https://github.com/Byacrya">@Byacrya</a> for reviewing.</li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1175">[Translation][Korean] post-06</a> and <a href="https://github.com/phil-opp/blog_os/pull/1177">[Translation][Korean] post-07</a>
+<ul>
+<li>Thanks to <a href="https://github.com/JOE1994">@JOE1994</a> for creating these translations.</li>
+<li>Thanks to <a href="https://github.com/dalinaum">@dalinaum</a> for reviewing.</li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1166">French translation's links fixes</a> <span class="gray">(thanks to <a href="https://github.com/alaincao">@alaincao</a>)</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1176">Specify latest 0.9 patch version of <code>bootloader</code></a> <span class="gray">(thanks to <a href="https://github.com/seewishnew">@seewishnew</a>)</li>
+</ul>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
