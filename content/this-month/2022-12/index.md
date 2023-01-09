@@ -251,6 +251,20 @@ This month, Aero successfully managed to get [`mesa-demos`](https://github.com/f
 
 In addition, `deps.sh` script was added to automate the process of installing the required dependencies on the host to build the sysroot.
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog in the past two months:
+
+- [[Chinese] Translate posts 5-8 and improve translation of posts 1-4](https://github.com/phil-opp/blog_os/pull/1131)
+  - Thanks to [@liuyuran](https://github.com/liuyuran) for creating this translation.
+  - Thanks to [@JiangengDong](https://github.com/JiangengDong) and [@Byacrya](https://github.com/Byacrya) for reviewing.
+- [[Translation][Korean] post-06](https://github.com/phil-opp/blog_os/pull/1175) and [[Translation][Korean] post-07](https://github.com/phil-opp/blog_os/pull/1177)
+  - Thanks to [@JOE1994](https://github.com/JOE1994) for creating these translations.
+  - Thanks to [@dalinaum](https://github.com/dalinaum) for reviewing.
+- [French translation's links fixes](https://github.com/phil-opp/blog_os/pull/1166) <span class="gray">(thanks to [@alaincao](https://github.com/alaincao))
+- [Specify latest 0.9 patch version of `bootloader`](https://github.com/phil-opp/blog_os/pull/1176) <span class="gray">(thanks to [@seewishnew](https://github.com/seewishnew))
+
 <!--
     Please use the following template:
 
