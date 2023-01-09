@@ -179,7 +179,7 @@ In this section, we describe updates to Rust OS projects that are not directly r
 <span class="maintainers">(Section written by [Kevin Boos](https://www.theseus-os.com/kevinaboos/) ([@kevinaboos](https://github.com/kevinaboos)))</span>
 
 Theseus is a safe-language OS written from scratch in Rust that is in the midst of a shift from academic research to usability and legacy compatibility. 
-Theseus loads and links all components at runtime, and executes everything at a single priveilege level in a single address space, relying on Rust safety for isolation and correctness.
+Theseus loads and links all components at runtime, and executes everything at a single privilege level in a single address space, relying on Rust safety for isolation and correctness.
 
 As a fully open-source project, we welcome and encourage contributions from everyone!
 
