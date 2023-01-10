@@ -41,7 +41,7 @@ The goal of this new ABI is to "define a standard way to make calls across high-
 For example, it will define a specific memory representation for strings, tuples, and common standard library types such as `Option` and `Result`.
 
 This new ABI would be very useful for operating system development because there are often multiple executables that need to communicate with each other using a stable ABI.
-For example, user-space programs communicate with the kernel using [system calls](https://en.wikipedia.org/wiki/System_call), and with each other porgrams using different forms of [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication).
+For example, user-space programs communicate with the kernel using [system calls](https://en.wikipedia.org/wiki/System_call), and with other programs using different forms of [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication).
 With new `extern "interop"` ABI, these communication boundaries could use safe, higher-level types when both sides are written in Rust.
 
 ### [`default_alloc_error_handler` has been stabilized](https://github.com/rust-lang/rust/pull/102318)
