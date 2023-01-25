@@ -7,7 +7,7 @@ async fn main() -> eyre::Result<()> {
     let last_month = {
         let twenty_days_ago = Utc::now().checked_sub_signed(Duration::days(20)).unwrap();
         let first_of_month = twenty_days_ago.with_day(1).unwrap().date();
-        first_of_month.and_hms(0, 0, 0)
+        first_of_month.and_hms_opt(0, 0, 0).unwrap()
     };
     let year = last_month.year();
     let month = last_month.month();
