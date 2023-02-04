@@ -4,7 +4,7 @@ date = 2023-02-06
 
 [extra]
 month = "January 2023"
-editors = ["phil-opp"]
+editors = ["phil-opp", "berkus"]
 +++
 
 Welcome to a new issue of _"This Month in Rust OSDev"_. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.
@@ -201,6 +201,60 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
     ...<<your project updates>>...
 -->
+
+### [`metta-systems/vesper`](https://github.com/metta-systems/vesper)
+
+<span class="maintainers">(Section written by [@berkus](https://github.com/berkus))</span>
+
+Vesper is a capability-based single-address-space nanokernel. This means it is aiming to be small, to provide only isolation primitives; at the same time SAS makes it a lot easier to perform cross-process operations (because all addresses are the same across all processes). It uses capabilities to provide security for such operations, so that unauthorized processes will not be able to intervene in legitimate traffic.
+
+The kernel is in very early stages of development...
+
+And for the past few months I've been on and off involved in deciphering a mystical miscompilation problem. I've managed to summarize it in a [ticket to rustc](https://github.com/rust-lang/rust/issues/102849).
+
+The most minimal reproduction scenario triggers when I use a format_args!() macro in my code and a nightly version later than 2022-08-12.
+
+Here's a key [snippet](https://github.com/metta-systems/vesper/blob/85fe40f603e500518af96d6aa922f7ecfa57f0c5/src/main.rs#L117-L119):
+
+```
+// if you keep this line, it works when compiled
+// via rustc 2022-08-12 and breaks on 2022-08-13 and all the versions past that.
+// if you comment this line out, on 2022-08-13 everything else starts to work.
+uart.write_fmt(format_args_nl!("Lets {}!", "go")).ok();
+```
+
+There's also a [QEMU-only reproduction code](https://github.com/metta-systems/vesper/blob/c06d89a23c5c2b0cd3ed5d270aec10054216ea5a/src/main.rs), which is much smaller, as it reuses `armv8a_semihosting` and `armv8a_panic_semihosting` crates for pretty much everything.
+
+The behavior is [the same](https://github.com/metta-systems/vesper/blob/c06d89a23c5c2b0cd3ed5d270aec10054216ea5a/src/main.rs#L29-L31) though:
+```
+// if you don't comment it out, it works on 08-12 and breaks on 08-13.
+// if you comment this line out on 08-13 everything else starts to work.
+armv8a_semihosting::hprintln!("Lets {}!", "go").ok();
+```
+
+"Working" here means the kernel boots and runs through to the last panic line:
+
+```
+[cargo-make] INFO - Running Task: qemu
+🚜 Run QEMU -M raspi3b -semihosting with vesper/target/nucleus.bin
+Letsgo!
+Lets go!
+Lets go 2!
+panicked at 'Off you go!', src/main.rs:34:5
+```
+
+And "not working" is the kernel either panicing on boot in arch64, for which I've extracted panic message but I have low confidence this is what actually happens - panic was in once_cell detecting it is initializing a second time, which I discounted as potentially just a bug in linker script layout and not an actual code generation bug. This code is even completely removed in the latest reproduction (no once_cells) but the kernel still crashes before it even can write anything to serial.
+
+In the qemu repro it's even weirder:
+
+```
+🚜 Run QEMU -M raspi3b -semihosting with vesper/target/nucleus.bin
+
+```
+
+No output - because hstdout_str() function from armv8a_semihosting crate fails to open semihosting stdout handle - syscall returns -1. Why would that happen simply by a compiler version change - is the biggest question.
+
+I'm yet to find what am I missing here - assuming this is my own mistake and not a compiler fault, because it would've been noticed by everybody else then? But who knows, maybe you can spot something - drop me a line if you see anything suspicious, I'm pretty much out of ideas here.
 
 ## Join Us?
 
