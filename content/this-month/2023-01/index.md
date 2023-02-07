@@ -34,6 +34,10 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
     <text>
 -->
 
+- [Stabilize `abi_efiapi` feature](https://github.com/rust-lang/rust/pull/105795)
+- [Add checks for the signature of the `start` lang item](https://github.com/rust-lang/rust/pull/106092)
+- [default OOM handler: use non-unwinding panic, to match std handler](https://github.com/rust-lang/rust/pull/106045)
+
 ## Announcements, News, and Blog Posts
 
 <!--
@@ -44,6 +48,10 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [A GUI installer for redox is coming soon, written in iced!](https://fosstodon.org/@soller/109674396246472281)
+  - [Discussion on Reddit](https://www.reddit.com/r/rust/comments/109qm9j/media_a_gui_installer_for_redox_is_coming_soon/)
+- [cargo-show-asm 0.2.10](https://www.reddit.com/r/rust/comments/107h9ay/cargoshowasm_0210_new_and_improved_all_over_the/)
+- [RustyHermit @ FOSDEM 2023: A Rust-Based, modular Unikernel for MicroVMs](https://fosdem.org/2023/schedule/event/rustunikernel/)
 
 ## `rust-osdev` Projects
 
