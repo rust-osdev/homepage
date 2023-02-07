@@ -247,6 +247,22 @@ No output - because hstdout_str() function from armv8a_semihosting crate fails t
 
 I'm yet to find what am I missing here - assuming this is my own mistake and not a compiler fault, because it would've been noticed by everybody else then? But who knows, maybe you can spot something - drop me a line if you see anything suspicious, I'm pretty much out of ideas here.
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Fix broken links](https://github.com/phil-opp/blog_os/pull/1188)
+
+Thanks a lot to [@kennystrawnmusic](https://github.com/kennystrawnmusic) for this contribution!
+
+We also have an open pull request for a [Chinese translation of the _Paging Implementation_ post](https://github.com/phil-opp/blog_os/pull/1189).
+We're still looking for a reviewer, so if you're speaking Chinese we would appreciate if you could take a look.
+Thanks!
+
+Since I mostly worked on the `bootloader` crate this month, I haven't made much process on the upcoming third edition of the blog yet.
+I'll do my best to have something ready soon!
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
