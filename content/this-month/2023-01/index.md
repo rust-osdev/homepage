@@ -180,23 +180,6 @@ We merged the following changes in January:
 - [Check for breaking changes on CI](https://github.com/rust-osdev/x86_64/pull/401)
 
 
-## Call for Participation
-
-Want to contribute to a Rust OSDev project, but don't know where to start? Help with one of these outstanding issues!
-
-<!--
-    Please use the following template for adding items:
-    - [(`repo_name`) Issue Description](https://example.com/link-to-issue)
--->
-
-<span class="gray">
-
-_No tasks were proposed for this section this month._
-
-</span>
-
-If you maintain a Rust project related to operating system development and are looking for contributors, especially for tasks suited to people getting started in this space, please [create a PR](https://github.com/rust-osdev/homepage/pulls) against the `next` branch with the tasks you want to include in the next issue.
-
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
