@@ -131,7 +131,7 @@ We merged the following changes last month:
 
 #### Fixes
 
-- [PXE: Fix BaseCode::discover optional argument](https://ygithub.com/rust-osdev/uefi-rs/pull/630)
+- [PXE: Fix BaseCode::discover optional argument](https://github.com/rust-osdev/uefi-rs/pull/630)
 - [Fix warnings from `abi_efiapi` stabilization](https://github.com/rust-osdev/uefi-rs/pull/635)
 - [uefi: Fix protocol functions to work with unsized protocols](https://github.com/rust-osdev/uefi-rs/pull/643)
 - [Fix new lints related to derives on a packed struct](https://github.com/rust-osdev/uefi-rs/pull/646)
