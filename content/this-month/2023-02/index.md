@@ -64,6 +64,49 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+- [uefi-macros: Fix error tests](https://github.com/rust-osdev/uefi-rs/pull/648)
+- [Release `uefi-0.19.1`](https://github.com/rust-osdev/uefi-rs/pull/652)
+- [Various fixes for tests under Windows](https://github.com/rust-osdev/uefi-rs/pull/651)
+- [uefi: Remove mentions of ruyntime usage from GOP docs](https://github.com/rust-osdev/uefi-rs/pull/613)
+- [uefi: Rework `exit_boot_services` API](https://github.com/rust-osdev/uefi-rs/pull/653)
+- [Add component name protocols](https://github.com/rust-osdev/uefi-rs/pull/656)
+- [uefi: Export `cstr8`, `cstr16`, and entry macros from the root](https://github.com/rust-osdev/uefi-rs/pull/657)
+- [Implement `Deref` for `HandleBuffer` and `ProtocolsPerHandle`](https://github.com/rust-osdev/uefi-rs/pull/659)
+- [uefi: Improve `Input::read_key` docstring](https://github.com/rust-osdev/uefi-rs/pull/664)
+- [Make more tests fail if protocol is missing](https://github.com/rust-osdev/uefi-rs/pull/665)
+- [xtask: Fully drop support for build-std](https://github.com/rust-osdev/uefi-rs/pull/585)
+- [ci: Simplify the VM jobs](https://github.com/rust-osdev/uefi-rs/pull/668)
+- [uefi-macros: Improve entry macro errors](https://github.com/rust-osdev/uefi-rs/pull/670)
+- [test-runner: Make `unstable` an optional feature](https://github.com/rust-osdev/uefi-rs/pull/667)
+- [xtask: Switch fatfs to latest crates.io release](https://github.com/rust-osdev/uefi-rs/pull/672)
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+
+- [Create kernel stack with correct size and set up a guard page](https://github.com/rust-osdev/bootloader/pull/335)
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+
+- [Update aml_tester to clap 4](https://github.com/rust-osdev/acpi/pull/149)
+- [Add stub implementations for Handler, read_u16 etc.](https://github.com/rust-osdev/acpi/pull/152)
+- [Add def_alias, alias shares handle with target](https://github.com/rust-osdev/acpi/pull/153)
+- [Update syntax of literal zero](https://github.com/rust-osdev/acpi/pull/148)
+
+Thanks to [@rw-vanc](https://github.com/rw-vanc) for their contributions!
+
+### [`spinning_top`](https://github.com/rust-osdev/spinning_top)
+
+- [Upgrade lock_api to 0.4.7](https://github.com/rust-osdev/spinning_top/pull/13) <span class="gray">(published as `v0.2.5`)</span>
+
+Thanks to [@jannic](https://github.com/jannic) for this contribution!
+
+### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+
+- [Remove features `const_mut_refs` and `use_spin_nightly`](https://github.com/rust-osdev/linked-list-allocator/pull/77)
+
+Thanks to [@jannic](https://github.com/jannic) for this contribution!
+
 
 ## Other Projects
 
