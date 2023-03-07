@@ -34,6 +34,17 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
     <text>
 -->
 
+### [`rust-lang/rust`](https://github.com/rust-lang/rust)
+
+- [Add `kernel-address` sanitizer support for freestanding targets](https://github.com/rust-lang/rust/pull/99679)
+- [Stabilize `#![feature(target_feature_11)]`](https://github.com/rust-lang/rust/pull/99767). Allows enabling target features such as `avx2` for specific functions.
+- [Add support for QNX Neutrino to standard library](https://github.com/rust-lang/rust/pull/106673)
+
+### [Cargo: Add '-C' flag for changing current dir before build](https://github.com/rust-lang/cargo/pull/10952)
+
+  This new flag makes `cargo` switch to the specified directory before building.
+  This means that the `.cargo/config.toml` file is also read from that directory, which can be very useful when configuring features such as [`build-std`](https://doc.rust-lang.org/nightly/cargo/reference/unstable.html#build-std).
+
 
 ## Announcements, News, and Blog Posts
 
