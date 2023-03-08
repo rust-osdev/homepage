@@ -48,14 +48,17 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 
 ## Announcements, News, and Blog Posts
 
-<!--
 Here we collect news, blog posts, etc. related to OS development in Rust.
+
+<!--
 Please follow this template:
 
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
 
+- [Rust now available for Real-Time Operating System and Hypervisor PikeOS](https://www.sysgo.com/press-releases/rust-now-available-for-real-time-operating-system-and-hypervisor-pikeos)
+- [Writing an OS in Rust to run on RISC-V](https://gist.github.com/cb372/5f6bf16ca0682541260ae52fc11ea3bb)
 
 ## `rust-osdev` Projects
 
