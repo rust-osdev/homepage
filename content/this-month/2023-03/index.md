@@ -4,7 +4,7 @@ date = 2023-04-06
 
 [extra]
 month = "March 2023"
-editors = ["phil-opp"]
+editors = ["phil-opp", "phip1611"]
 +++
 
 Welcome to a new issue of _"This Month in Rust OSDev"_. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.
@@ -46,6 +46,13 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Writing a Linux Driver for QEMU’s Debugcon Device](https://phip1611.de/blog/writing-a-linux-driver-for-qemus-debugcon-device/) \
+  In this blogpost, [@phip1611](https://github.com/phip1611) shows you can 
+  write a Linux driver for the QEMU debugcon device. Although, the driver 
+  still uses C, it is a wonderful example to demonstrate a minimal yet useful
+  driver. Additionally, it is a good starting point for a rewrite in Rust, once
+  the Rust tooling and API bindings in the kernel are more mature. Perhaps, 
+  the rewrite in Rust is your next learning project?
 
 
 ## `rust-osdev` Projects
