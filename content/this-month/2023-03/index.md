@@ -88,7 +88,19 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`phip1611/paging-calculator`](https://github.com/phip1611/paging-calculator)
 
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+In the November newsletter, I announced the initial release of my 
+`paging-calculator` CLI utility. Recently, I released a new version, which now 
+covers page table indices for x86, x86 with physical address extension (PAE), 
+x86_64, and x86_64 with 5 levels. For example, just type `$ paging-calculator 0xdeadbeef x86`
+and `$ paging-calculator 0xdeadbeef x86 --pae`and compare the result. You can 
+install it from [crates.io](https://crates.io/crates/paging-calculator) or with 
+the `pkgs.nixpkgs` attribute, if you are a [Nix](https://nixos.org/) user.
+
+![Screenshot: Paging Calculator CLI Utility](screenshot-paging-calculator-x86-pae.png)
 
 ## Join Us?
 
