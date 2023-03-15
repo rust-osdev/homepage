@@ -98,7 +98,8 @@ covers page table indices for x86, x86 with physical address extension (PAE),
 x86_64, and x86_64 with 5 levels. For example, just type `$ paging-calculator 0xdeadbeef x86`
 and `$ paging-calculator 0xdeadbeef x86 --pae`and compare the result. You can 
 install it from [crates.io](https://crates.io/crates/paging-calculator) or with 
-the `pkgs.nixpkgs` attribute, if you are a [Nix](https://nixos.org/) user.
+the [`pkgs.paging-calculator` attribute](https://github.com/NixOS/nixpkgs/blob/1a165401fe904b9cd89bd731e6e8372883652c7d/pkgs/development/tools/paging-calculator/default.nix),
+if you are a [Nix](https://nixos.org/) user.
 
 ![Screenshot: Paging Calculator CLI Utility](screenshot-paging-calculator-x86-pae.png)
 
