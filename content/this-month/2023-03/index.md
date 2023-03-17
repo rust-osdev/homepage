@@ -73,7 +73,53 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods), [@phip1611](https://github.com/phip1611), [@robert-w-gries](https://github.com/robert-w-gries), [@ahmedcharles](https://github.com/ahmedcharles), and [@Caduser2020](https://github.com/Caduser2020)</span>
+
+The `multiboot2` crate provides abstraction types for the multiboot information 
+structure (MBI) of multiboot2 bootloaders. The latest release of the 
+`multiboot2`-crate is now `v0.15.0` (was `v0.14.0`), which fixed a 
+[bug](https://github.com/rust-osdev/multiboot2/pull/119). Furthermore, the 
+documentation was improved. However, the biggest change is that the library now 
+allows the parsing of custom multiboot tags, which are not prohibited by the 
+spec. For a full changelog, please refer to the
+[GitHub repo](https://github.com/rust-osdev/multiboot2/blob/main/multiboot2/Changelog.md).
+
+#### CI Refactoring
+In the CI, we want to run many tests that cover a big portion of the cartesian
+product of the following properties:
+- rust version: stable, nightly, msrv
+- type: build, test, style check
+- target: default, no_std
+ 
+As I (@phip1611) was annoyed by all the boilerplate configuration and 
+repetition, I've investigated new ways to improve that situation and created
+a reusable workflow can be used like that:
+```yaml
+jobs:
+  build_msrv:
+    name: build (msrv)
+    uses: ./.github/workflows/_build-rust.yml
+    with:
+      rust-version: 1.56.1
+      do-style-check: false
+
+  style_nightly:
+    name: style (nightly)
+    needs: build_nightly
+    uses: ./.github/workflows/_build-rust.yml
+    with:
+      rust-version: nightly
+      do-style-check: true
+      do-test: false
+```
+
+The `./.github/workflows/_build-rust.yml` workflow abstracts setting up the 
+toolchain, setting up a cargo cache for a faster CI, and, depending on the 
+configuration, running `cargo test|clippy|doc|build|fmt`. I think that the 
+outcome is quite nice and might also help others. Feel free to check out the 
+corresponding [PR](https://github.com/rust-osdev/multiboot2/pull/126).
 
 ## Other Projects
 
