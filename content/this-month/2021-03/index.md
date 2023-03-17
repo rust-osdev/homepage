@@ -156,7 +156,7 @@ The two tutorials finally conclude the challenging but rewarding journey of enab
 
 Here is a sneak peek of the end result when booting the `kernel` on a **Raspberry Pi 4** (slightly modified to fit on the page):
 
-```console
+```
 [5.011] Booting on: Raspberry Pi 4
 [5.011] MMU online:
 [5.011]   --------------------------------------------------------------------------
