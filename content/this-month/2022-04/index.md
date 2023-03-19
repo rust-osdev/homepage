@@ -197,7 +197,7 @@ saw two more tutorial releases:
 
 The two tutorials implement the generation of backtraces that show address and symbol information. Here is an example of the of a backtrace generated as part of  the kernel's panic handler:
 
-```console
+```
 [    0.002782] Writing to bottom of address space to address 1 GiB...
 [    0.004623] Kernel panic!
 
