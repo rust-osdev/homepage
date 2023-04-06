@@ -149,6 +149,37 @@ if you are a [Nix](https://nixos.org/) user.
 
 ![Screenshot: Paging Calculator CLI Utility](screenshot-paging-calculator-x86-pae.png)
 
+### [`xiaoyang-sde/rust-kernel-riscv`](https://github.com/xiaoyang-sde/rust-kernel-riscv)
+
+<span class="maintainers">(Section written by [@xiaoyang-sde](https://github.com/xiaoyang-sde))</span>
+
+[`rust-kernel-riscv`](https://github.com/xiaoyang-sde/rust-kernel-riscv) is an experimental operating system kernel built using Rust's asynchronous programming model to schedule threads in both kernel and user space. This approach allows for more efficient context switching and eliminates the need for allocating a separate kernel stack for each user process. In its current iteration, the kernel provides a basic shell capable of running several executables that demonstrate various kernel mechanisms.
+
+The kernel provides a built-in executor, which manages the scheduling and execution of threads. Threads are executed for a time slice before an exception or interrupt occurs, and then the executor switches to another thread. To give you a better understanding, I included the `async` function that represents the lifetime of a user thread below, and I wrote a detailed [design document](https://github.com/xiaoyang-sde/rust-kernel-riscv#design-document).
+
+```rs
+async fn thread_loop(thread: Arc<Thread>) {
+    loop {
+        let trap_context = thread.state().lock().user_trap_context_mut();
+        _enter_user_space(trap_context, thread.satp());
+
+        // Invokes related methods to handle the exception or interrupt,
+        // which returns a variant of the `ControlFlow` enum
+
+        match control_flow {
+            ControlFlow::Continue => continue,
+            ControlFlow::Yield => yield_now().await,
+            ControlFlow::Exit(exit_code) => {
+                thread.exit(exit_code);
+                break;
+            }
+        }
+    }
+}
+```
+
+The idea behind `rust-kernel-riscv` was inspired by Phil's recent [blog post](https://os.phil-opp.com/async-await/) on using `async/await` in the kernel. Thanks Phil for his invaluable support to the Rust community!
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
