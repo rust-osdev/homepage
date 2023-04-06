@@ -46,6 +46,7 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Klint: Compile-time Detection of Atomic Context Violations for Kernel Rust Code](https://www.memorysafety.org/blog/gary-guo-klint-rust-tools/)
 - [Writing a Linux Driver for QEMU’s Debugcon Device](https://phip1611.de/blog/writing-a-linux-driver-for-qemus-debugcon-device/) \
   In this blogpost, [@phip1611](https://github.com/phip1611) shows you can
   write a Linux driver for the QEMU debugcon device. Although, the driver
