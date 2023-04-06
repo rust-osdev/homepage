@@ -121,6 +121,160 @@ configuration, running `cargo test|clippy|doc|build|fmt`. I think that the
 outcome is quite nice and might also help others. Feel free to check out the
 corresponding [PR](https://github.com/rust-osdev/multiboot2/pull/126).
 
+
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+#### Features
+
+- [debug: add debug implementation for file-related structs](https://github.com/rust-osdev/uefi-rs/pull/624)
+- [uefi: Add `delete_variable()` helper](https://github.com/rust-osdev/uefi-rs/pull/682)
+- [uefi: Drop `'boot` lifetime from Output protocol](https://github.com/rust-osdev/uefi-rs/pull/689)
+- [error: enable `core::error::Error` for all error payloads](https://github.com/rust-osdev/uefi-rs/pull/693)
+- [Remove some more protocol lifetime parameters](https://github.com/rust-osdev/uefi-rs/pull/694)
+- [uefi: Implement `Borrow`/`ToOwned` for `CString16`/`CStr16`](https://github.com/rust-osdev/uefi-rs/pull/695)
+- [drop deprecations that are at least in one release](https://github.com/rust-osdev/uefi-rs/pull/692)
+- [Add Sorted Iterator for the UEFI Memory Map (Issue#661)](https://github.com/rust-osdev/uefi-rs/pull/662)
+- [Switch to the stable channel :tada: ](https://github.com/rust-osdev/uefi-rs/pull/688)
+- [Merge changes from the 0.20 release](https://github.com/rust-osdev/uefi-rs/pull/701)
+- [Rename `global_allocator` module and change scope of `global_allocator` feature](https://github.com/rust-osdev/uefi-rs/pull/705)
+- [debug everywhere](https://github.com/rust-osdev/uefi-rs/pull/699)
+- [cfg: Add ESRT GUID](https://github.com/rust-osdev/uefi-rs/pull/745)
+
+#### Other Improvements
+
+- [uefi-macros: Use a more precise error span](https://github.com/rust-osdev/uefi-rs/pull/679)
+- [build(deps): update syn requirement from 1.0.74 to 2.0.4](https://github.com/rust-osdev/uefi-rs/pull/704)
+- [Update pull request template](https://github.com/rust-osdev/uefi-rs/pull/709)
+- [uefi: Remove static references from `SystemTable` implementation](https://github.com/rust-osdev/uefi-rs/pull/710)
+- [Set rust-version = 1.68 in all public packages](https://github.com/rust-osdev/uefi-rs/pull/712)
+- [uefi: Fill in some more RuntimeServices fn pointers](https://github.com/rust-osdev/uefi-rs/pull/717)
+- [uefi: Add opaque_type macro](https://github.com/rust-osdev/uefi-rs/pull/718)
+- [uefi: Consistently set `repr(transparent)` on bitflags](https://github.com/rust-osdev/uefi-rs/pull/719)
+
+#### Docs
+
+- [uefi-macros: Make `entry` example more compatible with stable](https://github.com/rust-osdev/uefi-rs/pull/678)
+- [uefi: Update package docstring](https://github.com/rust-osdev/uefi-rs/pull/683)
+- [Rework "Building UEFI programs" sections in the readmes](https://github.com/rust-osdev/uefi-rs/pull/680)
+- [uefi: Improve clarity of global_allocator](https://github.com/rust-osdev/uefi-rs/pull/684)
+
+#### CI & Testing
+
+<details><summary><em>show changes</em></summary>
+
+- [xtask: Add `--unstable` option to `cargo xtask doc`](https://github.com/rust-osdev/uefi-rs/pull/673)
+- [ci: Increase Windows job timeout](https://github.com/rust-osdev/uefi-rs/pull/671)
+- [xtask: Enable strict provenance checks in Miri](https://github.com/rust-osdev/uefi-rs/pull/666)
+- [ci: Add a nightly_channel job](https://github.com/rust-osdev/uefi-rs/pull/674)
+- [xtask: Add option to skip uefi-macros tests](https://github.com/rust-osdev/uefi-rs/pull/677)
+- [ci: add spellcheck with "typos"](https://github.com/rust-osdev/uefi-rs/pull/687)
+- [xtask: Add OVMF_CODE/OVMF_VARS env vars](https://github.com/rust-osdev/uefi-rs/pull/700)
+- [OVMF: enable "cargo xtask run" under NixOS](https://github.com/rust-osdev/uefi-rs/pull/690)
+- [add Cargo.lock](https://github.com/rust-osdev/uefi-rs/pull/707)
+- [ci: MSRV fixes](https://github.com/rust-osdev/uefi-rs/pull/706)
+- [ci: Enable caching](https://github.com/rust-osdev/uefi-rs/pull/702)
+- [ci: Drop test_latest_release job](https://github.com/rust-osdev/uefi-rs/pull/708)
+- [xtask: Turn off some unnecessary dep features](https://github.com/rust-osdev/uefi-rs/pull/711)
+- [Add uefi to workspace members](https://github.com/rust-osdev/uefi-rs/pull/713)
+- [dependabot: Ignore patch updates](https://github.com/rust-osdev/uefi-rs/pull/730)
+- [dependabot: Fix config syntax](https://github.com/rust-osdev/uefi-rs/pull/732)
+- [dependabot: Fix config syntax](https://github.com/rust-osdev/uefi-rs/pull/738)
+- [ci: Increase Windows timeout to 10 minutes](https://github.com/rust-osdev/uefi-rs/pull/739)
+- [Format `use` consistently](https://github.com/rust-osdev/uefi-rs/pull/743)
+- [test-runner: Speculative fix for Windows CI timeout](https://github.com/rust-osdev/uefi-rs/pull/744)
+
+</details>
+
+#### Dependencies
+
+<details><summary><em>show changes</em></summary>
+
+- [xtask: Upgrade to syn 2.0](https://github.com/rust-osdev/uefi-rs/pull/698)
+- [build(deps): bump clap from 4.0.26 to 4.1.13](https://github.com/rust-osdev/uefi-rs/pull/722)
+- [build(deps): bump tempfile from 3.3.0 to 3.4.0](https://github.com/rust-osdev/uefi-rs/pull/728)
+- [build(deps): bump clap from 4.1.13 to 4.2.0](https://github.com/rust-osdev/uefi-rs/pull/740)
+- [build(deps): bump tempfile from 3.4.0 to 3.5.0](https://github.com/rust-osdev/uefi-rs/pull/742)
+
+</details><ul></ul>
+
+
+Thanks to [@hughsie](https://github.com/hughsie), [@nicholasbishop](https://github.com/nicholasbishop), [@JohnAZoidberg](https://github.com/JohnAZoidberg), [@phip1611](https://github.com/phip1611), [@JarlEvanson](https://github.com/JarlEvanson), and [@dependabot[bot]](https://github.com/apps/dependabot) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+- [Remove unused `doc_cfg` feature](https://github.com/rust-osdev/x86_64/pull/408)
+- [Enable `doc_auto_cfg` on `docs.rs` builds](https://github.com/rust-osdev/x86_64/pull/407)
+- [run xtest bash shell](https://github.com/rust-osdev/x86_64/pull/409)
+- [seal off the `PageSize` trait](https://github.com/rust-osdev/x86_64/pull/404)
+- [Add `Descriptor::dpl` const method and use it in GDT construction](https://github.com/rust-osdev/x86_64/pull/410)
+- [Set permissions to github workflows](https://github.com/rust-osdev/x86_64/pull/412)
+- [Create a Security Policy](https://github.com/rust-osdev/x86_64/pull/415)
+
+Thanks to [@joycebrum](https://github.com/joycebrum) for their contributions!
+
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+- [acpi: Improve memory mapping usage](https://github.com/rust-osdev/acpi/pull/134)
+- [aml: Add `l_and` parser and opcode](https://github.com/rust-osdev/acpi/pull/157)
+- [acpi: Add missing and new fields to GIC CPU interface structure](https://github.com/rust-osdev/acpi/pull/156)
+- [Add hack to get `aml` compiling on 32-bit platforms](https://github.com/rust-osdev/acpi/pull/159)
+- [aml: Do not require unstable features from rustc that are not used](https://github.com/rust-osdev/acpi/pull/168)
+- [acpi: Fix compile error when allocator_api is not enabled](https://github.com/rust-osdev/acpi/pull/160)
+
+Thanks to [@A0lson](https://github.com/A0lson), [@rcerc](https://github.com/rcerc), and [@rw-vanc](https://github.com/rw-vanc) for their contributions!
+
+
+### [`pci_types`](https://github.com/rust-osdev/pci_types)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+- [pci-pci bridge header](https://github.com/rust-osdev/pci_types/pull/7)
+- [remove `Send` requirement from `ConfigRegionAccess`](https://github.com/rust-osdev/pci_types/pull/8)
+
+Thanks to [@devsnek](https://github.com/devsnek) for their contributions!
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+- [Run cargo update](https://github.com/rust-osdev/bootloader/pull/347)
+- [Minor improvements to `BootConfig`](https://github.com/rust-osdev/bootloader/pull/349)
+- [Simplified disk builder](https://github.com/rust-osdev/bootloader/pull/320)
+- [Release version `0.11.1`](https://github.com/rust-osdev/bootloader/pull/350)
+- [Release `v0.11.2`](https://github.com/rust-osdev/bootloader/pull/351)
+- [Fix docs.rs build](https://github.com/rust-osdev/bootloader/pull/358)
+- [Release `v0.11.3`](https://github.com/rust-osdev/bootloader/pull/359)
+
+Thanks to [@jasoncouture](https://github.com/jasoncouture) for their contributions!
+
+### [`vga`](https://github.com/rust-osdev/vga)
+<span class="maintainers">Maintained by [@RKennedy9064](https://github.com/RKennedy9064)</span>
+
+- [Access VGA memory at arbitrary address](https://github.com/rust-osdev/vga/pull/27)
+- [Fix bug in `TextModeColor::set_foreground`](https://github.com/rust-osdev/vga/pull/28)
+
+Thanks to [@bendudson](https://github.com/bendudson) for their contributions!
+
+### [`pic8259`](https://github.com/rust-osdev/pic8259)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+- [Minor typo corrections](https://github.com/rust-osdev/pic8259/pull/2)
+
+Thanks to [@Virux](https://github.com/Virux) for their contributions!
+
+
+### [`volatile`](https://github.com/rust-osdev/volatile)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+- [Update build.yml to use minimal scoped permissions](https://github.com/rust-osdev/volatile/pull/33)
+- [Create a Security Policy](https://github.com/rust-osdev/volatile/pull/35)
+
+Thanks to [@joycebrum](https://github.com/joycebrum) for their contributions!
+
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
