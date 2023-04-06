@@ -47,11 +47,11 @@ Please follow this template:
 -->
 
 - [Writing a Linux Driver for QEMU’s Debugcon Device](https://phip1611.de/blog/writing-a-linux-driver-for-qemus-debugcon-device/) \
-  In this blogpost, [@phip1611](https://github.com/phip1611) shows you can 
-  write a Linux driver for the QEMU debugcon device. Although, the driver 
+  In this blogpost, [@phip1611](https://github.com/phip1611) shows you can
+  write a Linux driver for the QEMU debugcon device. Although, the driver
   still uses C, it is a wonderful example to demonstrate a minimal yet useful
   driver. Additionally, it is a good starting point for a rewrite in Rust, once
-  the Rust tooling and API bindings in the kernel are more mature. Perhaps, 
+  the Rust tooling and API bindings in the kernel are more mature. Perhaps,
   the rewrite in Rust is your next learning project?
 
 
@@ -77,12 +77,12 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 <span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods), [@phip1611](https://github.com/phip1611), [@robert-w-gries](https://github.com/robert-w-gries), [@ahmedcharles](https://github.com/ahmedcharles), and [@Caduser2020](https://github.com/Caduser2020)</span>
 
-The `multiboot2` crate provides abstraction types for the multiboot information 
-structure (MBI) of multiboot2 bootloaders. The latest release of the 
-`multiboot2`-crate is now `v0.15.0` (was `v0.14.0`), which fixed a 
-[bug](https://github.com/rust-osdev/multiboot2/pull/119). Furthermore, the 
-documentation was improved. However, the biggest change is that the library now 
-allows the parsing of custom multiboot tags, which are not prohibited by the 
+The `multiboot2` crate provides abstraction types for the multiboot information
+structure (MBI) of multiboot2 bootloaders. The latest release of the
+`multiboot2`-crate is now `v0.15.0` (was `v0.14.0`), which fixed a
+[bug](https://github.com/rust-osdev/multiboot2/pull/119). Furthermore, the
+documentation was improved. However, the biggest change is that the library now
+allows the parsing of custom multiboot tags, which are not prohibited by the
 spec. For a full changelog, please refer to the
 [GitHub repo](https://github.com/rust-osdev/multiboot2/blob/main/multiboot2/Changelog.md).
 
@@ -92,8 +92,8 @@ product of the following properties:
 - rust version: stable, nightly, msrv
 - type: build, test, style check
 - target: default, no_std
- 
-As I (@phip1611) was annoyed by all the boilerplate configuration and 
+
+As I (@phip1611) was annoyed by all the boilerplate configuration and
 repetition, I've investigated new ways to improve that situation and created
 a reusable workflow can be used like that:
 ```yaml
@@ -115,10 +115,10 @@ jobs:
       do-test: false
 ```
 
-The `./.github/workflows/_build-rust.yml` workflow abstracts setting up the 
-toolchain, setting up a cargo cache for a faster CI, and, depending on the 
-configuration, running `cargo test|clippy|doc|build|fmt`. I think that the 
-outcome is quite nice and might also help others. Feel free to check out the 
+The `./.github/workflows/_build-rust.yml` workflow abstracts setting up the
+toolchain, setting up a cargo cache for a faster CI, and, depending on the
+configuration, running `cargo test|clippy|doc|build|fmt`. I think that the
+outcome is quite nice and might also help others. Feel free to check out the
 corresponding [PR](https://github.com/rust-osdev/multiboot2/pull/126).
 
 ## Other Projects
@@ -138,12 +138,12 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 <span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
 
-In the November newsletter, I announced the initial release of my 
-`paging-calculator` CLI utility. Recently, I released a new version, which now 
-covers page table indices for x86, x86 with physical address extension (PAE), 
+In the November newsletter, I announced the initial release of my
+`paging-calculator` CLI utility. Recently, I released a new version, which now
+covers page table indices for x86, x86 with physical address extension (PAE),
 x86_64, and x86_64 with 5 levels. For example, just type `$ paging-calculator 0xdeadbeef x86`
-and `$ paging-calculator 0xdeadbeef x86 --pae`and compare the result. You can 
-install it from [crates.io](https://crates.io/crates/paging-calculator) or with 
+and `$ paging-calculator 0xdeadbeef x86 --pae`and compare the result. You can
+install it from [crates.io](https://crates.io/crates/paging-calculator) or with
 the [`pkgs.paging-calculator` attribute](https://github.com/NixOS/nixpkgs/blob/1a165401fe904b9cd89bd731e6e8372883652c7d/pkgs/development/tools/paging-calculator/default.nix),
 if you are a [Nix](https://nixos.org/) user.
 
