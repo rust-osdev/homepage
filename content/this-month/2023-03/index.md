@@ -34,6 +34,8 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
     <text>
 -->
 
+- [Partial stabilization of `once_cell`](https://github.com/rust-lang/rust/pull/105587)
+- [Support for Fuchsia RISC-V target](https://github.com/rust-lang/rust/pull/108722)
 
 ## Announcements, News, and Blog Posts
 
