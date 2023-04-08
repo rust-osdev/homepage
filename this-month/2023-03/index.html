@@ -1,0 +1,348 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2023-03/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: March 2023 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: March 2023</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2023-04-08">
+            Apr 08, 2023
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/phip1611">@phip1611</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (March 2023)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+    ### Summary
+    <span class="maintainers">(Section written by [@author](https://github.com/author))</span>
+
+    <text>
+-->
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/105587">Partial stabilization of <code>once_cell</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/108722">Support for Fuchsia RISC-V target</a></li>
+</ul>
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://www.memorysafety.org/blog/gary-guo-klint-rust-tools/">Klint: Compile-time Detection of Atomic Context Violations for Kernel Rust Code</a></li>
+<li><a href="https://phip1611.de/blog/writing-a-linux-driver-for-qemus-debugcon-device/">Writing a Linux Driver for QEMU’s Debugcon Device</a> <br />
+In this blogpost, <a href="https://github.com/phip1611">@phip1611</a> shows you can
+write a Linux driver for the QEMU debugcon device. Although, the driver
+still uses C, it is a wonderful example to demonstrate a minimal yet useful
+driver. Additionally, it is a good starting point for a rewrite in Rust, once
+the Rust tooling and API bindings in the kernel are more mature. Perhaps,
+the rewrite in Rust is your next learning project?</li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/multiboot2"><code>multiboot2</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, <a href="https://github.com/phip1611">@phip1611</a>, <a href="https://github.com/robert-w-gries">@robert-w-gries</a>, <a href="https://github.com/ahmedcharles">@ahmedcharles</a>, and <a href="https://github.com/Caduser2020">@Caduser2020</a></span></p>
+<p>The <code>multiboot2</code> crate provides abstraction types for the multiboot information
+structure (MBI) of multiboot2 bootloaders. The latest release of the
+<code>multiboot2</code>-crate is now <code>v0.15.0</code> (was <code>v0.14.0</code>), which fixed a
+<a href="https://github.com/rust-osdev/multiboot2/pull/119">bug</a>. Furthermore, the
+documentation was improved. However, the biggest change is that the library now
+allows the parsing of custom multiboot tags, which are not prohibited by the
+spec. For a full changelog, please refer to the
+<a href="https://github.com/rust-osdev/multiboot2/blob/main/multiboot2/Changelog.md">GitHub repo</a>.</p>
+<h4 id="ci-refactoring">CI Refactoring</h4>
+<p>In the CI, we want to run many tests that cover a big portion of the cartesian
+product of the following properties:</p>
+<ul>
+<li>rust version: stable, nightly, msrv</li>
+<li>type: build, test, style check</li>
+<li>target: default, no_std</li>
+</ul>
+<p>As I (@phip1611) was annoyed by all the boilerplate configuration and
+repetition, I've investigated new ways to improve that situation and created
+a reusable workflow can be used like that:</p>
+<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">jobs</span><span>:
+</span><span>  </span><span style="color:#bf616a;">build_msrv</span><span>:
+</span><span>    </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">build (msrv)
+</span><span>    </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">./.github/workflows/_build-rust.yml
+</span><span>    </span><span style="color:#bf616a;">with</span><span>:
+</span><span>      </span><span style="color:#bf616a;">rust-version</span><span>: </span><span style="color:#d08770;">1.56.1
+</span><span>      </span><span style="color:#bf616a;">do-style-check</span><span>: </span><span style="color:#d08770;">false
+</span><span>
+</span><span>  </span><span style="color:#bf616a;">style_nightly</span><span>:
+</span><span>    </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">style (nightly)
+</span><span>    </span><span style="color:#bf616a;">needs</span><span>: </span><span style="color:#a3be8c;">build_nightly
+</span><span>    </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">./.github/workflows/_build-rust.yml
+</span><span>    </span><span style="color:#bf616a;">with</span><span>:
+</span><span>      </span><span style="color:#bf616a;">rust-version</span><span>: </span><span style="color:#a3be8c;">nightly
+</span><span>      </span><span style="color:#bf616a;">do-style-check</span><span>: </span><span style="color:#d08770;">true
+</span><span>      </span><span style="color:#bf616a;">do-test</span><span>: </span><span style="color:#d08770;">false
+</span></code></pre>
+<p>The <code>./.github/workflows/_build-rust.yml</code> workflow abstracts setting up the
+toolchain, setting up a cargo cache for a faster CI, and, depending on the
+configuration, running <code>cargo test|clippy|doc|build|fmt</code>. I think that the
+outcome is quite nice and might also help others. Feel free to check out the
+corresponding <a href="https://github.com/rust-osdev/multiboot2/pull/126">PR</a>.</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<h4 id="features">Features</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/624">debug: add debug implementation for file-related structs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/682">uefi: Add <code>delete_variable()</code> helper</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/689">uefi: Drop <code>'boot</code> lifetime from Output protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/693">error: enable <code>core::error::Error</code> for all error payloads</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/694">Remove some more protocol lifetime parameters</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/695">uefi: Implement <code>Borrow</code>/<code>ToOwned</code> for <code>CString16</code>/<code>CStr16</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/692">drop deprecations that are at least in one release</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/662">Add Sorted Iterator for the UEFI Memory Map (Issue#661)</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/688">Switch to the stable channel :tada: </a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/701">Merge changes from the 0.20 release</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/705">Rename <code>global_allocator</code> module and change scope of <code>global_allocator</code> feature</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/699">debug everywhere</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/745">cfg: Add ESRT GUID</a></li>
+</ul>
+<h4 id="other-improvements">Other Improvements</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/679">uefi-macros: Use a more precise error span</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/704">build(deps): update syn requirement from 1.0.74 to 2.0.4</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/709">Update pull request template</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/710">uefi: Remove static references from <code>SystemTable</code> implementation</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/712">Set rust-version = 1.68 in all public packages</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/717">uefi: Fill in some more RuntimeServices fn pointers</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/718">uefi: Add opaque_type macro</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/719">uefi: Consistently set <code>repr(transparent)</code> on bitflags</a></li>
+</ul>
+<h4 id="docs">Docs</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/678">uefi-macros: Make <code>entry</code> example more compatible with stable</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/683">uefi: Update package docstring</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/680">Rework &quot;Building UEFI programs&quot; sections in the readmes</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/684">uefi: Improve clarity of global_allocator</a></li>
+</ul>
+<h4 id="ci-testing">CI &amp; Testing</h4>
+<details><summary><em>show changes</em></summary>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/673">xtask: Add <code>--unstable</code> option to <code>cargo xtask doc</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/671">ci: Increase Windows job timeout</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/666">xtask: Enable strict provenance checks in Miri</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/674">ci: Add a nightly_channel job</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/677">xtask: Add option to skip uefi-macros tests</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/687">ci: add spellcheck with &quot;typos&quot;</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/700">xtask: Add OVMF_CODE/OVMF_VARS env vars</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/690">OVMF: enable &quot;cargo xtask run&quot; under NixOS</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/707">add Cargo.lock</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/706">ci: MSRV fixes</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/702">ci: Enable caching</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/708">ci: Drop test_latest_release job</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/711">xtask: Turn off some unnecessary dep features</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/713">Add uefi to workspace members</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/730">dependabot: Ignore patch updates</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/732">dependabot: Fix config syntax</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/738">dependabot: Fix config syntax</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/739">ci: Increase Windows timeout to 10 minutes</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/743">Format <code>use</code> consistently</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/744">test-runner: Speculative fix for Windows CI timeout</a></li>
+</ul>
+</details>
+<h4 id="dependencies">Dependencies</h4>
+<details><summary><em>show changes</em></summary>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/698">xtask: Upgrade to syn 2.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/722">build(deps): bump clap from 4.0.26 to 4.1.13</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/728">build(deps): bump tempfile from 3.3.0 to 3.4.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/740">build(deps): bump clap from 4.1.13 to 4.2.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/742">build(deps): bump tempfile from 3.4.0 to 3.5.0</a></li>
+</ul>
+</details><ul></ul>
+<p>Thanks to <a href="https://github.com/hughsie">@hughsie</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, <a href="https://github.com/JohnAZoidberg">@JohnAZoidberg</a>, <a href="https://github.com/phip1611">@phip1611</a>, <a href="https://github.com/JarlEvanson">@JarlEvanson</a>, and <a href="https://github.com/apps/dependabot">@dependabot[bot]</a> for their contributions!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/408">Remove unused <code>doc_cfg</code> feature</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/407">Enable <code>doc_auto_cfg</code> on <code>docs.rs</code> builds</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/409">run xtest bash shell</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/404">seal off the <code>PageSize</code> trait</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/410">Add <code>Descriptor::dpl</code> const method and use it in GDT construction</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/412">Set permissions to github workflows</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/415">Create a Security Policy</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/joycebrum">@joycebrum</a> for their contributions!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/134">acpi: Improve memory mapping usage</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/157">aml: Add <code>l_and</code> parser and opcode</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/156">acpi: Add missing and new fields to GIC CPU interface structure</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/159">Add hack to get <code>aml</code> compiling on 32-bit platforms</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/168">aml: Do not require unstable features from rustc that are not used</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/160">acpi: Fix compile error when allocator_api is not enabled</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/A0lson">@A0lson</a>, <a href="https://github.com/rcerc">@rcerc</a>, and <a href="https://github.com/rw-vanc">@rw-vanc</a> for their contributions!</p>
+<h3 id="pci-types"><a href="https://github.com/rust-osdev/pci_types"><code>pci_types</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/7">pci-pci bridge header</a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/8">remove <code>Send</code> requirement from <code>ConfigRegionAccess</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/devsnek">@devsnek</a> for their contributions!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/347">Run cargo update</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/349">Minor improvements to <code>BootConfig</code></a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/320">Simplified disk builder</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/350">Release version <code>0.11.1</code></a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/351">Release <code>v0.11.2</code></a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/358">Fix docs.rs build</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/359">Release <code>v0.11.3</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/jasoncouture">@jasoncouture</a> for their contributions!</p>
+<h3 id="vga"><a href="https://github.com/rust-osdev/vga"><code>vga</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/RKennedy9064">@RKennedy9064</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/vga/pull/27">Access VGA memory at arbitrary address</a></li>
+<li><a href="https://github.com/rust-osdev/vga/pull/28">Fix bug in <code>TextModeColor::set_foreground</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/bendudson">@bendudson</a> for their contributions!</p>
+<h3 id="pic8259"><a href="https://github.com/rust-osdev/pic8259"><code>pic8259</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/pic8259/pull/2">Minor typo corrections</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Virux">@Virux</a> for their contributions!</p>
+<h3 id="volatile"><a href="https://github.com/rust-osdev/volatile"><code>volatile</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/volatile/pull/33">Update build.yml to use minimal scoped permissions</a></li>
+<li><a href="https://github.com/rust-osdev/volatile/pull/35">Create a Security Policy</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/joycebrum">@joycebrum</a> for their contributions!</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="phip1611-paging-calculator"><a href="https://github.com/phip1611/paging-calculator"><code>phip1611/paging-calculator</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phip1611">@phip1611</a>)</span></p>
+<p>In the November newsletter, I announced the initial release of my
+<code>paging-calculator</code> CLI utility. Recently, I released a new version, which now
+covers page table indices for x86, x86 with physical address extension (PAE),
+x86_64, and x86_64 with 5 levels. For example, just type <code>$ paging-calculator 0xdeadbeef x86</code>
+and <code>$ paging-calculator 0xdeadbeef x86 --pae</code>and compare the result. You can
+install it from <a href="https://crates.io/crates/paging-calculator">crates.io</a> or with
+the <a href="https://github.com/NixOS/nixpkgs/blob/1a165401fe904b9cd89bd731e6e8372883652c7d/pkgs/development/tools/paging-calculator/default.nix"><code>pkgs.paging-calculator</code> attribute</a>,
+if you are a <a href="https://nixos.org/">Nix</a> user.</p>
+<p><img src="https://rust-osdev.com/this-month/2023-03/screenshot-paging-calculator-x86-pae.png" alt="Screenshot: Paging Calculator CLI Utility" /></p>
+<h3 id="xiaoyang-sde-rust-kernel-riscv"><a href="https://github.com/xiaoyang-sde/rust-kernel-riscv"><code>xiaoyang-sde/rust-kernel-riscv</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/xiaoyang-sde">@xiaoyang-sde</a>)</span></p>
+<p><a href="https://github.com/xiaoyang-sde/rust-kernel-riscv"><code>rust-kernel-riscv</code></a> is an experimental operating system kernel built using Rust's asynchronous programming model to schedule threads in both kernel and user space. This approach allows for more efficient context switching and eliminates the need for allocating a separate kernel stack for each user process. In its current iteration, the kernel provides a basic shell capable of running several executables that demonstrate various kernel mechanisms.</p>
+<p>The kernel provides a built-in executor, which manages the scheduling and execution of threads. Threads are executed for a time slice before an exception or interrupt occurs, and then the executor switches to another thread. To give you a better understanding, I included the <code>async</code> function that represents the lifetime of a user thread below, and I wrote a detailed <a href="https://github.com/xiaoyang-sde/rust-kernel-riscv#design-document">design document</a>.</p>
+<pre data-lang="rs" style="background-color:#2b303b;color:#c0c5ce;" class="language-rs "><code class="language-rs" data-lang="rs"><span>async </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">thread_loop</span><span>(</span><span style="color:#bf616a;">thread</span><span>: Arc&lt;Thread&gt;) {
+</span><span>    </span><span style="color:#b48ead;">loop </span><span>{
+</span><span>        </span><span style="color:#b48ead;">let</span><span> trap_context = thread.</span><span style="color:#96b5b4;">state</span><span>().</span><span style="color:#96b5b4;">lock</span><span>().</span><span style="color:#96b5b4;">user_trap_context_mut</span><span>();
+</span><span>        </span><span style="color:#96b5b4;">_enter_user_space</span><span>(trap_context, thread.</span><span style="color:#96b5b4;">satp</span><span>());
+</span><span>
+</span><span>        </span><span style="color:#65737e;">// Invokes related methods to handle the exception or interrupt,
+</span><span>        </span><span style="color:#65737e;">// which returns a variant of the `ControlFlow` enum
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">match</span><span> control_flow {
+</span><span>            ControlFlow::Continue =&gt; </span><span style="color:#b48ead;">continue</span><span>,
+</span><span>            ControlFlow::Yield =&gt; </span><span style="color:#96b5b4;">yield_now</span><span>().await,
+</span><span>            ControlFlow::Exit(exit_code) =&gt; {
+</span><span>                thread.</span><span style="color:#96b5b4;">exit</span><span>(exit_code);
+</span><span>                </span><span style="color:#b48ead;">break</span><span>;
+</span><span>            }
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>The idea behind <code>rust-kernel-riscv</code> was inspired by Phil's recent <a href="https://os.phil-opp.com/async-await/">blog post</a> on using <code>async/await</code> in the kernel. Thanks Phil for his invaluable support to the Rust community!</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
