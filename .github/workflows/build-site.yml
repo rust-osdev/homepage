@@ -61,6 +61,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build_site, check_spelling]
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'schedule') && github.repository == 'rust-osdev/homepage'
+    permissions:
+        contents: write
 
     steps:
     - name: "Download Generated Site"
