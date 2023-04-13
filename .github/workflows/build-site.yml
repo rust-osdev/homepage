@@ -3,13 +3,13 @@ name: Build Site
 on:
   push:
     branches:
-      - '*'
-      - '!staging.tmp'
+      - "*"
+      - "!staging.tmp"
     tags:
-      - '*'
+      - "*"
   pull_request:
   schedule:
-    - cron: '0 0 1/4 * *'   # every 4 days
+    - cron: "0 0 1/4 * *" # every 4 days
 
 jobs:
   build_site:
@@ -17,44 +17,44 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: 'Download Zola'
-      run: curl -sL https://github.com/getzola/zola/releases/download/v0.16.1/zola-v0.16.1-x86_64-unknown-linux-gnu.tar.gz | tar zxv
+      - name: "Download Zola"
+        run: curl -sL https://github.com/getzola/zola/releases/download/v0.16.1/zola-v0.16.1-x86_64-unknown-linux-gnu.tar.gz | tar zxv
 
-    - name: "Build Site"
-      run: ./zola build
+      - name: "Build Site"
+        run: ./zola build
 
-    - name: Upload Generated Site
-      uses: actions/upload-artifact@v2
-      with:
-        name: generated_site
-        path: public
+      - name: Upload Generated Site
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated_site
+          path: public
 
   zola_check:
     name: "Zola Check"
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: 'Download Zola'
-      run: curl -sL https://github.com/getzola/zola/releases/download/v0.16.1/zola-v0.16.1-x86_64-unknown-linux-gnu.tar.gz | tar zxv
+      - name: "Download Zola"
+        run: curl -sL https://github.com/getzola/zola/releases/download/v0.16.1/zola-v0.16.1-x86_64-unknown-linux-gnu.tar.gz | tar zxv
 
-    - name: "Run zola check"
-      run: ./zola check
+      - name: "Run zola check"
+        run: ./zola check
 
   check_spelling:
     name: "Check Spelling"
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - run: curl -L https://git.io/misspell | bash
-      name: "Install misspell"
-    - run: bin/misspell -error content
-      name: "Check for common typos"
+      - run: curl -L https://git.io/misspell | bash
+        name: "Install misspell"
+      - run: bin/misspell -error content
+        name: "Check for common typos"
 
   deploy_site:
     name: "Deploy Generated Site"
@@ -62,46 +62,46 @@ jobs:
     needs: [build_site, check_spelling]
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'schedule') && github.repository == 'rust-osdev/homepage'
     permissions:
-        contents: write
+      contents: write
 
     steps:
-    - name: "Download Generated Site"
-      uses: actions/download-artifact@v2
-      with:
-        name: generated_site
-        path: generated_site
+      - name: "Download Generated Site"
+        uses: actions/download-artifact@v2
+        with:
+          name: generated_site
+          path: generated_site
 
-    - name: Check out gh-pages branch
-      uses: actions/checkout@v2
-      with:
-        ref: 'gh-pages'
-        path: 'gh-pages'
+      - name: Check out gh-pages branch
+        uses: actions/checkout@v2
+        with:
+          ref: "gh-pages"
+          path: "gh-pages"
 
-    - name: "Set Up Git Identity"
-      run: |
-        git config --local user.name "GitHub Actions Deploy"
-        git config --local user.email "github-actions-deploy@rust-osdev.com"
-      working-directory: "gh-pages"
+      - name: "Set Up Git Identity"
+        run: |
+          git config --local user.name "GitHub Actions Deploy"
+          git config --local user.email "github-actions-deploy@rust-osdev.com"
+        working-directory: "gh-pages"
 
-    - name: "Delete Old Content"
-      run: "rm -r ./*"
-      working-directory: "gh-pages"
+      - name: "Delete Old Content"
+        run: "rm -r ./*"
+        working-directory: "gh-pages"
 
-    - name: "Add New Content"
-      run: cp -r generated_site/* gh-pages
+      - name: "Add New Content"
+        run: cp -r generated_site/* gh-pages
 
-    - name: "Commit New Content"
-      run: |
-        git add .
-        git commit --allow-empty -m "Deploy ${GITHUB_SHA}
+      - name: "Commit New Content"
+        run: |
+          git add .
+          git commit --allow-empty -m "Deploy ${GITHUB_SHA}
 
-        Deploy of commit https://github.com/rust-osdev/homepage/commit/${GITHUB_SHA}"
-      working-directory: "gh-pages"
+          Deploy of commit https://github.com/rust-osdev/homepage/commit/${GITHUB_SHA}"
+        working-directory: "gh-pages"
 
-    - name: "Show Changes"
-      run: "git show"
-      working-directory: "gh-pages"
+      - name: "Show Changes"
+        run: "git show"
+        working-directory: "gh-pages"
 
-    - name: "Push Changes"
-      run: "git push"
-      working-directory: "gh-pages"
+      - name: "Push Changes"
+        run: "git push"
+        working-directory: "gh-pages"
