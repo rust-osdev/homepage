@@ -34,7 +34,7 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
     <text>
 -->
 
-
+_No updates were proposed for this section this month._
 
 ## Announcements, News, and Blog Posts
 
