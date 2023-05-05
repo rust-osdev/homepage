@@ -1,0 +1,206 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2023-04/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: April 2023 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: April 2023</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2023-05-05">
+            May 05, 2023
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (April 2023)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+    ### Summary
+    <span class="maintainers">(Section written by [@author](https://github.com/author))</span>
+
+    <text>
+-->
+<p><em>No updates were proposed for this section this month.</em></p>
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://coderjoshdk.github.io/posts/Rust-Kernel-Programming.html">Rust Kernel Programming</a></li>
+<li><a href="https://tomcat0x42.me/linux/rust/2023/04/07/linux-kernel-rust-modules.html">Linux Kernel Rust Modules</a></li>
+<li><a href="https://www.reddit.com/r/rust/comments/12p2rf7/aero_os_a_new_modern_operating_system_made_in/">Aero OS: A new modern operating system made in Rust, now able to run the Links browser, Alacritty and much more!</a></li>
+<li><a href="https://www.reddit.com/r/rust/comments/12gxh8b/felix_an_x86_hobby_os_written_in_rust/">Felix, an x86 hobby OS written in Rust</a></li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<h4 id="features">Features</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/472">Introducing a high-level FS abstraction</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/755">uefi: debug: add DebugPort protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/749">uefi: Panic if an error is created from Status::SUCCESS</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/758">uefi-macros: Drop !Send and !Sync from unsafe_protocol macro</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/751">cstr[ing]16: convenience functions</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/767">uefi: Clean up some Status -&gt; Result conversions</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/777">Use the uguid crate to replace the <code>Guid</code> struct and <code>guid!</code> macro</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/773">gop: Derive PartialEq on ModeInfo</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/778">Add RngProtocol to <code>uefi-raw</code> and use it from <code>uefi</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/779">uefi: Add get_variable_boxed</a></li>
+</ul>
+<h4 id="docs">Docs</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/748">uefi: Update Status documentation</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/746">doc: build with --no-deps</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/753">uefi: Minor cleanups in the fs module doc</a></li>
+</ul>
+<h4 id="other">Other</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/750">ci: shorter job names</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/752">uefi: consistent use of crate:: over uefi::</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/760">Allow passing a constant's path into unsafe_protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/761">uefi-raw: Add mostly-empty package</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/763">ci: Fix book token permission</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/764">Move newtype_enum macro to uefi-raw</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/765">uefi-macros: Fix compiler test for Rust 1.69</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/768">Move <code>Status</code> to <code>uefi-raw</code>, along with related API changes</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/JohnAZoidberg">@JohnAZoidberg</a> and <a href="https://github.com/felipebalbi">@felipebalbi</a> for their contributions!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/362">Fixed bug stemming from treating an exclusive range as an inclusive ranges</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/360">Update <code>uefi</code> dependency to <code>v0.20</code></a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/365">Implemented sorting of uefi memory maps #315</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/kennystrawnmusic">@kennystrawnmusic</a> and <a href="https://github.com/JarlEvanson">@JarlEvanson</a> for their contributions!</p>
+<h3 id="pic8259"><a href="https://github.com/rust-osdev/pic8259"><code>pic8259</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/pic8259/pull/4">Added <code>new_continguous</code> implementation for <code>ChainedPics</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/rasheedmhd">@rasheedmhd</a> for their contributions!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/421">Don't use third-party Python libraries in release workflow</a></li>
+</ul>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/151">aml_tester: Add positional file arguments, in-order parsing and shared namespace</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/170">AML: Add minimal CondRefOf support</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/161">acpi: Allow Madt and Mcfg fields to be accessed without allocator_api</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/A0lson">@A0lson</a>, and <a href="https://github.com/rw-vanc">@rw-vanc</a> for their contributions!</p>
+<h3 id="ucs2-rs"><a href="https://github.com/rust-osdev/ucs2-rs"><code>ucs2-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/ucs2-rs/pull/14">ci: Bring in various improvements from uefi-rs</a></li>
+<li><a href="https://github.com/rust-osdev/ucs2-rs/pull/15">Switch to 2021 edition</a></li>
+</ul>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following changes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1209">Update <code>zola</code> to <code>v0.17.2</code></a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1210">Fix link syntax</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1211">fix(translation zh-TW): typo</a> <span class="gray">(thanks to <a href="https://github.com/GNITOAHC">@GNITOAHC</a>!)</span></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1216">The <code>#[alloc_error_handler]</code> attribute was removed</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1217">Update 'Heap Allocation' post to remove <code>alloc_error_handler</code></a></li>
+</ul>
+<p>I also continued writing on the upcoming third edition of the blog. I finished a draft of the second post, which is about booting using <code>v0.11</code> of the <code>bootloader</code> crate. You can already read it <a href="https://github.com/phil-opp/blog_os/blob/edition-3/blog/content/edition-3/posts/02-booting/index.md">on GitHub</a> if you like.</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
