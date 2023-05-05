@@ -157,6 +157,19 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Update `zola` to `v0.17.2`](https://github.com/phil-opp/blog_os/pull/1209)
+- [Fix link syntax](https://github.com/phil-opp/blog_os/pull/1210)
+- [fix(translation zh-TW): typo](https://github.com/phil-opp/blog_os/pull/1211) <span class="gray">(thanks to [@GNITOAHC](https://github.com/GNITOAHC)!)</span>
+- [The `#[alloc_error_handler]` attribute was removed](https://github.com/phil-opp/blog_os/pull/1216)
+- [Update 'Heap Allocation' post to remove `alloc_error_handler`](https://github.com/phil-opp/blog_os/pull/1217)
+
+I also continued writing on the upcoming third edition of the blog. I finished a draft of the second post, which is about booting using `v0.11` of the `bootloader` crate. You can already read it [on GitHub](https://github.com/phil-opp/blog_os/blob/edition-3/blog/content/edition-3/posts/02-booting/index.md) if you like.
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
