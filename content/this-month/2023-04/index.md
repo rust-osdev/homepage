@@ -67,6 +67,83 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+#### Features
+
+- [Introducing a high-level FS abstraction](https://github.com/rust-osdev/uefi-rs/pull/472)
+- [uefi: debug: add DebugPort protocol](https://github.com/rust-osdev/uefi-rs/pull/755)
+- [uefi: Panic if an error is created from Status::SUCCESS](https://github.com/rust-osdev/uefi-rs/pull/749)
+- [uefi-macros: Drop !Send and !Sync from unsafe_protocol macro](https://github.com/rust-osdev/uefi-rs/pull/758)
+- [cstr[ing]16: convenience functions](https://github.com/rust-osdev/uefi-rs/pull/751)
+- [uefi: Clean up some Status -> Result conversions](https://github.com/rust-osdev/uefi-rs/pull/767)
+- [Use the uguid crate to replace the `Guid` struct and `guid!` macro](https://github.com/rust-osdev/uefi-rs/pull/777)
+- [gop: Derive PartialEq on ModeInfo](https://github.com/rust-osdev/uefi-rs/pull/773)
+- [Add RngProtocol to `uefi-raw` and use it from `uefi`](https://github.com/rust-osdev/uefi-rs/pull/778)
+- [uefi: Add get_variable_boxed](https://github.com/rust-osdev/uefi-rs/pull/779)
+
+#### Docs
+
+- [uefi: Update Status documentation](https://github.com/rust-osdev/uefi-rs/pull/748)
+- [doc: build with --no-deps](https://github.com/rust-osdev/uefi-rs/pull/746)
+- [uefi: Minor cleanups in the fs module doc](https://github.com/rust-osdev/uefi-rs/pull/753)
+
+#### Other
+
+- [ci: shorter job names](https://github.com/rust-osdev/uefi-rs/pull/750)
+- [uefi: consistent use of crate:: over uefi::](https://github.com/rust-osdev/uefi-rs/pull/752)
+- [Allow passing a constant's path into unsafe_protocol](https://github.com/rust-osdev/uefi-rs/pull/760)
+- [uefi-raw: Add mostly-empty package](https://github.com/rust-osdev/uefi-rs/pull/761)
+- [ci: Fix book token permission](https://github.com/rust-osdev/uefi-rs/pull/763)
+- [Move newtype_enum macro to uefi-raw](https://github.com/rust-osdev/uefi-rs/pull/764)
+- [uefi-macros: Fix compiler test for Rust 1.69](https://github.com/rust-osdev/uefi-rs/pull/765)
+- [Move `Status` to `uefi-raw`, along with related API changes](https://github.com/rust-osdev/uefi-rs/pull/768)
+
+Thanks to [@JohnAZoidberg](https://github.com/JohnAZoidberg) and [@felipebalbi](https://github.com/felipebalbi) for their contributions!
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+- [Fixed bug stemming from treating an exclusive range as an inclusive ranges](https://github.com/rust-osdev/bootloader/pull/362)
+- [Update `uefi` dependency to `v0.20`](https://github.com/rust-osdev/bootloader/pull/360)
+- [Implemented sorting of uefi memory maps #315](https://github.com/rust-osdev/bootloader/pull/365)
+
+Thanks to [@kennystrawnmusic](https://github.com/kennystrawnmusic) and [@JarlEvanson](https://github.com/JarlEvanson) for their contributions!
+
+
+### [`pic8259`](https://github.com/rust-osdev/pic8259)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+- [Added `new_continguous` implementation for `ChainedPics`](https://github.com/rust-osdev/pic8259/pull/4)
+
+Thanks to [@rasheedmhd](https://github.com/rasheedmhd) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+- [Don't use third-party Python libraries in release workflow](https://github.com/rust-osdev/x86_64/pull/421)
+
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+- [aml_tester: Add positional file arguments, in-order parsing and shared namespace](https://github.com/rust-osdev/acpi/pull/151)
+- [AML: Add minimal CondRefOf support](https://github.com/rust-osdev/acpi/pull/170)
+- [acpi: Allow Madt and Mcfg fields to be accessed without allocator_api](https://github.com/rust-osdev/acpi/pull/161)
+
+Thanks to [@A0lson](https://github.com/A0lson), and [@rw-vanc](https://github.com/rw-vanc) for their contributions!
+
+
+### [`ucs2-rs`](https://github.com/rust-osdev/ucs2-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+- [ci: Bring in various improvements from uefi-rs](https://github.com/rust-osdev/ucs2-rs/pull/14)
+- [Switch to 2021 edition](https://github.com/rust-osdev/ucs2-rs/pull/15)
+
+
+
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
