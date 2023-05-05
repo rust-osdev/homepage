@@ -47,6 +47,10 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Rust Kernel Programming](https://coderjoshdk.github.io/posts/Rust-Kernel-Programming.html)
+- [Linux Kernel Rust Modules](https://tomcat0x42.me/linux/rust/2023/04/07/linux-kernel-rust-modules.html)
+- [Aero OS: A new modern operating system made in Rust, now able to run the Links browser, Alacritty and much more!](https://www.reddit.com/r/rust/comments/12p2rf7/aero_os_a_new_modern_operating_system_made_in/)
+- [Felix, an x86 hobby OS written in Rust](https://www.reddit.com/r/rust/comments/12gxh8b/felix_an_x86_hobby_os_written_in_rust/)
 
 
 ## `rust-osdev` Projects
