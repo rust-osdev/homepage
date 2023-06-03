@@ -189,6 +189,19 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Fix panics caused by misaligned pointer dereferences in "Double Faults" & "Introduction to Paging"](https://github.com/phil-opp/blog_os/pull/1226)
+- [Correcting typos and errors in French translation of Post 1](https://github.com/phil-opp/blog_os/pull/1219)
+- [posts/06-double-faults/index: fixup deprecated fn](https://github.com/phil-opp/blog_os/pull/1218)
+
+Thanks to [@SPuntte](https://github.com/SPuntte), [@Firenezz](https://github.com/Firenezz), and [@twilfredo](https://github.com/twilfredo) for these contributions!
+
+There wasn't much progress on the upcoming third edition this month, as I've been on vacation for the past few weeks. I still have a lot of catching up to do, but I'll try my best to continue writing soon :).
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
