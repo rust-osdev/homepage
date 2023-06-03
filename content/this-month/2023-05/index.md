@@ -46,6 +46,12 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [RTIC (The hardware accelerated Rust RTOS) releases v2.0.0!](https://www.reddit.com/r/rust/comments/13xp6q9/rtic_the_hardware_accelerated_rust_rtos_releases/)
+- [My Rust OS for microcontrollers now has a dir command](https://www.reddit.com/r/rust/comments/13aittv/media_my_rust_os_for_microcontrollers_now_has_a/)
+- [First Rust Code Shows Up in the Windows 11 Kernel](https://www.thurrott.com/windows/windows-11/282995/first-rust-code-shows-up-in-the-windows-11-kernel)
+- [May Flowers Spring COSMIC Showers](https://blog.system76.com/post/may-flowers-spring-cosmic-showers/)
+- [Ironclad-Shell: a "shell" made in rust and for OS classes](https://www.reddit.com/r/rust/comments/13h1ii0/ironcladshell_a_shell_made_in_rust_and_for_os/)
+
 
 ## `rust-osdev` Projects
 
