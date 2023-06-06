@@ -1,0 +1,235 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2023-05/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: May 2023 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: May 2023</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2023-06-06">
+            Jun 06, 2023
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (May 2023)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+    ### Summary
+    <span class="maintainers">(Section written by [@author](https://github.com/author))</span>
+
+    <text>
+-->
+<p><em>No updates were proposed for this section this month.</em></p>
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://www.reddit.com/r/rust/comments/13xp6q9/rtic_the_hardware_accelerated_rust_rtos_releases/">RTIC (The hardware accelerated Rust RTOS) releases v2.0.0!</a></li>
+<li><a href="https://www.reddit.com/r/rust/comments/13aittv/media_my_rust_os_for_microcontrollers_now_has_a/">My Rust OS for microcontrollers now has a dir command</a></li>
+<li><a href="https://www.thurrott.com/windows/windows-11/282995/first-rust-code-shows-up-in-the-windows-11-kernel">First Rust Code Shows Up in the Windows 11 Kernel</a></li>
+<li><a href="https://blog.system76.com/post/may-flowers-spring-cosmic-showers/">May Flowers Spring COSMIC Showers</a></li>
+<li><a href="https://www.reddit.com/r/rust/comments/13h1ii0/ironcladshell_a_shell_made_in_rust_and_for_os/">Ironclad-Shell: a &quot;shell&quot; made in rust and for OS classes</a></li>
+<li><a href="https://onevariable.com/blog/mnemos-moment-1/">This moment in <code>mnemos</code></a>
+<ul>
+<li>An update/introduction on the current state of <code>mnemos</code>, an async-first hobby OS</li>
+</ul>
+</li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/784">uefi: Switch Rng repr from C to transparent</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/785">uefi: Make MEMORY_DESCRIPTOR_VERSION an associated constant</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/786">macros: allow to create empty cstr8/16 slices</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/783">Add Revision to uefi-raw and use it from uefi</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/790">Add Tpl to uefi-raw and use it from uefi</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/789">Add PhysicalAddress/VirtualAddress to uefi-raw and use them from uefi</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/788">cstr16: add method to get the underlying bytes</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/791">Move various memory types to uefi-raw and re-export in uefi</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/771">uefi/fs: add path and pathbuf abstraction</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/794">uefi: Clear the Vec in DevicePathBuilder::with_vec</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/796">uefi-macros: Restore entry macro tests</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/795">Add LoadedImageDevicePath protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/792">fs: add new error type</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/714">deps: bump bitflags from 1.0 to 2.1</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/797">uefi-macros: Fix entry macro with docstring</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/799">fs: implement remove_dir_all</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/802">uefi-raw: Drop dep on uefi-macros</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/803">Disable some tests on aarch64</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/804">allocator: Use appropriate memory types</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/806">Release branch</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/807">uefi: Rename FileSystemIOErrorContext to IoErrorContext</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/808">uefi: Improve fs error Display impls, drop derive_more</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/811">Move InterfaceType to uefi-raw</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/810">uefi-raw: Add table Header struct</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/814">build(deps): bump bitflags from 2.2.1 to 2.3.1</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/815">Relax bitflags dep version to 2.0.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/812">xtask: Drop an unused test file</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/805">xtask: Improve QEMU boot time</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/813">Move some runtime services types to uefi-raw</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/816">Fix and enable uefi-raw unit/doc tests</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/817">Add Time to uefi-raw and use it from uefi</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/809">uefi-raw: Add Char8/Char16</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/822">uefi: Fix use of tuples in pointer structs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/823">build(deps): bump clap from 4.2.7 to 4.3.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/821">uefi(boot_services): add <code>install_configuration_table</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/819">xtask: Add check-raw</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/818">uefi-raw: Add Update Capsule types</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/798">Download OVMF files rather than relying on distro package</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/831">Export FileInfoCreationError</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/833">Move EventType to uefi-raw</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/836">uefi: Derive Eq for Handle</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/832">Add <code>RuntimeServices</code> definition to <code>uefi-raw</code> and use it from <code>uefi</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/835">loaded_image: Add set_unload</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/834">uefi: Change file reading to read in 1 MiB chunks</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/RaitoBezarius">@RaitoBezarius</a> and <a href="https://github.com/medhefgo">@medhefgo</a> for their contributions!</p>
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/multiboot2"><code>multiboot2</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, <a href="https://github.com/phip1611">@phip1611</a>, <a href="https://github.com/robert-w-gries">@robert-w-gries</a>, <a href="https://github.com/ahmedcharles">@ahmedcharles</a>, and <a href="https://github.com/Caduser2020">@Caduser2020</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/multiboot2/pull/136">add missing functionality in multiboot2-header (finding the header, getting tags)</a></li>
+<li><a href="https://github.com/rust-osdev/multiboot2/pull/134">multiboot2: properly type DST tags</a></li>
+<li><a href="https://github.com/rust-osdev/multiboot2/pull/137">Add BasicMemoryInfo and SMBIOS tags</a></li>
+<li><a href="https://github.com/rust-osdev/multiboot2/pull/138">multiboot2: Add the end tag</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/YtvwlD">@YtvwlD</a> for their contributions!</p>
+<h3 id="vga"><a href="https://github.com/rust-osdev/vga"><code>vga</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/RKennedy9064">@RKennedy9064</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/vga/pull/32">implement Graphics1280x800x256</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/tsatke">@tsatke</a> for their contribution!</p>
+<h3 id="ovmf-prebuilt"><a href="https://github.com/rust-osdev/ovmf-prebuilt"><code>ovmf-prebuilt</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/ovmf-prebuilt/pull/1">Rework the repo to build edk2 release tags</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/nicholasbishop">@nicholasbishop</a> for this contribution!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/179">rsdp: Make whole RSDP readable</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/177">Clean up allocator_api feature</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/164">acpi: fix length of &quot;extended_area_bytes&quot; in RSDP search</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/YtvwlD">@YtvwlD</a>, <a href="https://github.com/semiviral">@semiviral</a>, and <a href="https://github.com/A0lson">@A0lson</a> for their contributions!</p>
+<h3 id="pci-types"><a href="https://github.com/rust-osdev/pci_types"><code>pci_types</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/9">add function to determine the inteerupt pin and interrupt line</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/stlankes">@stlankes</a> for their contributions!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/369">Use <code>cargo-semver-checks-action</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/mgr0dzicki">@mgr0dzicki</a> for their contributions!</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following changes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1226">Fix panics caused by misaligned pointer dereferences in &quot;Double Faults&quot; &amp; &quot;Introduction to Paging&quot;</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1219">Correcting typos and errors in French translation of Post 1</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1218">posts/06-double-faults/index: fixup deprecated fn</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/SPuntte">@SPuntte</a>, <a href="https://github.com/Firenezz">@Firenezz</a>, and <a href="https://github.com/twilfredo">@twilfredo</a> for these contributions!</p>
+<p>There wasn't much progress on the upcoming third edition this month, as I've been on vacation for the past few weeks. I still have a lot of catching up to do, but I'll try my best to continue writing soon :).</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
