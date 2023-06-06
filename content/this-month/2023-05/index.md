@@ -52,6 +52,8 @@ Please follow this template:
 - [First Rust Code Shows Up in the Windows 11 Kernel](https://www.thurrott.com/windows/windows-11/282995/first-rust-code-shows-up-in-the-windows-11-kernel)
 - [May Flowers Spring COSMIC Showers](https://blog.system76.com/post/may-flowers-spring-cosmic-showers/)
 - [Ironclad-Shell: a "shell" made in rust and for OS classes](https://www.reddit.com/r/rust/comments/13h1ii0/ironcladshell_a_shell_made_in_rust_and_for_os/)
+- [This moment in `mnemos`](https://onevariable.com/blog/mnemos-moment-1/)
+  - An update/introduction on the current state of `mnemos`, an async-first hobby OS
 
 
 ## `rust-osdev` Projects
