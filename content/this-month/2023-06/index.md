@@ -39,6 +39,8 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
+- [Redox OS elects its first Board of Directors](https://www.redox-os.org/news/board-meeting-2023-06-21/)
+
 <!--
 Please follow this template:
 
