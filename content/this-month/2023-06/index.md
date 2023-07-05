@@ -52,6 +52,23 @@ Please follow this template:
 
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`] organization.
 
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+The [multiboot2](https://crates.io/crates/multiboot2) and the [multiboot2-header](https://crates.io/crates/multiboot2)
+crates got a big overhaul. The list of new features includes but is not limited to:
+- use DSTs for tags where applicable ([#134](https://github.com/rust-osdev/multiboot2/pull/134))
+- model the MBI as DST ([#155](https://github.com/rust-osdev/multiboot2/pull/155))
+- add a runtime builder for an MBI ([#133](https://github.com/rust-osdev/multiboot2/pull/133)) \
+  Huge thanks to [YtvwlD / Niklas](https://github.com/YtvwlD) for this greate external contribution
+- added an integration test including a multiboot2 chainloader for better test coverage ([#129](https://github.com/rust-osdev/multiboot2/pull/129))
+- added miri to the CI for more memory safety ([#128](https://github.com/rust-osdev/multiboot2/pull/128))
+- several fixes and small improvements
+
+`multiboot2` was updated from `0.15.1` to `0.16.0` and `multiboot2-header` was updated from `0.2.0` to `0.3.0`. Both 
+releases come with a large amount of [breaking changes](https://github.com/rust-osdev/multiboot2/blob/main/Changelog.md). 
+However, after a sensible consideration, they are all worth it for a more streamlined API and more memory safety.
+
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
 <!--
