@@ -165,7 +165,18 @@ Thanks to [@tsatke](https://github.com/tsatke) for their contribution!
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 <span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
 
-The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. In September, the crate was [updated to Rust's new inline assembly](https://github.com/rust-osdev/uefi-rs/pull/167) implemenation. We also published version `0.6.0` of the crate, including all the improvements added in the past two months.
+The `uefi` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), 
+the successor to the BIOS firmware. It empowers everyone to write EFI-
+applications with Rust in a convenient way, such as your own bootloader.
+
+In June, we added multiple small improvements for developers using 
+[Nix(OS)](https://nixos.org) and simplifications for working with device 
+paths. Additionally, we moved more definitions to the new `uefi-raw` crate.
+
+Furthermore, we'd like to mention the new high-level [File-System API](https://docs.rs/uefi/0.24.0/uefi/fs/index.html). 
+It was [merged in April](https://github.com/rust-osdev/uefi-rs/issues/747) 
+actually, but not mentioned in this newsletter so far. Feel free to give it a 
+try!
 
 We merged the following PRs this month:
 
