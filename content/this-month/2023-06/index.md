@@ -129,6 +129,81 @@ Thanks to [@YtvwlD](https://github.com/YtvwlD) and [@scholzp](https://github.com
 
 </details>
 
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following changes this month:
+
+- [Change Star::write() to use checked subtractions](https://github.com/rust-osdev/x86_64/pull/422)
+- [Bump bitflags to 2.3.2](https://github.com/rust-osdev/x86_64/pull/426)
+- [add workaround for recursive page tables with recursive index 511](https://github.com/rust-osdev/x86_64/pull/425)
+- [Fix off-by-one in documentation](https://github.com/rust-osdev/x86_64/pull/427)
+
+Thanks to [@Qix-](https://github.com/Qix-), [@grant0417](https://github.com/grant0417), and [@Egggggg](https://github.com/Egggggg) for their contributions!
+
+
+### [`vga`](https://github.com/rust-osdev/vga)
+<span class="maintainers">Maintained by [@RKennedy9064](https://github.com/RKennedy9064)</span>
+
+The work-in-progress `vga` crate allows the configuration of the VGA hardware, e.g. switching from text-based mode to a pixel-based graphics mode. This month, we merged the following pull request:
+
+- [implement a draw_rect function](https://github.com/rust-osdev/vga/pull/35)
+
+Thanks to [@tsatke](https://github.com/tsatke) for their contribution!
+
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. In September, the crate was [updated to Rust's new inline assembly](https://github.com/rust-osdev/uefi-rs/pull/167) implemenation. We also published version `0.6.0` of the crate, including all the improvements added in the past two months.
+
+We merged the following PRs this month:
+
+- [Release uefi-raw-0.2.0, uefi-0.22.0, and uefi-services-0.19.0](https://github.com/rust-osdev/uefi-rs/pull/840)
+- [Fix various CI failures](https://github.com/rust-osdev/uefi-rs/pull/844)
+- [uefi: Fix wrong install_configuration_table() signature](https://github.com/rust-osdev/uefi-rs/pull/843)
+- [Release uefi-0.23.0 and uefi-services-0.20.0](https://github.com/rust-osdev/uefi-rs/pull/846)
+- [build(deps): bump tempfile from 3.5.0 to 3.6.0](https://github.com/rust-osdev/uefi-rs/pull/848)
+- [device_path: add more convenience (part 2)](https://github.com/rust-osdev/uefi-rs/pull/849)
+- [Make UEFI shell protocols testable](https://github.com/rust-osdev/uefi-rs/pull/793)
+- [Add DevicePathProtocol to uefi-raw](https://github.com/rust-osdev/uefi-rs/pull/850)
+- [Integration test for boot service function load_image](https://github.com/rust-osdev/uefi-rs/pull/826)
+- [cargo: Use `[workspace.package]` to deduplicate metadata](https://github.com/rust-osdev/uefi-rs/pull/853)
+- [uefi: Update MSRV policy language](https://github.com/rust-osdev/uefi-rs/pull/852)
+- [uefi: Remove some uses of MaybeUninit in BootServices](https://github.com/rust-osdev/uefi-rs/pull/854)
+- [nix: add more convenience for Nix/NixOS users](https://github.com/rust-osdev/uefi-rs/pull/828)
+- [ci: Fix developer_productivity push error](https://github.com/rust-osdev/uefi-rs/pull/855)
+- [uefi-raw: Add BootServices table](https://github.com/rust-osdev/uefi-rs/pull/856)
+- [uefi: Add raw pointer Event/Handle methods](https://github.com/rust-osdev/uefi-rs/pull/858)
+- [uefi: Make BootServices fn ptrs unsafe](https://github.com/rust-osdev/uefi-rs/pull/857)
+- [xtask: add "cargo xtask fmt" (and formatting for nix and yml files)](https://github.com/rust-osdev/uefi-rs/pull/757)
+- [build(deps): bump ureq from 2.6.2 to 2.7.0](https://github.com/rust-osdev/uefi-rs/pull/860)
+- [uefi-raw: Fix arg type in connect_controller](https://github.com/rust-osdev/uefi-rs/pull/862)
+- [uefi: Improve support for null protocol interfaces](https://github.com/rust-osdev/uefi-rs/pull/861)
+- [uefi: Make `BootServices` a wrapper around `uefi_raw::table::boot::BootServices`](https://github.com/rust-osdev/uefi-rs/pull/863)
+- [uefi-raw: Add common derives to `EventType`](https://github.com/rust-osdev/uefi-rs/pull/866)
+- [xtask: Improve an error location in check-raw](https://github.com/rust-osdev/uefi-rs/pull/867)
+- [uefi-raw: Add ConfigurationTable](https://github.com/rust-osdev/uefi-rs/pull/868)
+- [uefi-raw: Add SimpleTextInputProtocol and SimpleTextOutputProtocol](https://github.com/rust-osdev/uefi-rs/pull/869)
+- [uefi-raw: Add SystemTable](https://github.com/rust-osdev/uefi-rs/pull/870)
+- [uefi-raw: Fill in a few more BootServices function pointers](https://github.com/rust-osdev/uefi-rs/pull/865)
+- [uefi-raw: derive all the things](https://github.com/rust-osdev/uefi-rs/pull/871)
+- [device_path: add more convenience (part 1)](https://github.com/rust-osdev/uefi-rs/pull/827)
+- [Release uefi-raw-0.3.0, uefi-0.24.0, uefi-services-0.21.0](https://github.com/rust-osdev/uefi-rs/pull/873)
+- [uefi-raw: Add LoadedImageProtocol](https://github.com/rust-osdev/uefi-rs/pull/874)
+- [uefi: Check for null pointer in config_table](https://github.com/rust-osdev/uefi-rs/pull/875)
+- [test-runner: Simplify an iterator chain](https://github.com/rust-osdev/uefi-rs/pull/878)
+- [build(deps): bump itertools from 0.10.5 to 0.11.0](https://github.com/rust-osdev/uefi-rs/pull/876)
+- [uefi: Use uefi_raw's `SimpleTextInputProtocol` in `Input`](https://github.com/rust-osdev/uefi-rs/pull/879)
+- [uefi: Use uefi_raw's `SimpleTextOutputProtocol` in `Output`](https://github.com/rust-osdev/uefi-rs/pull/881)
+- [uefi: Use uefi_raw's `LoadedImageProtocol` to implement `LoadedImage`](https://github.com/rust-osdev/uefi-rs/pull/882)
+- [uefi: Fix warnings when compiling without the alloc feature](https://github.com/rust-osdev/uefi-rs/pull/880)
+- [uefi-raw: Add `SimplePointerProtocol`](https://github.com/rust-osdev/uefi-rs/pull/884)
+- [uefi: Use uefi_raw's SystemTable to implement SystemTable](https://github.com/rust-osdev/uefi-rs/pull/883)
+
+Thanks to [@medhefgo](https://github.com/medhefgo) for their contribution!
 
 
 ## Other Projects
