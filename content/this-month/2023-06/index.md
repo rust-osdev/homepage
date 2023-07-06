@@ -97,17 +97,38 @@ However, after a sensible consideration, they are all worth it for a more stream
 
 [`rust-osdev`]: https://github.com/rust-osdev/about
 
-<!--
-    Please use the following template:
+<details>
 
-    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
-    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+<summary>Merged pull requests:</summary>
 
-    The `repo_name` crate ...<<short introduction>>...
+- [Add a builder to multiboot2](https://github.com/rust-osdev/multiboot2/pull/133)
+- [treewide: code improvements and other stuff](https://github.com/rust-osdev/multiboot2/pull/141)
+- [various fixes + cleanup + bump crate versions](https://github.com/rust-osdev/multiboot2/pull/143)
+- [streamline default derives](https://github.com/rust-osdev/multiboot2/pull/144)
+- [tree-wide: rename builder structs (remove Multiboot2 prefix)](https://github.com/rust-osdev/multiboot2/pull/146)
+- [tree-wide: streamline default derives (also Hash everywhere)](https://github.com/rust-osdev/multiboot2/pull/147)
+- [workspace: use workspace dependencies](https://github.com/rust-osdev/multiboot2/pull/148)
+- [fix memory issue in memory-map](https://github.com/rust-osdev/multiboot2/pull/149)
+- [multiboot2: memory-map: derive Eq + uefi-raw@0.3.0](https://github.com/rust-osdev/multiboot2/pull/150)
+- [multiboot2: more tag name streamlining](https://github.com/rust-osdev/multiboot2/pull/151)
+- [multiboot2: fix memory issue in boxed_dst_tag](https://github.com/rust-osdev/multiboot2/pull/152)
+- [multiboot2: builder: add terminating null-bytes to tags that hold a string](https://github.com/rust-osdev/multiboot2/pull/153)
+- [multiboot2: load: remove odd offset thingy](https://github.com/rust-osdev/multiboot2/pull/142)
+- [various cleanups](https://github.com/rust-osdev/multiboot2/pull/154)
+- [multiboot2: model MBI as DST](https://github.com/rust-osdev/multiboot2/pull/155)
+- [various fixes](https://github.com/rust-osdev/multiboot2/pull/157)
+- [builder: use new abstraction to guarantee alignment](https://github.com/rust-osdev/multiboot2/pull/156)
+- [Add Integration Test](https://github.com/rust-osdev/multiboot2/pull/129)
+- [multiboot2: create DSTs: hopefully better memory fix](https://github.com/rust-osdev/multiboot2/pull/158)
+- [integration-test: cargo update](https://github.com/rust-osdev/multiboot2/pull/159)
+- [ci: run miri + adjustments for miri](https://github.com/rust-osdev/multiboot2/pull/128)
+- [ci: integrationtest: use magic nix cache](https://github.com/rust-osdev/multiboot2/pull/161)
+- [Make InformationBuilder adhere the API guidelines.](https://github.com/rust-osdev/multiboot2/pull/162)
 
-    We merged the following changes this month:
-    <<changelog, either in list or text form>>
--->
+Thanks to [@YtvwlD](https://github.com/YtvwlD) and [@scholzp](https://github.com/scholzp) for their contributions!
+
+</details>
+
 
 
 ## Other Projects
