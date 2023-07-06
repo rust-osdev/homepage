@@ -162,7 +162,16 @@ However, after a sensible consideration, they are all worth it for a more stream
 <p>Thanks to <a href="https://github.com/tsatke">@tsatke</a> for their contribution!</p>
 <h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
 <p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
-<p>The <code>uefi-rs</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. In September, the crate was <a href="https://github.com/rust-osdev/uefi-rs/pull/167">updated to Rust's new inline assembly</a> implemenation. We also published version <code>0.6.0</code> of the crate, including all the improvements added in the past two months.</p>
+<p>The <code>uefi</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, 
+the successor to the BIOS firmware. It empowers everyone to write EFI-
+applications with Rust in a convenient way, such as your own bootloader.</p>
+<p>In June, we added multiple small improvements for developers using 
+<a href="https://nixos.org">Nix(OS)</a> and simplifications for working with device 
+paths. Additionally, we moved more definitions to the new <code>uefi-raw</code> crate.</p>
+<p>Furthermore, we'd like to mention the new high-level <a href="https://docs.rs/uefi/0.24.0/uefi/fs/index.html">File-System API</a>. 
+It was <a href="https://github.com/rust-osdev/uefi-rs/issues/747">merged in April</a> 
+actually, but not mentioned in this newsletter so far. Feel free to give it a 
+try!</p>
 <p>We merged the following PRs this month:</p>
 <ul>
 <li><a href="https://github.com/rust-osdev/uefi-rs/pull/840">Release uefi-raw-0.2.0, uefi-0.22.0, and uefi-services-0.19.0</a></li>
