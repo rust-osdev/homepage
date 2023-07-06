@@ -21,6 +21,25 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
     general structure of these posts.
 -->
 
+## Announcements, News, and Blog Posts
+
+Here we collect news, blog posts, etc. related to OS development in Rust.
+
+- [Redox OS elects its first Board of Directors](https://www.redox-os.org/news/board-meeting-2023-06-21/)
+- [Frida 16.1.0 Released](https://frida.re/news/2023/06/23/frida-16-1-0-released/)
+- [Intercepting Allocations with the Global Allocator](https://bd103.github.io/blog/2023-06-27-global-allocators/)
+- [Building an out-of-tree Rust Kernel Module Part Three](https://blog.rnstlr.ch/building-an-out-of-tree-rust-kernel-module-part-three.html)
+- Discussion: [How hard would it be to port the Rust toolchain to a new non-POSIX OS written in Rust and get it to host its own development?](https://www.reddit.com/r/rust/comments/14qvu98/how_hard_would_it_be_to_port_the_rust_toolchain/)
+- Discussion: [Will there be fewer jailbreaks in the future if operating systems like iOS start adopting rust?](https://www.reddit.com/r/rust/comments/14k49ho/will_there_be_fewer_jailbreaks_in_the_future_if/)
+
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+
+
 ## Infrastructure and Tooling
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
@@ -34,19 +53,8 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
     <text>
 -->
 
+_No updates were proposed for this section this month._
 
-## Announcements, News, and Blog Posts
-
-Here we collect news, blog posts, etc. related to OS development in Rust.
-
-- [Redox OS elects its first Board of Directors](https://www.redox-os.org/news/board-meeting-2023-06-21/)
-
-<!--
-Please follow this template:
-
-- [Title](https://example.com)
-  - (optional) Some additional context
--->
 
 ## `rust-osdev` Projects
 
