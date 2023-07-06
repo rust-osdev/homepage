@@ -79,7 +79,7 @@ After a lot of back and forth, we decided to [provide both options](https://gith
 Note that there is also some ongoing discussion [about a potential `VolatileCell` type](https://github.com/rust-osdev/volatile/issues/31) to wrap values in-place. Most implementations of such a type would require support from the Rust compiler, which [needs an RFC](https://github.com/rust-lang/unsafe-code-guidelines/issues/411). However, there is one [promising design based on zero-sized types and proc-macros](https://github.com/rust-osdev/volatile/issues/31#issuecomment-1606044353) by [@Freax13](https://github.com/Freax13) that should not require any new language features. We will continue to investigate.
 
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
-<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods), [@phip1611](https://github.com/phip1611), [@robert-w-gries](https://github.com/robert-w-gries), and [@ahmedcharles](https://github.com/ahmedcharles)</span>
 
 The [multiboot2](https://crates.io/crates/multiboot2) and the [multiboot2-header](https://crates.io/crates/multiboot2)
 crates got a big overhaul. The list of new features includes but is not limited to:
