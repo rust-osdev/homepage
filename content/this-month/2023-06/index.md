@@ -52,6 +52,32 @@ Please follow this template:
 
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`] organization.
 
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+
+
+### [`volatile`](https://github.com/rust-osdev/volatile)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `volatile` crate provides a safe wrapper type for implementing volatile read and write operations. This is useful for accessing memory regions that have side-effects, such as memory-mapped hardware registers or framebuffers.
+
+Unfortunately, the design crate had a [soundness issue](https://github.com/rust-osdev/volatile/pull/13#issuecomment-842455552) because it used reference types for accessing the volatile memory. This is problematic because the Rust compiler marks references are _"dereferencable"_, which allows LLVM to insert spurious read operations. This is fine for accessing "normal" memory, but it can lead to correctness issues when used in combination with memory-mapped device registers. These registers look like normal memory, but they are actually accessing some device-specific registers, which might change at any time. So they might change between spurious reads, which violates the assumptions of LLVM and can lead to undefined behavior.
+
+To solve this issue, we started [a full redesign of the crate](https://github.com/rust-osdev/volatile/pull/22) that uses raw pointers only. This solves the issue because raw pointers are not considered _"dereferencable"_, so LLVM is not allowed to insert spurious reads. While we started working on the new design more than 2 years ago, we didn't merge it until this month because we weren't sure about the implementation details. The main discussion point was whether we should treat the proposed `VolatilePointer` type like Rust's reference types or like Rust's raw pointer types. The difference is that raw pointers implement the `Copy` trait, but are not `Send` to prevent aliasing. References, on the other hand, can safely implement `Send` because they're only `Copy` if the reference is read-only.
+
+After a lot of back and forth, we decided to [provide both options](https://github.com/rust-osdev/volatile/pull/29) and finally publish [**`volatile v0.5`**](https://docs.rs/volatile/0.5.1/volatile/index.html). So the new design has two wrapper types, [`VolatilePtr`](https://docs.rs/volatile/0.5.1/volatile/struct.VolatilePtr.html) (behaves like a raw pointer) and [`VolatileRef`](https://docs.rs/volatile/0.5.1/volatile/struct.VolatileRef.html) (behaves like a reference). We hope that we support most use cases this way!
+
+Note that there is also some ongoing discussion [about a potential `VolatileCell` type](https://github.com/rust-osdev/volatile/issues/31) to wrap values in-place. Most implementations of such a type would require support from the Rust compiler, which [needs an RFC](https://github.com/rust-lang/unsafe-code-guidelines/issues/411). However, there is one [promising design based on zero-sized types and proc-macros](https://github.com/rust-osdev/volatile/issues/31#issuecomment-1606044353) by [@Freax13](https://github.com/Freax13) that should not require any new language features. We will continue to investigate.
+
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 <span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
 
