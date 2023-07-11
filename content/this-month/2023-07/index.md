@@ -52,6 +52,16 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`] organization.
 
+
+### [`SFBdragon/talloc`](https://github.com/SFBdragon/talloc)
+<span class="maintainers">(Section written by [@SFBdragon](https://github.com/SFBdragon))</span>
+
+The `talloc` crate is a fast, flexible, and easy to use `no-std` memory allocator.
+
+The first version has just been released! It's faster than `galloc` and much more consistent, the next best alternative on crates.io, and makes a handful of improvements (e.g. smaller minimum allocation size) and extra features (e.g. arena resizing).
+
+I hope you find it useful!
+
 <!--
     Please use the following template:
 
