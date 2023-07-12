@@ -64,7 +64,13 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
 
+The [multiboot2](https://crates.io/crates/multiboot2) was bumped from `0.16.0` 
+to `0.17.0`. The new release includes the builder pattern for the MBI builder 
+and the ability to use custom memory types in the memory map in addition to 
+pre-defined ones. For more info, look [here](https://docs.rs/multiboot2/0.17.0/multiboot2/struct.MemoryAreaTypeId.html).
 
 
 ## Other Projects
