@@ -53,12 +53,19 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`] organization.
 
 
-### [`SFBdragon/talloc`](https://github.com/SFBdragon/talloc)
+### [`SFBdragon/talc`](https://github.com/SFBdragon/talc)
 <span class="maintainers">(Section written by [@SFBdragon](https://github.com/SFBdragon))</span>
 
-The `talloc` crate is a fast, flexible, and easy to use `no-std` memory allocator.
+`Talc` is a recently published, fast, and flexible `no-std` memory allocator. 
+* It's the fastest allocator I've tested as of yet (galloc falls short, buddy_alloc is close but lacks heap efficiency).
+* It features a OOM-handling component with dynamic arena resizing.
 
-The first version has just been released! It's faster than `galloc` and much more consistent, the next best alternative on crates.io, and makes a handful of improvements (e.g. smaller minimum allocation size) and extra features (e.g. arena resizing).
+By the time you're seeing this, hopefully v2 should be out or coming soon:
+* The OOM handler system has been made more powerful.
+* `lock_api` is used to allow for custom allocator synchronization.
+* The internals and API has been improved to pass miri's stacked borrows validation.
+* You can now move the allocator struct around freely.
+* And more :3
 
 I hope you find it useful!
 
