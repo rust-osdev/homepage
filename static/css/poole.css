@@ -378,6 +378,10 @@ tbody tr:nth-child(odd) th {
   margin-top: 0;
 }
 
+.post-summary {
+  margin-bottom: 2rem;
+}
+
 /* Meta data line below post title */
 .post-date {
   display: block;
