@@ -117,6 +117,14 @@ I also added another syscall to poll multiple handles at the same time, to read 
 
 The VGA driver, the filesystem, and the editor got a few significant [improvements](https://github.com/vinc/moros/blob/trunk/CHANGELOG.md) as well, to support downloading and reading larger files.
 
+### [`valibali/cluu`](https://github.com/valibali/cluu)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+There is a new project featured in our [Showcase](@/showcase/_index.md) series:
+
+- [**CLUU (Compact Lightweight Unix Utopia)**](@/showcase/cluu/index.md) by [@valibali](https://github.com/valibali)
+
+
 
 ## Join Us?
 
