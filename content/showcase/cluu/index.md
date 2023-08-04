@@ -1,12 +1,11 @@
 +++
-title = "CLUU"
+title = "CLUU (Compact Lightweight Unix Utopia)"
 date = 2023-06-14
 
 [extra]
 authors = ["valibali"]
 +++
 
-# CLUU (Compact Lightweight Unix Utopia)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/valibali/cluu/blob/master/LICENSE) [![Documentation](https://img.shields.io/badge/documentation-RUSTDOCS-blue.svg)](https://valibali.github.io/cluu/) [![Repository](https://img.shields.io/badge/repository-GitHub-green.svg)](https://github.com/valibali/cluu)
 
