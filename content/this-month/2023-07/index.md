@@ -32,6 +32,14 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Mutex without lock, Queue without push: cancel safety in lilos](https://cliffle.com/blog/lilos-cancel-safety/)
+- [Kani 0.32.0 has been released!](https://www.reddit.com/r/KaniRustVerifier/comments/14xytrg/kani_0320_has_been_released/) (verification tool for unsafe code blocks)
+- [bwrap: A fast, lightweight, embedded environment-friendly Rust library for wrapping text](https://www.reddit.com/r/rust/comments/151usd5/bwrap_a_fast_lightweight_embedded/)
+- ESP32 Standard Library Embedded Rust
+  - [GPIO Control](https://apollolabsblog.hashnode.dev/esp32-standard-library-embedded-rust-gpio-control)
+  - [UART Communication](https://apollolabsblog.hashnode.dev/esp32-standard-library-embedded-rust-uart-communication)
+  - [I2C Communication](https://apollolabsblog.hashnode.dev/esp32-standard-library-embedded-rust-i2c-communication)
+- [`allocator_api2`](https://docs.rs/allocator-api2/latest/allocator_api2/) crate to use Rust's nightly allocator API on stable Rust
 
 ## Infrastructure and Tooling
 
@@ -40,19 +48,19 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 <!--
     Please use the following template:
 
-    ### Summary
-    <span class="maintainers">(Section written by [@author](https://github.com/author))</span>
-
-    <text>
+- [Title](https://example.com)
+  - (optional) Some additional context
 -->
 
+- [Enable `chkstk`/`alloca` intrinsics on `x86_64-unknown-uefi`](https://github.com/rust-lang/compiler-builtins/pull/541)
+- [Add `riscv64gc-unknown-hermit` target](https://github.com/rust-lang/rust/pull/114004)
+- [Add `x86_64-unikraft-linux-musl` target](https://github.com/rust-lang/rust/pull/113411)
+- [Optimize `AtomicBool` for target that don't support byte-sized atomics](https://github.com/rust-lang/rust/pull/114034)
 
 
 ## `rust-osdev` Projects
 
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`](https://github.com/rust-osdev/about) organization.
-
-
 
 <!--
     Please use the following template:
