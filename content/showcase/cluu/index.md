@@ -6,8 +6,11 @@ date = 2023-06-14
 authors = ["valibali"]
 +++
 
+<div class="badges">
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/valibali/cluu/blob/master/LICENSE) [![Documentation](https://img.shields.io/badge/documentation-RUSTDOCS-blue.svg)](https://valibali.github.io/cluu/) [![Repository](https://img.shields.io/badge/repository-GitHub-green.svg)](https://github.com/valibali/cluu)
+
+</div>
 
 CLUU is a hobby operating system being written in Rust - in the active development phase - targeting x86_64 and with plans to support aarch64 in the future. The project is made for **fun and joy**, drawing inspiration from various operating systems and projects while incorporating unique approaches and ideas.
 

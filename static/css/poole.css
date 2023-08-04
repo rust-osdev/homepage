@@ -390,6 +390,19 @@ tbody tr:nth-child(odd) th {
   color: #9a9a9a;
 }
 
+.post-summary .badges {
+  display: none;
+}
+
+.badges {
+  margin-bottom: 0;
+}
+
+.badges img {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
 /* Related posts */
 .related {
   padding-top: 2rem;
