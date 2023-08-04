@@ -53,21 +53,6 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`] organization.
 
 
-### [`SFBdragon/talc`](https://github.com/SFBdragon/talc)
-<span class="maintainers">(Section written by [@SFBdragon](https://github.com/SFBdragon))</span>
-
-`Talc` is a recently published, fast, and flexible `no-std` memory allocator. 
-* It's the fastest allocator I've tested as of yet (galloc falls short, buddy_alloc is close but lacks heap efficiency).
-* It features a OOM-handling component with dynamic arena resizing.
-
-By the time you're seeing this, hopefully v2 should be out or coming soon:
-* The OOM handler system has been made more powerful.
-* `lock_api` is used to allow for custom allocator synchronization.
-* The internals and API has been improved to pass miri's stacked borrows validation.
-* You can now move the allocator struct around freely.
-* And more :3
-
-I hope you find it useful!
 
 <!--
     Please use the following template:
@@ -103,6 +88,23 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
     ...<<your project updates>>...
 -->
+
+
+### [`SFBdragon/talc`](https://github.com/SFBdragon/talc)
+<span class="maintainers">(Section written by [@SFBdragon](https://github.com/SFBdragon))</span>
+
+`Talc` is a recently published, fast, and flexible `no-std` memory allocator. 
+* It's the fastest allocator I've tested as of yet (galloc falls short, buddy_alloc is close but lacks heap efficiency).
+* It features a OOM-handling component with dynamic arena resizing.
+
+By the time you're seeing this, hopefully v2 should be out or coming soon:
+* The OOM handler system has been made more powerful.
+* `lock_api` is used to allow for custom allocator synchronization.
+* The internals and API has been improved to pass miri's stacked borrows validation.
+* You can now move the allocator struct around freely.
+* And more :3
+
+I hope you find it useful!
 
 ### [`vinc/moros`](https://github.com/vinc/moros)
 <span class="maintainers">(Section written by [@vinc](https://github.com/vinc))</span>
