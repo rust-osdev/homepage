@@ -11,6 +11,11 @@ authors = ["valibali"]
 
 CLUU is a hobby operating system being written in Rust - in the active development phase - targeting x86_64 and with plans to support aarch64 in the future. The project is made for **fun and joy**, drawing inspiration from various operating systems and projects while incorporating unique approaches and ideas.
 
+<!-- more -->
+
+<!-- showcase-intro -->
+
+
 ## Motivation
 
 CLUU is driven by the motivation to explore operating system development in a powerful language like Rust. The project seeks to break away from the traditional approach using languages like C, which can sometimes feel limiting or mundane. With CLUU, the goal is to embark on a learning journey and have fun in the process. Contributions from the community are highly encouraged and welcomed.
