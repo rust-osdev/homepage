@@ -104,6 +104,17 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`vinc/moros`](https://github.com/vinc/moros)
+<span class="maintainers">(Section written by [@vinc](https://github.com/vinc))</span>
+
+[MOROS](http://moros.cc) is a text-based hobby operating system targeting computers with a x86-64 architecture and a BIOS.
+
+Since last month's [release](https://github.com/vinc/moros/releases/tag/v0.10.0), I focused on adding new syscalls to interact with [network sockets](https://github.com/vinc/moros/pull/512) from userspace. The DNS and HTTP clients are now using the new UDP and TCP sockets.
+
+I also added another syscall to poll multiple handles at the same time, to read from the console and a socket, improving the main network tool that can now be used as a simple chat program.
+
+The VGA driver, the filesystem, and the editor got a few significant [improvements](https://github.com/vinc/moros/blob/trunk/CHANGELOG.md) as well, to support downloading and reading larger files.
+
 
 ## Join Us?
 
