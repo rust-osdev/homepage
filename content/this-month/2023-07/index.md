@@ -74,6 +74,74 @@ to `0.17.0`. The new release includes the builder pattern for the MBI builder
 and the ability to use custom memory types in the memory map in addition to 
 pre-defined ones. For more info, look [here](https://docs.rs/multiboot2/0.17.0/multiboot2/struct.MemoryAreaTypeId.html).
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. We merged the following PRs this month:
+
+- [Cargo.lock: Update proc-macro2 to fix nightly CI](https://github.com/rust-osdev/uefi-rs/pull/885)
+- [Return a SimpleFileSystem from BootServices::get_image_file_system](https://github.com/rust-osdev/uefi-rs/pull/886)
+- [uefi-raw: Derive Ord, PartialOrd, and Hash for all newtype enums](https://github.com/rust-osdev/uefi-rs/pull/887)
+- [Add `GraphicsOutputProtocol` to `uefi_raw` and use it from `uefi`](https://github.com/rust-osdev/uefi-rs/pull/888)
+- [uefi: Use uefi_raw's SimplePointerProtocol to implement Pointer](https://github.com/rust-osdev/uefi-rs/pull/889)
+- [build(deps): bump regex from 1.8.1 to 1.9.0](https://github.com/rust-osdev/uefi-rs/pull/890)
+- [Fix target_arch name: i386 -> x86](https://github.com/rust-osdev/uefi-rs/pull/891)
+- [Add some uefi-raw links/badges](https://github.com/rust-osdev/uefi-rs/pull/892)
+- [Fix a new lint in 1.71](https://github.com/rust-osdev/uefi-rs/pull/894)
+- [Add raw serial protocol and use it in `uefi`](https://github.com/rust-osdev/uefi-rs/pull/897)
+- [Add raw disk protocols and use them in `uefi`](https://github.com/rust-osdev/uefi-rs/pull/895)
+- [uefi: Change try_exists to return FileSystemResult<bool>](https://github.com/rust-osdev/uefi-rs/pull/898)
+- [dependabot: Enable updates for Github Actions](https://github.com/rust-osdev/uefi-rs/pull/900)
+- [Rework `FileSystem::copy` to operate on 1MiB chunks](https://github.com/rust-osdev/uefi-rs/pull/899)
+- [build(deps): bump crate-ci/typos from 1.13.20 to 1.16.1](https://github.com/rust-osdev/uefi-rs/pull/902)
+- [ci: Add merge_group trigger](https://github.com/rust-osdev/uefi-rs/pull/903)
+- [build(deps): bump cachix/install-nix-action from 20 to 22](https://github.com/rust-osdev/uefi-rs/pull/901)
+- [add event to smp](https://github.com/rust-osdev/uefi-rs/pull/907)
+
+Thanks to [@devsnek](https://github.com/devsnek) for their contribution!
+
+
+### [`xhci`](https://github.com/rust-osdev/xhci)
+<span class="maintainers">Maintained by [@toku-sa-n](https://github.com/toku-sa-n)</span>
+
+The `xhci` crate provides types of xHCI structures, such as Registers and TRBs. We merged the following PRs this month:
+
+- [Switch Clippy runner on CI](https://github.com/rust-osdev/xhci/pull/156)
+- [Fix wrong calculation of data_buffer_pointer of transfer::Normal](https://github.com/rust-osdev/xhci/pull/154)
+- [Release 0.9.2](https://github.com/rust-osdev/xhci/pull/157)
+
+Thanks to [@lemolatoon](https://github.com/lemolatoon) for their contribution!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PR this month:
+
+- [Add `Descriptor::tss_segment_unchecked`](https://github.com/rust-osdev/x86_64/pull/428)
+
+Thanks to [@SamZhang3](https://github.com/SamZhang3) for their contribution!
+
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we released a new patch version to fix the build on the latest nightlies:
+
+- [Run `cargo update` to fix build on nightly](https://github.com/rust-osdev/bootloader/pull/385)
+- [Release `v0.11.4`](https://github.com/rust-osdev/bootloader/pull/386)
+
+
+### [`ovmf-prebuilt`](https://github.com/rust-osdev/ovmf-prebuilt)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `ovmf-prebuilt` project provides pre-built [edk2](https://github.com/tianocore/edk2) releases to make it easier to set up OVMF. We merged the following improvement this month:
+
+- [Dockerfile: use QemuBuild.py for aarch64 build](https://github.com/rust-osdev/ovmf-prebuilt/pull/2)
+
+Thanks to [@nicholasbishop](https://github.com/nicholasbishop) for their contribution!
 
 ## Other Projects
 
