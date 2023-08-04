@@ -50,7 +50,7 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 
 ## `rust-osdev` Projects
 
-In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`] organization.
+In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`](https://github.com/rust-osdev/about) organization.
 
 
 
