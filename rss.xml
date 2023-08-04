@@ -7,13 +7,32 @@
         <generator>Zola</generator>
         <language>en</language>
         <atom:link href="https://rust-osdev.com/rss.xml" rel="self" type="application/rss+xml"/>
-        <lastBuildDate>Thu, 06 Jul 2023 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Fri, 04 Aug 2023 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>This Month in Rust OSDev: July 2023</title>
+            <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
+            <link>https://rust-osdev.com/this-month/2023-07/</link>
+            <guid>https://rust-osdev.com/this-month/2023-07/</guid>
+            <description>&lt;p&gt;Welcome to a new issue of &lt;em&gt;&amp;quot;This Month in Rust OSDev&amp;quot;&lt;&#x2F;em&gt;. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.&lt;&#x2F;p&gt;
+</description>
+        </item>
         <item>
             <title>This Month in Rust OSDev: June 2023</title>
             <pubDate>Thu, 06 Jul 2023 00:00:00 +0000</pubDate>
             <link>https://rust-osdev.com/this-month/2023-06/</link>
             <guid>https://rust-osdev.com/this-month/2023-06/</guid>
             <description>&lt;p&gt;Welcome to a new issue of &lt;em&gt;&amp;quot;This Month in Rust OSDev&amp;quot;&lt;&#x2F;em&gt;. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>CLUU (Compact Lightweight Unix Utopia)</title>
+            <pubDate>Wed, 14 Jun 2023 00:00:00 +0000</pubDate>
+            <link>https://rust-osdev.com/showcase/cluu/</link>
+            <guid>https://rust-osdev.com/showcase/cluu/</guid>
+            <description>&lt;div class=&quot;badges&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;valibali&#x2F;cluu&#x2F;blob&#x2F;master&#x2F;LICENSE&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;license-MIT-blue.svg&quot; alt=&quot;License&quot; &#x2F;&gt;&lt;&#x2F;a&gt; &lt;a href=&quot;https:&#x2F;&#x2F;valibali.github.io&#x2F;cluu&#x2F;&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;documentation-RUSTDOCS-blue.svg&quot; alt=&quot;Documentation&quot; &#x2F;&gt;&lt;&#x2F;a&gt; &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;valibali&#x2F;cluu&quot;&gt;&lt;img src=&quot;https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;repository-GitHub-green.svg&quot; alt=&quot;Repository&quot; &#x2F;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;CLUU is a hobby operating system being written in Rust - in the active development phase - targeting x86_64 and with plans to support aarch64 in the future. The project is made for &lt;strong&gt;fun and joy&lt;&#x2F;strong&gt;, drawing inspiration from various operating systems and projects while incorporating unique approaches and ideas.&lt;&#x2F;p&gt;
 </description>
         </item>
         <item>

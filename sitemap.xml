@@ -10,6 +10,10 @@
         <loc>https://rust-osdev.com/showcase/</loc>
     </url>
     <url>
+        <loc>https://rust-osdev.com/showcase/cluu/</loc>
+        <lastmod>2023-06-14</lastmod>
+    </url>
+    <url>
         <loc>https://rust-osdev.com/showcase/rusty-hermit/</loc>
         <lastmod>2021-01-22</lastmod>
     </url>
@@ -168,5 +172,9 @@
     <url>
         <loc>https://rust-osdev.com/this-month/2023-06/</loc>
         <lastmod>2023-07-06</lastmod>
+    </url>
+    <url>
+        <loc>https://rust-osdev.com/this-month/2023-07/</loc>
+        <lastmod>2023-08-04</lastmod>
     </url>
 </urlset>

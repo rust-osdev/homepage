@@ -1,0 +1,115 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/showcase/cluu/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>CLUU (Compact Lightweight Unix Utopia) | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>CLUU (Compact Lightweight Unix Utopia)</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/valibali">@valibali</a>
+
+        <br>Published on <time datetime="2023-06-14">
+            Jun 14, 2023
+            
+        </time>
+    </span>
+
+    <div class="badges">
+<p><a href="https://github.com/valibali/cluu/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" /></a> <a href="https://valibali.github.io/cluu/"><img src="https://img.shields.io/badge/documentation-RUSTDOCS-blue.svg" alt="Documentation" /></a> <a href="https://github.com/valibali/cluu"><img src="https://img.shields.io/badge/repository-GitHub-green.svg" alt="Repository" /></a></p>
+</div>
+<p>CLUU is a hobby operating system being written in Rust - in the active development phase - targeting x86_64 and with plans to support aarch64 in the future. The project is made for <strong>fun and joy</strong>, drawing inspiration from various operating systems and projects while incorporating unique approaches and ideas.</p>
+<span id="continue-reading"></span>
+<aside class="showcase-post-intro"><p>
+    This post is part of our <a href="https://rust-osdev.com/showcase/"><strong>Showcase</strong></a> series, where we present interesting projects in the Rust OSDev ecosystem. Feel free to add your own project by <a href="https://github.com/rust-osdev/homepage/pulls">creating a pull request</a> if you like.
+</p></aside>
+
+<h2 id="motivation">Motivation</h2>
+<p>CLUU is driven by the motivation to explore operating system development in a powerful language like Rust. The project seeks to break away from the traditional approach using languages like C, which can sometimes feel limiting or mundane. With CLUU, the goal is to embark on a learning journey and have fun in the process. Contributions from the community are highly encouraged and welcomed.</p>
+<h2 id="project-information">Project Information</h2>
+<p>CLUU draws inspiration from the following operating systems:</p>
+<ul>
+<li><a href="https://github.com/plan9foundation/plan9">Plan 9</a>: Plan 9 from Bell Labs is a distributed operating system developed at Bell Labs in the late 1980s. It provides a unique approach to system organization, with a focus on simplicity and distributed computing.</li>
+<li><a href="https://github.com/freebsd/freebsd">BSD</a>: FreeBSD is a modern, advanced operating system for x86 and ARM architectures. It offers a rich feature set and has a long history of stability and reliability.</li>
+</ul>
+<p>As well as heavily influenced by the following projects:</p>
+<ul>
+<li><a href="https://github.com/redox-os/redox">RedoxOS</a>: RedoxOS is an operating system written in Rust, aiming to bring the innovations of Rust to a modern microkernel and full set of applications. It's fair to say it is the most advanced of all Rust OS-es.</li>
+<li><a href="https://github.com/clstatham/k4dos">k4dos</a>: k4dos is another hobby-os of that sort, it's fairly cool, with userspace, that can run FreeDoom for example. It has a nice shell implementation: kash</li>
+<li><a href="https://os.phil-opp.com/">blog_os</a>: blog_os is a cutting-edge project by Philipp Oppermann that provides a detailed tutorial on building an operating system in Rust. It covers various aspects, including the bootloader, memory management, and device drivers.</li>
+</ul>
+<p>CLUU aims to create a UNIX-like operating system, although not plannig to fully adhere to the POSIX standards. The goal is to get as close to the UNIX philosophy and compatibility as possible. This would enable easier porting of Linux software to CLUU and provide a familiar environment for developers.</p>
+<h2 id="current-state-and-goals">Current State and Goals</h2>
+<p>CLUU is currently in the early stages of development, with the focus on building a solid foundation for the operating system. At this stage, the following basic functionalities have been implemented:</p>
+<ul>
+<li><strong>UART16550 driver</strong>: A driver for UART16550, allowing communication with the serial port for debugging and logging purposes.</li>
+<li><strong>Preparation for PIO and MMIO</strong>: The groundwork has been laid for implementing both Programmed I/O (PIO) and Memory-Mapped I/O (MMIO) for interacting with hardware devices.</li>
+<li><strong>Framebuffer driver</strong>: A driver for the framebuffer, providing a graphical output display.</li>
+<li><strong>Simple graphics and writing</strong>: Basic graphical capabilities have been implemented, allowing for drawing and writing on the screen using a PSF font.</li>
+<li><strong>Basic Logging framework</strong>: A basic logging framework has been developed to facilitate debugging and information output during the development process.</li>
+</ul>
+<p><img src="https://rust-osdev.com/showcase/cluu/screen.png" alt="Screencheck" /> <img src="https://rust-osdev.com/showcase/cluu/serial_out.png" alt="serial_output" /></p>
+<p>As the project progresses, the focus will shift towards implementing additional features, such as:</p>
+<ul>
+<li><strong>Kernel Implementation</strong>: Further development of the microkernel's core functionality, including process management, interprocess communication, and resource management.</li>
+<li><strong>Device Drivers</strong>: Continued development of drivers for essential hardware components, including keyboard, storage devices, and other peripherals.</li>
+<li><strong>Filesystem Support</strong>: Introducing filesystem support to enable file I/O operations and provide a foundation for user-level processes and applications.</li>
+</ul>
+<p>The project remains open-source, and contributions from the community are highly encouraged. If you're interested in exploring the code, contributing enhancements, or reporting issues, please visit the <a href="https://github.com/valibali/cluu">GitHub repository</a>.</p>
+<h2 id="license">License</h2>
+<p>CLUU is licensed under the MIT License. See <a href="https://github.com/valibali/cluu/blob/master/LICENSE">LICENSE</a> for more information.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
