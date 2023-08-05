@@ -40,7 +40,9 @@ Please follow this template:
   - [UART Communication](https://apollolabsblog.hashnode.dev/esp32-standard-library-embedded-rust-uart-communication)
   - [I2C Communication](https://apollolabsblog.hashnode.dev/esp32-standard-library-embedded-rust-i2c-communication)
 - [`allocator_api2`](https://docs.rs/allocator-api2/latest/allocator_api2/) crate to use Rust's nightly allocator API on stable Rust
-- [RSoC: VirtIO drivers - 1](https://www.redox-os.org/news/rsoc-virtio-1/)
+- [Redox Summer Of Code: VirtIO drivers - 1](https://www.redox-os.org/news/rsoc-virtio-1/)
+- [Redox Summer Of Code: On-demand paging](https://www.redox-os.org/news/kernel-8/)
+- [Redox Summer Of Code: Apps and Driver support in Redox OS](https://www.redox-os.org/news/rsoc-2023-eny-1/)
 
 ## Infrastructure and Tooling
 
