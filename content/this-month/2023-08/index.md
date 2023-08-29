@@ -25,6 +25,11 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
+- [Redox Summer Of Code: VirtIO drivers - 1](https://www.redox-os.org/news/rsoc-virtio-1/)
+- [Redox Summer Of Code: On-demand paging](https://www.redox-os.org/news/kernel-8/)
+- [Redox Summer Of Code: On-demand paging II](https://www.redox-os.org/news/kernel-9/)
+- [Redox Summer Of Code: Apps and Driver support in Redox OS](https://www.redox-os.org/news/rsoc-2023-eny-1/)
+
 <!--
 Please follow this template:
 
