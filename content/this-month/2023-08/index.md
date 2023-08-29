@@ -67,6 +67,30 @@ In this section, we give an overview of notable changes to the projects hosted u
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
 
+### [`mkroening/take-static`](https://github.com/mkroening/take-static)
+<span class="maintainers">(Section written by [@mkroening](https://github.com/mkroening))</span>
+
+I published a tiny new crate, allowing you to get a mutable reference to static items safely (only once, though):
+
+```rust
+use take_static::take_static;
+
+take_static! {
+    static NUMBER: usize = 5;
+}
+
+assert_eq!(NUMBER.take(), Some(&mut 5));
+assert_eq!(NUMBER.take(), None);
+```
+
+This allows you to easily use statically allocated memory before dynamic memory allocators may be available.
+Compared to [`cortex_m::singleton`], `take_static` is thread-safe.
+Compared to [`takecell::TakeCell`], `take_static` also supports `!Send` types.
+
+[`cortex_m::singleton`]: https://docs.rs/cortex-m/0.7.7/cortex_m/macro.singleton.html
+[`takecell::TakeCell`]: https://docs.rs/takecell/0.1.1/takecell/index.html
+
+
 <!--
     Please use the following template:
 
