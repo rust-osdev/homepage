@@ -96,6 +96,33 @@ Compared to [`takecell::TakeCell`], `take_static` also supports `!Send` types.
 [`takecell::TakeCell`]: https://docs.rs/takecell/0.1.1/takecell/index.html
 
 
+### [`hermit-os/kernel`](https://github.com/hermit-os/kernel)
+<span class="maintainers">(Section written by [@mkroening](https://github.com/mkroening))</span>
+
+<img width="128" align="right" src="https://raw.githubusercontent.com/hermit-os/.github/47a27de62e8cfc658ddbccb3f00743c7538281ae/img/Hermit.svg" />
+
+The Hermit unikernel project allows you to bundle your Rust application with our library operating system to create a bootable unikernel image.
+Hermit is a single-address-space operating system.
+Since there is only one application running in the virtual machine, no isolation between applications or between user space and kernel space is necessary.
+This reduces system call overhead immensely, since every system call is just a library call.
+For more information, see <https://rust-osdev.com/showcase/rusty-hermit/>.
+
+The RustyHermit project has been renamed.
+We have renamed our GitHub organization from [@hermitcore](https://github.com/hermitcore) to [@hermit-os](https://github.com/hermit-os) and reserved the <http://hermit-os.org> domain.
+
+We have also renamed some of our core projects to reduce confusion:
+- [hermit-os/kernel](https://github.com/hermit-os/kernel) is the Hermit kernel.
+- [hermit-os/hermit-rs](https://github.com/hermit-os/hermit-rs) provides Rust application support.
+- [hermit-os/uhyve](https://github.com/hermit-os/uhyve) is a specialized hypervisor for Hermit.
+- [hermit-os/loader](https://github.com/hermit-os/loader) is a bootloader for other platforms, such as QEMU.
+
+We have a new logo!
+As hermit crabs occupy empty shells produced by other organisms, the original HermitCore occupied one or several cores on a computer.
+Because we migrated to Rust in 2018, our new logo of a hermit crab occupying the Rust logo's [bike gear](https://bugzilla.mozilla.org/show_bug.cgi?id=680521) fits quite nicely with the Rust logo as well as Rust's [Ferris](https://rustacean.net/).
+
+And as always, please come and try Hermit! :)
+
+
 <!--
     Please use the following template:
 
