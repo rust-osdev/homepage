@@ -95,68 +95,13 @@ Untrusted kernel components correspond to code written either in memory-unsafe l
 By entering the library operating system through the application binary interface, the protection keys will be automatically changed, which allows access to the kernel stack and the kernel heap.
 Unauthorized access from within the application will trigger a page fault, which will be handled by the library operating system.
 
-### Example Project
+### Getting Started
 
-To give you an example of how to build a Hermit application, let's create a new cargo project:
+Take a look at [hermit-os/hermit-rs-template](https://github.com/hermit-os/hermit-rs-template) for a simple starter application.
 
-```sh
-cargo new hello_world
-cd hello_world
-```
-
-Hermit currently requires the nightly versions of the Rust toolchain.
-To simplify the workflow, we recommend creating the configuration _rust-toolchain_ as follows to define the required components and the tested version of the nightly compiler:
-
-```toml
-[toolchain]
-channel = "nightly-2020-12-23"
-components = [ "rustfmt", "rust-src", "llvm-tools-preview"]
-targets = [ "x86_64-unknown-hermit" ]
-```
-
-The configuration file specifies the required components and the version of the nightly compiler to use.
-
-Hermit's target, `x86_64-unknown-hermit`, is part of the Rust-supported platforms but doesn't belong to the *Tier 1* platforms, which means that official binary releases aren't available, and the standard runtime must be built from scratch.
-To simplify this build process, we recommend creating the configuration file `.cargo/config` as follows:
-
-```toml
-[unstable]
-build-std = ["std", "core", "alloc", "panic_abort"]
-
-[build]
-target = "x86_64-unknown-hermit"
-```
-
-To bind the library operating system to the application, we have to add the crate [`hermit-sys`](https://crates.io/crates/hermit-sys) to the dependencies in the file `Cargo.toml`:
-
-```toml
-# Cargo.toml
-
-[target.'cfg(target_os = "hermit")'.dependencies]
-hermit-sys = "0.1.*"
-features = ["smoltcp"]
-```
-
-The feature `smoltcp` is required if your application tries to establish a TCP connection.
-In this case, the library operating system includes the [smoltcp](https://github.com/smoltcp-rs/smoltcp) TCP stack.
-In addition, _hermit-sys_ depends on the tool [cargo-download](https://crates.io/crates/cargo-download) to download the required components, which must be installed with the command `cargo install cargo-download`.
-Finally, the application can be built with the common command `cargo build`.
-
-The result is a 64-bit executable in the [executable link format](https://refspecs.linuxfoundation.org/elf/elf.pdf) (ELF).
-To start the application within a common virtual machine, a loader is required, which initializes the processor and starts the applications.
-We provide a simple loader on [GitHub](https://github.com/hermit-os/loader).
-A Makefile to build the loader is part of the project.
-Thereafter, QEMU can be used to start Hermit in a VM as follows:
-
-```sh
-qemu-system-x86_64 -display none -smp 1 -m 64M -serial stdio  -kernel path_to_loader -initrd path_to_app/app -cpu qemu64,apic,fsgsbase,rdtscp,xsave,fxsr
-```
-
-To improve performance, KVM can be used to use the virtualization extension of modern processors.
-
-```sh
-qemu-system-x86_64 -display none -smp 1 -m 64M -serial stdio  -kernel path_to_loader -initrd path_to_hello_world/hello_world -enable-kvm -cpu host
-```
+The Hermit platform is an [official Rust target](https://doc.rust-lang.org/nightly/rustc/platform-support/hermit.html).
+You can either use our [prebuilt `rust-std` artifacts](https://github.com/hermit-os/rust-std-hermit) on stable Rust or use `build-std` on nightly Rust.
+Alternatively, you can compile the whole Rust compiler for Hermit, of course.
 
 ### Roadmap
 
