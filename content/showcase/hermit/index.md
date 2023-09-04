@@ -1,12 +1,12 @@
 +++
-title = "The <code>Hermit</code> Unikernel"
+title = "The Hermit Operating System"
 date = 2021-01-22
 
 [extra]
 authors = ["stlankes", "mkroening"]
 +++
 
-[Hermit](http://hermit-os.org) is a unikernel, that is completely written in Rust.
+[Hermit](http://hermit-os.org) is a unikernel project, that is completely written in Rust.
 [Unikernels](http://unikernel.org/) are application images that directly contain the kernel as a library, so they do not require an installed operating system (OS).
 They are typically used in virtualized environments, which build the backbone of typical cloud and edge infrastructures.
 
