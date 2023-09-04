@@ -1,12 +1,12 @@
 +++
-title = "The <code>RustyHermit</code> Unikernel"
+title = "The <code>Hermit</code> Unikernel"
 date = 2021-01-22
 
 [extra]
-authors = ["stlankes"]
+authors = ["stlankes", "mkroening"]
 +++
 
-[RustyHermit](https://github.com/hermitcore/rusty-hermit) is a unikernel, which is completely written Rust. [Unikernels](http://unikernel.org/) are application images that directly contain the kernel as a library, so they do not require an installed operating system (OS). They are typical used in virtualized environments, which build the backbone of typical cloud / edge infrastructures.
+[Hermit](http://hermit-os.org) is a unikernel, which is completely written Rust. [Unikernels](http://unikernel.org/) are application images that directly contain the kernel as a library, so they do not require an installed operating system (OS). They are typical used in virtualized environments, which build the backbone of typical cloud / edge infrastructures.
 
 <!-- more -->
 
@@ -38,25 +38,25 @@ Unikernels do not provide system calls in the classical sense, as everything is 
 Well known unikernels are kernels such as [MirageOS](https://mirage.io/)
 and [Unikraft](http://www.unikraft.org/). MirageOS is written in OCaml,
 while Unikraft still uses C as programming language. In contrast to these
-kernels, RustyHermit is completely written in Rust to benefit from
+kernels, Hermit is completely written in Rust to benefit from
 Rust's performance and security behavior.
 
-## RustyHermit
+## Hermit
 
 In principle, every existing
-Rust application can be built on top of RustyHermit. However, unikernels
+Rust application can be built on top of Hermit. However, unikernels
 are a single tasking operating system. Consequently, the support of the
 system call `fork` and inter-process communication are missing. In
 addition, a classical C library is missing, which is typical used as
 interface to the operating system. Every crate, which bypasses the
 standard runtime and tries to communicate directly to operating system
 does not work without modifications. However, many applications do not
-depend on these features and work on RustyHermit.
+depend on these features and work on Hermit.
 
 ### Performance
 
 Unikernels can be highly optimized. For instance, we optimized the
-network stack of RustyHermit. RustyHermit uses
+network stack of Hermit. Hermit uses
 [smoltcp](https://github.com/smoltcp-rs/smoltcp) as network stack, which
 is completely written in Rust. As interface between guest and host
 operating system, we use
@@ -64,19 +64,19 @@ operating system, we use
 para-virtualized driver for KVM and widely used in virtualized Linux
 environments.
 
-The following figure compares Linux with RustyHermit,
+The following figure compares Linux with Hermit,
 where both are running as guests inside a virtual machine running on top
 of a Linux-based host system:
 
-![Bandwidth of the RustyHermit's exerimental network interface](bandwidth.png)
+![Bandwidth of the Hermit's exerimental network interface](bandwidth.png)
 
-Especially for small messages RustHermit
+Especially for small messages Hermit
 is faster in than Linux.
 
 ### Research
 
-RustyHermit is also a research project to evaluate new operating
-system designs, which improves the scalability and the security of operating systems in cloud environments. For instance, RustyHermit provides classical
+Hermit is also a research project to evaluate new operating
+system designs, which improves the scalability and the security of operating systems in cloud environments. For instance, Hermit provides classical
 techniques to improve the security behavior like stack guards and
 separating the application stack from the libOS stack. However, a
 library operating system typically uses a common function call to enter
@@ -85,7 +85,7 @@ entering a higher privilege level is missing.
 
 We presented in a
 [paper](https://www.ssrg.ece.vt.edu/papers/vee20-mpk.pdf) a modified
-version of RustyHermit, which provides an intra-unikernel isolation with
+version of Hermit, which provides an intra-unikernel isolation with
 _Intel Memory Protection Keys_ (MPK). MPK is a relatively new hardware
 primitive that provides per-thread permission control over groups of
 pages in a single address space with [negligible switching overhead](https://www.usenix.org/conference/atc19/presentation/park-soyeon),
@@ -100,14 +100,14 @@ By entering the library operating system through the application binary interfac
 
 ### Example Project
 
-To give you an example on how to build an RustyHermit application, lets create a new cargo project:
+To give you an example on how to build an Hermit application, lets create a new cargo project:
 
 ```sh
 cargo new hello_world
 cd hello_world
 ```
 
-RustyHermit currently requires the nightly versions of the Rust toolchain.
+Hermit currently requires the nightly versions of the Rust toolchain.
 To simplify the workflow, we recommend to create the configuration
 _rust-toolchain_ as follows to define the required components and to
 tested version of nightly compiler:
@@ -121,7 +121,7 @@ targets = [ "x86_64-unknown-hermit" ]
 
 The configuration file specifies the required components and the version of the nightly compiler to use.
 
-The RustyHermit's target `x86_64-unknown-hermit` is part of Rust
+The Hermit's target `x86_64-unknown-hermit` is part of Rust
 supported platforms, but doesn't belong to the *tier 1* platforms,
 which means that official binary releases aren't available and the
 standard runtime must be build from scratch.
@@ -154,18 +154,18 @@ Finally, the application can be build with the common command `cargo build`.
 
 The result is a 64-bit excutable in the [executable link format](https://refspecs.linuxfoundation.org/elf/elf.pdf) (ELF).
 To start the application within a common virtual machine, a loader is required, which initialize the processor and start the applications.
-We provide a simple loader on [GitHub](https://github.com/hermitcore/rusty-loader).
+We provide a simple loader on [GitHub](https://github.com/hermit-os/loader).
 A makefile to build the loader is part of the project.
-After that, Qemu can be used to start RustyHermit in a VM as follows:
+After that, Qemu can be used to start Hermit in a VM as follows:
 
 ```sh
-qemu-system-x86_64 -display none -smp 1 -m 64M -serial stdio  -kernel path_to_loader/rusty-loader -initrd path_to_app/app -cpu qemu64,apic,fsgsbase,rdtscp,xsave,fxsr
+qemu-system-x86_64 -display none -smp 1 -m 64M -serial stdio  -kernel path_to_loader -initrd path_to_app/app -cpu qemu64,apic,fsgsbase,rdtscp,xsave,fxsr
 ```
 
 To improve the performance, KVM can be used to use the virtualization extension of modern processors.
 
 ```sh
-qemu-system-x86_64 -display none -smp 1 -m 64M -serial stdio  -kernel path_to_loader/rusty-loader -initrd path_to_hello_world/hello_world -enable-kvm -cpu host
+qemu-system-x86_64 -display none -smp 1 -m 64M -serial stdio  -kernel path_to_loader -initrd path_to_hello_world/hello_world -enable-kvm -cpu host
 ```
 
 ### Roadmap
