@@ -25,10 +25,12 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
-- [Redox Summer Of Code: VirtIO drivers - 1](https://www.redox-os.org/news/rsoc-virtio-1/)
-- [Redox Summer Of Code: On-demand paging](https://www.redox-os.org/news/kernel-8/)
-- [Redox Summer Of Code: On-demand paging II](https://www.redox-os.org/news/kernel-9/)
-- [Redox Summer Of Code: Apps and Driver support in Redox OS](https://www.redox-os.org/news/rsoc-2023-eny-1/)
+### Redox Summer of Code
+
+- [Redox Summer of Code Wrapup](https://redox-os.org/news/rsoc-2023-wrapup/)
+- VirtIO drivers for Redox in a VM  - Andy-Python-Programmer: [Part 1](https://www.redox-os.org/news/rsoc-virtio-1/) and [Part 2](https://redox-os.org/news/rsoc-virtio-2/)
+- On-Demand Paging for Redox - 4lDO2: [Part 1](https://www.redox-os.org/news/kernel-8/) and [Part 2](https://redox-os.org/news/kernel-9/)
+- Using Linux drivers in a VM on Redox - Enygmator: [Overview](https://www.redox-os.org/news/rsoc-2023-eny-1/)
 
 <!--
 Please follow this template:
