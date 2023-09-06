@@ -90,24 +90,27 @@ In this section, we give an overview of notable changes to the projects hosted u
 The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. We merged the following PRs this month:
 
 - [Drop `memmove` and `set_mem` from boot services](https://github.com/rust-osdev/uefi-rs/pull/906)
-- [build(deps): bump crate-ci/typos from 1.16.1 to 1.16.2](https://github.com/rust-osdev/uefi-rs/pull/908)
 - [Add block I/O protocol to `uefi-raw` and use it in `uefi`](https://github.com/rust-osdev/uefi-rs/pull/909)
 - [uefi-raw: Rename BlockIo to BlockIoProtocol](https://github.com/rust-osdev/uefi-rs/pull/911)
 - [Add raw memory protection protocol and use in `uefi`](https://github.com/rust-osdev/uefi-rs/pull/896)
-- [build(deps): bump crate-ci/typos from 1.16.2 to 1.16.3](https://github.com/rust-osdev/uefi-rs/pull/912)
 - [Use workspace.dependencies to declare shared dependencies](https://github.com/rust-osdev/uefi-rs/pull/913)
 - [Add component name protocol to uefi-raw and use from uefi](https://github.com/rust-osdev/uefi-rs/pull/910)
-- [build(deps): bump crate-ci/typos from 1.16.3 to 1.16.5](https://github.com/rust-osdev/uefi-rs/pull/919)
 - [Implement core::error::Error for all error types](https://github.com/rust-osdev/uefi-rs/pull/916)
+- [Fix 1.72 lints](https://github.com/rust-osdev/uefi-rs/pull/928)
+- [Derive `Debug` in more places (requires Rust 1.70)](https://github.com/rust-osdev/uefi-rs/pull/851)
+- [Memory map change](https://github.com/rust-osdev/uefi-rs/pull/915)
+
+<!---
+- [build(deps): bump crate-ci/typos from 1.16.1 to 1.16.2](https://github.com/rust-osdev/uefi-rs/pull/908)
+- [build(deps): bump crate-ci/typos from 1.16.2 to 1.16.3](https://github.com/rust-osdev/uefi-rs/pull/912)
+- [build(deps): bump crate-ci/typos from 1.16.3 to 1.16.5](https://github.com/rust-osdev/uefi-rs/pull/919)
 - [build(deps): bump crate-ci/typos from 1.16.5 to 1.16.7](https://github.com/rust-osdev/uefi-rs/pull/923)
 - [build(deps): bump crate-ci/typos from 1.16.7 to 1.16.8](https://github.com/rust-osdev/uefi-rs/pull/924)
 - [build(deps): bump rustls-webpki from 0.100.1 to 0.100.2](https://github.com/rust-osdev/uefi-rs/pull/926)
-- [Fix 1.72 lints](https://github.com/rust-osdev/uefi-rs/pull/928)
-- [Derive `Debug` in more places (requires Rust 1.70)](https://github.com/rust-osdev/uefi-rs/pull/851)
 - [build(deps): bump clap from 4.3.0 to 4.4.0](https://github.com/rust-osdev/uefi-rs/pull/927)
-- [Memory map change](https://github.com/rust-osdev/uefi-rs/pull/915)
 - [build(deps): bump nix from 0.26.2 to 0.27.1](https://github.com/rust-osdev/uefi-rs/pull/929)
 - [build(deps): bump crate-ci/typos from 1.16.8 to 1.16.9](https://github.com/rust-osdev/uefi-rs/pull/930)
+--->
 
 Thanks to [@cmoylan](https://github.com/cmoylan) and [@julic20s](https://github.com/julic20s) for their contributions!
 
