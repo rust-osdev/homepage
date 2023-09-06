@@ -216,6 +216,17 @@ Because we migrated to Rust in 2018, our new logo of a hermit crab occupying the
 
 And as always, please come and try Hermit! :)
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Update post 2 with beginner friendly cargo tips](https://github.com/phil-opp/blog_os/pull/1234)
+- [Grammar fix](https://github.com/phil-opp/blog_os/pull/1235)
+- [minimal-rust-kernel: fix missing .toml in zh-CN translation](https://github.com/phil-opp/blog_os/pull/1237)
+
+Thanks to [@Connortsui20](https://github.com/Connortsui20) and [@xzmeng](https://github.com/xzmeng) for these contributions!
+
 
 <!--
     Please use the following template:
