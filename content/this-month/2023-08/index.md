@@ -25,6 +25,10 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
+- [Fomos: Experimental OS, built with Rust](https://github.com/Ruddle/Fomos)
+  - Discussion on [HN](https://news.ycombinator.com/item?id=37316309), [reddit](https://www.reddit.com/r/rust/comments/164li1c/fomos_experimental_rust_os/), [lobste.rs](https://lobste.rs/s/eoyuf6/fomos_experimental_os_built_with_rust)
+- [Interview with Rust and operating system Developer Andy Python](https://blog.rust.careers/post/andy-python-interview/)
+
 ### Redox Summer of Code
 
 - [Redox Summer of Code Wrapup](https://redox-os.org/news/rsoc-2023-wrapup/)
@@ -50,6 +54,16 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
+
+- [WASI threads, implementation of `wasm32-wasi-preview1-threads`` target](https://github.com/rust-lang/rust/pull/112922)
+- [Re-enable atomic loads and stores for all RISC-V targets](https://github.com/rust-lang/rust/pull/98333)
+- [Update to LLVM 17](https://github.com/rust-lang/rust/pull/114048)
+- [feat: `riscv-interrupt-{m,s}` calling conventions](https://github.com/rust-lang/rust/pull/111891)
+- [Add the `relocation_model` to the cfg](https://github.com/rust-lang/rust/pull/113966)
+- [Default `relax_elf_relocations` to true](https://github.com/rust-lang/rust/pull/106511)
+- [add `aarch64-unknown-teeos` target](https://github.com/rust-lang/rust/pull/113480)
+- cargo: [Add support for `target.'cfg(..)'.linker`](https://github.com/rust-lang/cargo/pull/12535)
+- cargo: [Support dependencies from registries for artifact dependencies, take 2](https://github.com/rust-lang/cargo/pull/12421)
 
 
 ## `rust-osdev` Projects
