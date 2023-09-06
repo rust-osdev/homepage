@@ -7,7 +7,15 @@
         <generator>Zola</generator>
         <language>en</language>
         <atom:link href="https://rust-osdev.com/rss.xml" rel="self" type="application/rss+xml"/>
-        <lastBuildDate>Fri, 04 Aug 2023 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Wed, 06 Sep 2023 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>This Month in Rust OSDev: August 2023</title>
+            <pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+            <link>https://rust-osdev.com/this-month/2023-08/</link>
+            <guid>https://rust-osdev.com/this-month/2023-08/</guid>
+            <description>&lt;p&gt;Welcome to a new issue of &lt;em&gt;&amp;quot;This Month in Rust OSDev&amp;quot;&lt;&#x2F;em&gt;. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.&lt;&#x2F;p&gt;
+</description>
+        </item>
         <item>
             <title>This Month in Rust OSDev: July 2023</title>
             <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
@@ -268,11 +276,13 @@
 </description>
         </item>
         <item>
-            <title>The &lt;code&gt;RustyHermit&lt;&#x2F;code&gt; Unikernel</title>
+            <title>The Hermit Operating System</title>
             <pubDate>Fri, 22 Jan 2021 00:00:00 +0000</pubDate>
-            <link>https://rust-osdev.com/showcase/rusty-hermit/</link>
-            <guid>https://rust-osdev.com/showcase/rusty-hermit/</guid>
-            <description>&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;hermitcore&#x2F;rusty-hermit&quot;&gt;RustyHermit&lt;&#x2F;a&gt; is a unikernel, which is completely written Rust. &lt;a href=&quot;http:&#x2F;&#x2F;unikernel.org&#x2F;&quot;&gt;Unikernels&lt;&#x2F;a&gt; are application images that directly contain the kernel as a library, so they do not require an installed operating system (OS). They are typical used in virtualized environments, which build the backbone of typical cloud &#x2F; edge infrastructures.&lt;&#x2F;p&gt;
+            <link>https://rust-osdev.com/showcase/hermit/</link>
+            <guid>https://rust-osdev.com/showcase/hermit/</guid>
+            <description>&lt;p&gt;&lt;a href=&quot;http:&#x2F;&#x2F;hermit-os.org&quot;&gt;Hermit&lt;&#x2F;a&gt; is a unikernel project, that is completely written in Rust.
+&lt;a href=&quot;http:&#x2F;&#x2F;unikernel.org&#x2F;&quot;&gt;Unikernels&lt;&#x2F;a&gt; are application images that directly contain the kernel as a library, so they do not require an installed operating system (OS).
+They are typically used in virtualized environments, which build the backbone of typical cloud and edge infrastructures.&lt;&#x2F;p&gt;
 </description>
         </item>
         <item>

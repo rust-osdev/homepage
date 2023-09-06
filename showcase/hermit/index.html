@@ -1,0 +1,148 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/showcase/hermit/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>The Hermit Operating System | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>The Hermit Operating System</h1>
+
+    <span class="post-authors post-date">Written by
+        <a href="https://github.com/stlankes">@stlankes</a> and <a href="https://github.com/mkroening">@mkroening</a>
+
+        <br>Published on <time datetime="2021-01-22">
+            Jan 22, 2021
+            
+        </time>
+    </span>
+
+    <p><a href="http://hermit-os.org">Hermit</a> is a unikernel project, that is completely written in Rust.
+<a href="http://unikernel.org/">Unikernels</a> are application images that directly contain the kernel as a library, so they do not require an installed operating system (OS).
+They are typically used in virtualized environments, which build the backbone of typical cloud and edge infrastructures.</p>
+<span id="continue-reading"></span>
+<aside class="showcase-post-intro"><p>
+    This post is part of our <a href="https://rust-osdev.com/showcase/"><strong>Showcase</strong></a> series, where we present interesting projects in the Rust OSDev ecosystem. Feel free to add your own project by <a href="https://github.com/rust-osdev/homepage/pulls">creating a pull request</a> if you like.
+</p></aside>
+
+<h2 id="virtualization-designs">Virtualization Designs</h2>
+<p>Common virtualized environments are based on classical <strong><em>virtual machines</em></strong>.
+In this case, complete machines are emulated or virtualized, and common operating systems are running on both the host and guest sides:</p>
+<p><img src="https://rust-osdev.com/showcase/hermit/common_vm.png" alt="Structure of a common virtualization environment" /></p>
+<p>This technique is established (VMware, Hyper-V, etc.) and widely used.
+However, it introduces additional overhead, especially regarding memory consumption and performance.</p>
+<p>An alternative approach to common virtual machines is <strong><em>OS-level virtualization</em></strong>, where the kernel allows the existence of multiple isolated user-space instances.
+These isolated instances are also known as “containers.”
+Typical representatives are LXC and Docker, which promise less overhead in comparison to common virtual machines.
+However, the isolation between the processes is weaker and may provide less security.</p>
+<h2 id="unikernels">Unikernels</h2>
+<p>Often, only one application (e.g., a web server) is running in the container or the virtual machine.
+In this case, a <em>unikernel</em> is an attractive solution.
+The kernel is provided as a static library and linked to the application.
+As the images directly contain the OS kernel, unikernels can be directly booted inside a virtual machine and do not require the typical software stack containing a Linux kernel and its user land within the VM.</p>
+<p>Unikernels do not provide system calls in the classical sense, as everything is running with the privilege level of a kernel, and what is typically done via system calls is provided via a common function call.
+At first glance, this sounds more insecure than previous approaches.
+However, these kernels are expected to run within a virtual machine, which isolates the application from the real system.
+In addition, common compiler analysis is used to check the complete software stack, and unneeded components can even be removed, which can reduce the attack surface of the application.</p>
+<p><img src="https://rust-osdev.com/showcase/hermit/libos.png" alt="Structure of a library operating system" /></p>
+<p>Well-known unikernels are kernels such as <a href="https://mirage.io/">MirageOS</a> and <a href="http://www.unikraft.org/">Unikraft</a>.
+MirageOS is written in OCaml, while Unikraft still uses C as the programming language of choice.
+In contrast to these kernels, Hermit is completely written in Rust to benefit from Rust's performance and security behavior.</p>
+<h2 id="hermit">Hermit</h2>
+<p>In principle, every existing Rust application can be built on top of Hermit.
+However, unikernels are single-tasking operating systems.
+Consequently, support for the system call <code>fork</code> and inter-process communication is missing.
+In addition, a classical C library is missing, which is typically used as an interface to the operating system.
+Every crate that bypasses the standard runtime and tries to communicate directly with the operating system does not work without modifications.
+However, many applications do not depend on these features and work on Hermit.</p>
+<h3 id="performance">Performance</h3>
+<p>Unikernels can be highly optimized.
+For instance, we optimized the network stack of Hermit.
+Hermit uses <a href="https://github.com/smoltcp-rs/smoltcp">smoltcp</a> as the network stack, which is completely written in Rust.
+As the interface between the guest and host operating systems, we use <a href="https://www.linux-kvm.org/page/Virtio">virtio</a>, which is a para-virtualized driver for KVM and widely used in virtualized Linux environments.</p>
+<p>The following figure compares Linux with Hermit, where both are running as guests inside a virtual machine running on top of a Linux-based host system:</p>
+<p><img src="https://rust-osdev.com/showcase/hermit/bandwidth.png" alt="Bandwidth of the Hermit's experimental network interface" /></p>
+<p>Especially for small messages, Hermit is faster than Linux.</p>
+<h3 id="research">Research</h3>
+<p>Hermit is also a research project to evaluate new operating system designs, that improve the scalability and security of operating systems in cloud environments.
+For instance, Hermit provides classical techniques to improve security behavior, like stack guards and separating the application stack from the libOS stack.
+However, a library operating system typically uses a common function call to enter the kernel.
+A classical separation of user and kernel space by entering a higher privilege level is missing.</p>
+<p>In a <a href="https://www.ssrg.ece.vt.edu/papers/vee20-mpk.pdf">paper</a>, we presented a modified version of Hermit, which provides intra-unikernel isolation with <em>Intel Memory Protection Keys</em> (MPK).
+MPK is a relatively new hardware primitive that provides per-thread permission control over groups of pages in a single address space with <a href="https://www.usenix.org/conference/atc19/presentation/park-soyeon">negligible switching overhead</a>, making it a compelling candidate for use in unikernels.</p>
+<p>MPK requires modification of page tables at a small performance cost.
+Four previously unused bits of each page table entry (the 62nd to the 59th on x86-64) are exploited by MPK.
+Since MPK exploits four bits of the page table entry, it supports up to 15 protection keys.
+MPK controls per-thread permission on groups of pages.
+Each core has a PKRU register (32 bits) containing a permission value.
+The value of the PKRU register defines the permission of the thread currently running on that core for each group of pages containing a protection key in their page table entries.
+Unlike page-table-level permission, MPK provides thread-local memory permission.</p>
+<p>We provide user and kernel separation, so we simply see the entire application as an untrusted component, independently of application-specific characteristics such as the language it is written in or the level of skill of the application’s programmer.
+In addition, we divide the kernel code into trusted and untrusted components.
+Trusted kernel components represent pieces of code written in a memory-safe language, i.e., offering strong security guarantees.
+Untrusted kernel components correspond to code written either in memory-unsafe languages or in unsafe Rust code blocks.</p>
+<p>By entering the library operating system through the application binary interface, the protection keys will be automatically changed, which allows access to the kernel stack and the kernel heap.
+Unauthorized access from within the application will trigger a page fault, which will be handled by the library operating system.</p>
+<h3 id="getting-started">Getting Started</h3>
+<p>Take a look at <a href="https://github.com/hermit-os/hermit-rs-template">hermit-os/hermit-rs-template</a> for a simple starter application.</p>
+<p>The Hermit platform is an <a href="https://doc.rust-lang.org/nightly/rustc/platform-support/hermit.html">official Rust target</a>.
+You can either use our <a href="https://github.com/hermit-os/rust-std-hermit">prebuilt <code>rust-std</code> artifacts</a> on stable Rust or use <code>build-std</code> on nightly Rust.
+Alternatively, you can compile the whole Rust compiler for Hermit, of course.</p>
+<h3 id="roadmap">Roadmap</h3>
+<p>In the near future, we plan to stabilize the interface to the hardware.
+For instance, the support of <a href="https://virtio-fs.gitlab.io/">virtiofs</a> is at an early stage.
+In addition, the integration into the Rust standard library isn't finalized yet, and the current version runs only on x86-64.
+In the future, we want to also support AArch64 as a processor architecture.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>

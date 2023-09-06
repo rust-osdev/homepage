@@ -14,7 +14,7 @@
         <lastmod>2023-06-14</lastmod>
     </url>
     <url>
-        <loc>https://rust-osdev.com/showcase/rusty-hermit/</loc>
+        <loc>https://rust-osdev.com/showcase/hermit/</loc>
         <lastmod>2021-01-22</lastmod>
     </url>
     <url>
@@ -176,5 +176,9 @@
     <url>
         <loc>https://rust-osdev.com/this-month/2023-07/</loc>
         <lastmod>2023-08-04</lastmod>
+    </url>
+    <url>
+        <loc>https://rust-osdev.com/this-month/2023-08/</loc>
+        <lastmod>2023-09-06</lastmod>
     </url>
 </urlset>
