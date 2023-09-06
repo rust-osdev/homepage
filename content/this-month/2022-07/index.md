@@ -100,7 +100,7 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 <span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
-This Month, [@dvdhrm](https://github.com/dvdhrm) started an initiative to get the `*-unknown-uefi` targets to [Tier-2](https://doc.rust-lang.org/nightly/rustc/platform-support.html#tier-2). As a first step, they [added a detailed description of the platform](https://github.com/rust-lang/rust/pull/99760) to the rustc book. The entry is already published [in the nightly release of the book](https://doc.rust-lang.org/nightly/rustc/platform-support/unknown-uefi.html).
+This Month, [@dvdhrm](https://github.com/dvdhrm) started an initiative to get the `*-unknown-uefi` targets to [Tier-2](https://doc.rust-lang.org/nightly/rustc/platform-support.html#tier-2-without-host-tools). As a first step, they [added a detailed description of the platform](https://github.com/rust-lang/rust/pull/99760) to the rustc book. The entry is already published [in the nightly release of the book](https://doc.rust-lang.org/nightly/rustc/platform-support/unknown-uefi.html).
 
 Please reach out if you would like to help with this!
 
