@@ -105,7 +105,7 @@ The Hermit unikernel project allows you to bundle your Rust application with our
 Hermit is a single-address-space operating system.
 Since there is only one application running in the virtual machine, no isolation between applications or between user space and kernel space is necessary.
 This reduces system call overhead immensely, since every system call is just a library call.
-For more information, see <https://rust-osdev.com/showcase/rusty-hermit/>.
+For more information, see <https://rust-osdev.com/showcase/hermit/>.
 
 The RustyHermit project has been renamed.
 We have renamed our GitHub organization from [@hermitcore](https://github.com/hermitcore) to [@hermit-os](https://github.com/hermit-os) and reserved the <http://hermit-os.org> domain.
