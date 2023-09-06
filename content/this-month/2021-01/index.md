@@ -28,7 +28,7 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 We started a new [_Showcase_](https://rust-osdev.com/showcase/) section this month, where we introduce and present interesting Rust OSDev projects. The first post of this section is:
 
-- [The `RustyHermit` Unikernel](https://rust-osdev.com/showcase/rusty-hermit/) written by [@stlankes](https://github.com/stlankes)
+- [The `RustyHermit` Unikernel](@/showcase/hermit/index.md) written by [@stlankes](https://github.com/stlankes)
 
 If you like to present your project too, just let us know!
 
