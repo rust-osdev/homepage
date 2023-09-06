@@ -1,6 +1,7 @@
 +++
 title = "The Hermit Operating System"
 date = 2021-01-22
+aliases = ["showcase/rusty-hermit"]
 
 [extra]
 authors = ["stlankes", "mkroening"]
