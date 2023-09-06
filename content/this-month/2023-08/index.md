@@ -83,6 +83,82 @@ In this section, we give an overview of notable changes to the projects hosted u
 -->
 
 
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. We merged the following PRs this month:
+
+- [Drop `memmove` and `set_mem` from boot services](https://github.com/rust-osdev/uefi-rs/pull/906)
+- [build(deps): bump crate-ci/typos from 1.16.1 to 1.16.2](https://github.com/rust-osdev/uefi-rs/pull/908)
+- [Add block I/O protocol to `uefi-raw` and use it in `uefi`](https://github.com/rust-osdev/uefi-rs/pull/909)
+- [uefi-raw: Rename BlockIo to BlockIoProtocol](https://github.com/rust-osdev/uefi-rs/pull/911)
+- [Add raw memory protection protocol and use in `uefi`](https://github.com/rust-osdev/uefi-rs/pull/896)
+- [build(deps): bump crate-ci/typos from 1.16.2 to 1.16.3](https://github.com/rust-osdev/uefi-rs/pull/912)
+- [Use workspace.dependencies to declare shared dependencies](https://github.com/rust-osdev/uefi-rs/pull/913)
+- [Add component name protocol to uefi-raw and use from uefi](https://github.com/rust-osdev/uefi-rs/pull/910)
+- [build(deps): bump crate-ci/typos from 1.16.3 to 1.16.5](https://github.com/rust-osdev/uefi-rs/pull/919)
+- [Implement core::error::Error for all error types](https://github.com/rust-osdev/uefi-rs/pull/916)
+- [build(deps): bump crate-ci/typos from 1.16.5 to 1.16.7](https://github.com/rust-osdev/uefi-rs/pull/923)
+- [build(deps): bump crate-ci/typos from 1.16.7 to 1.16.8](https://github.com/rust-osdev/uefi-rs/pull/924)
+- [build(deps): bump rustls-webpki from 0.100.1 to 0.100.2](https://github.com/rust-osdev/uefi-rs/pull/926)
+- [Fix 1.72 lints](https://github.com/rust-osdev/uefi-rs/pull/928)
+- [Derive `Debug` in more places (requires Rust 1.70)](https://github.com/rust-osdev/uefi-rs/pull/851)
+- [build(deps): bump clap from 4.3.0 to 4.4.0](https://github.com/rust-osdev/uefi-rs/pull/927)
+- [Memory map change](https://github.com/rust-osdev/uefi-rs/pull/915)
+- [build(deps): bump nix from 0.26.2 to 0.27.1](https://github.com/rust-osdev/uefi-rs/pull/929)
+- [build(deps): bump crate-ci/typos from 1.16.8 to 1.16.9](https://github.com/rust-osdev/uefi-rs/pull/930)
+
+Thanks to [@cmoylan](https://github.com/cmoylan) and [@julic20s](https://github.com/julic20s) for their contributions!
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following PRs:
+
+- [kernel image fields & zero out rbp](https://github.com/rust-osdev/bootloader/pull/346)
+- [`RacyCell<T>`: Data race allowed on T](https://github.com/rust-osdev/bootloader/pull/390)
+- [Update license field following SPDX 2.1 license expression standard](https://github.com/rust-osdev/bootloader/pull/391)
+
+Thanks to [@frisoft](https://github.com/frisoft), [@devsnek](https://github.com/devsnek), and [@kuzeyardabulut](https://github.com/kuzeyardabulut) for their contributions!
+
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PR this month:
+
+- [Add `inline` attribute to segment functions](https://github.com/rust-osdev/x86_64/pull/430)
+- [Add the `iretq` function to the `InterruptStackFrameValue` struct.](https://github.com/rust-osdev/x86_64/pull/431)
+- [Fix misc doc typos](https://github.com/rust-osdev/x86_64/pull/432)
+
+Thanks to [@tsoutsman](https://github.com/tsoutsman), [@NathanKolpa](https://github.com/NathanKolpa), and [@xzmeng](https://github.com/xzmeng) for their contributions!
+
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. We merged the following changes this month:
+
+- [AML: `DefSizeOf` implementation](https://github.com/rust-osdev/acpi/pull/189)
+- [AML: Fix `DefIfElse` parser returning `UnexpectedEndOfStream` when `If (...) {}` is not followed by anything](https://github.com/rust-osdev/acpi/pull/190)
+
+Thanks to [@alnyan](https://github.com/alnyan) for their contributions!
+
+
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following change this month:
+
+- [x86: crate finally builds with x86 and x86_64](https://github.com/rust-osdev/uart_16550/pull/29)
+
+Thanks to [@phip1611](https://github.com/phip1611) for their contributions!
+
+
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
