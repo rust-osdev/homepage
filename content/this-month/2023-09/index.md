@@ -33,7 +33,7 @@ Please follow this template:
 -->
 
 - [GCC 13.2 ported to Redox](https://gitlab.redox-os.org/redox-os/gcc/-/commit/0d2f100cfd8b4ebf7836a78acca972d07ed9168a)
-  - Redox OS upgraded the GCC version from 8.2 to 13.2, the transition had problems with some recipes (software ports) and were fixed, this change will allow recent software to build with the most recent improvements and processor architectures.
+  - Redox OS upgraded the GCC version from 8.2 to 13.2, some recipes (software ports) had problems that was quickly fixed, this change will allow recent software to build with the most recent improvements and processor architectures.
 
 ## Infrastructure and Tooling
 
