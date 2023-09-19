@@ -82,7 +82,7 @@ The following changes were merged this month:
 - [Rust edition 2018 + formatting + clippy](https://github.com/rust-osdev/multiboot2/pull/84)
 - [**Breaking:** `load` returns a result now (no more assertions that could panic)](https://github.com/rust-osdev/multiboot2/pull/80)
 - [Renamed multiboot2 bootloader magic constant](https://github.com/rust-osdev/multiboot2/pull/85)
-- [Cargo toml prepare relase v0.12 + changelog](https://github.com/rust-osdev/multiboot2/pull/87) <span class="gray">(published as `v0.12.0`)</span>
+- [Cargo toml prepare release v0.12 + changelog](https://github.com/rust-osdev/multiboot2/pull/87) <span class="gray">(published as `v0.12.0`)</span>
 - [Rename old Github urls in README](https://github.com/rust-osdev/multiboot2/pull/88)
 
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
