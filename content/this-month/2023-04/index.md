@@ -119,7 +119,7 @@ Thanks to [@kennystrawnmusic](https://github.com/kennystrawnmusic) and [@JarlEva
 ### [`pic8259`](https://github.com/rust-osdev/pic8259)
 <span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
 
-- [Added `new_continguous` implementation for `ChainedPics`](https://github.com/rust-osdev/pic8259/pull/4)
+- [Added `new_contiguous` implementation for `ChainedPics`](https://github.com/rust-osdev/pic8259/pull/4)
 
 Thanks to [@rasheedmhd](https://github.com/rasheedmhd) for their contributions!
 
