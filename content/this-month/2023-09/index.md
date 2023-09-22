@@ -63,7 +63,18 @@ In this section, we give an overview of notable changes to the projects hosted u
 -->
 
 
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
 
+The [multiboot2](https://crates.io/crates/multiboot2) was bumped from `0.18.1` 
+to `0.19.0`. The new release includes the ability to add custom tags to the MBI 
+builder and a bugfix when parsing Multiboot strings, such as the command line 
+from a Module tag.
+
+For more details, please have a look at the [changelog](https://github.com/rust-osdev/multiboot2/releases/tag/multiboot2-v0.19.0).
+
+Thanks to [@A0lson](https://github.com/A0lson) for their [contribution](https://github.com/rust-osdev/multiboot2/pull/172)
+that helped to fix the string parsing bug.
 
 ## Other Projects
 
