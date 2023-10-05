@@ -38,6 +38,7 @@ Please follow this template:
 - [The Embedded Rust ESP Development Ecosystem](https://apollolabsblog.hashnode.dev/the-embedded-rust-esp-development-ecosystem)
 - [ESP Embedded Rust: Multithreading with FreeRTOS Bindings](https://apollolabsblog.hashnode.dev/esp-embedded-rust-multithreading-with-freertos-bindings)
 - [How Rust can build an elegant API around raw memory](https://litchipi.site/post/14762501311625827021)
+- [Redox: Development Priorities for 2023/24](https://redox-os.org/news/development-priorities-2023-09/)
 
 
 ## Infrastructure and Tooling
