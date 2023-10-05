@@ -76,6 +76,35 @@ For more details, please have a look at the [changelog](https://github.com/rust-
 Thanks to [@A0lson](https://github.com/A0lson) for their [contribution](https://github.com/rust-osdev/multiboot2/pull/172)
 that helped to fix the string parsing bug.
 
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.
+
+This month, a new major version of `acpi` was published, offering greater control over how the crate allocates
+memory. Specifically, the new `allocator_api` and `alloc` features allow you to opt-out of allocation altogether
+(allowing the crate to be used from slimmer environments like bootloaders), or to provide your own allocator using
+the new (and still unstable) [`core::alloc::Allocator` API](https://doc.rust-lang.org/beta/core/alloc/trait.Allocator.html).
+Enabling both features makes the crate behave very similarly to before, so migration should be relatively easy.
+
+Because the `acpi` crate can now be used from environements without allocation, the `rsdp` crate has been
+deprecated, and all functionality moved into `acpi`. The `rsdp` crate will continue to work, but will not receive
+further updates. This should not affect users using `rsdp` to simply find the address of the RSDP, but is a
+breaking change as types that have been moved to `acpi` will no longer be usable across the crate boundary.
+
+Some improvements were also made to the `aml` crate this month, adding functionality and improving our correctness
+- many thanks to our contributors!
+
+We merged the following changes this month:
+
+- [AML: Implement OpReg-relative PkgLength parser](https://github.com/rust-osdev/acpi/pull/191)
+- [AML: Fix DefPackage len less than NumElements failing](https://github.com/rust-osdev/acpi/pull/192)
+- [Prepare new version of `acpi`](https://github.com/rust-osdev/acpi/pull/197)
+- [AML: add support for the `DefSleep` opcode](https://github.com/rust-osdev/acpi/commit/133001e59d3f56056d371954eb52a79ee5a2b377)
+- [AML: add support for the `DefStall` opcode](https://github.com/rust-osdev/acpi/commit/133001e59d3f56056d371954eb52a79ee5a2b377)
+
+Thanks to [@alnyan](https://github.com/alnyan) for their contributions!
+
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
