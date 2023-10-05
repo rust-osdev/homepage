@@ -45,6 +45,20 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [Add Minimal Std implementation for UEFI](https://github.com/rust-lang/rust/pull/105861)
+- [Stdio support for UEFI](https://github.com/rust-lang/rust/pull/116207)
+- [Promote loongarch64-unknown-none* to Tier 2](https://github.com/rust-lang/rust/pull/115368)
+- [Add initial libstd support for Xous](https://github.com/rust-lang/rust/pull/104101)
+- [added support for GNU/Hurd](https://github.com/rust-lang/rust/pull/115230)
+- [MCP661: Move wasm32-wasi-preview1-threads target to Tier 2](https://github.com/rust-lang/rust/pull/115345)
+- [add notes about non-compliant FP behavior on 32bit x86 targets](https://github.com/rust-lang/rust/pull/113053)
+- [add more explicit I/O safety documentation](https://github.com/rust-lang/rust/pull/114780)
+- [cargo: Stabilize lint table](https://github.com/rust-lang/cargo/pull/12648)
+- Final comments period
+  - [Stabilize `atomic_from_ptr`](https://github.com/rust-lang/rust/pull/115719)
+  - [Tracking Issue for `pointer_bytes_offsets`](https://github.com/rust-lang/rust/issues/96283)
+  - [Add `f16` and `f128` float types](https://github.com/rust-lang/rfcs/pull/3453)
+  - [RFC: Remove implicit features in a new edition](https://github.com/rust-lang/rfcs/pull/3491)
 
 ## `rust-osdev` Projects
 
