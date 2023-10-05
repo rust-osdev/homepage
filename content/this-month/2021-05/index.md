@@ -128,7 +128,7 @@ Thanks to [@michaelmelanson](https://github.com/michaelmelanson) for his contrib
 
 The `xhci` crate provides types of xHCI structures such as Contexts, Extended Capabilities, Registers, and TRBs.
 
-In May we finished implementing all of these structures and field getters/setters. Still there may exist missings. If you find one, feel free to send a PR!
+In May we finished implementing all of these structures and field getters/setters. Still there may exist missing. If you find one, feel free to send a PR!
 
 ### [`spinning_top`](https://github.com/rust-osdev/spinning_top)
 

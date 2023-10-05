@@ -54,7 +54,10 @@ jobs:
       - run: curl -L https://git.io/misspell | bash
         name: "Install misspell"
       - run: bin/misspell -error content
-        name: "Check for common typos"
+        name: "Check for common typos using `misspell`"
+      # Executes "typos ."
+      - uses: crate-ci/typos@v1.16.12
+        name: "Check for common typos using `typos`"
 
   deploy_site:
     name: "Deploy Generated Site"

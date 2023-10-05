@@ -1,0 +1,16 @@
+# Configuration for https://github.com/crate-ci/typos
+
+[files]
+extend-exclude = [
+    # List of files (without leading ./)
+]
+
+[default]
+extend-ignore-identifiers-re = [
+    "^BARs$",
+    "[@Programatic]",
+]
+
+[default.extend-words]
+
+[default.extend-identifiers]

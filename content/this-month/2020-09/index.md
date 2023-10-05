@@ -89,7 +89,7 @@ Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for their [contribution](ht
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 
-The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. In September, the crate was [updated to Rust's new inline assembly](https://github.com/rust-osdev/uefi-rs/pull/167) implemenation. We also published version `0.6.0` of the crate, including all the improvements added in the past two months.
+The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. In September, the crate was [updated to Rust's new inline assembly](https://github.com/rust-osdev/uefi-rs/pull/167) implementation. We also published version `0.6.0` of the crate, including all the improvements added in the past two months.
 
 Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for their contribution!
 
@@ -97,7 +97,7 @@ Thanks to [@toku-sa-n](https://github.com/toku-sa-n) for their contribution!
 
 The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we published versions `0.9.9` to `0.9.11` to fix build errors on the latest nightlies, caused by the new feature gate names for some `const fn` features.
 
-We also made some more progress on the rewrite with UEFI support. It now [passes additional framebuffer information](https://github.com/rust-osdev/bootloader/commit/3237429457d3df58080fa284d9c2b7138e3fff3a) and the [address of the RSDP structure of ACPI](https://github.com/rust-osdev/bootloader/commit/694d3139fe24bce0184da3bb9096e6540ee1fa3d) in the boot info. (We later updated the RSDP code to [use the new `rsdp` crate](https://github.com/rust-osdev/bootloader/commit/cb8345bd3c45fc3c56a631a3b416137c45f828f9)). The bootloader also gained support for [setting up a recursive page table mapping](https://github.com/rust-osdev/bootloader/commit/34a5da852ba8f6b0abfafb5c5a68adc4cae638fa), which makes it almost feature-equivalent with the current implementation. There are still a few things missings, but it should be ready to be published soon.
+We also made some more progress on the rewrite with UEFI support. It now [passes additional framebuffer information](https://github.com/rust-osdev/bootloader/commit/3237429457d3df58080fa284d9c2b7138e3fff3a) and the [address of the RSDP structure of ACPI](https://github.com/rust-osdev/bootloader/commit/694d3139fe24bce0184da3bb9096e6540ee1fa3d) in the boot info. (We later updated the RSDP code to [use the new `rsdp` crate](https://github.com/rust-osdev/bootloader/commit/cb8345bd3c45fc3c56a631a3b416137c45f828f9)). The bootloader also gained support for [setting up a recursive page table mapping](https://github.com/rust-osdev/bootloader/commit/34a5da852ba8f6b0abfafb5c5a68adc4cae638fa), which makes it almost feature-equivalent with the current implementation. There are still a few things missing, but it should be ready to be published soon.
 
 ### [`cargo-xbuild`](https://github.com/rust-osdev/cargo-xbuild)
 

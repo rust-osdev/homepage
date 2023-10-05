@@ -234,7 +234,7 @@ Lets go 2!
 panicked at 'Off you go!', src/main.rs:34:5
 ```
 
-And "not working" is the kernel either panicing on boot in arch64, for which I've extracted panic message but I have low confidence this is what actually happens - panic was in once_cell detecting it is initializing a second time, which I discounted as potentially just a bug in linker script layout and not an actual code generation bug. This code is even completely removed in the latest reproduction (no once_cells) but the kernel still crashes before it even can write anything to serial.
+And "not working" is the kernel either panicking on boot in arch64, for which I've extracted panic message but I have low confidence this is what actually happens - panic was in once_cell detecting it is initializing a second time, which I discounted as potentially just a bug in linker script layout and not an actual code generation bug. This code is even completely removed in the latest reproduction (no once_cells) but the kernel still crashes before it even can write anything to serial.
 
 In the qemu repro it's even weirder:
 
