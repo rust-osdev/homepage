@@ -105,6 +105,43 @@ We merged the following changes this month:
 
 Thanks to [@alnyan](https://github.com/alnyan) for their contributions!
 
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PR this month:
+
+- [fix(interrupts): add compiler fences to enable and disable](https://github.com/rust-osdev/x86_64/pull/436)
+- [add `flush_broadcast` and `tlbsync` functions](https://github.com/rust-osdev/x86_64/pull/403)
+- [Release v0.14.11](https://github.com/rust-osdev/x86_64/pull/437)
+- [Add `HandlerFuncType` trait](https://github.com/rust-osdev/x86_64/pull/439)
+
+Thanks to [@brandonchinn178](https://github.com/brandonchinn178) and [@mkroening](https://github.com/mkroening) for their contributions!
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. We merged the following PRs this month:
+
+- [Add ShellParams protocol](https://github.com/rust-osdev/uefi-rs/pull/772)
+- [github: Change dependabot interval to weekly](https://github.com/rust-osdev/uefi-rs/pull/949)
+
+<!--
+- [build(deps): bump actions/checkout from 3 to 4](https://github.com/rust-osdev/uefi-rs/pull/934)
+- [build(deps): bump cachix/install-nix-action from 22 to 23](https://github.com/rust-osdev/uefi-rs/pull/933)
+- [build(deps): bump crate-ci/typos from 1.16.9 to 1.16.10](https://github.com/rust-osdev/uefi-rs/pull/932)
+- [build(deps): bump walkdir from 2.3.3 to 2.4.0](https://github.com/rust-osdev/uefi-rs/pull/940)
+- [build(deps): bump crate-ci/typos from 1.16.10 to 1.16.11](https://github.com/rust-osdev/uefi-rs/pull/941)
+- [build(deps): bump crate-ci/typos from 1.16.11 to 1.16.12](https://github.com/rust-osdev/uefi-rs/pull/944)
+- [build(deps): bump crate-ci/typos from 1.16.12 to 1.16.13](https://github.com/rust-osdev/uefi-rs/pull/946)
+- [build(deps): bump crate-ci/typos from 1.16.13 to 1.16.14](https://github.com/rust-osdev/uefi-rs/pull/947)
+- [build(deps): bump crate-ci/typos from 1.16.14 to 1.16.15](https://github.com/rust-osdev/uefi-rs/pull/948)
+-->
+
+Thanks to [@JohnAZoidberg](https://github.com/JohnAZoidberg) for their contribution!
+
+
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
