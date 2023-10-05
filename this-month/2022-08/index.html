@@ -114,7 +114,7 @@
 <p>We created a <a href="https://github.com/rust-osdev/linked-list-allocator/security/advisories/GHSA-xg8p-34w2-j49j">security advisory</a> with more details and released a fix in <code>v0.10.2</code>, with the following changes:</p>
 <ul>
 <li>The initialization functions now panic if the given size is not large enough to store the necessary metadata. Depending on the alignment of the heap bottom pointer, the minimum size is between <code>2 * size_of::&lt;usize&gt;</code> and <code>3 * size_of::&lt;usize&gt;</code>.</li>
-<li>The <code>extend</code> method now panics when trying to extend an unitialized heap.</li>
+<li>The <code>extend</code> method now panics when trying to extend an uninitialized heap.</li>
 <li>Extend calls with a size smaller than <code>size_of::&lt;usize&gt;() * 2</code> are now buffered internally and not added to the list directly. The buffered region will be merged with future <code>extend</code> calls.</li>
 <li>The <code>size()</code> method now returns the <em>usable</em> size of the heap, which might be slightly smaller than the <code>top() - bottom()</code> difference because of alignment constraints.</li>
 </ul>

@@ -223,7 +223,7 @@ Please follow this template:
 </span><span>Lets go 2!
 </span><span>panicked at &#39;Off you go!&#39;, src/main.rs:34:5
 </span></code></pre>
-<p>And &quot;not working&quot; is the kernel either panicing on boot in arch64, for which I've extracted panic message but I have low confidence this is what actually happens - panic was in once_cell detecting it is initializing a second time, which I discounted as potentially just a bug in linker script layout and not an actual code generation bug. This code is even completely removed in the latest reproduction (no once_cells) but the kernel still crashes before it even can write anything to serial.</p>
+<p>And &quot;not working&quot; is the kernel either panicking on boot in arch64, for which I've extracted panic message but I have low confidence this is what actually happens - panic was in once_cell detecting it is initializing a second time, which I discounted as potentially just a bug in linker script layout and not an actual code generation bug. This code is even completely removed in the latest reproduction (no once_cells) but the kernel still crashes before it even can write anything to serial.</p>
 <p>In the qemu repro it's even weirder:</p>
 <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>🚜 Run QEMU -M raspi3b -semihosting with vesper/target/nucleus.bin
 </span><span>

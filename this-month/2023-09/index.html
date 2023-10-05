@@ -1,0 +1,231 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2023-09/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: September 2023 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: September 2023</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2023-10-05">
+            Oct 05, 2023
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (September 2023)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://www.redox-os.org/news/toolchain-upgrade-1/">Toolchain Upgrade - Redox OS</a></li>
+<li><a href="https://ferrous-systems.com/blog/ferrocene-open-source/">Open Sourcing Ferrocene</a></li>
+<li><a href="https://apollolabsblog.hashnode.dev/esp32-standard-library-embedded-rust-gpio-interrupts">ESP32 Standard Library Embedded Rust: GPIO Interrupts</a></li>
+<li><a href="https://apollolabsblog.hashnode.dev/the-embedded-rust-esp-development-ecosystem">The Embedded Rust ESP Development Ecosystem</a></li>
+<li><a href="https://apollolabsblog.hashnode.dev/esp-embedded-rust-multithreading-with-freertos-bindings">ESP Embedded Rust: Multithreading with FreeRTOS Bindings</a></li>
+<li><a href="https://litchipi.site/post/14762501311625827021">How Rust can build an elegant API around raw memory</a></li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/105861">Add Minimal Std implementation for UEFI</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/116207">Stdio support for UEFI</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/115368">Promote loongarch64-unknown-none* to Tier 2</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/104101">Add initial libstd support for Xous</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/115230">added support for GNU/Hurd</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/115345">MCP661: Move wasm32-wasi-preview1-threads target to Tier 2</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/113053">add notes about non-compliant FP behavior on 32bit x86 targets</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/114780">add more explicit I/O safety documentation</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/112038">Change <code>unsafe_op_in_unsafe_fn</code> to be <code>warn-by-default</code> from edition 2024</a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/12648">cargo: Stabilize lint table</a></li>
+<li>Final comments period
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/115719">Stabilize <code>atomic_from_ptr</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/issues/96283">Tracking Issue for <code>pointer_bytes_offsets</code></a></li>
+<li><a href="https://github.com/rust-lang/rfcs/pull/3453">Add <code>f16</code> and <code>f128</code> float types</a></li>
+<li><a href="https://github.com/rust-lang/rfcs/pull/3491">RFC: Remove implicit features in a new edition</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/multiboot2"><code>multiboot2</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p>The <a href="https://crates.io/crates/multiboot2">multiboot2</a> was bumped from <code>0.18.1</code> 
+to <code>0.19.0</code>. The new release includes the ability to add custom tags to the MBI 
+builder and a bugfix when parsing Multiboot strings, such as the command line 
+from a Module tag.</p>
+<p>For more details, please have a look at the <a href="https://github.com/rust-osdev/multiboot2/releases/tag/multiboot2-v0.19.0">changelog</a>.</p>
+<p>Thanks to <a href="https://github.com/A0lson">@A0lson</a> for their <a href="https://github.com/rust-osdev/multiboot2/pull/172">contribution</a>
+that helped to fix the string parsing bug.</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.</p>
+<p>This month, a new major version of <code>acpi</code> was published, offering greater control over how the crate allocates
+memory. Specifically, the new <code>allocator_api</code> and <code>alloc</code> features allow you to opt-out of allocation altogether
+(allowing the crate to be used from slimmer environments like bootloaders), or to provide your own allocator using
+the new (and still unstable) <a href="https://doc.rust-lang.org/beta/core/alloc/trait.Allocator.html"><code>core::alloc::Allocator</code> API</a>.
+Enabling both features makes the crate behave very similarly to before, so migration should be relatively easy.</p>
+<p>Because the <code>acpi</code> crate can now be used from environements without allocation, the <code>rsdp</code> crate has been
+deprecated, and all functionality moved into <code>acpi</code>. The <code>rsdp</code> crate will continue to work, but will not receive
+further updates. This should not affect users using <code>rsdp</code> to simply find the address of the RSDP, but is a
+breaking change as types that have been moved to <code>acpi</code> will no longer be usable across the crate boundary.</p>
+<p>Some improvements were also made to the <code>aml</code> crate this month, adding functionality and improving our correctness</p>
+<ul>
+<li>many thanks to our contributors!</li>
+</ul>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/191">AML: Implement OpReg-relative PkgLength parser</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/192">AML: Fix DefPackage len less than NumElements failing</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/197">Prepare new version of <code>acpi</code></a></li>
+<li><a href="https://github.com/rust-osdev/acpi/commit/133001e59d3f56056d371954eb52a79ee5a2b377">AML: add support for the <code>DefSleep</code> opcode</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/commit/133001e59d3f56056d371954eb52a79ee5a2b377">AML: add support for the <code>DefStall</code> opcode</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/alnyan">@alnyan</a> for their contributions!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following PR this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/436">fix(interrupts): add compiler fences to enable and disable</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/403">add <code>flush_broadcast</code> and <code>tlbsync</code> functions</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/437">Release v0.14.11</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/439">Add <code>HandlerFuncType</code> trait</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/brandonchinn178">@brandonchinn178</a> and <a href="https://github.com/mkroening">@mkroening</a> for their contributions!</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p>The <code>uefi-rs</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/772">Add ShellParams protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/949">github: Change dependabot interval to weekly</a></li>
+</ul>
+<!--
+- [build(deps): bump actions/checkout from 3 to 4](https://github.com/rust-osdev/uefi-rs/pull/934)
+- [build(deps): bump cachix/install-nix-action from 22 to 23](https://github.com/rust-osdev/uefi-rs/pull/933)
+- [build(deps): bump crate-ci/typos from 1.16.9 to 1.16.10](https://github.com/rust-osdev/uefi-rs/pull/932)
+- [build(deps): bump walkdir from 2.3.3 to 2.4.0](https://github.com/rust-osdev/uefi-rs/pull/940)
+- [build(deps): bump crate-ci/typos from 1.16.10 to 1.16.11](https://github.com/rust-osdev/uefi-rs/pull/941)
+- [build(deps): bump crate-ci/typos from 1.16.11 to 1.16.12](https://github.com/rust-osdev/uefi-rs/pull/944)
+- [build(deps): bump crate-ci/typos from 1.16.12 to 1.16.13](https://github.com/rust-osdev/uefi-rs/pull/946)
+- [build(deps): bump crate-ci/typos from 1.16.13 to 1.16.14](https://github.com/rust-osdev/uefi-rs/pull/947)
+- [build(deps): bump crate-ci/typos from 1.16.14 to 1.16.15](https://github.com/rust-osdev/uefi-rs/pull/948)
+-->
+<p>Thanks to <a href="https://github.com/JohnAZoidberg">@JohnAZoidberg</a> for their contribution!</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="mkroening-interrupts"><a href="https://github.com/mkroening/interrupts"><code>mkroening/interrupts</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/mkroening">@mkroening</a>)</span></p>
+<p>I created a dependency-free <code>interrupts</code> crate, allowing you to temporarily disable interrupts on AArch64, 64-bit RISC-V, and x86-64.
+Two different paradigms allow you to run code without interrupts and synchronize with interrupt handlers running on the same hardware thread (core):</p>
+<p>Use <a href="https://docs.rs/interrupts/latest/interrupts/fn.disable.html"><code>disable</code></a> to disable interrupts with a guard:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#65737e;">// interrupts may or may not be enabled
+</span><span style="color:#b48ead;">let</span><span> guard = interrupts::disable();
+</span><span style="color:#65737e;">// interrupts are disabled
+</span><span style="color:#96b5b4;">drop</span><span>(guard);
+</span><span style="color:#65737e;">// interrupts are restored to the previous state
+</span></code></pre>
+<p>Use <a href="https://docs.rs/interrupts/latest/interrupts/fn.without.html"><code>without</code></a> (similar to <a href="https://docs.rs/x86_64/latest/x86_64/instructions/interrupts/fn.without_interrupts.html"><code>x86_64::instructions::interrupts::without_interrupts</code></a>) to run a closure with disabled interrupts:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#65737e;">// interrupts may or may not be enabled
+</span><span>interrupts::without(|| {
+</span><span>    </span><span style="color:#65737e;">// interrupts are disabled
+</span><span>});
+</span><span style="color:#65737e;">// interrupts are restored to the previous state
+</span></code></pre>
+<p>I would appreciate you dropping by and giving it a try. :)</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
