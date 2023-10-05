@@ -33,6 +33,12 @@ Please follow this template:
 -->
 
 - [Toolchain Upgrade - Redox OS](https://www.redox-os.org/news/toolchain-upgrade-1/)
+- [Open Sourcing Ferrocene](https://ferrous-systems.com/blog/ferrocene-open-source/)
+- [ESP32 Standard Library Embedded Rust: GPIO Interrupts](https://apollolabsblog.hashnode.dev/esp32-standard-library-embedded-rust-gpio-interrupts)
+- [The Embedded Rust ESP Development Ecosystem](https://apollolabsblog.hashnode.dev/the-embedded-rust-esp-development-ecosystem)
+- [ESP Embedded Rust: Multithreading with FreeRTOS Bindings](https://apollolabsblog.hashnode.dev/esp-embedded-rust-multithreading-with-freertos-bindings)
+- [How Rust can build an elegant API around raw memory](https://litchipi.site/post/14762501311625827021)
+
 
 ## Infrastructure and Tooling
 
@@ -53,6 +59,7 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 - [MCP661: Move wasm32-wasi-preview1-threads target to Tier 2](https://github.com/rust-lang/rust/pull/115345)
 - [add notes about non-compliant FP behavior on 32bit x86 targets](https://github.com/rust-lang/rust/pull/113053)
 - [add more explicit I/O safety documentation](https://github.com/rust-lang/rust/pull/114780)
+- [Change `unsafe_op_in_unsafe_fn` to be `warn-by-default` from edition 2024](https://github.com/rust-lang/rust/pull/112038)
 - [cargo: Stabilize lint table](https://github.com/rust-lang/cargo/pull/12648)
 - Final comments period
   - [Stabilize `atomic_from_ptr`](https://github.com/rust-lang/rust/pull/115719)
