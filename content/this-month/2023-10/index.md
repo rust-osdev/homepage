@@ -64,6 +64,71 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
+### [`mkroening/interrupt-mutex`](https://github.com/mkroening/interrupt-mutex)
+<span class="maintainers">(Section written by [@mkroening](https://github.com/mkroening))</span>
+
+Building upon [last month's `interrupts` crate](@/this-month/2023-09/index.md#mkroening-interrupts), I created a mutex for sharing data with interrupt handlers or signal handlers.
+
+`RawInterruptMutex` wraps any [`lock_api::RawMutex`](https://docs.rs/lock_api/0.4.10/lock_api/trait.RawMutex.html), be it a [`parking_lot::RawMutex`](https://docs.rs/parking_lot/0.12.1/parking_lot/struct.RawMutex.html) on Unix or a [`spinning_top::RawSpinlock`](https://docs.rs/spinning_top/0.2.5/spinning_top/struct.RawSpinlock.html) on bare metal.
+When such an `InterruptMutex` is locked, interrupts are disabled.
+When the `InterruptMutex` is unlocked again, the previous interrupt state is restored.
+This does not completely rule out deadlocks, since you can just enable interrupts manually when you should not.
+Still, it is very convenient to just change the mutex type of data that is shared with interrupt handlers instead of disabling and enabling interrupts manually on every access.
+
+```rust
+// Make a mutex of your choice into an `InterruptMutex`.
+type InterruptSpinlock<T> = interrupt_mutex::InterruptMutex<spinning_top::RawSpinlock, T>;
+
+static X: InterruptSpinlock<Vec<i32>> = InterruptSpinlock::new(Vec::new());
+
+fn interrupt_handler() {
+    X.lock().push(1);
+}
+
+let v = X.lock();
+// Raise an interrupt
+raise_interrupt();
+assert_eq!(*v, vec![]);
+drop(v);
+
+// The interrupt handler runs
+
+let v = X.lock();
+assert_eq!(*v, vec![1]);
+drop(v);
+```
+
+### [`mkroening/interrupt-ref-cell`](https://github.com/mkroening/interrupt-ref-cell)
+<span class="maintainers">(Section written by [@mkroening](https://github.com/mkroening))</span>
+
+Also building upon [last month's `interrupts` crate](@/this-month/2023-09/index.md#mkroening-interrupts), I created a `RefCell` for sharing data with interrupt handlers or signal handlers on the same thread.
+
+On the same thread (software thread or hardware thread (core)), a compiler fence is sufficient for synchronization with signal handlers (on Unix) and interrupt handlers (on bare metal).
+In these cases, the new `InterruptRefCell` allows easy sharing without the overhead of mutexes and without the deadlock potential of mutexes.
+Similar to `InterruptMutex`, this is helpful for disabling interrupts on accesses but does not protect you from manually enabling interrupts while holding a reference.
+
+```rust
+use interrupt_ref_cell::{InterruptRefCell, LocalKeyExt};
+ 
+thread_local! {
+    static X: InterruptRefCell<Vec<i32>> = InterruptRefCell::new(Vec::new());
+}
+ 
+fn interrupt_handler() {
+    X.with_borrow_mut(|v| v.push(1));
+}
+
+X.with_borrow(|v| {
+    // Raise an interrupt
+    raise_interrupt();
+    assert_eq!(*v, vec![]);
+});
+ 
+// The interrupt handler runs
+ 
+X.with_borrow(|v| assert_eq!(*v, vec![1]));
+```
+
 <!--
     Please use the following template:
 
