@@ -67,7 +67,7 @@ In this section, we describe updates to Rust OS projects that are not directly r
 ### [`mkroening/interrupt-mutex`](https://github.com/mkroening/interrupt-mutex)
 <span class="maintainers">(Section written by [@mkroening](https://github.com/mkroening))</span>
 
-Building upon [last month's `interrupts` crate](@/this-month/2023-09/#mkroening-interrupts), I created a mutex for sharing data with interrupt handlers or signal handlers.
+Building upon [last month's `interrupts` crate](@/this-month/2023-09/index.md#mkroening-interrupts), I created a mutex for sharing data with interrupt handlers or signal handlers.
 
 `RawInterruptMutex` wraps any [`lock_api::RawMutex`](https://docs.rs/lock_api/0.4.10/lock_api/trait.RawMutex.html), be it a [`parking_lot::RawMutex`](https://docs.rs/parking_lot/0.12.1/parking_lot/struct.RawMutex.html) on Unix or a [`spinning_top::RawSpinlock`](https://docs.rs/spinning_top/0.2.5/spinning_top/struct.RawSpinlock.html) on bare metal.
 When such an `InterruptMutex` is locked, interrupts are disabled.
@@ -101,7 +101,7 @@ drop(v);
 ### [`mkroening/interrupt-ref-cell`](https://github.com/mkroening/interrupt-ref-cell)
 <span class="maintainers">(Section written by [@mkroening](https://github.com/mkroening))</span>
 
-Also building upon [last month's `interrupts` crate](@/this-month/2023-09/#mkroening-interrupts), I created a `RefCell` for sharing data with interrupt handlers or signal handlers on the same thread.
+Also building upon [last month's `interrupts` crate](@/this-month/2023-09/index.md#mkroening-interrupts), I created a `RefCell` for sharing data with interrupt handlers or signal handlers on the same thread.
 
 On the same thread (software thread or hardware thread (core)), a compiler fence is sufficient for synchronization with signal handlers (on Unix) and interrupt handlers (on bare metal).
 In these cases, the new `InterruptRefCell` allows easy sharing without the overhead of mutexes and without the deadlock potential of mutexes.
