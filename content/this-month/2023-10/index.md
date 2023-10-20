@@ -64,6 +64,19 @@ In this section, we give an overview of notable changes to the projects hosted u
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
+### [RavnOS](https://github.com/ShyanJMC/RavnOS)
+
+RanvOS, (from norwegian; raven), is a operative system programmed in Rust. Aims to be; minimal, stable, secure and modern ( this maybe you know as; state-of-art ).
+
+The objetive of RavnOS is make an operative system minimalist, self hosted (no external crates, all programmed by me), stable and secure.
+
+- October updates;
+   - [Minor code changes to follow good practices](https://github.com/ShyanJMC/RavnOS/commit/048cf546b0488fca9b4dabc2f9b38b6d93e373e1)
+- September updates;
+   - [ Rune - Added "du" as built-in. Right now is functional but in the future I will add results sorted by size.](https://github.com/ShyanJMC/RavnOS/commit/abc8d639d51b39c712158b9b3a769b88a0b05b66)
+   - [ Rune - Now "ls" built-in recognize and show where points the symbolinc link](https://github.com/ShyanJMC/RavnOS/commit/625f2899fa70b6932cbc7899f84f905ebfecd429)
+   - [ Rune - Added show as built-in, expanded "info" built-in with more information. Show - Deleted because now is Rune's built-in](https://github.com/ShyanJMC/RavnOS/commit/b8e016d78943f6c64ae1e77072d5dba343268bca)
+
 ### [`mkroening/interrupt-mutex`](https://github.com/mkroening/interrupt-mutex)
 <span class="maintainers">(Section written by [@mkroening](https://github.com/mkroening))</span>
 
