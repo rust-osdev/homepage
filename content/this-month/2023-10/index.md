@@ -68,7 +68,7 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 RanvOS, (from norwegian; raven), is a operative system programmed in Rust. Aims to be; minimal, stable, secure and modern ( this maybe you know as; state-of-art ).
 
-The objetive of RavnOS is make an operative system minimalist, self hosted (no external crates, all programmed by me), stable and secure.
+The objective of RavnOS is make an operative system minimalist, self hosted (no external crates, all programmed by me), stable and secure.
 
 - October updates;
    - [Minor code changes to follow good practices](https://github.com/ShyanJMC/RavnOS/commit/048cf546b0488fca9b4dabc2f9b38b6d93e373e1)
