@@ -40,6 +40,20 @@ Please follow this template:
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
 
+There weren't really any OS-related infrastructure updates this month, but there was some great progress on several upcoming language and tooling features that may also be of interest to OS development:
+
+- [Stabilize `async fn` and return-position `impl Trait` in trait](https://github.com/rust-lang/rust/pull/115822)
+- [Distribute `cg_clif` as rustup component on the nightly channel](https://github.com/rust-lang/rust/pull/81746)
+  - Faster debug builds using [cranelift](https://cranelift.dev/)
+- [Implement `gen` blocks in the 2024 edition](https://github.com/rust-lang/rust/pull/116447)
+  - Allows creating iterators through generators
+- [Stabilize `[const_]pointer_byte_offsets`](https://github.com/rust-lang/rust/pull/116205)
+- [Stabilize Ratified RISC-V Target Features](https://github.com/rust-lang/rust/pull/116485)
+- [Guarantee that `char` has the same size and alignment as `u32`](https://github.com/rust-lang/rust/pull/116894)
+- [feat: implement RFC 3127 `-Ztrim-paths`](https://github.com/rust-lang/cargo/pull/12625)
+  - Allows sanitizing file system paths used in panic messages → can reduce binary size
+  - See [RFC 3127](https://rust-lang.github.io/rfcs/3127-trim-paths.html) for details
+
 <!--
     Please use the following template:
 
