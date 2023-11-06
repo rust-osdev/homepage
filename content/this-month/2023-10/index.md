@@ -25,6 +25,9 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
+- [On the Challenge of Sound Code for Operating Systems](https://doi.org/10.1145/3623759.3624554)
+  - An open access paper on common patterns of unsound abstractions in operating systems when the codebase or the programmers are more familiar with C than with Rust
+
 <!--
 Please follow this template:
 
