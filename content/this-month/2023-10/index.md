@@ -27,6 +27,10 @@ Here we collect news, blog posts, etc. related to OS development in Rust.
 
 - [On the Challenge of Sound Code for Operating Systems](https://doi.org/10.1145/3623759.3624554)
   - An open access paper on common patterns of unsound abstractions in operating systems when the codebase or the programmers are more familiar with C than with Rust
+- [Bare-metal Rust in Android](https://security.googleblog.com/2023/10/bare-metal-rust-in-android.html?m=1)
+- [The Binder Linux driver is being rewritten in Rust](https://www.reddit.com/r/rust/comments/17lzdwt/the_binder_linux_driver_is_being_rewritten_in_rust/)
+- [Microsoft is planning to make Rust a 1st class language across their engineering systems](https://nitter.net/dwizzzleMSFT/status/1720134540822520268?s=20)
+- [Vivo Unveils BlueOS, Based on Rust Language](https://sparrowsnews.com/2023/11/01/vivo-unveils-blueos-operating-system/)
 
 <!--
 Please follow this template:
