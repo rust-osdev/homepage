@@ -63,6 +63,118 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`spinning_top`](https://github.com/rust-osdev/spinning_top)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `spinning_top` crate provides a simple spinlock implementation based on the abstractions of the [`lock_api`](https://docs.rs/lock_api/0.4.1/lock_api/) crate.
+
+We merged the following changes this month:
+
+#### Features
+
+- [perf: inline everything](https://github.com/rust-osdev/spinning_top/pull/17)
+- [feat: add backoff feature](https://github.com/rust-osdev/spinning_top/pull/16)
+- [feat: add `RwSpinlock` readers-writer lock](https://github.com/rust-osdev/spinning_top/pull/18)
+- [feat: add `arc_lock` feature and typedefs](https://github.com/rust-osdev/spinning_top/pull/25)
+- [Prepare for v0.3.0 release](https://github.com/rust-osdev/spinning_top/pull/26)
+
+#### Other
+
+- [ci: build with all features](https://github.com/rust-osdev/spinning_top/pull/19)
+- [docs: fix typo](https://github.com/rust-osdev/spinning_top/pull/23)
+- [test: don't ignore statics example](https://github.com/rust-osdev/spinning_top/pull/22)
+- [chore: remove `const_spinlock` function](https://github.com/rust-osdev/spinning_top/pull/20)
+- [chore: remove deprecated `nightly` feature](https://github.com/rust-osdev/spinning_top/pull/21)
+
+Thanks to [@mkroening](https://github.com/mkroening) for their contributions!
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. We merged the following PRs this month:
+
+- [Release](https://github.com/rust-osdev/uefi-rs/pull/958)
+- [Release uefi-services-0.22.0](https://github.com/rust-osdev/uefi-rs/pull/960)
+- [uefi-raw: Use workspace dependency for uguid](https://github.com/rust-osdev/uefi-rs/pull/967)
+- [uefi/gop: fix memory leak](https://github.com/rust-osdev/uefi-rs/pull/969)
+- [Allow indexing of `MemoryMap`.](https://github.com/rust-osdev/uefi-rs/pull/966)
+- [uefi-services: Return event in init](https://github.com/rust-osdev/uefi-rs/pull/920)
+- [Remove unused UefiRegularFileHandle type alias](https://github.com/rust-osdev/uefi-rs/pull/975)
+- [uefi-services: Remove NonNull wrapper from system_table](https://github.com/rust-osdev/uefi-rs/pull/974)
+- [Mark free_pages and free_pool as unsafe](https://github.com/rust-osdev/uefi-rs/pull/973)
+- [uefi: Change IMAGE_HANDLE to an atomic pointer](https://github.com/rust-osdev/uefi-rs/pull/976)
+- [uefi-services: Change SYSTEM_TABLE to an atomic pointer](https://github.com/rust-osdev/uefi-rs/pull/977)
+- [Change Logger to use an atomic pointer internally](https://github.com/rust-osdev/uefi-rs/pull/978)
+- [uefi: Use atomics instead of `static mut` in allocator](https://github.com/rust-osdev/uefi-rs/pull/979)
+- [Use const interface pointers in protocol management functions](https://github.com/rust-osdev/uefi-rs/pull/981)
+
+<!-- - [build(deps): bump crate-ci/typos from 1.16.15 to 1.16.16](https://github.com/rust-osdev/uefi-rs/pull/950) -->
+<!-- - [xtask: Temporarily disable a false-positive clippy lint](https://github.com/rust-osdev/uefi-rs/pull/953) -->
+<!-- - [build(deps): bump ureq from 2.7.0 to 2.8.0](https://github.com/rust-osdev/uefi-rs/pull/951) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.16.16 to 1.16.17](https://github.com/rust-osdev/uefi-rs/pull/956) -->
+<!-- - [build(deps): bump uguid from 2.0.0 to 2.1.0](https://github.com/rust-osdev/uefi-rs/pull/957) -->
+<!-- - [build(deps): bump regex from 1.9.0 to 1.10.2](https://github.com/rust-osdev/uefi-rs/pull/963) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.16.17 to 1.16.19](https://github.com/rust-osdev/uefi-rs/pull/964) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.16.19 to 1.16.20](https://github.com/rust-osdev/uefi-rs/pull/971) -->
+<!-- - [build(deps): bump rustix from 0.37.19 to 0.37.26](https://github.com/rust-osdev/uefi-rs/pull/972) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.16.20 to 1.16.21](https://github.com/rust-osdev/uefi-rs/pull/984) -->
+
+Thanks to [@JohnAZoidberg](https://github.com/JohnAZoidberg) and [@JarlEvanson](https://github.com/JarlEvanson) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following changes this month:
+
+- [fix(interrupts): replace compiler fences with potentially-synchronizing assembly](https://github.com/rust-osdev/x86_64/pull/440)
+- [add `from_slice`` to VirtAddr](https://github.com/rust-osdev/x86_64/pull/442)
+- [Enable dependabot to update actions](https://github.com/rust-osdev/x86_64/pull/420)
+- [Bump actions/checkout from 3 to 4](https://github.com/rust-osdev/x86_64/pull/441)
+
+Thanks to [@Wasabi375](https://github.com/Wasabi375), [@joycebrum](https://github.com/joycebrum), and [@mkroening](https://github.com/mkroening) for their contributions!
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. We merged the following changes this month:
+
+- [aml: Implement DefOr, DefSubtract and DefLNot opcodes](https://github.com/rust-osdev/acpi/pull/199)
+- [Compile for aarch64 and i686 targets on CI in addition to x86_64](https://github.com/rust-osdev/acpi/pull/201)
+
+Thanks to [@alnyan](https://github.com/alnyan) for their contribution!
+
+### [`ovmf-prebuilt`](https://github.com/rust-osdev/ovmf-prebuilt)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@nicholasbishop](https://github.com/nicholasbishop)</span>
+
+The `ovmf-prebuilt` project provides pre-built [edk2](https://github.com/tianocore/edk2) releases to make it easier to set up OVMF. We merged the following improvement this month:
+
+- [Dockerfile: add riscv64 with QemuBuild.py](https://github.com/rust-osdev/ovmf-prebuilt/pull/3)
+
+Thanks to [@Firenezz](https://github.com/Firenezz) for their contribution!
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following PRs:
+
+- [Update `rustix` dependency](https://github.com/rust-osdev/bootloader/pull/398)
+- [Add an additional MB of space to the generated FAT partition](https://github.com/rust-osdev/bootloader/pull/397)
+
+Thanks to [@kennystrawnmusic](https://github.com/kennystrawnmusic) for their contribution!
+
+### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@jamesmunns](https://github.com/jamesmunns)</span>
+
+The `linked-list-allocator` crate provides a basic `no_std` allocator that builds a linked list from freed memory blocks and thus needs no additional data structures. We merged the following PR this month:
+
+- [Fix potential panic due to huge layout](https://github.com/rust-osdev/linked-list-allocator/pull/79)
+
+Thanks to [@00xc](https://github.com/00xc) for their contribution!
+
+
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
