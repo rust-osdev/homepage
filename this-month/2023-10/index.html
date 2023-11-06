@@ -1,0 +1,318 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2023-10/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: October 2023 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: October 2023</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2023-11-06">
+            Nov 06, 2023
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (October 2023)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<ul>
+<li><a href="https://doi.org/10.1145/3623759.3624554">On the Challenge of Sound Code for Operating Systems</a>
+<ul>
+<li>An open access paper on common patterns of unsound abstractions in operating systems when the codebase or the programmers are more familiar with C than with Rust</li>
+</ul>
+</li>
+<li><a href="https://security.googleblog.com/2023/10/bare-metal-rust-in-android.html?m=1">Bare-metal Rust in Android</a></li>
+<li><a href="https://www.reddit.com/r/rust/comments/17lzdwt/the_binder_linux_driver_is_being_rewritten_in_rust/">The Binder Linux driver is being rewritten in Rust</a></li>
+<li><a href="https://nitter.net/dwizzzleMSFT/status/1720134540822520268?s=20">Microsoft is planning to make Rust a 1st class language across their engineering systems</a></li>
+<li><a href="https://sparrowsnews.com/2023/11/01/vivo-unveils-blueos-operating-system/">Vivo Unveils BlueOS, Based on Rust Language</a></li>
+</ul>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<p>There weren't really any OS-related infrastructure updates this month, but there was some great progress on several upcoming language and tooling features that may also be of interest to OS development:</p>
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/115822">Stabilize <code>async fn</code> and return-position <code>impl Trait</code> in trait</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/81746">Distribute <code>cg_clif</code> as rustup component on the nightly channel</a>
+<ul>
+<li>Faster debug builds using <a href="https://cranelift.dev/">cranelift</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/pull/116447">Implement <code>gen</code> blocks in the 2024 edition</a>
+<ul>
+<li>Allows creating iterators through generators</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/pull/116205">Stabilize <code>[const_]pointer_byte_offsets</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/116485">Stabilize Ratified RISC-V Target Features</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/116894">Guarantee that <code>char</code> has the same size and alignment as <code>u32</code></a></li>
+<li><a href="https://github.com/rust-lang/cargo/pull/12625">feat: implement RFC 3127 <code>-Ztrim-paths</code></a>
+<ul>
+<li>Allows sanitizing file system paths used in panic messages → can reduce binary size</li>
+<li>See <a href="https://rust-lang.github.io/rfcs/3127-trim-paths.html">RFC 3127</a> for details</li>
+</ul>
+</li>
+</ul>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="spinning-top"><a href="https://github.com/rust-osdev/spinning_top"><code>spinning_top</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>spinning_top</code> crate provides a simple spinlock implementation based on the abstractions of the <a href="https://docs.rs/lock_api/0.4.1/lock_api/"><code>lock_api</code></a> crate.</p>
+<p>We merged the following changes this month:</p>
+<h4 id="features">Features</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/17">perf: inline everything</a></li>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/16">feat: add backoff feature</a></li>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/18">feat: add <code>RwSpinlock</code> readers-writer lock</a></li>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/25">feat: add <code>arc_lock</code> feature and typedefs</a></li>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/26">Prepare for v0.3.0 release</a></li>
+</ul>
+<h4 id="other">Other</h4>
+<ul>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/19">ci: build with all features</a></li>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/23">docs: fix typo</a></li>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/22">test: don't ignore statics example</a></li>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/20">chore: remove <code>const_spinlock</code> function</a></li>
+<li><a href="https://github.com/rust-osdev/spinning_top/pull/21">chore: remove deprecated <code>nightly</code> feature</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/mkroening">@mkroening</a> for their contributions!</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p>The <code>uefi-rs</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/958">Release</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/960">Release uefi-services-0.22.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/967">uefi-raw: Use workspace dependency for uguid</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/969">uefi/gop: fix memory leak</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/966">Allow indexing of <code>MemoryMap</code>.</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/920">uefi-services: Return event in init</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/975">Remove unused UefiRegularFileHandle type alias</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/974">uefi-services: Remove NonNull wrapper from system_table</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/973">Mark free_pages and free_pool as unsafe</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/976">uefi: Change IMAGE_HANDLE to an atomic pointer</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/977">uefi-services: Change SYSTEM_TABLE to an atomic pointer</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/978">Change Logger to use an atomic pointer internally</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/979">uefi: Use atomics instead of <code>static mut</code> in allocator</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/981">Use const interface pointers in protocol management functions</a></li>
+</ul>
+<!-- - [build(deps): bump crate-ci/typos from 1.16.15 to 1.16.16](https://github.com/rust-osdev/uefi-rs/pull/950) -->
+<!-- - [xtask: Temporarily disable a false-positive clippy lint](https://github.com/rust-osdev/uefi-rs/pull/953) -->
+<!-- - [build(deps): bump ureq from 2.7.0 to 2.8.0](https://github.com/rust-osdev/uefi-rs/pull/951) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.16.16 to 1.16.17](https://github.com/rust-osdev/uefi-rs/pull/956) -->
+<!-- - [build(deps): bump uguid from 2.0.0 to 2.1.0](https://github.com/rust-osdev/uefi-rs/pull/957) -->
+<!-- - [build(deps): bump regex from 1.9.0 to 1.10.2](https://github.com/rust-osdev/uefi-rs/pull/963) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.16.17 to 1.16.19](https://github.com/rust-osdev/uefi-rs/pull/964) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.16.19 to 1.16.20](https://github.com/rust-osdev/uefi-rs/pull/971) -->
+<!-- - [build(deps): bump rustix from 0.37.19 to 0.37.26](https://github.com/rust-osdev/uefi-rs/pull/972) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.16.20 to 1.16.21](https://github.com/rust-osdev/uefi-rs/pull/984) -->
+<p>Thanks to <a href="https://github.com/JohnAZoidberg">@JohnAZoidberg</a> and <a href="https://github.com/JarlEvanson">@JarlEvanson</a> for their contributions!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/440">fix(interrupts): replace compiler fences with potentially-synchronizing assembly</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/442">add `from_slice`` to VirtAddr</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/420">Enable dependabot to update actions</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/441">Bump actions/checkout from 3 to 4</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Wasabi375">@Wasabi375</a>, <a href="https://github.com/joycebrum">@joycebrum</a>, and <a href="https://github.com/mkroening">@mkroening</a> for their contributions!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/199">aml: Implement DefOr, DefSubtract and DefLNot opcodes</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/201">Compile for aarch64 and i686 targets on CI in addition to x86_64</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/alnyan">@alnyan</a> for their contribution!</p>
+<h3 id="ovmf-prebuilt"><a href="https://github.com/rust-osdev/ovmf-prebuilt"><code>ovmf-prebuilt</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/nicholasbishop">@nicholasbishop</a></span></p>
+<p>The <code>ovmf-prebuilt</code> project provides pre-built <a href="https://github.com/tianocore/edk2">edk2</a> releases to make it easier to set up OVMF. We merged the following improvement this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/ovmf-prebuilt/pull/3">Dockerfile: add riscv64 with QemuBuild.py</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Firenezz">@Firenezz</a> for their contribution!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following PRs:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/398">Update <code>rustix</code> dependency</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/397">Add an additional MB of space to the generated FAT partition</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/kennystrawnmusic">@kennystrawnmusic</a> for their contribution!</p>
+<h3 id="linked-list-allocator"><a href="https://github.com/rust-osdev/linked-list-allocator"><code>linked-list-allocator</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/jamesmunns">@jamesmunns</a></span></p>
+<p>The <code>linked-list-allocator</code> crate provides a basic <code>no_std</code> allocator that builds a linked list from freed memory blocks and thus needs no additional data structures. We merged the following PR this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/linked-list-allocator/pull/79">Fix potential panic due to huge layout</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/00xc">@00xc</a> for their contribution!</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<h3 id="ravnos"><a href="https://github.com/ShyanJMC/RavnOS">RavnOS</a></h3>
+<p>RanvOS, (from norwegian; raven), is a operative system programmed in Rust. Aims to be; minimal, stable, secure and modern ( this maybe you know as; state-of-art ).</p>
+<p>The objective of RavnOS is make an operative system minimalist, self hosted (no external crates, all programmed by me), stable and secure.</p>
+<ul>
+<li>October updates;
+<ul>
+<li><a href="https://github.com/ShyanJMC/RavnOS/commit/048cf546b0488fca9b4dabc2f9b38b6d93e373e1">Minor code changes to follow good practices</a></li>
+</ul>
+</li>
+<li>September updates;
+<ul>
+<li><a href="https://github.com/ShyanJMC/RavnOS/commit/abc8d639d51b39c712158b9b3a769b88a0b05b66"> Rune - Added &quot;du&quot; as built-in. Right now is functional but in the future I will add results sorted by size.</a></li>
+<li><a href="https://github.com/ShyanJMC/RavnOS/commit/625f2899fa70b6932cbc7899f84f905ebfecd429"> Rune - Now &quot;ls&quot; built-in recognize and show where points the symbolinc link</a></li>
+<li><a href="https://github.com/ShyanJMC/RavnOS/commit/b8e016d78943f6c64ae1e77072d5dba343268bca"> Rune - Added show as built-in, expanded &quot;info&quot; built-in with more information. Show - Deleted because now is Rune's built-in</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="mkroening-interrupt-mutex"><a href="https://github.com/mkroening/interrupt-mutex"><code>mkroening/interrupt-mutex</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/mkroening">@mkroening</a>)</span></p>
+<p>Building upon <a href="https://rust-osdev.com/this-month/2023-09/#mkroening-interrupts">last month's <code>interrupts</code> crate</a>, I created a mutex for sharing data with interrupt handlers or signal handlers.</p>
+<p><code>RawInterruptMutex</code> wraps any <a href="https://docs.rs/lock_api/0.4.10/lock_api/trait.RawMutex.html"><code>lock_api::RawMutex</code></a>, be it a <a href="https://docs.rs/parking_lot/0.12.1/parking_lot/struct.RawMutex.html"><code>parking_lot::RawMutex</code></a> on Unix or a <a href="https://docs.rs/spinning_top/0.2.5/spinning_top/struct.RawSpinlock.html"><code>spinning_top::RawSpinlock</code></a> on bare metal.
+When such an <code>InterruptMutex</code> is locked, interrupts are disabled.
+When the <code>InterruptMutex</code> is unlocked again, the previous interrupt state is restored.
+This does not completely rule out deadlocks, since you can just enable interrupts manually when you should not.
+Still, it is very convenient to just change the mutex type of data that is shared with interrupt handlers instead of disabling and enabling interrupts manually on every access.</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#65737e;">// Make a mutex of your choice into an `InterruptMutex`.
+</span><span style="color:#b48ead;">type </span><span>InterruptSpinlock&lt;T&gt; = interrupt_mutex::InterruptMutex&lt;spinning_top::RawSpinlock, T&gt;;
+</span><span>
+</span><span style="color:#b48ead;">static</span><span> X: InterruptSpinlock&lt;Vec&lt;</span><span style="color:#b48ead;">i32</span><span>&gt;&gt; = InterruptSpinlock::new(Vec::new());
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">interrupt_handler</span><span>() {
+</span><span>    X.</span><span style="color:#96b5b4;">lock</span><span>().</span><span style="color:#96b5b4;">push</span><span>(</span><span style="color:#d08770;">1</span><span>);
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let</span><span> v = X.</span><span style="color:#96b5b4;">lock</span><span>();
+</span><span style="color:#65737e;">// Raise an interrupt
+</span><span style="color:#96b5b4;">raise_interrupt</span><span>();
+</span><span>assert_eq!(*v, vec![]);
+</span><span style="color:#96b5b4;">drop</span><span>(v);
+</span><span>
+</span><span style="color:#65737e;">// The interrupt handler runs
+</span><span>
+</span><span style="color:#b48ead;">let</span><span> v = X.</span><span style="color:#96b5b4;">lock</span><span>();
+</span><span>assert_eq!(*v, vec![</span><span style="color:#d08770;">1</span><span>]);
+</span><span style="color:#96b5b4;">drop</span><span>(v);
+</span></code></pre>
+<h3 id="mkroening-interrupt-ref-cell"><a href="https://github.com/mkroening/interrupt-ref-cell"><code>mkroening/interrupt-ref-cell</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/mkroening">@mkroening</a>)</span></p>
+<p>Also building upon <a href="https://rust-osdev.com/this-month/2023-09/#mkroening-interrupts">last month's <code>interrupts</code> crate</a>, I created a <code>RefCell</code> for sharing data with interrupt handlers or signal handlers on the same thread.</p>
+<p>On the same thread (software thread or hardware thread (core)), a compiler fence is sufficient for synchronization with signal handlers (on Unix) and interrupt handlers (on bare metal).
+In these cases, the new <code>InterruptRefCell</code> allows easy sharing without the overhead of mutexes and without the deadlock potential of mutexes.
+Similar to <code>InterruptMutex</code>, this is helpful for disabling interrupts on accesses but does not protect you from manually enabling interrupts while holding a reference.</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>interrupt_ref_cell::{InterruptRefCell, LocalKeyExt};
+</span><span> 
+</span><span>thread_local! {
+</span><span>    </span><span style="color:#b48ead;">static</span><span> X: InterruptRefCell&lt;Vec&lt;</span><span style="color:#b48ead;">i32</span><span>&gt;&gt; = InterruptRefCell::new(Vec::new());
+</span><span>}
+</span><span> 
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">interrupt_handler</span><span>() {
+</span><span>    X.</span><span style="color:#96b5b4;">with_borrow_mut</span><span>(|</span><span style="color:#bf616a;">v</span><span>| v.</span><span style="color:#96b5b4;">push</span><span>(</span><span style="color:#d08770;">1</span><span>));
+</span><span>}
+</span><span>
+</span><span>X.</span><span style="color:#96b5b4;">with_borrow</span><span>(|</span><span style="color:#bf616a;">v</span><span>| {
+</span><span>    </span><span style="color:#65737e;">// Raise an interrupt
+</span><span>    </span><span style="color:#96b5b4;">raise_interrupt</span><span>();
+</span><span>    assert_eq!(*v, vec![]);
+</span><span>});
+</span><span> 
+</span><span style="color:#65737e;">// The interrupt handler runs
+</span><span> 
+</span><span>X.</span><span style="color:#96b5b4;">with_borrow</span><span>(|</span><span style="color:#bf616a;">v</span><span>| assert_eq!(*v, vec![</span><span style="color:#d08770;">1</span><span>]));
+</span></code></pre>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
