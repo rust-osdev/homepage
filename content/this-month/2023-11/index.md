@@ -25,6 +25,9 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
+- [Officially Qualified - Ferrocene](https://ferrous-systems.com/blog/officially-qualified-ferrocene/)
+- [Edge IoT with Rust on ESP: NTP](https://apollolabsblog.hashnode.dev/edge-iot-with-rust-on-esp-ntp)
+
 <!--
 Please follow this template:
 
@@ -38,6 +41,10 @@ Please follow this template:
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
 
 There weren't really any OS-related infrastructure updates this month, but there was some great progress on several upcoming language and tooling features that may also be of interest to OS development:
+
+- [Stabilize C string literals](https://github.com/rust-lang/rust/pull/117472)
+- [Stabilize `ptr::addr_eq`](https://github.com/rust-lang/rust/pull/117968)
+- [Feature gate enums in `offset_of`](https://github.com/rust-lang/rust/pull/117537)
 
 <!--
     Please use the following template:
