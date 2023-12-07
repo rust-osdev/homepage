@@ -130,6 +130,8 @@ Thanks to [@zoo868e](https://github.com/zoo868e) for their contribution!
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
 
+<span class="gray">No projects updates were submitted this month.</span>
+
 <!--
     Please use the following template:
 
