@@ -1,0 +1,176 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2023-11/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: November 2023 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: November 2023</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2023-12-07">
+            Dec 07, 2023
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (November 2023)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<ul>
+<li><a href="https://ferrous-systems.com/blog/officially-qualified-ferrocene/">Officially Qualified - Ferrocene</a></li>
+<li><a href="https://apollolabsblog.hashnode.dev/edge-iot-with-rust-on-esp-ntp">Edge IoT with Rust on ESP: NTP</a></li>
+</ul>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<p>There weren't really any OS-related infrastructure updates this month, but there was some great progress on several upcoming language and tooling features that may also be of interest to OS development:</p>
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/117472">Stabilize C string literals</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/117968">Stabilize <code>ptr::addr_eq</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/117537">Feature gate enums in <code>offset_of</code></a></li>
+</ul>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p>The <code>uefi-rs</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/986">Configure Renovate</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/990">uefi-raw: Add AbsolutePointerProtocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/991">Add SimpleFileSystemProtocol &amp; file types to <code>uefi-raw</code>, use those types from <code>uefi</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/992">uefi-raw: Add API guidelines</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/998">uefi-macros: Change uefi dev-dependency from version to path</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/997">Add per-package changelogs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/931">test-runner: Improve uninstall_protocol_interface example</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/999">Release via Github Actions workflow</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1001">release: uefi-raw-0.5.0, uefi-macros-0.13.0, uefi-0.26.0, uefi-services-0.23.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1000">uefi-raw: Fill in [un]install_multiple_protocol_interfaces pointers</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1002">book: Use <code>cargo add</code> command</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/959">doc: update PUBLISHING.md</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1008">uefi(data-types): allow <code>is_ascii</code> function on <code>Char16</code> and <code>CStr16</code></a></li>
+</ul>
+<!---
+- [chore(deps): update crate-ci/typos action to v1.16.22](https://github.com/rust-osdev/uefi-rs/pull/988)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/989)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/993)
+- [chore(deps): update crate-ci/typos action to v1.16.23](https://github.com/rust-osdev/uefi-rs/pull/1005)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1006)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1010)
+- [nix: update rust-toolchain in shell](https://github.com/rust-osdev/uefi-rs/pull/1007)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1012)
+- [fix(deps): update rust crate itertools to 0.12.0](https://github.com/rust-osdev/uefi-rs/pull/1009)
+--->
+<p>Thanks to <a href="https://github.com/RaitoBezarius">@RaitoBezarius</a> for their contributions!</p>
+<h3 id="linked-list-allocator"><a href="https://github.com/rust-osdev/linked-list-allocator"><code>linked-list-allocator</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/jamesmunns">@jamesmunns</a></span></p>
+<p>The <code>linked-list-allocator</code> crate provides a basic <code>no_std</code> allocator that builds a linked list from freed memory blocks and thus needs no additional data structures. We merged the following PR this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/linked-list-allocator/pull/80">fuzz: remove potential undefined behavior in chaos harness</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/00xc">@00xc</a> for their contribution!</p>
+<h3 id="pic8259"><a href="https://github.com/rust-osdev/pic8259"><code>pic8259</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>pic_8259</code> crate provides abstractions for 8259 and 8259A Programmable Interrupt Controllers (PICs).</p>
+<p>We merged the following PR this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/pic8259/pull/5">docs: Remove the redundant word and space</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/zoo868e">@zoo868e</a> for their contribution!</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<p><span class="gray">No projects updates were submitted this month.</span></p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
