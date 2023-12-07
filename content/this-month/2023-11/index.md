@@ -62,6 +62,62 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. We merged the following PRs this month:
+
+- [Configure Renovate](https://github.com/rust-osdev/uefi-rs/pull/986)
+- [uefi-raw: Add AbsolutePointerProtocol](https://github.com/rust-osdev/uefi-rs/pull/990)
+- [Add SimpleFileSystemProtocol & file types to `uefi-raw`, use those types from `uefi`](https://github.com/rust-osdev/uefi-rs/pull/991)
+- [uefi-raw: Add API guidelines](https://github.com/rust-osdev/uefi-rs/pull/992)
+- [uefi-macros: Change uefi dev-dependency from version to path](https://github.com/rust-osdev/uefi-rs/pull/998)
+- [Add per-package changelogs](https://github.com/rust-osdev/uefi-rs/pull/997)
+- [test-runner: Improve uninstall_protocol_interface example](https://github.com/rust-osdev/uefi-rs/pull/931)
+- [Release via Github Actions workflow](https://github.com/rust-osdev/uefi-rs/pull/999)
+- [release: uefi-raw-0.5.0, uefi-macros-0.13.0, uefi-0.26.0, uefi-services-0.23.0](https://github.com/rust-osdev/uefi-rs/pull/1001)
+- [uefi-raw: Fill in [un]install_multiple_protocol_interfaces pointers](https://github.com/rust-osdev/uefi-rs/pull/1000)
+- [book: Use `cargo add` command](https://github.com/rust-osdev/uefi-rs/pull/1002)
+- [doc: update PUBLISHING.md](https://github.com/rust-osdev/uefi-rs/pull/959)
+- [uefi(data-types): allow `is_ascii` function on `Char16` and `CStr16`](https://github.com/rust-osdev/uefi-rs/pull/1008)
+
+<!---
+- [chore(deps): update crate-ci/typos action to v1.16.22](https://github.com/rust-osdev/uefi-rs/pull/988)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/989)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/993)
+- [chore(deps): update crate-ci/typos action to v1.16.23](https://github.com/rust-osdev/uefi-rs/pull/1005)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1006)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1010)
+- [nix: update rust-toolchain in shell](https://github.com/rust-osdev/uefi-rs/pull/1007)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1012)
+- [fix(deps): update rust crate itertools to 0.12.0](https://github.com/rust-osdev/uefi-rs/pull/1009)
+--->
+
+Thanks to [@RaitoBezarius](https://github.com/RaitoBezarius) for their contributions!
+
+
+### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@jamesmunns](https://github.com/jamesmunns)</span>
+
+The `linked-list-allocator` crate provides a basic `no_std` allocator that builds a linked list from freed memory blocks and thus needs no additional data structures. We merged the following PR this month:
+
+- [fuzz: remove potential undefined behavior in chaos harness](https://github.com/rust-osdev/linked-list-allocator/pull/80)
+
+Thanks to [@00xc](https://github.com/00xc) for their contribution!
+
+
+### [`pic8259`](https://github.com/rust-osdev/pic8259)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `pic_8259` crate provides abstractions for 8259 and 8259A Programmable Interrupt Controllers (PICs).
+
+We merged the following PR this month:
+
+- [docs: Remove the redundant word and space](https://github.com/rust-osdev/pic8259/pull/5)
+
+Thanks to [@zoo868e](https://github.com/zoo868e) for their contribution!
 
 ## Other Projects
 
