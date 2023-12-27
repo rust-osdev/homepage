@@ -25,6 +25,8 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
+- [Motūrus OS](https://github.com/moturus/motor-os) - a new Rust-based Operating System targeting virtual machines.
+
 <!--
 Please follow this template:
 
