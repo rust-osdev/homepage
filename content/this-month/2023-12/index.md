@@ -26,6 +26,14 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
 - [Motūrus OS](https://github.com/moturus/motor-os) - a new Rust-based Operating System targeting virtual machines.
+- [Maestro is a Unix-like kernel and operating system written from scratch in Rust](https://blog.lenot.re/a/introduction)
+- [MOROS 0.10.2](https://github.com/vinc/moros/releases/tag/v0.10.2)
+- [The first rust driver has been merged into netdev/net-next](https://www.reddit.com/r/rust/comments/18j23d3/the_first_rust_driver_has_been_merged_into/)
+- [Linus on Rust in the Linux kernel (December 2023)](https://www.reddit.com/r/rust/comments/18e6qrl/linus_on_rust_in_the_linux_kernel_december_2023/)
+- [Rust for Linux — in space](https://lwn.net/Articles/954974/)
+- [A `no_std` client for PostgreSQL](https://www.reddit.com/r/rust/comments/18infyx/a_no_std_client_for_postgresql/)
+- The Embedded Rustacean: [Issue #8](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-8) and [Issue #9](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-9)
+- [`cargo-ft`](https://github.com/stormshield/cargo-ft) (cargo filter target) is a cargo extension for specifying supported targets for a crate
 
 <!--
 Please follow this template:
@@ -39,7 +47,15 @@ Please follow this template:
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
 
-There weren't really any OS-related infrastructure updates this month, but there was some great progress on several upcoming language and tooling features that may also be of interest to OS development:
+- [Advisory: Miscompilation with `opt-level="z"` on Cortex-M](https://github.com/rust-embedded/cortex-m/discussions/503)
+- [Add `core::intrinsics::simd`](https://github.com/rust-lang/rust/pull/118853)
+- [Stabilize `ip_in_core` feature](https://github.com/rust-lang/rust/pull/119276)
+- [Stabilize `ptr::{from_ref, from_mut}`](https://github.com/rust-lang/rust/pull/117824)
+- [Add all known `target_feature` configs to check-cfg](https://github.com/rust-lang/rust/pull/118908)
+- [Add `-Zfunction-return={keep,thunk-extern}` option](https://github.com/rust-lang/rust/pull/116892)
+- [Add lint against ambiguous wide pointer comparisons](https://github.com/rust-lang/rust/pull/117758)
+- [Add new tier 3 `aarch64-apple-watchos` target](https://github.com/rust-lang/rust/pull/119074)
+- [Add more SIMD platform-intrinsics](https://github.com/rust-lang/rust/pull/117953)
 
 <!--
     Please use the following template:
