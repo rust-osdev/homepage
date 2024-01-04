@@ -25,6 +25,7 @@ skip_prefixes = [
     "https://www.linux-kvm.org", # see https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/
     "https://twitter.com/", # too many redirects
     "https://nitter.net/", # 403 forbidden
+    "https://reddit.com/", # 403 forbidden
 ]
 
 [extra]
