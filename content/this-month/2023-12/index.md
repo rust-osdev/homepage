@@ -32,7 +32,7 @@ Here we collect news, blog posts, etc. related to OS development in Rust.
 - [Linus on Rust in the Linux kernel (December 2023)](https://www.reddit.com/r/rust/comments/18e6qrl/linus_on_rust_in_the_linux_kernel_december_2023/)
 - [Rust for Linux — in space](https://lwn.net/Articles/954974/)
 - [A `no_std` client for PostgreSQL](https://www.reddit.com/r/rust/comments/18infyx/a_no_std_client_for_postgresql/)
-- The Embedded Rustacean: [Issue #8](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-8) and [Issue #9](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-9)
+- The Embedded Rustacean: [Issue #8](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-8), [Issue #9](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-9), and [Issue #10](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-10)
 - [`cargo-ft`](https://github.com/stormshield/cargo-ft) (cargo filter target) is a cargo extension for specifying supported targets for a crate
 
 <!--
