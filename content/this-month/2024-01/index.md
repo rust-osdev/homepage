@@ -33,6 +33,11 @@ Please follow this template:
 -->
 
 
+- [x86 Kernel Development & Relocatable Binaries – What I learned about Toolchains and Relocatable Code](https://phip1611.de/blog/x86-kernel-development-relocatable-binaries/)
+    - This post is roughly a summary of the obscure knowledge Philipp learned 
+      about toolchains and relocatable code in the last couple of years with a 
+      focus on relocatable x86_64 multiboot2 kernels for legacy BIOS boot.
+
 ## Infrastructure and Tooling
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
