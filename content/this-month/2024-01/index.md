@@ -33,12 +33,11 @@ Please follow this template:
 -->
 
 - [This Month in Redox](https://redox-os.org/news/this-month-240131/)
-
-
 - [x86 Kernel Development & Relocatable Binaries – What I learned about Toolchains and Relocatable Code](https://phip1611.de/blog/x86-kernel-development-relocatable-binaries/)
     - This post is roughly a summary of the obscure knowledge Philipp learned 
       about toolchains and relocatable code in the last couple of years with a 
       focus on relocatable x86_64 multiboot2 kernels for legacy BIOS boot.
+- The Embedded Rustacean [Issue 11](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-11) and [Issue 12](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-12)
 
 ## Infrastructure and Tooling
 
