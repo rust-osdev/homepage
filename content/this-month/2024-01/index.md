@@ -32,6 +32,8 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [This Month in Redox](https://redox-os.org/news/this-month-240131/)
+
 
 ## Infrastructure and Tooling
 
