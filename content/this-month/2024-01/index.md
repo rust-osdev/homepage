@@ -35,6 +35,11 @@ Please follow this template:
 - [This Month in Redox](https://redox-os.org/news/this-month-240131/)
 
 
+- [x86 Kernel Development & Relocatable Binaries – What I learned about Toolchains and Relocatable Code](https://phip1611.de/blog/x86-kernel-development-relocatable-binaries/)
+    - This post is roughly a summary of the obscure knowledge Philipp learned 
+      about toolchains and relocatable code in the last couple of years with a 
+      focus on relocatable x86_64 multiboot2 kernels for legacy BIOS boot.
+
 ## Infrastructure and Tooling
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
@@ -76,6 +81,36 @@ In this section, we describe updates to Rust OS projects that are not directly r
 -->
 
 
+### [`phip1611/phipsboot`](https://github.com/phip1611/phipsboot)
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+I'd like to announce my project PhipsBoot. 🎉 PhipsBoot is a relocatable x86_64 
+bootloader for legacy x86_64 boot written in Rust and assembly. It is intended 
+to be loaded by GRUB via Multiboot2, where it uncovers its main benefit: It is 
+relocatable in physical memory without having relocation information in the 
+ELF! It outsources a lot of complexity to GRUB which also better fits into
+the ecosystem and makes it easier usable. The README contains more background 
+about why I have chosen to use GRUB instead of writing my own stage 1 
+bootloader.
+
+This project combines a lot of toolchain and binary knowledge and experience I 
+collected and gained in recent years about legacy x86_64 boot. **The main 
+contribution IMHO is how the binary is assembled and that the thing boots
+with all the properties described in the README, but not the high-level 
+functionality itself.**
+
+I am especially proud of the well-commented structure of the assembly files.
+For example the whole page-table mappings are done IMHO very nicely even tho
+it is assembly language. Also, I think it turned out quite cool how I configured
+the linker script. I hope this can be a learning resource for others!
+
+TL;DR: It is a learning ground and a reference for how to solve the relocation
+problem with Multiboot2 and GRUB, as GRUB is not able to load DYN ELFs.
+
+You have multiple options for testing it out:
+
+- `$ cloud-hypervisor --debug-console file=log.txt --kernel ./build/phipsboot.elf64` (using Xen PVH)
+- `$ qemu-system-x86_64 -kernel ./build/phipsboot.elf32 -debugcon stdio` (using Multiboot 1)
 
 ## Join Us?
 
