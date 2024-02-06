@@ -66,6 +66,80 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PR this month:
+
+- [expose `Cr3::write_raw`](https://github.com/rust-osdev/x86_64/pull/445)
+
+We also merged the following changes into the `next` branch, which will be released as `v0.15` soon:
+
+- [Update `next` branch with latest changes from `master`](https://github.com/rust-osdev/x86_64/pull/447)
+- [remove deprecated from_bits_unchecked functions](https://github.com/rust-osdev/x86_64/pull/449)
+- [make `HandlerFuncType` unsafe](https://github.com/rust-osdev/x86_64/pull/450)
+- [Update docs to clarify new `set_handler_fn` behavior](https://github.com/rust-osdev/x86_64/pull/451)
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following nightly fixes:
+
+- [Fix data layout for stage 3 target](https://github.com/rust-osdev/bootloader/pull/413)
+- [Release `v0.11.6`](https://github.com/rust-osdev/bootloader/pull/414)
+- [[v0.9] Fix data layout for `x86_64-bootloader` target](https://github.com/rust-osdev/bootloader/pull/415)
+  - Released as v0.9.24
+
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. We merged the following changes this month:
+
+- [Add `Debug` impl for `PhysicalMapping` even when `T` is not `Debug`](https://github.com/rust-osdev/acpi/pull/206)
+
+Thanks to [@Spartan2909](https://github.com/Spartan2909) for their contribution!
+
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. We merged the following PRs this month:
+
+- [Fix broken UEFI spec link in uefi-raw README.md](https://github.com/rust-osdev/uefi-rs/pull/1046)
+- [book: Add a page on building drivers](https://github.com/rust-osdev/uefi-rs/pull/1047)
+- [book: Add a link to rust's UEFI target docs](https://github.com/rust-osdev/uefi-rs/pull/1048)
+- [uefi-raw: Add LoadFileProtocol and LoadFile2Protocol](https://github.com/rust-osdev/uefi-rs/pull/1022)
+
+<!--
+- [chore(deps): update crate-ci/typos action to v1.16.26](https://github.com/rust-osdev/uefi-rs/pull/1038)
+- [fix(deps): update rust crate anyhow to v1.0.78](https://github.com/rust-osdev/uefi-rs/pull/1039)
+- [fix(deps): update rust crate clap to v4.4.12](https://github.com/rust-osdev/uefi-rs/pull/1040)
+- [fix(deps): update rust crate proc-macro2 to v1.0.73](https://github.com/rust-osdev/uefi-rs/pull/1041)
+- [fix(deps): update rust crate anyhow to v1.0.79](https://github.com/rust-osdev/uefi-rs/pull/1043)
+- [chore(deps): update rust crate trybuild to v1.0.88](https://github.com/rust-osdev/uefi-rs/pull/1042)
+- [fix(deps): update rust crate clap to v4.4.13](https://github.com/rust-osdev/uefi-rs/pull/1044)
+-->
+
+<!--
+- [chore(deps): update crate-ci/typos action to v1.17.1](https://github.com/rust-osdev/uefi-rs/pull/1051)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1053)
+- [chore(deps): update cachix/install-nix-action action to v25](https://github.com/rust-osdev/uefi-rs/pull/1054)
+-->
+<!-- - [fix(deps): update rust crate clap to v4.4.17](https://github.com/rust-osdev/uefi-rs/pull/1050)
+- [fix(deps): update rust crate crates-index to v2.5.0](https://github.com/rust-osdev/uefi-rs/pull/1052)
+- [chore(deps): update crate-ci/typos action to v1.17.2](https://github.com/rust-osdev/uefi-rs/pull/1055)
+- [chore(deps): update rust crate bitflags to v2.4.2](https://github.com/rust-osdev/uefi-rs/pull/1056)
+- [fix(deps): update rust crate clap to v4.4.18](https://github.com/rust-osdev/uefi-rs/pull/1057)
+- [fix(deps): update rust crate proc-macro2 to v1.0.78](https://github.com/rust-osdev/uefi-rs/pull/1058)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1062) -->
+
+Thanks to [@gurry](https://github.com/gurry) for their contribution!
+
+
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
