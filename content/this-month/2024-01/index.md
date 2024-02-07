@@ -185,6 +185,22 @@ You have multiple options for testing it out:
 - `$ cloud-hypervisor --debug-console file=log.txt --kernel ./build/phipsboot.elf64` (using Xen PVH)
 - `$ qemu-system-x86_64 -kernel ./build/phipsboot.elf32 -debugcon stdio` (using Multiboot 1)
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Update data layouts in target specifications](https://github.com/phil-opp/blog_os/pull/1271)
+- [change some format errors for chinese edition minimal kernel](https://github.com/phil-opp/blog_os/pull/1274)
+- [fix testing and paging introduction chapter errors in zh-CN translation](https://github.com/phil-opp/blog_os/pull/1262)
+- [[Edition 3] fix a lil typo](https://github.com/phil-opp/blog_os/pull/1270)
+- [[Edition 3] Fix typos in code for `embedded_graphics` crate in chapter 3](https://github.com/phil-opp/blog_os/pull/1269)
+- [[Edition 3] Fix embedded_graphics code + typo in chapter 3](https://github.com/phil-opp/blog_os/pull/1276)
+- [[Edition 3] Fix typo in chapter 2](https://github.com/phil-opp/blog_os/pull/1265)
+- [[Edition 3] Fix formatting in chapter 2](https://github.com/phil-opp/blog_os/pull/1266)
+
+Thanks to [@acyanbird](https://github.com/acyanbird), [@proudmuslim-dev](https://github.com/proudmuslim-dev), and [@lachsdachs](https://github.com/lachsdachs) for their contributions!
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
