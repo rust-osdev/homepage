@@ -43,6 +43,10 @@ Please follow this template:
   - [Making VirtIO sing - implementing virtio-sound in rust-vmm project](https://fosdem.org/2024/schedule/event/fosdem-2024-1910-making-virtio-sing-implementing-virtio-sound-in-rust-vmm-project/)
   - [The case for a virtual Rust stateless codec driver](https://fosdem.org/2024/schedule/event/fosdem-2024-2985-the-case-for-a-virtual-rust-stateless-codec-driver/)
   - [An open-source, open-hardware offline finding system](https://fosdem.org/2024/schedule/event/fosdem-2024-3264-an-open-source-open-hardware-offline-finding-system/)
+- [Making an RISC-V OS (Part 1): Project Setup](https://traxys.me/riscv_os_setup.html)
+- [Looking for people to help out with CharlotteOS (Beginners are welcome!)](https://www.reddit.com/r/osdev/comments/1aeffha/looking_for_people_to_help_out_with_charlotteos/)
+- [The Linux kernel now contains the first useful component written in Rust](https://fosstodon.org/@kernellogger/111741507899977461)
+- [BPF Opens Door to Linux Extensible Scheduling (Maybe with Rust!)](https://thenewstack.io/bpf-opens-a-door-to-linux-dynamic-scheduling-maybe-with-rust/)
 
 ## Infrastructure and Tooling
 
