@@ -38,6 +38,11 @@ Please follow this template:
       about toolchains and relocatable code in the last couple of years with a 
       focus on relocatable x86_64 multiboot2 kernels for legacy BIOS boot.
 - The Embedded Rustacean [Issue 11](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-11) and [Issue 12](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-12)
+- [FOSDEM 2024](https://fosdem.org/2024/)
+  - [News from the Hermit Crab — From Soundness Foundations to GPU Virtualization](https://fosdem.org/2024/schedule/event/fosdem-2024-3375-news-from-the-hermit-crab-from-soundness-foundations-to-gpu-virtualization/)
+  - [Making VirtIO sing - implementing virtio-sound in rust-vmm project](https://fosdem.org/2024/schedule/event/fosdem-2024-1910-making-virtio-sing-implementing-virtio-sound-in-rust-vmm-project/)
+  - [The case for a virtual Rust stateless codec driver](https://fosdem.org/2024/schedule/event/fosdem-2024-2985-the-case-for-a-virtual-rust-stateless-codec-driver/)
+  - [An open-source, open-hardware offline finding system](https://fosdem.org/2024/schedule/event/fosdem-2024-3264-an-open-source-open-hardware-offline-finding-system/)
 
 ## Infrastructure and Tooling
 
