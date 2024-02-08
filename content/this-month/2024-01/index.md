@@ -59,6 +59,10 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [Stabilize single-field offset_of](https://github.com/rust-lang/rust/pull/118799)
+- [LLVM 18 x86 data layout update](https://github.com/rust-lang/rust/pull/116672)
+- [cargo: Strip debuginfo when debuginfo is not requested](https://github.com/rust-lang/cargo/pull/13257)
+
 ## `rust-osdev` Projects
 
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`](https://github.com/rust-osdev/about) organization.
