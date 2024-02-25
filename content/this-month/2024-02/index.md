@@ -32,6 +32,7 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Redox OS - Porting Strategy](https://www.redox-os.org/news/porting-strategy/)
 
 ## Infrastructure and Tooling
 
