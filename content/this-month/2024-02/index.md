@@ -33,6 +33,7 @@ Please follow this template:
 -->
 
 - [Redox OS - Porting Strategy](https://www.redox-os.org/news/porting-strategy/)
+- [This Month in Redox](https://redox-os.org/news/this-month-240229/)
 
 ## Infrastructure and Tooling
 
