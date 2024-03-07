@@ -34,6 +34,11 @@ Please follow this template:
 
 - [Redox OS - Porting Strategy](https://www.redox-os.org/news/porting-strategy/)
 - [This Month in Redox](https://redox-os.org/news/this-month-240229/)
+- [Tock Compiles on Stable Rust!](https://tockos.org/blog/2024/talking-tock-55/)
+- [Making an RISC-V OS (Part 2): Kernel in virtual addresses](https://traxys.me/riscv_os_2.html)
+- The Embedded Rustacean [Issue 13](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-13) and [Issue 14](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-14)
+- [Linux Kernel: Rewrite the VP9 codec library in Rust](https://lore.kernel.org/lkml/20240227215146.46487-1-daniel.almeida@collabora.com/)
+- [Anouncing stabby 3.0.0](https://www.reddit.com/r/rust/comments/1amjknw/anouncing_stabby_300_and_rustconf_video_available/)
 
 ## Infrastructure and Tooling
 
@@ -46,6 +51,13 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [only set noalias on Box with the global allocator](https://github.com/rust-lang/rust/pull/122018)
+- [Add stubs in IR and ABI for `f16` and `f128`](https://github.com/rust-lang/rust/pull/121728)
+- [`f16` and `f128` step 2: intrinsics](https://github.com/rust-lang/rust/pull/121841)
+- [Add armv8r-none-eabihf target for the Cortex-R52](https://github.com/rust-lang/rust/pull/110482)
+- [Add a new `wasm32-wasip1` target to rustc](https://github.com/rust-lang/rust/pull/120468)
+- [Add a new `wasm32-wasi-preview2` target](https://github.com/rust-lang/rust/pull/119616)
+- [rename `ptr::invalid` -> `ptr::without_provenance`](https://github.com/rust-lang/rust/pull/117658)
 
 ## `rust-osdev` Projects
 
