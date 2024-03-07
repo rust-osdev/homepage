@@ -76,6 +76,68 @@ In this section, we give an overview of notable changes to the projects hosted u
 -->
 
 
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PRs this month:
+
+- [Fix data layout in custom target used for testing](https://github.com/rust-osdev/x86_64/pull/454)
+- [optimize `from_page_table_indices`](https://github.com/rust-osdev/x86_64/pull/456)
+- [mark as 0.15 as beta release](https://github.com/rust-osdev/x86_64/pull/455)
+- [Release v0.14.12](https://github.com/rust-osdev/x86_64/pull/457)
+- [Fix release script](https://github.com/rust-osdev/x86_64/pull/459)
+- [Merge next into master: releasing `v0.15.0-beta`](https://github.com/rust-osdev/x86_64/pull/458)
+- [Update data layout of test target for LLVM 18](https://github.com/rust-osdev/x86_64/pull/460)
+- [optimize `Step` impl for `VirtAddr`](https://github.com/rust-osdev/x86_64/pull/462)
+- [Miscellaneous improvements](https://github.com/rust-osdev/x86_64/pull/464)
+- [Release v0.15.0](https://github.com/rust-osdev/x86_64/pull/463)
+
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. We merged the following PRs this month:
+
+
+<!--
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1067)
+- [chore(deps): update crate-ci/typos action to v1.18.0](https://github.com/rust-osdev/uefi-rs/pull/1066)
+- [fix(deps): update rust crate itertools to v0.12.1](https://github.com/rust-osdev/uefi-rs/pull/1063)
+- [fix(deps): update rust crate ureq to v2.9.4](https://github.com/rust-osdev/uefi-rs/pull/1065)
+- [chore(deps): update crate-ci/typos action to v1.18.2](https://github.com/rust-osdev/uefi-rs/pull/1069)
+- [fix(deps): update rust crate tempfile to v3.10.0](https://github.com/rust-osdev/uefi-rs/pull/1072)
+- [fix(deps): update rust crate ureq to v2.9.5](https://github.com/rust-osdev/uefi-rs/pull/1070)
+- [fix(deps): update rust crate syn to v2.0.49](https://github.com/rust-osdev/uefi-rs/pull/1075)
+- [chore(deps): update dorny/paths-filter action to v3](https://github.com/rust-osdev/uefi-rs/pull/1078)
+- [fix(deps): update rust crate ureq to v2.9.6](https://github.com/rust-osdev/uefi-rs/pull/1076)
+- [fix(deps): update rust crate anyhow to v1.0.80](https://github.com/rust-osdev/uefi-rs/pull/1079)
+- [fix(deps): update rust crate serde_json to v1.0.114](https://github.com/rust-osdev/uefi-rs/pull/1080)
+- [fix(deps): update rust crate crates-index to v2.6.0](https://github.com/rust-osdev/uefi-rs/pull/1083)
+- [fix(deps): update rust crate syn to v2.0.50](https://github.com/rust-osdev/uefi-rs/pull/1082)
+-->
+
+- [Add a method to create a MemoryMap from a raw buffer](https://github.com/rust-osdev/uefi-rs/pull/1074)
+
+Thanks to [@bjorn3](https://github.com/bjorn3) for their contribution!
+
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following improvements:
+
+- [Set `NO_EXECUTE` flag for all writable memory regions](https://github.com/rust-osdev/bootloader/pull/409)
+- [[v0.9] Fix data layout for custom targets for LLVM 18](https://github.com/rust-osdev/bootloader/pull/421)
+- [[v0.9] Fix map errors during kernel loading](https://github.com/rust-osdev/bootloader/pull/422)
+- [[v0.9] Fix: unify flags if multiple segments are mapped to same frame with different flags](https://github.com/rust-osdev/bootloader/pull/423)
+- [Fix invalid mapping to zero page caused by off-by-one bug](https://github.com/rust-osdev/bootloader/pull/424)
+- [adapt data layout to match LLVM's](https://github.com/rust-osdev/bootloader/pull/420)
+- [Release `v0.11.7`](https://github.com/rust-osdev/bootloader/pull/426)
+- [Remove unused paging imports](https://github.com/rust-osdev/bootloader/pull/430)
+
+Thanks to [@vinc](https://github.com/vinc) and [@tsatke](https://github.com/tsatke) for their contributions!
 
 ## Other Projects
 
