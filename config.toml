@@ -26,6 +26,7 @@ skip_prefixes = [
     "https://twitter.com/", # too many redirects
     "https://nitter.net/", # 403 forbidden
     "https://www.reddit.com/", # 403 forbidden
+    "https://blog.rust.careers", # Expired certificate
 ]
 
 [extra]
