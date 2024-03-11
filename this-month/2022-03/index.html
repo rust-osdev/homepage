@@ -223,7 +223,7 @@ emulation, and starting programs from ELF files.</p>
 <p>We also received lots of smaller fixes, by <a href="https://github.com/phil-opp/blog_os/pull/1080">@MaxDesiatov</a>, <a href="https://github.com/phil-opp/blog_os/pull/1089">@alaincao</a>, <a href="https://github.com/phil-opp/blog_os/pull/1096">@Programatic</a>, <a href="https://github.com/phil-opp/blog_os/pull/1091">@ruhuang2001</a>, <a href="https://github.com/phil-opp/blog_os/pull/1093">@Hofer-Julian</a>, <a href="https://github.com/phil-opp/blog_os/pull/1094">@SilensAngelusNex</a>, and <a href="https://github.com/phil-opp/blog_os/pull/1095">@julien-me</a>. Thank you all for your contributions!</p>
 <p>Unfortunately I didn't have time to work on the new version of the <code>bootloader</code> crate for the upcoming third edition of the blog this month. However, there was some surprising development on the Rust side that should help us with the new build system: <a href="https://github.com/bstrie">@bstrie</a> created a <em>Major Change Proposal</em> to <a href="https://github.com/rust-lang/compiler-team/issues/499">promote the <code>x86_64-unknown-none</code> target to Tier 2</a>. This is a bare-metal target that should be compatible with our kernel, so we might not need <code>-Zbuild-std</code> anymore in the future. Instead, we could download a precompiled version of the <code>core</code>/<code>alloc</code> crates via <code>rustup target add</code>. The great news is that the proposal was already accepted and the <a href="https://github.com/rust-lang/rust/pull/95705">corresponding implementation PR</a> is ready for review too!</p>
 <h2 id="join-us">Join Us?</h2>
-<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
 
 
     <h2 id="comment-form">Comments</h2>
@@ -239,7 +239,7 @@ emulation, and starting programs from ELF files.</p>
 
             <footer class="footer">
                 <hr>
-                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
                     &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
                     <a href="https://rust-osdev.com/contact/">Contact</a>
                 </small>

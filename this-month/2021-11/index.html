@@ -111,7 +111,7 @@ Please use the following template for adding items:
 <p>There were no visible changes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> series this month, but I continued working on the new build system for the upcoming third edition. One particular change that I want to highlight is that I redesigned the configuration of the <code>bootloader</code> crate. Instead of passing it via <a href="https://docs.rs/bootloader/0.10.9/bootloader/struct.Config.html">a <code>package.metadata.bootloader</code> section</a> in the kernel's <code>Cargo.toml</code>, users will pass a configuration struct to the <a href="https://docs.rs/bootloader/0.10.9/bootloader/macro.entry_point.html"><code>entry_point</code></a> macro. This struct is then serialized at compile time into a separate section in the ELF executable, which the bootloader can then read on loading. This change should make the build process easier and more flexible.</p>
 <p>I plan to simplify the build system further, but I'm currently waiting on some upcoming <code>cargo</code> features for that. In particular, I think that <a href="https://github.com/rust-lang/cargo/pull/9992"><em>artifact dependencies</em></a> and <a href="https://internals.rust-lang.org/t/proposal-move-some-cargo-config-settings-to-cargo-toml/13336"><em>per-packet configuration</em></a> options will be very useful for the project, especially the config options I mentioned in my <a href="https://github.com/phil-opp/blog_os/issues/1063#issuecomment-968341112">status update comment</a> on GitHub.</p>
 <h2 id="join-us">Join Us?</h2>
-<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
 
 
     <h2 id="comment-form">Comments</h2>
@@ -127,7 +127,7 @@ Please use the following template for adding items:
 
             <footer class="footer">
                 <hr>
-                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
                     &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
                     <a href="https://rust-osdev.com/contact/">Contact</a>
                 </small>

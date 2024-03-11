@@ -145,7 +145,7 @@ microarchitectural information. This will help in allowing Pebble to make more i
 <p>There were also <a href="https://github.com/phil-opp/blog_os/pulls?q=is%3Apr+is%3Aclosed+merged%3A2020-06-01..2020-07-01">some contributions</a> this month that fixed typos and updated links. Thanks a lot to all contributors!</p>
 <p>For the next weeks/months, my plan is to finish the UEFI bootloader implementation and then adjust the blog to work with both the BIOS and UEFI bootloaders. Among other things, this will require that we switch from the VGA text buffer to a pixel-based framebuffer because the VGA text mode is not available with UEFI. While this makes things more complicated (we need to do some simple font rendering and add slice support to <code>volatile</code> crate), it will allow us to create our own graphical user interface, render a mouse pointer, or display images.</p>
 <h2 id="join-us">Join Us?</h2>
-<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://gitter.im/rust-osdev/Lobby">gitter channel</a>.</p>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
 
 
     <h2 id="comment-form">Comments</h2>
@@ -161,7 +161,7 @@ microarchitectural information. This will help in allowing Pebble to make more i
 
             <footer class="footer">
                 <hr>
-                <small>Join us on <a href="https://gitter.im/rust-osdev/Lobby" >Gitter.</a><br>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
                     &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
                     <a href="https://rust-osdev.com/contact/">Contact</a>
                 </small>
