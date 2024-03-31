@@ -31,6 +31,8 @@ Please follow this template:
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
+- [This Month in Redox](https://redox-os.org/news/this-month-240330/)
+- [Redox Kernel Improvements](https://redox-os.org/news/kernel-10/)
 
 ## Infrastructure and Tooling
 
