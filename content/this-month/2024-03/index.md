@@ -31,6 +31,7 @@ Please follow this template:
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
+- [MOROS 0.10.3](https://github.com/vinc/moros/releases/tag/v0.10.3)
 
 ## Infrastructure and Tooling
 
