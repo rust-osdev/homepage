@@ -35,6 +35,9 @@ Please follow this template:
 - [This Month in Redox](https://redox-os.org/news/this-month-240330/)
 - [Redox Kernel Improvements](https://redox-os.org/news/kernel-10/)
 - [MOROS 0.10.3](https://github.com/vinc/moros/releases/tag/v0.10.3)
+- [Embedded Rust Bluetooth on ESP: BLE Client](https://apollolabsblog.hashnode.dev/embedded-rust-bluetooth-on-esp-ble-client)
+- [EtherCrab 0.4: Distributed Clocks, `io_uring`, Derives, Oh My](https://wapl.es/ethercrab-0-4-io-uring-derives-ethercat-distributed-clocks/)
+- The Embedded Rustacean: [Issue 15](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-15) and [Issue 16](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-16)
 
 ## Infrastructure and Tooling
 
@@ -46,6 +49,16 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
+
+- [Add basic trait impls for `f16` and `f128`](https://github.com/rust-lang/rust/pull/123085)
+- [RFC: patchable-function-entry](https://github.com/rust-lang/rfcs/pull/3543) was merged
+- [unsafe attributes RFC](https://github.com/rust-lang/rfcs/pull/3325) completed FCP
+- FCP complete to stabilize [raw slice len() method (slice_ptr_len, const_slice_ptr_len)](https://github.com/rust-lang/rust/issues/71146)
+- [stabilize ptr.is_aligned](https://github.com/rust-lang/rust/pull/121948)
+- [downgrade ptr.is_aligned_to crate-private](https://github.com/rust-lang/rust/pull/121920)
+- [transmute: caution against int2ptr transmutation](https://github.com/rust-lang/rust/pull/122379)
+- New RFC: [Add realign_stack attribute to rustc](https://github.com/rust-lang/rfcs/pull/3594)
+- [`c_unwind` full stabilization request: change in extern "C" behavior](https://github.com/rust-lang/rust/issues/115285)
 
 ## `rust-osdev` Projects
 
