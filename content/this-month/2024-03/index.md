@@ -32,9 +32,14 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [An IRC client in your motherboard](https://axleos.com/an-irc-client-in-your-motherboard/)
+- [octox: Writing a Unix-like OS in Rust](https://vmm.dev/en/rust/osinrust.md)
 - [This Month in Redox](https://redox-os.org/news/this-month-240330/)
 - [Redox Kernel Improvements](https://redox-os.org/news/kernel-10/)
 - [MOROS 0.10.3](https://github.com/vinc/moros/releases/tag/v0.10.3)
+- [The server chose violence: Hubris's oddest syscall](https://cliffle.com/blog/hubris-reply-fault/)
+- [Red Hat's Long, Rust'ed Road Ahead For Nova As Nouveau Driver Successor](https://www.phoronix.com/news/Red-Hat-Nova-Rust-Abstractions)
+- [A memory model for Rust code in the Linux kernel](https://lwn.net/SubscriberLink/967049/0ffb9b9ed8940013/)
 - [Embedded Rust Bluetooth on ESP: BLE Client](https://apollolabsblog.hashnode.dev/embedded-rust-bluetooth-on-esp-ble-client)
 - [EtherCrab 0.4: Distributed Clocks, `io_uring`, Derives, Oh My](https://wapl.es/ethercrab-0-4-io-uring-derives-ethercat-distributed-clocks/)
 - The Embedded Rustacean: [Issue 15](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-15) and [Issue 16](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-16)
@@ -51,6 +56,8 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 -->
 
 - [Add basic trait impls for `f16` and `f128`](https://github.com/rust-lang/rust/pull/123085)
+- [Add aarch64-apple-visionos and aarch64-apple-visionos-sim tier 3 targets](https://github.com/rust-lang/rust/pull/121419)
+- [Changes to Rust's WASI targets](https://blog.rust-lang.org/2024/04/09/updates-to-rusts-wasi-targets.html)
 - [RFC: patchable-function-entry](https://github.com/rust-lang/rfcs/pull/3543) was merged
 - [unsafe attributes RFC](https://github.com/rust-lang/rfcs/pull/3325) completed FCP
 - FCP complete to stabilize [raw slice len() method (slice_ptr_len, const_slice_ptr_len)](https://github.com/rust-lang/rust/issues/71146)
