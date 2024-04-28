@@ -32,6 +32,14 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Testing Virtualization Stacks by Utilizing Mini Operating System Kernels](https://cyberus-technology.de/articles/testing-virtualization-stacks-utilizing-mini-kernels) \
+  Testing and debugging erroneous behaviour by a guest under a virtualization stack is hard and difficult. By leveraging
+  multiple mini operating system kernels, Cyberus Technology can investigate issues related to complicated topics, such
+  as never delivered interrupts, with a precise focus on where to look at. Although the Cyberus Guest Tests are still a
+  project written in C++, they help to find issues and problems in Cloud-Hypervisor\, **a VMM written in Rust**. For better
+  debugging capabilities of the Guest Tests, Cyberus Technology [upstreamed support for the Debug Console](https://github.com/cloud-hypervisor/cloud-hypervisor/pull/6012)
+  to Cloud Hypervisor, which is present since `v38`.
+
 
 ## Infrastructure and Tooling
 
@@ -78,4 +86,4 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 ## Join Us?
 
-Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [gitter channel](https://gitter.im/rust-osdev/Lobby).
+Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [Zulip chat](https://rust-osdev.zulipchat.com).
