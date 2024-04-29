@@ -82,7 +82,25 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
-<span class="gray">No projects updates were submitted this month.</span>
+### [RatCornu/efs](https://codeberg.org/RatCornu/efs)
+
+[`efs`](https://crates.io/efs) is a recently published `no-std` library which provides an OS and architecture independent implementation of some UNIX filesystems in Rust.
+
+Currently only the [ext2 filesystem](https://fr.wikipedia.org/wiki/Ext2) is directly implemented, but I will soonly work on other filesystems!
+
+It's still young so it may contain bugs, but it's hugely tested so that it does not happen.
+
+Some of the features provided :
+
+* `no_std` support (enabled by default)
+
+* General interface for UNIX files and filesystems
+
+* `read/write` regular files
+
+* retrieve, add and remove directory entries directly from a path and a current working directory.
+
+I hope you will find this useful! If you have any remark, idea or issue, do not hesitate to submit an issue!
 
 ## Join Us?
 
