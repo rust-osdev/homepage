@@ -39,7 +39,7 @@ Please follow this template:
   project written in C++, they help to find issues and problems in Cloud-Hypervisor\, **a VMM written in Rust**. For better
   debugging capabilities of the Guest Tests, Cyberus Technology [upstreamed support for the Debug Console](https://github.com/cloud-hypervisor/cloud-hypervisor/pull/6012)
   to Cloud Hypervisor, which is present since `v38`.
-
+- [Redox OS - April 2024 Report](https://redox-os.org/news/this-month-240430/)
 
 ## Infrastructure and Tooling
 
