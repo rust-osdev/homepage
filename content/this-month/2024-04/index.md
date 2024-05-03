@@ -258,6 +258,15 @@ Some of the features provided :
 
 I hope you will find this useful! If you have any remark, idea or issue, do not hesitate to submit an issue!
 
+### [phip1611/tar-no-std](https://github.com/phip1611/tar-no-std)
+
+[`tar-no-std`](https://github.com/phip1611/tar-no-std) supports a relevant 
+subset of Tar archives to extract multiple files from a single Tar archive in 
+`no_std` environments with zero allocations. Recently, `v0.3.0` was released 
+with support for filenames with up to 256 characters (including the directory
+path) and various bug fixes. Using fuzzing, a lot of pitfalls and sudden panics
+could be removed in this release.
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [Zulip chat](https://rust-osdev.zulipchat.com).
