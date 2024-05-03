@@ -33,12 +33,13 @@ Please follow this template:
 -->
 
 - [Testing Virtualization Stacks by Utilizing Mini Operating System Kernels](https://cyberus-technology.de/articles/testing-virtualization-stacks-utilizing-mini-kernels) \
-  Testing and debugging erroneous behaviour by a guest under a virtualization stack is hard and difficult. By leveraging
-  multiple mini operating system kernels, Cyberus Technology can investigate issues related to complicated topics, such
-  as never delivered interrupts, with a precise focus on where to look at. Although the Cyberus Guest Tests are still a
-  project written in C++, they help to find issues and problems in Cloud-Hypervisor\, **a VMM written in Rust**. For better
-  debugging capabilities of the Guest Tests, Cyberus Technology [upstreamed support for the Debug Console](https://github.com/cloud-hypervisor/cloud-hypervisor/pull/6012)
-  to Cloud Hypervisor, which is present since `v38`.
+  Multiple mini OS kernels help Cyberus Technology to investigate issues 
+  related to complicated problems in virtualization stacks, such as never
+  delivered interrupts. Although the Cyberus Guest Tests are written in C++,
+  they help to find issues and problems in Cloud-Hypervisor, 
+  **a VMM written in Rust**. For better debugging capabilities of the Guest
+  Tests, Cyberus Technology [upstreamed support for the Debug Console](https://github.com/cloud-hypervisor/cloud-hypervisor/pull/6012)
+  to Cloud Hypervisor, which is present since `v38`. The [source code of the Guest Tests is on GitHub](https://github.com/cyberus-technology/guest-tests).
 - [Redox OS - April 2024 Report](https://redox-os.org/news/this-month-240430/)
 
 ## Infrastructure and Tooling
