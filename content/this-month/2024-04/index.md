@@ -41,6 +41,15 @@ Please follow this template:
   Tests, Cyberus Technology [upstreamed support for the Debug Console](https://github.com/cloud-hypervisor/cloud-hypervisor/pull/6012)
   to Cloud Hypervisor, which is present since `v38`. The [source code of the Guest Tests is on GitHub](https://github.com/cyberus-technology/guest-tests).
 - [Redox OS - April 2024 Report](https://redox-os.org/news/this-month-240430/)
+- [Giving Rust a chance for in-kernel codecs](https://lwn.net/SubscriberLink/970565/ac5ffc2e9ad20f1e/)
+- Video: [From C to Rust: Bringing Rust Abstractions to Embedded Linux](https://www.youtube.com/watch?v=hmQr4fq6sH0)
+- The Embedded Rustacean [Issue #17](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-17) and [Issue #18](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-18)
+- [Rust-Written LAVD Kernel Scheduler Shows Promising Results For Linux Gaming](https://www.phoronix.com/news/LAVD-Scheduler-Linux-Gaming)
+- Video: [LinuxFest Northwest 2024: Meet COSMIC DE](https://www.youtube.com/watch?v=JHLfsWhDvz0)
+- New [`offset-allocator`](https://github.com/pcwalton/offset-allocator) crate, providing a fast, simple, hard real time allocator
+  - not `no_std` yet, but should be easy to port (only requires a `Vec`-like type)
+- [Making an RISC-V OS (Part 3): Managing free memory](https://traxys.me/riscv_os_buddy.html)
+- [Asterinas](https://asterinas.github.io/): a secure, fast, and general-purpose OS kernel written in Rust and compatible with Linux
 
 ## Infrastructure and Tooling
 
