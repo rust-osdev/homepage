@@ -62,6 +62,11 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [`f16` and `f128` step 4: basic library support](https://github.com/rust-lang/rust/pull/122470)
+- [Stabilise `inline_const`](https://github.com/rust-lang/rust/pull/104087)
+- [Introduce perma-unstable `wasm-c-abi` flag](https://github.com/rust-lang/rust/pull/117919)
+- [Stabilize `(const_)slice_ptr_len` and `(const_)slice_ptr_is_empty_nonnull`](https://github.com/rust-lang/rust/pull/123868)
+- [Add `aarch64-apple-visionos` and `aarch64-apple-visionos-sim` tier 3 targets](https://github.com/rust-lang/rust/pull/121419)
 
 ## `rust-osdev` Projects
 
