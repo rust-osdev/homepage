@@ -135,7 +135,19 @@ to Cloud Hypervisor, which is present since <code>v38</code>. The <a href="https
 <p>Thanks to <a href="https://github.com/mkroening">@mkroening</a> for their contributions!</p>
 <h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
 <p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
-<p>The <code>uefi-rs</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. We merged the following PRs this month:</p>
+<p>The <code>uefi-rs</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS.
+Recently, we deprecated the [<code>uefi-services</code>] crate and removed all usages from
+the <a href="https://github.com/rust-osdev/uefi-rs"><code>uefi</code></a> repository. A new drop-in 
+replacement exists in <a href="https://docs.rs/uefi/latest/uefi/helpers/index.html"><code>uefi::helpers</code></a>.</p>
+<p>The test of time showed us that having a single crate with multiple cargo 
+features is a better and more productive way forward with less maintenance
+burden - for users/consumers as well as maintainers.</p>
+<p>Please find more information in:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1128">https://github.com/rust-osdev/uefi-rs/pull/1128</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1141">https://github.com/rust-osdev/uefi-rs/pull/1141</a></li>
+</ul>
+<p>We merged the following PRs this month:</p>
 <ul>
 <li><a href="https://github.com/rust-osdev/uefi-rs/pull/1109">Add timestamp protocol</a></li>
 <li><a href="https://github.com/rust-osdev/uefi-rs/pull/1108">Replace some <code>as</code> casts</a></li>
