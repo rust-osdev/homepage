@@ -116,6 +116,19 @@ Thanks to [@mkroening](https://github.com/mkroening) for their contributions!
 
 The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. We merged the following PRs this month:
 
+Recently, we deprecated the [`uefi-services`] crate and removed all usages from
+the [`uefi`](https://github.com/rust-osdev/uefi-rs) repository. A new drop-in 
+replacement exists in [`uefi::helpers`](https://docs.rs/uefi/latest/uefi/helpers/index.html).
+
+The test of time showed us that having a single crate with multiple cargo 
+features is a better and more productive way forward with less maintenance
+burden - for users/consumers as well as maintainers.
+
+Please find more information in:
+- <https://github.com/rust-osdev/uefi-rs/pull/1128>
+- <https://github.com/rust-osdev/uefi-rs/pull/1141>
+
+
 - [Add timestamp protocol](https://github.com/rust-osdev/uefi-rs/pull/1109)
 - [Replace some `as` casts](https://github.com/rust-osdev/uefi-rs/pull/1108)
 - [uefi: Add UnalignedSlice::as_ptr](https://github.com/rust-osdev/uefi-rs/pull/1117)
