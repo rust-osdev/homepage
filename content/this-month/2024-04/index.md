@@ -239,11 +239,8 @@ It's still young so it may contain bugs, but it's hugely tested so that it does 
 Some of the features provided :
 
 * `no_std` support (enabled by default)
-
 * General interface for UNIX files and filesystems
-
 * `read/write` regular files
-
 * retrieve, add and remove directory entries directly from a path and a current working directory.
 
 I hope you will find this useful! If you have any remark, idea or issue, do not hesitate to submit an issue!
