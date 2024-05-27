@@ -76,6 +76,29 @@ In this section, we describe updates to Rust OS projects that are not directly r
 -->
 
 
+### [`mkroening/free-list`](https://github.com/mkroening/free-list)
+<span class="maintainers">(Section written by [@mkroening](https://github.com/mkroening))</span>
+
+The `free-list` crate provides the `FreeList` type for managing virtual or physical memory.
+Opposed to normal memory allocators, `FreeList` does not use pointers but page ranges.
+It operates by keeping a list of free page ranges (hence the name) and allows allocating at user-provided ranges.
+Instead of operating directly on the unallocated memory through a linked list, this free list uses statically allocated memory before dynamically allocating more memory to hold its elements.
+
+```rust
+use free_list::{FreeList, PageLayout};
+
+let mut free_list = FreeList::<16>::new();
+
+unsafe {
+    free_list.deallocate((0x1000..0x5000).try_into().unwrap()).unwrap();
+}
+assert_eq!(free_list.free_space(), 0x4000);
+
+let layout = PageLayout::from_size(0x4000).unwrap();
+assert_eq!(free_list.allocate(layout).unwrap(), (0x1000..0x5000).try_into().unwrap());
+```
+
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [Zulip chat](https://rust-osdev.zulipchat.com).
