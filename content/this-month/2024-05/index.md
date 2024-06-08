@@ -25,8 +25,7 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
-- [This Month in Redox - May 2024](https://www.redox-os.org/news/this-month-240531/)
-  - Redox is running COSMIC file manager, editor, and terminal now
+- [This Month in Redox - May 2024](https://www.redox-os.org/news/this-month-240531/): Redox is running COSMIC file manager, editor, and terminal now
 - Bachelor's Thesis: [Writing an NVMe Driver in Rust](https://db.in.tum.de/~ellmann/theses/finished/24/pirhonen_writing_an_nvme_driver_in_rust.pdf) (PDF)
 - [Building an Async Runtime for the Windows Kernel](https://github.com/carlos-al/windows-kernel-rs)
 - [Ferrocene 24.05.0 now available for purchase](https://ferrous-systems.com/blog/ferrocene-24-05-0/)
@@ -46,8 +45,7 @@ Please follow this template:
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
 
-- [Stabilize `LazyCell` and `LazyLock`](https://github.com/rust-lang/rust/pull/121377)
-  - `LazyCell` is available in `no_std`
+- [Stabilize `LazyCell` and `LazyLock`](https://github.com/rust-lang/rust/pull/121377) (`LazyCell` is available in `no_std`)
 - [Stabilize `error_in_core`](https://github.com/rust-lang/rust/pull/125951)
 - [Add `x86_64-unknown-linux-none` target](https://github.com/rust-lang/rust/pull/125023) (freestanding linux binaries without `libc` dependency)
 - [Add `opt-for-size` core lib feature flag](https://github.com/rust-lang/rust/pull/125011)
