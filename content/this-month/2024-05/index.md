@@ -25,6 +25,15 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
+- [This Month in Redox - May 2024](https://www.redox-os.org/news/this-month-240531/)
+  - Redox is running COSMIC file manager, editor, and terminal now
+- Bachelor's Thesis: [Writing an NVMe Driver in Rust](https://db.in.tum.de/~ellmann/theses/finished/24/pirhonen_writing_an_nvme_driver_in_rust.pdf) (PDF)
+- [Building an Async Runtime for the Windows Kernel](https://github.com/carlos-al/windows-kernel-rs)
+- [Ferrocene 24.05.0 now available for purchase](https://ferrous-systems.com/blog/ferrocene-24-05-0/)
+- [Rust 1.78: Performance Impact of the 128-bit Memory Alignment Fix](https://codspeed.io/blog/rust-1-78-performance-impact-of-the-128-bit-memory-alignment-fix)
+- [GxHash - an extremely fast hardware-accelerated non-cryptographic hashing algorithm](https://github.com/ogxd/gxhash) (zero dependencies, no_std compatible)
+- The Embedded Rustacean [Issue #19](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-19), [Issue #20](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-20), and [Issue #21](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-21)
+
 <!--
 Please follow this template:
 
