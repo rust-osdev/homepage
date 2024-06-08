@@ -46,6 +46,13 @@ Please follow this template:
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
 
+- [Stabilize `LazyCell` and `LazyLock`](https://github.com/rust-lang/rust/pull/121377)
+  - `LazyCell` is available in `no_std`
+- [Stabilize `error_in_core`](https://github.com/rust-lang/rust/pull/125951)
+- [Add `x86_64-unknown-linux-none` target](https://github.com/rust-lang/rust/pull/125023) (freestanding linux binaries without `libc` dependency)
+- [Add `opt-for-size` core lib feature flag](https://github.com/rust-lang/rust/pull/125011)
+- [Implement feature `integer_sign_cast`](https://github.com/rust-lang/rust/pull/125884)
+
 <!--
     Please use the following template:
 
