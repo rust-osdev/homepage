@@ -61,6 +61,96 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`endian-num`](https://github.com/rust-osdev/endian-num) (new project!)
+<span class="maintainers">Maintained by [@mkroening](https://github.com/mkroening)</span>
+
+The `endian-num` crate provides the `Be` (big-endian) and `Le` (little-endian) byte-order-aware numeric types.
+
+- [initial implementation](https://github.com/rust-osdev/endian-num/commit/000f86f5470401e4d0d8824ec976738fb8a35bb7)
+- [docs: elaborate on differences to other crates](https://github.com/rust-osdev/endian-num/pull/1)
+- [docs: refer to related crates via docs.rs](https://github.com/rust-osdev/endian-num/pull/2)
+
+Thanks to [@mkroening](https://github.com/mkroening) for creating and maintaining this crate!
+
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+The `uefi-rs` crate provides safe and performant wrappers for [UEFI](https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface), the successor to the BIOS. We merged the following PRs this month:
+
+- [Fix risc target_arch cfg](https://github.com/rust-osdev/uefi-rs/pull/1159)
+- [Match MaximumCapsuleSize to UEFI spec](https://github.com/rust-osdev/uefi-rs/pull/1161)
+- [Add RuntimeServices::update_capsule](https://github.com/rust-osdev/uefi-rs/pull/1162)
+- [Add RuntimeServices::query_capsule_capabilities](https://github.com/rust-osdev/uefi-rs/pull/1166)
+- [Note about feature flags for uefi book](https://github.com/rust-osdev/uefi-rs/pull/1168)
+- [uefi-raw: misc](https://github.com/rust-osdev/uefi-rs/pull/1173)
+- [mem: clarify confusion around MemoryDescriptor](https://github.com/rust-osdev/uefi-rs/pull/1174)
+- [uefi/helpers: logger logs to debugcon device](https://github.com/rust-osdev/uefi-rs/pull/1172)
+- [Add basic API for a global system table](https://github.com/rust-osdev/uefi-rs/pull/1156)
+- [uefi: BootServices::allocate_pool now returns NonZero<u8> instead of *mut u8](https://github.com/rust-osdev/uefi-rs/pull/1176)
+- [Fix uefi-macros trybuild test](https://github.com/rust-osdev/uefi-rs/pull/1183)
+
+<!-- - [chore(deps): update crate-ci/typos action to v1.21.0](https://github.com/rust-osdev/uefi-rs/pull/1158) -->
+<!-- - [chore(deps): update rust crate trybuild to v1.0.93](https://github.com/rust-osdev/uefi-rs/pull/1157) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1165) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1171) -->
+<!-- - [fix(deps): update rust crate anyhow to v1.0.86](https://github.com/rust-osdev/uefi-rs/pull/1164) -->
+<!-- - [fix(deps): update rust crate itertools to 0.13.0](https://github.com/rust-osdev/uefi-rs/pull/1179) -->
+<!-- - [fix(deps): update rust crate nix to 0.29.0](https://github.com/rust-osdev/uefi-rs/pull/1180) -->
+<!-- - [chore(deps): update cachix/install-nix-action action to v27](https://github.com/rust-osdev/uefi-rs/pull/1181) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1182) -->
+
+Thanks to [@stillinbeta](https://github.com/stillinbeta) and [@andre-braga](https://github.com/andre-braga) for their contributions!
+
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following improvements:
+
+- [Fix doc comment and error message only referencing the BIOS but used for UEFI](https://github.com/rust-osdev/bootloader/pull/439)
+- [Ensure all page table frames are mapped as writable](https://github.com/rust-osdev/bootloader/pull/444)
+
+Thanks to [@fmckeogh](https://github.com/fmckeogh) and [@Wasabi375](https://github.com/Wasabi375) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PRs this month:
+
+- [fix cfg related warnings](https://github.com/rust-osdev/x86_64/pull/485)
+- [merge master into next](https://github.com/rust-osdev/x86_64/pull/486)
+- [add Mapper::clear to clear any page table entry regardless of present flag](https://github.com/rust-osdev/x86_64/pull/484)
+- [fix warnings](https://github.com/rust-osdev/x86_64/pull/488)
+
+Thanks to [@Wasabi375](https://github.com/Wasabi375) for their contribution!
+
+
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+The `multiboot2` crate provides abstraction types for the multiboot information structure (MBI) of multiboot2 bootloaders. We merged the following changes this month:
+
+- [multiboot2: builder: Allow to specify SMBIOS tag multiple times](https://github.com/rust-osdev/multiboot2/pull/210)
+- [dev: misc improvements](https://github.com/rust-osdev/multiboot2/pull/213)
+- [release](https://github.com/rust-osdev/multiboot2/pull/214)
+- [multiboot2: fix handling of efi memory map](https://github.com/rust-osdev/multiboot2/pull/216)
+
+<!-- - [build(deps): bump crate-ci/typos from 1.19.0 to 1.21.0](https://github.com/rust-osdev/multiboot2/pull/211) -->
+
+Thanks to [@YtvwlD](https://github.com/YtvwlD) for their contribution!
+
+
+### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@jamesmunns](https://github.com/jamesmunns)</span>
+
+The `linked-list-allocator` crate provides a basic `no_std` allocator that builds a linked list from freed memory blocks and thus needs no additional data structures. We merged the following PR this month:
+
+- [Fix warnings about `cfg(fuzzing)`](https://github.com/rust-osdev/linked-list-allocator/pull/82)
+
 
 ## Other Projects
 
