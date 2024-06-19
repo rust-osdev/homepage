@@ -25,6 +25,9 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
+- [Redox OS - Software Showcase #1](https://youtu.be/s-gxAsBTPxA?si=IAPJ25EYP-XxS_FB)
+  - On this video we show several programs running on Redox OS
+
 <!--
 Please follow this template:
 
