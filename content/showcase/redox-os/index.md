@@ -13,7 +13,7 @@ Redox OS is a microkernel-based general-purpose operating system with a focus on
 
 The project was born in 2015 as an attempt to create the first operating system written in Rust (after the 1.0 version of the compiler), since then it was rewritten from unikernel to a microkernel and matured.
 
-Other concepts were introduced by the contributors, like a Plan 9-like system interface and sandboxing by default using the Capsicum capabilities from FreeBSD.
+Other concepts were introduced by the contributors, like a Plan 9-like system interface and sandboxing by default using the [Capsicum](https://man.freebsd.org/cgi/man.cgi?capsicum(4)) capabilities from FreeBSD.
 
 ## Microkernels
 
