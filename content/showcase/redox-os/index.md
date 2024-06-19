@@ -362,9 +362,9 @@ After the init processes have set up drivers and daemons, it is possible for the
 
 ## Graphical overview
 
-Here is an overview of the initialization process with scheme creation and usage. For simplicity's sake, we do not depict all scheme interaction but at least the major ones. **THIS IS CURRENTLY OUT OF DATE, BUT STILL INFORMATIVE**
+Here is an overview of the initialization process with scheme creation and usage. For simplicity's sake, we do not depict all scheme interaction but at least the major ones. **this is currently out of date, but still informative**
 
-![Redox initialization graph](./assets/init.svg "Redox initialization graph")
+![Redox initialization graph](init.svg)
 
 ## Boot process documentation
 
