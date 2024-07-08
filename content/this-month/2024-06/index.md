@@ -170,6 +170,14 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`nicholasbishop/ext4-view-rs`](https://github.com/nicholasbishop/ext4-view-rs)
+<span class="maintainers">(Section written by [@nicholasbishop](https://github.com/nicholasbishop))</span>
+
+I've released a new Rust crate for reading ext4 filesystems. It's easy to use, with an API very similar to [`std::fs`](https://doc.rust-lang.org/std/fs/index.html). The crate is no-std compatible, but does require an allocator.
+
+Note that by design this crate will remain read-only; writing to an ext4 filesystem is not a goal.
+
+Thanks to [@tedbrandston](https://github.com/tedbrandston) for doing a ton of code review on this project!
 
 ## Join Us?
 
