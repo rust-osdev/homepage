@@ -27,6 +27,8 @@ Here we collect news, blog posts, etc. related to OS development in Rust.
 
 - [Redox OS - Software Showcase #1](https://youtu.be/s-gxAsBTPxA?si=IAPJ25EYP-XxS_FB)
   - On this video we show several programs running on Redox OS
+- [k23 - Experimental WASM Microkernel](https://github.com/JonasKruckenberg/k23)
+  - First announced at RustNL 2024, k23 is an experimental microkernel written in Rust that runs WebAssembly programs. Now Open Source!
 
 <!--
 Please follow this template:
