@@ -1,0 +1,221 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2024-06/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: June 2024 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: June 2024</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2024-07-10">
+            Jul 10, 2024
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (June 2024)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<ul>
+<li><a href="https://youtu.be/s-gxAsBTPxA?si=IAPJ25EYP-XxS_FB">Redox OS - Software Showcase #1</a>
+<ul>
+<li>This is our first showcase video, showing several programs running on Redox OS</li>
+</ul>
+</li>
+<li><a href="https://www.redox-os.org/news/this-month-240630/">This Month in Redox - June 2024</a></li>
+<li><a href="https://github.com/JonasKruckenberg/k23">k23 - Experimental WASM Microkernel</a>
+<ul>
+<li>First announced at RustNL 2024, k23 is an experimental microkernel written in Rust that runs WebAssembly programs. Now Open Source!</li>
+</ul>
+</li>
+</ul>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/115974">Split core's PanicInfo and std's PanicInfo</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/126732">Stabilize <code>PanicInfo::message()</code> and <code>PanicMessage</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/124482">Unsafe extern blocks</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/125606">Size optimize int formatting</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/126530">Add <code>f16</code> inline ASM support for RISC-V</a></li>
+</ul>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p>The <code>uefi-rs</code> crate provides safe and performant wrappers for <a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">UEFI</a>, the successor to the BIOS. We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1194">uefi: Stop enabling <code>error_in_core</code> feature</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1196">reorganize deps</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1199">uefi: Add TryFrom u8 slice to DevicePathHeader </a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1189">test-runner: Consistently use global image handle</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1197">uefi: Add TryFrom u8 slice to DevicePathNode</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1188">Clean up duplicate global system table pointer in <code>uefi::helpers</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1202">uefi: make DevicePathHeader::try_from idiomatic</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1201">uefi: Add TryFrom u8 slice to DevicePath</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1203">uefi: re-export CapsuleFlags</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1206">ci: Temporarily turn off warnings-as-errors for nightly CI jobs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1210">uefi: use UNSPECIFIED_TIMEZONE instead of magic number</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1211">uefi: Make TimeError more descriptive</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1187">Fix versions</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1209">uefi-test-runner: speed up ploting of sierpinski triangle by updating changed pixel only</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1175">memory map: improvements to fight pitfalls (MemoryMap now owns the memory)</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1214">uefi: simplify usage of Mode</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1217">template: fix build failure</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1212">uefi: Add TryFrom&lt;&amp;[u8]&gt; for Time</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/LightAndLight">@LightAndLight</a>, <a href="https://github.com/andre-braga">@andre-braga</a>, and <a href="https://github.com/JeffLi01">@JeffLi01</a> for their contributions!</p>
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1184) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.22.3](https://github.com/rust-osdev/uefi-rs/pull/1193) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1195) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.22.7](https://github.com/rust-osdev/uefi-rs/pull/1207) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1208) -->
+<!-- - [nix/niv: update nixpkgs to nixos-24.05](https://github.com/rust-osdev/uefi-rs/pull/1213) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.22.9](https://github.com/rust-osdev/uefi-rs/pull/1215) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1218) -->
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following improvements:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/446">Guard the lower 1MB of memory</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Wasabi375">@Wasabi375</a> for their contributions!</p>
+<h3 id="pci-types"><a href="https://github.com/rust-osdev/pci_types"><code>pci_types</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>The <code>pci_types</code> library provides types for accessing and configuring PCI devices from Rust operating systems. We merged the following change this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/15">feat: accept <code>FnOnce</code> for updating commands</a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/17">ci: add workflow</a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/16">feat: don't truncate reserved bits in <code>CommandRegister</code></a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/18">fix(breaking): clippy lints</a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/19">style: update <code>rustfmt.toml</code></a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/20">feat: derive additional traits for <code>CommandRegister</code></a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/21">feat: add <code>EndpointHeader::update_interrupt</code></a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/22">feat: don't take explicit references to <code>ConfigRegionAccess</code></a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/23">feat: implement <code>Copy</code> for all types that already implement <code>Clone</code></a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/24">fix: don't take explicit reference in <code>update_interrupt</code></a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/27">Add method to get the address of any capability</a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/28">Fix docs rendering for MsixCapability::set_enabled</a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/32">feat: make <code>update_command</code> take <code>&amp;mut self</code></a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/29">Add method to enable/disable function masking for MSI-X</a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/25">Add unwrap_io and unwrap_mem convenience methods on Bar</a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/26">Remove the function_exists method of ConfigRegionAccess</a></li>
+<li><a href="https://github.com/rust-osdev/pci_types/pull/33">Support 64-bit addressing in MSI capabilities and improve uniformity with rest of library</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, <a href="https://github.com/bjorn3">@bjorn3</a>, and <a href="https://github.com/mkroening">@mkroening</a> for their contributions!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following PR this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/489">constify PhysFrame functions</a></li>
+</ul>
+<h3 id="volatile"><a href="https://github.com/rust-osdev/volatile"><code>volatile</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>volatile</code> crate provides a safe wrapper type for implementing volatile read and write operations. This is useful for accessing memory regions that have side-effects, such as memory-mapped hardware registers.</p>
+<p>We merged the following PR this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/volatile/pull/64">Release v0.6.0</a></li>
+</ul>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="nicholasbishop-ext4-view-rs"><a href="https://github.com/nicholasbishop/ext4-view-rs"><code>nicholasbishop/ext4-view-rs</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/nicholasbishop">@nicholasbishop</a>)</span></p>
+<p>I've released a new Rust crate for reading ext4 filesystems. It's easy to use, with an API very similar to <a href="https://doc.rust-lang.org/std/fs/index.html"><code>std::fs</code></a>. The crate is no-std compatible, but does require an allocator.</p>
+<p>Note that by design this crate will remain read-only; writing to an ext4 filesystem is not a goal.</p>
+<p>Thanks to <a href="https://github.com/tedbrandston">@tedbrandston</a> for doing a ton of code review on this project!</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
