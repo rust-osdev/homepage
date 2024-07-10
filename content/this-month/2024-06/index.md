@@ -26,7 +26,7 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
 - [Redox OS - Software Showcase #1](https://youtu.be/s-gxAsBTPxA?si=IAPJ25EYP-XxS_FB)
-  - This video show several programs running on Redox OS
+  - This is our first showcase video, showing several programs running on Redox OS
 - [This Month in Redox - June 2024](https://www.redox-os.org/news/this-month-240630/)
 - [k23 - Experimental WASM Microkernel](https://github.com/JonasKruckenberg/k23)
   - First announced at RustNL 2024, k23 is an experimental microkernel written in Rust that runs WebAssembly programs. Now Open Source!
