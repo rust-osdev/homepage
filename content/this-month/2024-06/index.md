@@ -47,7 +47,7 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 - [Stabilize `PanicInfo::message()` and `PanicMessage`](https://github.com/rust-lang/rust/pull/126732)
 - [Unsafe extern blocks](https://github.com/rust-lang/rust/pull/124482)
 - [Size optimize int formatting](https://github.com/rust-lang/rust/pull/125606)
-- [Add `f16 inline ASM support for RISC-V](https://github.com/rust-lang/rust/pull/126530)
+- [Add `f16` inline ASM support for RISC-V](https://github.com/rust-lang/rust/pull/126530)
 
 <!--
     Please use the following template:
