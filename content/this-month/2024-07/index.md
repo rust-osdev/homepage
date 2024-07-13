@@ -75,6 +75,16 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`phip1611/bit_ops`](https://github.com/phip1611/bit_ops)
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+I've recently created and published [`bit_ops`](https://github.com/phip1611/bit_ops).
+It offers common bit-oriented operations on primitive integer types with a focus on
+`no_std` and `const` compatibility. Unlike other crates that provide tooling to
+create sophisticated high-level types with bitfields, the focus of `bit_ops` is
+on raw primitive integer types.
+
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [Zulip chat](https://rust-osdev.zulipchat.com).
