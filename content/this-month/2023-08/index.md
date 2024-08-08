@@ -215,7 +215,7 @@ We have also renamed some of our core projects to reduce confusion:
 
 We have a new logo!
 As hermit crabs occupy empty shells produced by other organisms, the original HermitCore occupied one or several cores on a computer.
-Because we migrated to Rust in 2018, our new logo of a hermit crab occupying the Rust logo's [bike gear](https://bugzilla.mozilla.org/show_bug.cgi?id=680521) fits quite nicely with the Rust logo as well as Rust's [Ferris](https://rustacean.net/).
+Because we migrated to Rust in 2018, our new logo of a hermit crab occupying the Rust logo's [bike gear](https://bugzilla.mozilla.org/show_bug.cgi?id=680521) fits quite nicely with the Rust logo as well as Rust's Ferris.
 
 And as always, please come and try Hermit! :)
 
