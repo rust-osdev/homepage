@@ -25,6 +25,11 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 
 Here we collect news, blog posts, etc. related to OS development in Rust.
 
+- [simple-fatfs: A filesystem library aimed at embedded ecosystems](https://www.reddit.com/r/rust/comments/1ejukow/simplefatfs_a_filesystem_library_aimed_at/)
+- Redox OS: [Towards userspaceification of POSIX - part I: signal handling and IO](https://www.redox-os.org/news/kernel-11/)
+- [Jeremy Soller on OS Development, Legacy Code, Redox OS and the Future of Memory-Safe Languages (Podcast Interview)](https://corrode.dev/podcast/s02e07-system76/)
+- [Developing a cryptographically secure bootloader for RISC-V in Rust](https://www.codethink.co.uk/articles/2024/secure_bootloader/)
+
 <!--
 Please follow this template:
 
