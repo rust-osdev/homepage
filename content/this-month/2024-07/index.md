@@ -42,6 +42,14 @@ Please follow this template:
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
 
+- [Stabilize unsafe extern blocks (RFC 3484)](https://github.com/rust-lang/rust/pull/127921)
+- [Stabilize `offset_of_nested`](https://github.com/rust-lang/rust/pull/128284)
+- [Add `#[must_use]` to some `into_raw*` functions](https://github.com/rust-lang/rust/pull/127586)
+- [treat `&raw (const|mut) UNSAFE_STATIC` implied deref as safe](https://github.com/rust-lang/rust/pull/125834)
+- [Add NuttX based targets for RISC-V and ARM](https://github.com/rust-lang/rust/pull/127755)
+- [`#[naked]`: report incompatible attributes](https://github.com/rust-lang/rust/pull/127853)
+- [Fill out target-spec metadata for all targets](https://github.com/rust-lang/rust/pull/127265)
+
 <!--
     Please use the following template:
 
