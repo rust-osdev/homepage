@@ -44,6 +44,46 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+### [`multiboot2`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+_Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
+the contained information tags. Usable in no_std environments, such as a kernel. 
+An optional builder feature also allows the construction of the corresponding 
+structures._
+
+🎉 We are happy to announce release `v0.22` of the `multiboot2` crate. This is a
+**major step forward** as all Undefined Behaviour (UB) and a bunch of safety and
+memory issues have been removed / fixed. 🎉 Now, all unit tests (and there are
+many) **pass Miri**! This was possible due to massive internal refactorings done
+in [#226](https://github.com/rust-osdev/multiboot2/pull/226) and [#227](https://github.com/rust-osdev/multiboot2/pull/227).
+
+The quite complex logic to parse all these structures **safe and correctly**
+has been moved to a new [`multiboot2-common`](https://docs.rs/multiboot2-common)
+crate. This way, the [`multiboot2-header`](https://crates.io/crates/multiboot2-header)
+crate can also leverage the new abstractions. A comprehensive writeup about why 
+the parsing of Multiboot2 structures and typing them correctly in Rust is much
+more complex than one initially might think is written down in 
+[`lib.rs` of `multiboot2-common`](https://docs.rs/multiboot2-common).
+
+`multiboot2-header` also got a new release `v0.5` and can now be considered 
+safe and free of UB when parsing the corresponding structures. The internal
+refactorings only slightly leak to the public interfaces of `multiboot2`
+and `multiboot2-header`.
+
+Read more:
+- [Changelog of `multiboot2`](https://github.com/rust-osdev/multiboot2/blob/b95b73508925b5484a0cf531a45c9c9ce555d560/multiboot2/Changelog.md)
+- [Changelog of `multiboot2-header`](https://github.com/rust-osdev/multiboot2/blob/b95b73508925b5484a0cf531a45c9c9ce555d560/multiboot2-header/Changelog.md)
+
+<details>
+<summary>Background - Read More</summary>
+
+The crate grew historically without a centralized design or approach how to work
+with memory and pointers. Therefore, many UB way unintentionally created. We 
+are happy to get lack of the technical debt. Nevertheless, thanks to everyone
+who contributed over the years - sorry if we had to rewrite your code in this 
+one! :)
+</details>
 
 ## `rust-osdev` Projects
 
