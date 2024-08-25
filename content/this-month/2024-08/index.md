@@ -44,6 +44,23 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+## `rust-osdev` Projects
+
+In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`](https://github.com/rust-osdev/about) organization.
+
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+
+
 ### [`multiboot2`](https://github.com/rust-osdev/acpi)
 <span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
 
@@ -84,22 +101,6 @@ are happy to get lack of the technical debt. Nevertheless, thanks to everyone
 who contributed over the years - sorry if we had to rewrite your code in this 
 one! :)
 </details>
-
-## `rust-osdev` Projects
-
-In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`](https://github.com/rust-osdev/about) organization.
-
-<!--
-    Please use the following template:
-
-    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
-    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
-
-    The `repo_name` crate ...<<short introduction>>...
-
-    We merged the following changes this month:
-    <<changelog, either in list or text form>>
--->
 
 ### [`uefi`](https://github.com/rust-osdev/uefi-rs)
 <span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
