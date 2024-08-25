@@ -181,7 +181,7 @@ In any case, obtaining the memory map from UEFI is hidden behind the
 public API of the crate, but we made it very easy to read/parse it in all
 possible scenarios!
 
-#### 3. & 4.: Documentation Reorganization
+#### 3. Documentation Reorganization
 
 We put notable work into our README and `lib.rs` files to improve the
 structure of our documentation. The main value-add and improvement is that we 
