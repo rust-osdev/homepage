@@ -115,7 +115,7 @@ version `v0.31` with some notable changes:
    about how the `std` implementation for UEFI targets compares to `uefi` and
    how both can be used together.
 
-### 1. New API: Freestanding Functions API Change
+#### 1. New API: Freestanding Functions API Change
 
 We are planning a massive API change and introduced a new replacement API in
 release `v0.31`. The old API co-exists and will be marked as 
@@ -195,7 +195,7 @@ clearly, directly, and precisely talk about:
 To see an example how `uefi` and `std` can be used together, please head to
 [our repository](https://github.com/rust-osdev/uefi-rs/tree/main/uefi-std-example).
 
-### Other
+#### Other
 
 There were also a ton of other interesting fixes, changes, and additions! 
 Check out our [Changelog](https://github.com/rust-osdev/uefi-rs/blob/main/uefi/CHANGELOG.md).
