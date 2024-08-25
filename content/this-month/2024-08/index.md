@@ -122,10 +122,12 @@ release `v0.31`. The old API co-exists and will be marked as
 `#[deprecated]` in `0.32`. The new API will make it easier to call boot or 
 runtime services without having to pass `&BootServices` around all the time.
 
-The typical use-case of our library users is to write UEFI image with code 
-leveraging boot services and exiting them. Next, control is handed over to the
-next step, which is typically a kernel of an OS. These UEFI images typically
-are "99% code" using boot services, until they are exited.
+The typical use-case of our library users is to write a UEFI bootloader
+application that heavily leverages boot services. Then control is handed over to
+the next stage, which is typically the kernel of an OS. Boot services are
+usually exited either just prior to launching the kernel or by the kernel
+itself. In any case, the UEFI application spends almost all of its time with
+boot services active.
 
 Although the old API design ensures via the type system that no boot
 services can be called after they have been exited, the test of time has proven
