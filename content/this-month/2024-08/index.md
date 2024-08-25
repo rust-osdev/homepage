@@ -110,10 +110,9 @@ version `v0.31` with some notable changes:
 
 1. We introduced a completely new API to access boot and runtime services
 2. We reorganized the MemoryMap-related types.
-3. We reorganized the repository README's and `lib.rs` files (documentation for
-   docs.rs)
-4. We talk about how the `std` implementation for UEFI targets compares to
-   `uefi` and how both can be used together.
+3. We reorganized and improved the documentation, and also added documentation
+   about how the `std` implementation for UEFI targets compares to `uefi` and
+   how both can be used together.
 
 ### 1. New API: Freestanding Functions API Change
 
