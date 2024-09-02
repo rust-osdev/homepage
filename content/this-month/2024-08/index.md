@@ -32,6 +32,11 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Asahi Lina on how Rust helps with API docs in the Linux kernel](https://vt.social/@lina/113056457969145576)
+- [You can kick the alpha tires on System76’s Cosmic, a new Linux desktop](https://arstechnica.com/gadgets/2024/08/you-can-kick-the-alpha-tires-on-system76s-cosmic-a-new-linux-desktop/)
+- [WhenFS: a Rust FUSE filesystem for your Google Calendar](https://github.com/lvkv/whenfs)
+- [Status update on CharlotteOS: a post-unix operating system written in Rust and assembly language](https://www.reddit.com/r/rust/comments/1epkro0/status_update_on_charlotteos_a_postunix_operating/)
+
 
 ## Infrastructure and Tooling
 
