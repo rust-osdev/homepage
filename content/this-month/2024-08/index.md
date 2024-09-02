@@ -201,7 +201,134 @@ There were also a ton of other interesting fixes, changes, and additions!
 Check out our [Changelog](https://github.com/rust-osdev/uefi-rs/blob/main/uefi/CHANGELOG.md).
 
 We merged the following PRs this month:
-<!-- todo -->
+
+<details><summary>Click to expand</summary>
+
+
+- [boot: Add freestanding version of raise_tpl](https://github.com/rust-osdev/uefi-rs/pull/1276)
+- [boot: Add freestanding connect_controller and disconnect_controller](https://github.com/rust-osdev/uefi-rs/pull/1278)
+- [nix/niv: update dependencies](https://github.com/rust-osdev/uefi-rs/pull/1279)
+- [boot: Add freestanding exit function](https://github.com/rust-osdev/uefi-rs/pull/1283)
+- [uefi: Fix lifetimes in device_path TryFrom<&[u8]> impls](https://github.com/rust-osdev/uefi-rs/pull/1282)
+- [release: uefi-0.30.0](https://github.com/rust-osdev/uefi-rs/pull/1285)
+- [uefi: Add release data to 0.30.0 release](https://github.com/rust-osdev/uefi-rs/pull/1286)
+- [doc: unified catchy new Crate introduction [doc: 1/N]](https://github.com/rust-osdev/uefi-rs/pull/1284)
+- [boot: Add freestanding version of `create_event`](https://github.com/rust-osdev/uefi-rs/pull/1280)
+- [Merge release-v0.30 branch into main](https://github.com/rust-osdev/uefi-rs/pull/1289)
+- [boot: Add freestanding stall](https://github.com/rust-osdev/uefi-rs/pull/1296)
+- [boot: Add freestanding check_event](https://github.com/rust-osdev/uefi-rs/pull/1295)
+- [doc: move misc stuff from README to lib.rs [doc: 2/N] ](https://github.com/rust-osdev/uefi-rs/pull/1290)
+- [Restore some memory exports to uefi::table::boot](https://github.com/rust-osdev/uefi-rs/pull/1299)
+- [Remove dead_code workarounds](https://github.com/rust-osdev/uefi-rs/pull/1302)
+- [runtime: Add freestanding set_virtual_address_map](https://github.com/rust-osdev/uefi-rs/pull/1301)
+- [Add freestanding set_timer and wait_for_event](https://github.com/rust-osdev/uefi-rs/pull/1298)
+- [Add freestanding {install,reinstall,uninstall}_protocol_interface functions](https://github.com/rust-osdev/uefi-rs/pull/1300)
+- [boot: Add freestanding close_event](https://github.com/rust-osdev/uefi-rs/pull/1304)
+- [boot: Add freestanding install_configuration_table](https://github.com/rust-osdev/uefi-rs/pull/1306)
+- [boot: Add freestanding version of protocols_per_handle](https://github.com/rust-osdev/uefi-rs/pull/1305)
+- [misc small improvements](https://github.com/rust-osdev/uefi-rs/pull/1308)
+- [boot: Add freestanding test_protocol](https://github.com/rust-osdev/uefi-rs/pull/1310)
+- [boot: Add freestanding set_watchdog_timer](https://github.com/rust-osdev/uefi-rs/pull/1311)
+- [boot: Add freestanding memory_map](https://github.com/rust-osdev/uefi-rs/pull/1312)
+- [boot: Add freestanding create_event_ex](https://github.com/rust-osdev/uefi-rs/pull/1313)
+- [boot: Add freestanding get_handle_for_protocol](https://github.com/rust-osdev/uefi-rs/pull/1314)
+- [Add doc on freestanding function migration](https://github.com/rust-osdev/uefi-rs/pull/1315)
+- [boot: Add freestanding locate_device_path](https://github.com/rust-osdev/uefi-rs/pull/1316)
+- [boot: Add freestanding locate_handle and find_handles](https://github.com/rust-osdev/uefi-rs/pull/1321)
+- [boot: Add freestanding get_image_file_system](https://github.com/rust-osdev/uefi-rs/pull/1322)
+- [boot: Add freestanding exit_boot_services](https://github.com/rust-osdev/uefi-rs/pull/1325)
+- [uefi: Add table::system_table_raw](https://github.com/rust-osdev/uefi-rs/pull/1323)
+- [boot: Add freestanding register_protocol_notify](https://github.com/rust-osdev/uefi-rs/pull/1324)
+- [doc: add comprehensive About section to lib.rs [doc: 3/N]](https://github.com/rust-osdev/uefi-rs/pull/1291)
+- [uefi: Drop BootServices arg from device path <-> text conversions](https://github.com/rust-osdev/uefi-rs/pull/1327)
+- [Revert "uefi: Drop BootServices arg from device path <-> text conversions"](https://github.com/rust-osdev/uefi-rs/pull/1328)
+- [Update funcs_migration doc](https://github.com/rust-osdev/uefi-rs/pull/1329)
+- [uefi: add BootPolicy type](https://github.com/rust-osdev/uefi-rs/pull/1326)
+- [ci: cancel obsolete runs automatically + streamline](https://github.com/rust-osdev/uefi-rs/pull/1332)
+- [LoadFileProtocol and LoadFile2Protocol](https://github.com/rust-osdev/uefi-rs/pull/1297)
+- [doc: Comparison to Ecosystem (including Rust std impl) [doc: 4/N]](https://github.com/rust-osdev/uefi-rs/pull/1292)
+- [release: uefi-macros-0.15.0, uefi-raw-0.7.0, uefi-0.31.0](https://github.com/rust-osdev/uefi-rs/pull/1330)
+- [uefi: Inline the template example into lib.rs doc](https://github.com/rust-osdev/uefi-rs/pull/1338)
+- [release: uefi-0.31.0](https://github.com/rust-osdev/uefi-rs/pull/1339)
+- [doc: Talk about Documentation Organization/Overview [doc: 5/N]](https://github.com/rust-osdev/uefi-rs/pull/1293)
+- [uefi std: add example and add book chapter](https://github.com/rust-osdev/uefi-rs/pull/1331)
+- [uefi: Drop BootServices arg from device path <-> text conversions](https://github.com/rust-osdev/uefi-rs/pull/1340)
+- [test-runner: Convert all examples to new style](https://github.com/rust-osdev/uefi-rs/pull/1342)
+- [uefi: Drop BootServices arg from GraphicsOutput::modes](https://github.com/rust-osdev/uefi-rs/pull/1344)
+- [Update the uefi::allocator module to use the global system table](https://github.com/rust-osdev/uefi-rs/pull/1343)
+- [doc: final README streamlining [doc: 6/6]](https://github.com/rust-osdev/uefi-rs/pull/1294)
+- [uefi: Drop BootServices arg from ComponentName::open](https://github.com/rust-osdev/uefi-rs/pull/1345)
+- [ci: release package check](https://github.com/rust-osdev/uefi-rs/pull/1341)
+- [book: Update protocols how-to to use the `boot` module](https://github.com/rust-osdev/uefi-rs/pull/1347)
+- [uefi: Move various types to the `uefi::boot` module](https://github.com/rust-osdev/uefi-rs/pull/1346)
+- [ci: Use `cargo xtask fmt --check`](https://github.com/rust-osdev/uefi-rs/pull/1348)
+- [uefi: Move various types to the `uefi::runtime` module](https://github.com/rust-osdev/uefi-rs/pull/1349)
+- [uefi: Make FileSystem work with both variants of ScopedProtocol](https://github.com/rust-osdev/uefi-rs/pull/1352)
+- [uefi: Fix compilation of minimal example](https://github.com/rust-osdev/uefi-rs/pull/1353)
+- [uefi-macros: Rename generated entry arguments](https://github.com/rust-osdev/uefi-rs/pull/1350)
+- [book: Update boot_stages and tables](https://github.com/rust-osdev/uefi-rs/pull/1351)
+- [uefi: Drop args from main in the example](https://github.com/rust-osdev/uefi-rs/pull/1355)
+- [uefi-macros: Use uefi::boot::set_image_handle](https://github.com/rust-osdev/uefi-rs/pull/1354)
+- [template: Drop args to main](https://github.com/rust-osdev/uefi-rs/pull/1356)
+- [uefi-macros: Use raw pointer for system table when generating args](https://github.com/rust-osdev/uefi-rs/pull/1357)
+- [uefi: Update logger to use the global system table](https://github.com/rust-osdev/uefi-rs/pull/1358)
+- [uefi: Update panic handler to use the global system table](https://github.com/rust-osdev/uefi-rs/pull/1359)
+- [uefi: Deprecate RuntimeServices](https://github.com/rust-osdev/uefi-rs/pull/1365)
+- [uefi: Use global system table in MemoryMapBackingMemory](https://github.com/rust-osdev/uefi-rs/pull/1361)
+- [uefi: Update println to use the global system table](https://github.com/rust-osdev/uefi-rs/pull/1360)
+- [uefi: Update FS docstring example code](https://github.com/rust-osdev/uefi-rs/pull/1368)
+- [uefi: Copy 'Accessing Protocols' docs to uefi::boot](https://github.com/rust-osdev/uefi-rs/pull/1369)
+- [uefi: Deprecate BootServices](https://github.com/rust-osdev/uefi-rs/pull/1367)
+- [uefi/mem: Update docs referring to BootServices](https://github.com/rust-osdev/uefi-rs/pull/1370)
+- [uefi: Update input protocol docs](https://github.com/rust-osdev/uefi-rs/pull/1371)
+- [uefi: Update ResetNotification protocol docs](https://github.com/rust-osdev/uefi-rs/pull/1372)
+- [uefi: Update LoadedImage protocol docs](https://github.com/rust-osdev/uefi-rs/pull/1373)
+- [uefi: Deprecate ancillary types in uefi::table::boot](https://github.com/rust-osdev/uefi-rs/pull/1374)
+- [uefi: Update pointer protocol docs](https://github.com/rust-osdev/uefi-rs/pull/1376)
+- [uefi: Deprecate table::{system_table_boot,system_table_runtime}](https://github.com/rust-osdev/uefi-rs/pull/1378)
+- [uefi: Remove BootServices from more docstrings](https://github.com/rust-osdev/uefi-rs/pull/1377)
+- [uefi: Drop references to SystemTable from docstrings](https://github.com/rust-osdev/uefi-rs/pull/1380)
+- [docs: Update timeline for the API migration](https://github.com/rust-osdev/uefi-rs/pull/1382)
+- [uefi: Deprecate SystemTable](https://github.com/rust-osdev/uefi-rs/pull/1379)
+- [Revert "ci: check if crate can be packaged"](https://github.com/rust-osdev/uefi-rs/pull/1384)
+- [uefi: Deprecate SystemTableView, Boot, and Runtime](https://github.com/rust-osdev/uefi-rs/pull/1385)
+- [Move PAGE_SIZE to uefi-raw and reexport from uefi boot modules](https://github.com/rust-osdev/uefi-rs/pull/1383)
+- [uefi: Clean up imports of uefi::table::runtime](https://github.com/rust-osdev/uefi-rs/pull/1386)
+
+
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1277) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.23.6](https://github.com/rust-osdev/uefi-rs/pull/1287) -->
+<!-- - [fix(deps): update rust crate regex to v1.10.6](https://github.com/rust-osdev/uefi-rs/pull/1288) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1319) -->
+<!-- - [fix(deps): update rust crate serde_json to v1.0.124](https://github.com/rust-osdev/uefi-rs/pull/1318) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1333) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1336) -->
+<!-- - [fix(deps): update rust crate syn to v2.0.76](https://github.com/rust-osdev/uefi-rs/pull/1335) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1364) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.24.1](https://github.com/rust-osdev/uefi-rs/pull/1366) -->
+
+</details>
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following improvements:
+
+- [Fixed "jc fail" instructions not working properly and updated README.md](https://github.com/rust-osdev/bootloader/pull/453)
+
+Thanks to [@spencer3035](https://github.com/spencer3035) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PR this month:
+
+- [remove `#![feature(asm_const)]`](https://github.com/rust-osdev/x86_64/pull/496)
+
 
 ## Other Projects
 
