@@ -49,6 +49,15 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [add Box::as_ptr and Box::as_mut_ptr methods](https://github.com/rust-lang/rust/pull/129091)
+- [Stabilize unsafe extern blocks (RFC 3484)](https://github.com/rust-lang/rust/pull/127921)
+- [Stabilize `asm_const`](https://github.com/rust-lang/rust/pull/128570)
+- [Stabilize `unsafe_attributes`](https://github.com/rust-lang/rust/pull/128771)
+- [Stabilize raw_ref_op (RFC 2582)](https://github.com/rust-lang/rust/pull/127679)
+- [Promote riscv64gc-unknown-linux-musl to tier 2](https://github.com/rust-lang/rust/pull/122049)
+- [float types: document NaN bit pattern guarantees](https://github.com/rust-lang/rust/pull/129559)
+- [Partially stabilize feature(new_uninit)](https://github.com/rust-lang/rust/pull/129401)
+
 ## `rust-osdev` Projects
 
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`](https://github.com/rust-osdev/about) organization.
