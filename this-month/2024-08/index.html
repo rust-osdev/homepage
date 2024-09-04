@@ -1,0 +1,376 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2024-08/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: August 2024 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: August 2024</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2024-09-04">
+            Sep 04, 2024
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/phip1611">@phip1611</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (August 2024)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://vt.social/@lina/113056457969145576">Asahi Lina on how Rust helps with API docs in the Linux kernel</a></li>
+<li><a href="https://arstechnica.com/gadgets/2024/08/you-can-kick-the-alpha-tires-on-system76s-cosmic-a-new-linux-desktop/">You can kick the alpha tires on System76’s Cosmic, a new Linux desktop</a></li>
+<li><a href="https://github.com/lvkv/whenfs">WhenFS: a Rust FUSE filesystem for your Google Calendar</a></li>
+<li><a href="https://www.reddit.com/r/rust/comments/1epkro0/status_update_on_charlotteos_a_postunix_operating/">Status update on CharlotteOS: a post-unix operating system written in Rust and assembly language</a></li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/129091">add Box::as_ptr and Box::as_mut_ptr methods</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/127921">Stabilize unsafe extern blocks (RFC 3484)</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/128570">Stabilize <code>asm_const</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/128771">Stabilize <code>unsafe_attributes</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/127679">Stabilize raw_ref_op (RFC 2582)</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/122049">Promote riscv64gc-unknown-linux-musl to tier 2</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/129559">float types: document NaN bit pattern guarantees</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/129401">Partially stabilize feature(new_uninit)</a></li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/acpi"><code>multiboot2</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><em>Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
+the contained information tags. Usable in no_std environments, such as a kernel. 
+An optional builder feature also allows the construction of the corresponding 
+structures.</em></p>
+<p>🎉 We are happy to announce release <code>v0.22</code> of the <code>multiboot2</code> crate. This is a
+<strong>major step forward</strong> as all Undefined Behaviour (UB) and a bunch of safety and
+memory issues have been removed / fixed. 🎉 Now, all unit tests (and there are
+many) <strong>pass Miri</strong>! This was possible due to massive internal refactorings done
+in <a href="https://github.com/rust-osdev/multiboot2/pull/226">#226</a> and <a href="https://github.com/rust-osdev/multiboot2/pull/227">#227</a>.</p>
+<p>The quite complex logic to parse all these structures <strong>safe and correctly</strong>
+has been moved to a new <a href="https://docs.rs/multiboot2-common"><code>multiboot2-common</code></a>
+crate. This way, the <a href="https://crates.io/crates/multiboot2-header"><code>multiboot2-header</code></a>
+crate can also leverage the new abstractions. A comprehensive writeup about why 
+the parsing of Multiboot2 structures and typing them correctly in Rust is much
+more complex than one initially might think is written down in 
+<a href="https://docs.rs/multiboot2-common"><code>lib.rs</code> of <code>multiboot2-common</code></a>.</p>
+<p><code>multiboot2-header</code> also got a new release <code>v0.5</code> and can now be considered 
+safe and free of UB when parsing the corresponding structures. The internal
+refactorings only slightly leak to the public interfaces of <code>multiboot2</code>
+and <code>multiboot2-header</code>.</p>
+<p>Read more:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/multiboot2/blob/b95b73508925b5484a0cf531a45c9c9ce555d560/multiboot2/Changelog.md">Changelog of <code>multiboot2</code></a></li>
+<li><a href="https://github.com/rust-osdev/multiboot2/blob/b95b73508925b5484a0cf531a45c9c9ce555d560/multiboot2-header/Changelog.md">Changelog of <code>multiboot2-header</code></a></li>
+</ul>
+<details>
+<summary>Background - Read More</summary>
+<p>The crate grew historically without a centralized design or approach how to work
+with memory and pointers. Therefore, many UB way unintentionally created. We 
+are happy to get lack of the technical debt. Nevertheless, thanks to everyone
+who contributed over the years - sorry if we had to rewrite your code in this 
+one! :)</p>
+</details>
+<h3 id="uefi"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality. Recently, we released 
+version <code>v0.31</code> with some notable changes:</p>
+<ol>
+<li>We introduced a completely new API to access boot and runtime services</li>
+<li>We reorganized the MemoryMap-related types.</li>
+<li>We reorganized and improved the documentation, and also added documentation
+about how the <code>std</code> implementation for UEFI targets compares to <code>uefi</code> and
+how both can be used together.</li>
+</ol>
+<h4 id="1-new-api-freestanding-functions-api-change">1. New API: Freestanding Functions API Change</h4>
+<p>We are planning a massive API change and introduced a new replacement API in
+release <code>v0.31</code>. The old API co-exists and will be marked as 
+<code>#[deprecated]</code> in <code>0.32</code>. The new API will make it easier to call boot or 
+runtime services without having to pass <code>&amp;BootServices</code> around all the time.</p>
+<p>The typical use-case of our library users is to write a UEFI bootloader
+application that heavily leverages boot services. Then control is handed over to
+the next stage, which is typically the kernel of an OS. Boot services are
+usually exited either just prior to launching the kernel or by the kernel
+itself. In any case, the UEFI application spends almost all of its time with
+boot services active.</p>
+<p>Although the old API design ensures via the type system that no boot
+services can be called after they have been exited, the test of time has proven
+that this adds unjustified complexity without bringing much real value add.</p>
+<p>Instead, with the new API, which we provide <strong>additionally</strong> at this point,
+one can use freestanding functions which are behind the new modules:</p>
+<ul>
+<li><code>uefi::system</code>: is a new module that provides freestanding functions for
+accessing fields of the global system table.</li>
+<li><code>uefi::boot</code>:
+is a new module that provides freestanding functions for boot services using
+the global system table.</li>
+<li><code>uefi::runtime</code>: is a new module that provides freestanding functions for
+runtime services using the global system table.</li>
+</ul>
+<p>The freestanding functions itself are close to the originals ones but without
+<code>&amp;BootServices</code> or <code>&amp;RuntimeServices</code> parameters, as you can see for example
+<a href="https://github.com/rust-osdev/uefi-rs/pull/1344/files#diff-46f1e3c04d719fff471faf35c4d218430e1d664ac0a0fab9d2c15870c2d0f066">here</a>.</p>
+<p>The new API design solves API inconsistencies and restrictions already existing
+so far, and makes the overall handling a lot easier. This comes with the costs
+that functions may panic, if the boot services were exited but one tries to use
+them. However, the massive API simplification justifies this.</p>
+<p>Find more and follow the progress and discussions on:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/issues/893#issuecomment-2241610633">the GitHub Issue</a>.</li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/blob/main/docs/funcs_migration.md">The function Migration Guide</a></li>
+</ul>
+<h4 id="2-memory-map-refactoring">2. Memory Map Refactoring</h4>
+<p>TL;DR: What used to return <code>MemoryMap&lt;'buf&gt;</code> in the API, now returns
+<code>MemoryMapOwned</code>. Additionally, you can parse a chunk of memory using
+<code>MemoryMapRef</code> or <code>MemoryMapRefMut</code>.</p>
+<p>We put significant effort into refactoring our abstractions for the UEFI memory 
+map. These started in release v0.29 and were finalized in release v0.31. 
+Instead of one <code>MemoryMap&lt;'buf&gt;</code> type, we now have the traits <code>MemoryMap</code> and 
+<code>MemoryMapMut</code> along with the implementations <code>MemoryMapRef</code>, <code>MemoryMapRefMut</code>, 
+and <code>MemoryMapOwned</code>. It is recommended to work with the specific 
+implementations, as the main purpose for the traits is only to enforce a 
+consistent API for these three implementations. This gives users the 
+flexibility to cover all possible use cases one can have with an UEFI memory 
+map. Read more:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1175">#1175</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1251">#1251</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1240">#1240</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1263">#1263</a></li>
+</ul>
+<p>In any case, obtaining the memory map from UEFI is hidden behind the
+public API of the crate, but we made it very easy to read/parse it in all
+possible scenarios!</p>
+<h4 id="3-documentation-reorganization">3. Documentation Reorganization</h4>
+<p>We put notable work into our README and <code>lib.rs</code> files to improve the
+structure of our documentation. The main value-add and improvement is that we 
+clearly, directly, and precisely talk about:</p>
+<ul>
+<li>What is <code>uefi</code>?</li>
+<li>Which problems does it solve?</li>
+<li>How can it be used?</li>
+<li>How does it compare to the ecosystem, such as <code>std</code> for Rust targets?</li>
+</ul>
+<p>To see an example how <code>uefi</code> and <code>std</code> can be used together, please head to
+<a href="https://github.com/rust-osdev/uefi-rs/tree/main/uefi-std-example">our repository</a>.</p>
+<h4 id="other">Other</h4>
+<p>There were also a ton of other interesting fixes, changes, and additions! 
+Check out our <a href="https://github.com/rust-osdev/uefi-rs/blob/main/uefi/CHANGELOG.md">Changelog</a>.</p>
+<p>We merged the following PRs this month:</p>
+<details><summary>Click to expand</summary>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1276">boot: Add freestanding version of raise_tpl</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1278">boot: Add freestanding connect_controller and disconnect_controller</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1279">nix/niv: update dependencies</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1283">boot: Add freestanding exit function</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1282">uefi: Fix lifetimes in device_path TryFrom&lt;&amp;[u8]&gt; impls</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1285">release: uefi-0.30.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1286">uefi: Add release data to 0.30.0 release</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1284">doc: unified catchy new Crate introduction [doc: 1/N]</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1280">boot: Add freestanding version of <code>create_event</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1289">Merge release-v0.30 branch into main</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1296">boot: Add freestanding stall</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1295">boot: Add freestanding check_event</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1290">doc: move misc stuff from README to lib.rs [doc: 2/N] </a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1299">Restore some memory exports to uefi::table::boot</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1302">Remove dead_code workarounds</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1301">runtime: Add freestanding set_virtual_address_map</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1298">Add freestanding set_timer and wait_for_event</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1300">Add freestanding {install,reinstall,uninstall}_protocol_interface functions</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1304">boot: Add freestanding close_event</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1306">boot: Add freestanding install_configuration_table</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1305">boot: Add freestanding version of protocols_per_handle</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1308">misc small improvements</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1310">boot: Add freestanding test_protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1311">boot: Add freestanding set_watchdog_timer</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1312">boot: Add freestanding memory_map</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1313">boot: Add freestanding create_event_ex</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1314">boot: Add freestanding get_handle_for_protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1315">Add doc on freestanding function migration</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1316">boot: Add freestanding locate_device_path</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1321">boot: Add freestanding locate_handle and find_handles</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1322">boot: Add freestanding get_image_file_system</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1325">boot: Add freestanding exit_boot_services</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1323">uefi: Add table::system_table_raw</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1324">boot: Add freestanding register_protocol_notify</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1291">doc: add comprehensive About section to lib.rs [doc: 3/N]</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1327">uefi: Drop BootServices arg from device path &lt;-&gt; text conversions</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1328">Revert &quot;uefi: Drop BootServices arg from device path &lt;-&gt; text conversions&quot;</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1329">Update funcs_migration doc</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1326">uefi: add BootPolicy type</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1332">ci: cancel obsolete runs automatically + streamline</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1297">LoadFileProtocol and LoadFile2Protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1292">doc: Comparison to Ecosystem (including Rust std impl) [doc: 4/N]</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1330">release: uefi-macros-0.15.0, uefi-raw-0.7.0, uefi-0.31.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1338">uefi: Inline the template example into lib.rs doc</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1339">release: uefi-0.31.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1293">doc: Talk about Documentation Organization/Overview [doc: 5/N]</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1331">uefi std: add example and add book chapter</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1340">uefi: Drop BootServices arg from device path &lt;-&gt; text conversions</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1342">test-runner: Convert all examples to new style</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1344">uefi: Drop BootServices arg from GraphicsOutput::modes</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1343">Update the uefi::allocator module to use the global system table</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1294">doc: final README streamlining [doc: 6/6]</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1345">uefi: Drop BootServices arg from ComponentName::open</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1341">ci: release package check</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1347">book: Update protocols how-to to use the <code>boot</code> module</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1346">uefi: Move various types to the <code>uefi::boot</code> module</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1348">ci: Use <code>cargo xtask fmt --check</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1349">uefi: Move various types to the <code>uefi::runtime</code> module</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1352">uefi: Make FileSystem work with both variants of ScopedProtocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1353">uefi: Fix compilation of minimal example</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1350">uefi-macros: Rename generated entry arguments</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1351">book: Update boot_stages and tables</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1355">uefi: Drop args from main in the example</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1354">uefi-macros: Use uefi::boot::set_image_handle</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1356">template: Drop args to main</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1357">uefi-macros: Use raw pointer for system table when generating args</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1358">uefi: Update logger to use the global system table</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1359">uefi: Update panic handler to use the global system table</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1365">uefi: Deprecate RuntimeServices</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1361">uefi: Use global system table in MemoryMapBackingMemory</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1360">uefi: Update println to use the global system table</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1368">uefi: Update FS docstring example code</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1369">uefi: Copy 'Accessing Protocols' docs to uefi::boot</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1367">uefi: Deprecate BootServices</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1370">uefi/mem: Update docs referring to BootServices</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1371">uefi: Update input protocol docs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1372">uefi: Update ResetNotification protocol docs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1373">uefi: Update LoadedImage protocol docs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1374">uefi: Deprecate ancillary types in uefi::table::boot</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1376">uefi: Update pointer protocol docs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1378">uefi: Deprecate table::{system_table_boot,system_table_runtime}</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1377">uefi: Remove BootServices from more docstrings</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1380">uefi: Drop references to SystemTable from docstrings</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1382">docs: Update timeline for the API migration</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1379">uefi: Deprecate SystemTable</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1384">Revert &quot;ci: check if crate can be packaged&quot;</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1385">uefi: Deprecate SystemTableView, Boot, and Runtime</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1383">Move PAGE_SIZE to uefi-raw and reexport from uefi boot modules</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1386">uefi: Clean up imports of uefi::table::runtime</a></li>
+</ul>
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1277) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.23.6](https://github.com/rust-osdev/uefi-rs/pull/1287) -->
+<!-- - [fix(deps): update rust crate regex to v1.10.6](https://github.com/rust-osdev/uefi-rs/pull/1288) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1319) -->
+<!-- - [fix(deps): update rust crate serde_json to v1.0.124](https://github.com/rust-osdev/uefi-rs/pull/1318) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1333) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1336) -->
+<!-- - [fix(deps): update rust crate syn to v2.0.76](https://github.com/rust-osdev/uefi-rs/pull/1335) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1364) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.24.1](https://github.com/rust-osdev/uefi-rs/pull/1366) -->
+</details>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following improvements:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/453">Fixed &quot;jc fail&quot; instructions not working properly and updated README.md</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/spencer3035">@spencer3035</a> for their contributions!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following PR this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/496">remove <code>#![feature(asm_const)]</code></a></li>
+</ul>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<p><span class="gray">No projects updates were submitted this month.</span></p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
