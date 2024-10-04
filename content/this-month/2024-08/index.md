@@ -75,7 +75,7 @@ In this section, we give an overview of notable changes to the projects hosted u
 -->
 
 
-### [`multiboot2`](https://github.com/rust-osdev/acpi)
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 <span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
 
 _Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
