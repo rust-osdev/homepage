@@ -79,6 +79,49 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+_Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
+the contained information tags. Usable in no_std environments, such as a kernel.
+An optional builder feature also allows the construction of the corresponding
+structures._
+
+[Last month](../2024-08), we talked about the major milestone of the `v0.22`
+release of the `multiboot2` crate, where all Undefined Behaviour (UB) and a
+bunch of safety and memory issues have been removed / fixed. After a short
+grace-period of one month, we now yanked all prior releases. As all of them
+contain UB, sensitive low-level software can break in subtle ways.
+
+We hope that all users can have a smooth migration to `v0.22` or above
+(with Rust 1.70 from June 2023 as MSRV). If there are problems, we
+are happy to temporarily unyank certain versions or create a `v0.22.x`
+with a lower MSRV. We can discuss this
+[here](https://github.com/rust-osdev/multiboot2/issues/237).
+
+Further, we released `v0.23` which contains dependency bumps and missing
+tags. Specifically:
+- ApmTag
+- BootdevTag
+- NetworkTag
+
+Please find more in the [changelog](https://github.com/rust-osdev/multiboot2/blob/main/multiboot2/CHANGELOG.md).
+
+We merged the following PRs this month:
+
+<!-- - [build(deps): bump crate-ci/typos from 1.23.6 to 1.24.3](https://github.com/rust-osdev/multiboot2/pull/230) -->
+- [crate: fix latest clippy nightly complains](https://github.com/rust-osdev/multiboot2/pull/231)
+- [multiboot2: add missing tags](https://github.com/rust-osdev/multiboot2/pull/229)
+- [Replaces dead link home page multiboot2-header package definition](https://github.com/rust-osdev/multiboot2/pull/232)
+- [multiboot2: streamline getters and public tags()](https://github.com/rust-osdev/multiboot2/pull/235)
+- [multiboot2-common: improve documentation](https://github.com/rust-osdev/multiboot2/pull/236)
+- [workspace: prepare updates](https://github.com/rust-osdev/multiboot2/pull/233)
+- [talk about yanked versions in changelog files](https://github.com/rust-osdev/multiboot2/pull/239)
+- [multiboot2-common: improve README and diagrams](https://github.com/rust-osdev/multiboot2/pull/240)
+
+Thanks to [@filiplajszczak](https://github.com/filiplajszczak) for their contributions!
+
+
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
 <span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
 
@@ -149,49 +192,6 @@ The `pci_types` library provides types for accessing and configuring PCI devices
 
 Thanks to [@bjorn3](https://github.com/bjorn3) for their contributions!
 
-
-
-### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
-<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
-
-_Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
-the contained information tags. Usable in no_std environments, such as a kernel.
-An optional builder feature also allows the construction of the corresponding
-structures._
-
-[Last month](../2024-08), we talked about the major milestone of the `v0.22`
-release of the `multiboot2` crate, where all Undefined Behaviour (UB) and a
-bunch of safety and memory issues have been removed / fixed. After a short
-grace-period of one month, we now yanked all prior releases. As all of them
-contain UB, sensitive low-level software can break in subtle ways.
-
-We hope that all users can have a smooth migration to `v0.22` or above
-(with Rust 1.70 from June 2023 as MSRV). If there are problems, we
-are happy to temporarily unyank certain versions or create a `v0.22.x`
-with a lower MSRV. We can discuss this
-[here](https://github.com/rust-osdev/multiboot2/issues/237).
-
-Further, we released `v0.23` which contains dependency bumps and missing
-tags. Specifically:
-- ApmTag
-- BootdevTag
-- NetworkTag
-
-Please find more in the [changelog](https://github.com/rust-osdev/multiboot2/blob/main/multiboot2/CHANGELOG.md).
-
-We merged the following PRs this month:
-
-<!-- - [build(deps): bump crate-ci/typos from 1.23.6 to 1.24.3](https://github.com/rust-osdev/multiboot2/pull/230) -->
-- [crate: fix latest clippy nightly complains](https://github.com/rust-osdev/multiboot2/pull/231)
-- [multiboot2: add missing tags](https://github.com/rust-osdev/multiboot2/pull/229)
-- [Replaces dead link home page multiboot2-header package definition](https://github.com/rust-osdev/multiboot2/pull/232)
-- [multiboot2: streamline getters and public tags()](https://github.com/rust-osdev/multiboot2/pull/235)
-- [multiboot2-common: improve documentation](https://github.com/rust-osdev/multiboot2/pull/236)
-- [workspace: prepare updates](https://github.com/rust-osdev/multiboot2/pull/233)
-- [talk about yanked versions in changelog files](https://github.com/rust-osdev/multiboot2/pull/239)
-- [multiboot2-common: improve README and diagrams](https://github.com/rust-osdev/multiboot2/pull/240)
-
-Thanks to [@filiplajszczak](https://github.com/filiplajszczak) for their contributions!
 
 ## Other Projects
 
