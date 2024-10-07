@@ -32,6 +32,18 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Redox OS 0.9.0](https://www.redox-os.org/news/release-0.9.0/)
+  - [This Month in Redox OS - September 2024](https://www.redox-os.org/news/this-month-240930/)
+- [Google's Shift to Rust Programming Cuts Android Memory Vulnerabilities by 68%](https://thehackernews.com/2024/09/googles-shift-to-rust-programming-cuts.html?m=1)
+- [Binsider: new tool to analyze ELF binaries with a user-friendly TUI](https://binsider.dev/)
+- Rust in the Linux Kernel
+  - [Best practices for error handling in kernel Rust](https://lwn.net/SubscriberLink/990489/eab6106fa595052e/)
+  - [Resources for learning Rust for kernel development](https://lwn.net/SubscriberLink/990619/cb5f47f5d88818e4/)
+  - [Committing to Rust in the kernel](https://lwn.net/SubscriberLink/991062/b0df468b40b21f5d/)
+- [Rust in illumos](https://wegmueller.it/blog/posts/2024-09-02-rust-on-illumos)
+- [I compiled Rust code to Nintendo Gameboy!](https://www.reddit.com/r/rust/comments/1fhdi28/i_compiled_rust_code_to_nintendo_gameboy/)
+- [Rust for Android](https://www.reddit.com/r/rust/comments/1fs798t/rust_for_android/)
+- [Rust is rolling off the Volvo assembly line](https://tweedegolf.nl/en/blog/137/rust-is-rolling-off-the-volvo-assembly-line)
 
 ## Infrastructure and Tooling
 
@@ -43,6 +55,12 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
+
+- [Safety Goggles for Alchemists: The Path Towards Safer Transmute](https://jack.wrenn.fyi/blog/safety-goggles-for-alchemists/)
+- [Deprecate -Csoft-float because it is unsound (and not fixable)](https://github.com/rust-lang/rust/pull/129897)
+- [Stabilize `const_refs_to_static`](https://github.com/rust-lang/rust/pull/129759)
+- [Stabilize &mut (and *mut) as well as &Cell (and *const Cell) in const](https://github.com/rust-lang/rust/pull/129195)
+- [Implement raw lifetimes and labels (`'r#ident`)](https://github.com/rust-lang/rust/pull/126452)
 
 
 ## `rust-osdev` Projects
