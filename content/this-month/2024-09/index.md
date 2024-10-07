@@ -206,6 +206,7 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+_No updates were proposed for this section this month._
 
 ## Join Us?
 
