@@ -32,6 +32,15 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [VEKOS, a cryptographically verified hobby OS written in Rust](https://www.reddit.com/r/rust/comments/1h5vh2g/vekos_a_cryptographically_verified_hobby_os/)
+- [Rust in Production: Oxide Computer Company with Steve Klabnik (Podcast Interview)](https://www.reddit.com/r/rust/comments/1gr9tqp/rust_in_production_oxide_computer_company_with/)
+- [This Month in Redox - November 2024](https://www.redox-os.org/news/this-month-241130/)
+- [‘Tis the Season for COSMIC Alpha 4!](https://blog.system76.com/post/cosmic-alpha-4/)
+- [a #![no_std], #![no_main], no-[#tokio] runtime for AWS Lambda](https://www.reddit.com/r/rust/comments/1h40cdd/a_no_std_no_main_notokio_runtime_for_aws_lambda/)
+- [Ferrocene 24.11.0 released with medical qualification](https://public-docs.ferrocene.dev/main/release-notes/24.11.0.html) ([reddit discussion](https://www.reddit.com/r/rust/comments/1h1261s/ferrocene_24110_update_medical_qualification_is/))
+- [Embive: A low-level sandboxing library for RISC-V bytecode](https://www.reddit.com/r/rust/comments/1gxm414/embive_a_lowlevel_sandboxing_library_for_riscv/)
+- [Rust in QEMU roadmap](https://lore.kernel.org/all/cc40943e-dec1-4890-a1d9-579350ce296f@pbonzini.local/)
+- [kartoffels, a game where you implement a firmware for a potato, v0.6 released! 🥔](https://www.reddit.com/r/rust/comments/1gvrtnq/kartoffels_a_game_where_you_implement_a_firmware/)
 
 ## Infrastructure and Tooling
 
