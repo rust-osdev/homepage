@@ -53,6 +53,9 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [mark some target features as 'forbidden' so they cannot be (un)set with `-Ctarget-feature`](https://github.com/rust-lang/rust/pull/129884)
+- [show `abi_unsupported_vector_types` lint in future breakage reports](https://github.com/rust-lang/rust/pull/133374)
+- [Stabilize `extended_varargs_abi_support`](https://github.com/rust-lang/rust/pull/116161)
 
 ## `rust-osdev` Projects
 
