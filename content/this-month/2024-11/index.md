@@ -197,6 +197,12 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+<span class="gray">
+
+_No projects were proposed for this section this month._
+
+</span>
+
 
 ## Join Us?
 
