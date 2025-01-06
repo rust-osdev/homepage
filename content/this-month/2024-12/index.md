@@ -32,6 +32,22 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- Funding Opportunities - with [Redox OS](https://redox-os.org/) or on your own
+  - The NGI Zero Commons Fund and NGI Zero Fediversity Fund each have a call for proposals with a Feb. 1 deadline.
+If the proposal is successful, it would be to start roughly in June or July (based on our experience) and run for up to 12 months,
+with an amount up to 50,000 EUR.
+There must be a "European component", so a EU-based developer would be an ideal fit,
+or perhaps a project where the maintainer is EU-based. Here are the links:
+  - [NGI Zero Commons Fund](https://nlnet.nl/commonsfund/)
+  - [NGI Zero Fediversity Fund](https://nlnet.nl/fediversity/)
+  - Redox is looking for a part-time or short-term developer to help with implementing device drivers, ACPI support, and similar,
+who would like to join our proposal.
+You must be knowledgeable in Rust and drivers, and have good reputation in the open source community.
+We have an existing relationship with NLnet, so we can craft the proposal, based on your skillset  and our priorities.
+Please join us on Matrix and let us know you are interested.
+  - https://matrix.to/#/#redox-join:matrix.org
+
+
 ## Infrastructure and Tooling
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
