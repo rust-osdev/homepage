@@ -32,6 +32,8 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [This Month in Redox OS - December 2024](https://www.redox-os.org/news/this-month-241231/)
+
 ## Infrastructure and Tooling
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
