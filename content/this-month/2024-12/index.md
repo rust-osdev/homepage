@@ -74,6 +74,20 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`roeeshoshani/genesis`](https://github.com/roeeshoshani/genesis)
+<span class="maintainers">(Section written by [@roeeshoshani](https://github.com/roeeshoshani))</span>
+
+`genesis` is a bare metal firmware implementation for mips. it implements everything from the bottom up, from
+initializing the cpu caches, to configuring pci devices and the interrupt controller.
+
+i noticed that every kernel implementation is always for x86, so i decided to implement it for something a
+little more esoteric - mips.
+
+the project is currently in very early stages but the basics are there.
+
+it is my hobby project for me to learn about embedded programming.
+
+feel free to follow along the development of it :).
 
 ## Join Us?
 
