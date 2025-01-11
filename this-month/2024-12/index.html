@@ -1,0 +1,197 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2024-12/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: December 2024 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: December 2024</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2025-01-11">
+            Jan 11, 2025
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (December 2024)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://www.redox-os.org/news/this-month-241231/">This Month in Redox OS - December 2024</a></li>
+<li>Video: <a href="https://www.youtube.com/watch?v=pDd5mXBF4tY">Intro to Embassy : embedded development with async Rust</a></li>
+<li><a href="https://blog.system76.com/post/cosmic-alpha-5-released">2025: The Year of COSMIC — Alpha 5 Released!</a></li>
+<li>Funding Opportunities - with <a href="https://redox-os.org/">Redox OS</a> or on your own
+<ul>
+<li>The NGI Zero Commons Fund and NGI Zero Fediversity Fund each have a call for proposals with a Feb. 1 deadline.
+If the proposal is successful, it would be to start roughly in June or July (based on our experience) and run for up to 12 months,
+with an amount up to 50,000 EUR.
+There must be a &quot;European component&quot;, so a EU-based developer would be an ideal fit,
+or perhaps a project where the maintainer is EU-based. Here are the links:</li>
+<li><a href="https://nlnet.nl/commonsfund/">NGI Zero Commons Fund</a></li>
+<li><a href="https://nlnet.nl/fediversity/">NGI Zero Fediversity Fund</a></li>
+<li>Redox is looking for a part-time or short-term developer to help with implementing device drivers, ACPI support, and similar,
+who would like to join our proposal.
+You must be knowledgeable in Rust and drivers, and have good reputation in the open source community.
+We have an existing relationship with NLnet, so we can craft the proposal, based on your skillset  and our priorities.
+Please join us on Matrix and let us know you are interested.</li>
+<li>https://matrix.to/#/#redox-join:matrix.org</li>
+</ul>
+</li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/134765">Improve default target options for <code>x86_64-unknown-linux-none</code></a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/132975">De-duplicate and improve definition of core::ffi::c_char</a></li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1485">Fix clippy::needless_lifetimes in Rust 1.83 and ShimLock ABI on ia32</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1486">Fix clippy::use_self</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1487">uefi-raw: Add DriverBindingProtocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1484">Increase MSRV to 1.81</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1496">Update ptr_meta to 0.3.0</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1497">Remove unstable gate for <code>core::error::Error</code> impls</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1498">Use size_of/size_of_val/align_of/align_of_val from the prelude</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1502">book: Set driver link-arg in <code>build.rs</code></a></li>
+</ul>
+<!-- - [chore(deps): update crate-ci/typos action to v1.28.2](https://github.com/rust-osdev/uefi-rs/pull/1488) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1493) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.28.3](https://github.com/rust-osdev/uefi-rs/pull/1499) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1500) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.28.4](https://github.com/rust-osdev/uefi-rs/pull/1504) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1506) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1509) -->
+<p>Thanks to <a href="https://github.com/crawfxrd">@crawfxrd</a> and <a href="https://github.com/JarlEvanson">@JarlEvanson</a> for their contributions!</p>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/522">fix(idt): panic in <code>impl fmt::Debug for EntryOptions</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/525">Add <code>MapperFlush</code> method to get page</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/527">feat: add <code>update()</code> to <code>Cr3</code>, <code>Dr7</code>, <code>SFMask</code>, <code>UCet</code>, <code>SCet</code>, <code>mxcsr</code>, <code>rflags</code>, and <code>XCr0</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/528">fix(model_specific): make <code>{Fs,Gs,KernelGs}Base::write()</code> unsafe</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/521">Merge master into next</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/mkroening">@mkroening</a> and <a href="https://github.com/adavis628">@adavis628</a> for their contributions!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following improvements:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/476">Remove &quot;UEFI boot&quot; log message</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/ChocolateLoverRaj">@ChocolateLoverRaj</a> for their contributions!</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="roeeshoshani-genesis"><a href="https://github.com/roeeshoshani/genesis"><code>roeeshoshani/genesis</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/roeeshoshani">@roeeshoshani</a>)</span></p>
+<p><code>genesis</code> is a bare metal firmware implementation for mips. it implements everything from the bottom up, from
+initializing the cpu caches, to configuring pci devices and the interrupt controller.</p>
+<p>i noticed that every kernel implementation is always for x86, so i decided to implement it for something a
+little more esoteric - mips.</p>
+<p>the project is currently in very early stages but the basics are there.</p>
+<p>it is my hobby project for me to learn about embedded programming.</p>
+<p>feel free to follow along the development of it :).</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
