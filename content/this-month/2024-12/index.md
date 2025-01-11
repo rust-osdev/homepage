@@ -76,6 +76,61 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following PRs this month:
+
+- [Fix clippy::needless_lifetimes in Rust 1.83 and ShimLock ABI on ia32](https://github.com/rust-osdev/uefi-rs/pull/1485)
+- [Fix clippy::use_self](https://github.com/rust-osdev/uefi-rs/pull/1486)
+- [uefi-raw: Add DriverBindingProtocol](https://github.com/rust-osdev/uefi-rs/pull/1487)
+- [Increase MSRV to 1.81](https://github.com/rust-osdev/uefi-rs/pull/1484)
+- [Update ptr_meta to 0.3.0](https://github.com/rust-osdev/uefi-rs/pull/1496)
+- [Remove unstable gate for `core::error::Error` impls](https://github.com/rust-osdev/uefi-rs/pull/1497)
+- [Use size_of/size_of_val/align_of/align_of_val from the prelude](https://github.com/rust-osdev/uefi-rs/pull/1498)
+- [book: Set driver link-arg in `build.rs`](https://github.com/rust-osdev/uefi-rs/pull/1502)
+
+<!-- - [chore(deps): update crate-ci/typos action to v1.28.2](https://github.com/rust-osdev/uefi-rs/pull/1488) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1493) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.28.3](https://github.com/rust-osdev/uefi-rs/pull/1499) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1500) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.28.4](https://github.com/rust-osdev/uefi-rs/pull/1504) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1506) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1509) -->
+
+Thanks to [@crawfxrd](https://github.com/crawfxrd) and [@JarlEvanson](https://github.com/JarlEvanson) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PRs this month:
+
+- [fix(idt): panic in `impl fmt::Debug for EntryOptions`](https://github.com/rust-osdev/x86_64/pull/522)
+- [Add `MapperFlush` method to get page](https://github.com/rust-osdev/x86_64/pull/525)
+- [feat: add `update()` to `Cr3`, `Dr7`, `SFMask`, `UCet`, `SCet`, `mxcsr`, `rflags`, and `XCr0`](https://github.com/rust-osdev/x86_64/pull/527)
+- [fix(model_specific): make `{Fs,Gs,KernelGs}Base::write()` unsafe](https://github.com/rust-osdev/x86_64/pull/528)
+- [Merge master into next](https://github.com/rust-osdev/x86_64/pull/521)
+
+Thanks to [@mkroening](https://github.com/mkroening) and [@adavis628](https://github.com/adavis628) for their contributions!
+
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following improvements:
+
+- [Remove "UEFI boot" log message](https://github.com/rust-osdev/bootloader/pull/476)
+
+Thanks to [@ChocolateLoverRaj](https://github.com/ChocolateLoverRaj) for their contributions!
+
+
+
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
