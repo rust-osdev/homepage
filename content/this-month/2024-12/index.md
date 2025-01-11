@@ -32,6 +32,7 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [This Month in Redox OS - December 2024](https://www.redox-os.org/news/this-month-241231/)
 - Funding Opportunities - with [Redox OS](https://redox-os.org/) or on your own
   - The NGI Zero Commons Fund and NGI Zero Fediversity Fund each have a call for proposals with a Feb. 1 deadline.
 If the proposal is successful, it would be to start roughly in June or July (based on our experience) and run for up to 12 months,
@@ -88,6 +89,20 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`roeeshoshani/genesis`](https://github.com/roeeshoshani/genesis)
+<span class="maintainers">(Section written by [@roeeshoshani](https://github.com/roeeshoshani))</span>
+
+`genesis` is a bare metal firmware implementation for mips. it implements everything from the bottom up, from
+initializing the cpu caches, to configuring pci devices and the interrupt controller.
+
+i noticed that every kernel implementation is always for x86, so i decided to implement it for something a
+little more esoteric - mips.
+
+the project is currently in very early stages but the basics are there.
+
+it is my hobby project for me to learn about embedded programming.
+
+feel free to follow along the development of it :).
 
 ## Join Us?
 
