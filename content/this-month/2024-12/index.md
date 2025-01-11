@@ -33,6 +33,8 @@ Please follow this template:
 -->
 
 - [This Month in Redox OS - December 2024](https://www.redox-os.org/news/this-month-241231/)
+- Video: [Intro to Embassy : embedded development with async Rust](https://www.youtube.com/watch?v=pDd5mXBF4tY)
+- [2025: The Year of COSMIC — Alpha 5 Released!](https://blog.system76.com/post/cosmic-alpha-5-released)
 - Funding Opportunities - with [Redox OS](https://redox-os.org/) or on your own
   - The NGI Zero Commons Fund and NGI Zero Fediversity Fund each have a call for proposals with a Feb. 1 deadline.
 If the proposal is successful, it would be to start roughly in June or July (based on our experience) and run for up to 12 months,
@@ -59,6 +61,9 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
+
+- [Improve default target options for `x86_64-unknown-linux-none`](https://github.com/rust-lang/rust/pull/134765)
+- [De-duplicate and improve definition of core::ffi::c_char](https://github.com/rust-lang/rust/pull/132975)
 
 ## `rust-osdev` Projects
 
