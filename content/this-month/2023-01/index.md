@@ -48,8 +48,7 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
-- [A GUI installer for redox is coming soon, written in iced!](https://fosstodon.org/@soller/109674396246472281)
-  - [Discussion on Reddit](https://www.reddit.com/r/rust/comments/109qm9j/media_a_gui_installer_for_redox_is_coming_soon/)
+- [A GUI installer for redox is coming soon, written in iced!](https://www.reddit.com/r/rust/comments/109qm9j/media_a_gui_installer_for_redox_is_coming_soon/)
 - [cargo-show-asm 0.2.10](https://www.reddit.com/r/rust/comments/107h9ay/cargoshowasm_0210_new_and_improved_all_over_the/)
 - [RustyHermit @ FOSDEM 2023: A Rust-Based, modular Unikernel for MicroVMs](https://fosdem.org/2023/schedule/event/rustunikernel/)
 
