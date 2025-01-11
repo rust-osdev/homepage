@@ -48,7 +48,7 @@ Please follow this template:
 - Video: [LinuxFest Northwest 2024: Meet COSMIC DE](https://www.youtube.com/watch?v=JHLfsWhDvz0)
 - New [`offset-allocator`](https://github.com/pcwalton/offset-allocator) crate, providing a fast, simple, hard real time allocator
   - not `no_std` yet, but should be easy to port (only requires a `Vec`-like type)
-- [Making an RISC-V OS (Part 3): Managing free memory](https://traxys.me/riscv_os_buddy.html)
+- [Making an RISC-V OS (Part 3): Managing free memory](https://web.archive.org/web/20241006213624/https://traxys.me/riscv_os_buddy.html)
 - [Asterinas](https://asterinas.github.io/): a secure, fast, and general-purpose OS kernel written in Rust and compatible with Linux
 
 ## Infrastructure and Tooling

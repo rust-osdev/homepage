@@ -35,7 +35,7 @@ Please follow this template:
 - [Redox OS - Porting Strategy](https://www.redox-os.org/news/porting-strategy/)
 - [This Month in Redox](https://redox-os.org/news/this-month-240229/)
 - [Tock Compiles on Stable Rust!](https://tockos.org/blog/2024/talking-tock-55/)
-- [Making an RISC-V OS (Part 2): Kernel in virtual addresses](https://traxys.me/riscv_os_2.html)
+- [Making an RISC-V OS (Part 2): Kernel in virtual addresses](https://web.archive.org/web/20240714023153/https://traxys.me/riscv_os_2.html)
 - The Embedded Rustacean [Issue 13](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-13) and [Issue 14](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-14)
 - [Linux Kernel: Rewrite the VP9 codec library in Rust](https://lore.kernel.org/lkml/20240227215146.46487-1-daniel.almeida@collabora.com/)
 - [Anouncing stabby 3.0.0](https://www.reddit.com/r/rust/comments/1amjknw/anouncing_stabby_300_and_rustconf_video_available/)
