@@ -66,6 +66,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'schedule') && github.repository == 'rust-osdev/homepage'
     permissions:
       contents: write
+      issues: write
 
     steps:
       - name: "Download Generated Site"
@@ -99,6 +100,17 @@ jobs:
           git commit --allow-empty -m "Deploy ${GITHUB_SHA}
 
           Deploy of commit https://github.com/rust-osdev/homepage/commit/${GITHUB_SHA}"
+
+          if git show HEAD --summary | grep -P 'create mode \d+ this-month/\d{4}-\d{2}/index.html'
+          then
+            # This might do something weird if there are multiple such pages. Hopefully that should never happen.
+            new_page=$(git show HEAD --summary | grep -P 'create mode \d+ this-month/\d{4}-\d{2}/index.html' | cut -d' ' -f5)
+            echo "Detected a new monthly page:" $new_page
+            curl -s -X POST \
+              https://api.github.com/repos/rust-osdev/homepage/issues/212/comments \
+              -d "{\"body\":\"New issue published: [**$new_page**](https://rust-osdev.com/$new_page). Beep boop.\"}" \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}"
+          fi
         working-directory: "gh-pages"
 
       - name: "Show Changes"
