@@ -78,6 +78,51 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`roeeshoshani/genesis`](https://github.com/roeeshoshani/genesis)
+<span class="maintainers">(Section written by [@roeeshoshani](https://github.com/roeeshoshani))</span>
+
+`genesis` is a bare metal firmware implementation for mips. it implements everything from the bottom up, from
+initializing the cpu caches, to configuring pci devices and the interrupt controller.
+
+this month, the core async executor was implemented.
+
+this means that we can implement blocking operations (for example reading a byte from the UART) as rust futures, and we then
+`.await` them.
+
+this makes our lives much easier when writing code that needs to block until some I/O events happen. instead of using callbacks,
+and having to pass our state all over the place, we can just `.await` the blocking future, and write our code using async functions,
+which is much more ergonomic.
+
+##### example
+
+currently, there is only one blocking operation implemented, the operation of reading a byte from the UART.
+
+this allows code like the following to be written:
+```rust
+loop {
+    let byte = uart_read_byte().await;
+    println!("received uart byte: {}", byte);
+}
+```
+
+which is a huge improvement over the previous implementation of putting the code inside the UART interrupt handler.
+
+##### how does it work?
+
+the way this works is that the core kernel's main loop looks roughly like the following:
+```rust
+loop {
+    poll_tasks();
+    wait_for_interrupt();
+}
+```
+
+then, the interrupt handler is responsible for waking up the relevant tasks.
+
+futures that need interrupt handlers to wake them up should somehow register themselves, and the interrupt hanlers will then
+wake the registered tasks.
+
+then, in the next iteration, the tasks that were woken up will be polled again, which completes the loop.
 
 
 ## Join Us?
