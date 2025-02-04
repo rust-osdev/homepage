@@ -32,10 +32,19 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- Podcast: [Rust in Production: Volvo Ships Memory-Safe ECUs in Production Cars](https://www.reddit.com/r/rust/comments/1i88zmb/rust_in_production_volvo_ships_memorysafe_ecus_in/)
+- [The VEKOS operating system is now able to execute programs](https://www.reddit.com/r/rust/comments/1ieetqt/the_vekos_operating_system_is_now_able_to_execute/)
+- Video: [Windows Kernel Programming with Rust - Matthias Heiden | EuroRust 2024](https://www.youtube.com/watch?v=NfBXDEgm6VY)
+- [Understanding the Microsoft Pluton security processor](https://techcommunity.microsoft.com/blog/windows-itpro-blog/understanding-the-microsoft-pluton-security-processor/4370413) (uses Rust and [TockOS](https://tockos.org/))
+- Linux: [Resistance to Rust abstractions for DMA mapping](https://lwn.net/SubscriberLink/1006805/f75d238e25728afe/)
 
 ## Infrastructure and Tooling
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
+
+- [Insert null checks for pointer dereferences when debug assertions are enabled](https://github.com/rust-lang/rust/pull/134424)
+- [Make missing_abi lint warn-by-default](https://github.com/rust-lang/rust/pull/132397)
+- [show linker output even if the linker succeeds](https://github.com/rust-lang/rust/pull/119286)
 
 <!--
     Please use the following template:
@@ -44,8 +53,6 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
-- [Improve default target options for `x86_64-unknown-linux-none`](https://github.com/rust-lang/rust/pull/134765)
-- [De-duplicate and improve definition of core::ffi::c_char](https://github.com/rust-lang/rust/pull/132975)
 
 ## `rust-osdev` Projects
 
