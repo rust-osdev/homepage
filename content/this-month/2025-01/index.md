@@ -63,7 +63,88 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
 
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following PRs this month:
+
+- [uefi-raw: Add FirmwareVolume{,Block}2Protocol](https://github.com/rust-osdev/uefi-rs/pull/1503)
+- [uefi-raw: hii: Add Database Protocol](https://github.com/rust-osdev/uefi-rs/pull/1510)
+- [uefi-raw: Add ScsiIoProtocol](https://github.com/rust-osdev/uefi-rs/pull/1517)
+- [Add missing type/subtype checks to `TryFrom<&DevicePathNode>`](https://github.com/rust-osdev/uefi-rs/pull/1516)
+- [uefi-raw: Add common impls for http types](https://github.com/rust-osdev/uefi-rs/pull/1518)
+- [relicensing: Rewrite allocator, configuration table, and image unload PRs](https://github.com/rust-osdev/uefi-rs/pull/1523)
+- [relicensing: Rewrite set_timer PR](https://github.com/rust-osdev/uefi-rs/pull/1524)
+- [Fix memory leaks in DevicePathFromText](https://github.com/rust-osdev/uefi-rs/pull/1525)
+- [Add warning to custom memory types](https://github.com/rust-osdev/uefi-rs/pull/1526)
+- [test-runner: Clean up device path tests](https://github.com/rust-osdev/uefi-rs/pull/1527)
+
+<!-- - [chore(deps): update crate-ci/typos action to v1.29.4](https://github.com/rust-osdev/uefi-rs/pull/1512) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1515) -->
+<!-- - [fix(deps): update rust crate itertools to 0.14.0](https://github.com/rust-osdev/uefi-rs/pull/1513) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1522) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1530) -->
+
+Thanks to [@crawfxrd](https://github.com/crawfxrd) and [@hannahfluch](https://github.com/hannahfluch) for their contributions!
+
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following improvements:
+
+- [use threads instead of futures in build.rs](https://github.com/rust-osdev/bootloader/pull/484)
+- [Move test kernels to a separate workspace](https://github.com/rust-osdev/bootloader/pull/486)
+- [fix condition for running bootloader common tests](https://github.com/rust-osdev/bootloader/pull/487)
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PRs this month:
+
+- [fix warnings & remove broken CI job](https://github.com/rust-osdev/x86_64/pull/530)
+- [Add page attribute table support](https://github.com/rust-osdev/x86_64/pull/529)
+- [use default python again](https://github.com/rust-osdev/x86_64/pull/533)
+- [feat(msr): add IA32_APIC_BASE support](https://github.com/rust-osdev/x86_64/pull/532)
+
+Thanks to [@hannahfluch](https://github.com/hannahfluch) and [@adavis628](https://github.com/adavis628) for their contributions!
+
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. We merged the following changes this month:
+
+- [acpi: Remove Clone Copy traits for MADT](https://github.com/rust-osdev/acpi/pull/238)
+- [acpi: Clone impl for PlatformInfo and ManagedSlice](https://github.com/rust-osdev/acpi/pull/239)
+- [aml: fix clippy warnings and run clippy in CI](https://github.com/rust-osdev/acpi/pull/237)
+- [Fix unsoundness in our representation of the MADT](https://github.com/rust-osdev/acpi/pull/223)
+
+Thanks to [@IsaacWoods](https://github.com/IsaacWoods), [@mrjbom](https://github.com/mrjbom), and [@00xc](https://github.com/00xc) for their contributions!
+
+
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+_Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
+the contained information tags. Usable in no_std environments, such as a kernel.
+An optional builder feature also allows the construction of the corresponding
+structures._
+
+We merged the following PRs this month:
+
+- [fix: typos](https://github.com/rust-osdev/multiboot2/pull/253)
+- [misc improvements](https://github.com/rust-osdev/multiboot2/pull/254)
+
+<!-- - [build(deps): bump crate-ci/typos from 1.28.1 to 1.29.0](https://github.com/rust-osdev/multiboot2/pull/252)
+- [build(deps): bump bitflags from 2.6.0 to 2.7.0](https://github.com/rust-osdev/multiboot2/pull/255)
+- [build(deps): bump bitflags from 2.7.0 to 2.8.0](https://github.com/rust-osdev/multiboot2/pull/256)
+- [build(deps): bump crate-ci/typos from 1.29.0 to 1.29.4](https://github.com/rust-osdev/multiboot2/pull/257) -->
 
 ## Other Projects
 
