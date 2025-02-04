@@ -1,0 +1,229 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2025-01/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: January 2025 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: January 2025</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2025-02-04">
+            Feb 04, 2025
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (January 2025)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li>Podcast: <a href="https://www.reddit.com/r/rust/comments/1i88zmb/rust_in_production_volvo_ships_memorysafe_ecus_in/">Rust in Production: Volvo Ships Memory-Safe ECUs in Production Cars</a></li>
+<li><a href="https://www.reddit.com/r/rust/comments/1ieetqt/the_vekos_operating_system_is_now_able_to_execute/">The VEKOS operating system is now able to execute programs</a></li>
+<li>Video: <a href="https://www.youtube.com/watch?v=NfBXDEgm6VY">Windows Kernel Programming with Rust - Matthias Heiden | EuroRust 2024</a></li>
+<li><a href="https://techcommunity.microsoft.com/blog/windows-itpro-blog/understanding-the-microsoft-pluton-security-processor/4370413">Understanding the Microsoft Pluton security processor</a> (uses Rust and <a href="https://tockos.org/">TockOS</a>)</li>
+<li>Linux: <a href="https://lwn.net/SubscriberLink/1006805/f75d238e25728afe/">Resistance to Rust abstractions for DMA mapping</a></li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/134424">Insert null checks for pointer dereferences when debug assertions are enabled</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/132397">Make missing_abi lint warn-by-default</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/119286">show linker output even if the linker succeeds</a></li>
+</ul>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1503">uefi-raw: Add FirmwareVolume{,Block}2Protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1510">uefi-raw: hii: Add Database Protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1517">uefi-raw: Add ScsiIoProtocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1516">Add missing type/subtype checks to <code>TryFrom&lt;&amp;DevicePathNode&gt;</code></a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1518">uefi-raw: Add common impls for http types</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1523">relicensing: Rewrite allocator, configuration table, and image unload PRs</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1524">relicensing: Rewrite set_timer PR</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1525">Fix memory leaks in DevicePathFromText</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1526">Add warning to custom memory types</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1527">test-runner: Clean up device path tests</a></li>
+</ul>
+<!-- - [chore(deps): update crate-ci/typos action to v1.29.4](https://github.com/rust-osdev/uefi-rs/pull/1512) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1515) -->
+<!-- - [fix(deps): update rust crate itertools to 0.14.0](https://github.com/rust-osdev/uefi-rs/pull/1513) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1522) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1530) -->
+<p>Thanks to <a href="https://github.com/crawfxrd">@crawfxrd</a> and <a href="https://github.com/hannahfluch">@hannahfluch</a> for their contributions!</p>
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following improvements:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/484">use threads instead of futures in build.rs</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/486">Move test kernels to a separate workspace</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/487">fix condition for running bootloader common tests</a></li>
+</ul>
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/530">fix warnings &amp; remove broken CI job</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/529">Add page attribute table support</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/533">use default python again</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/532">feat(msr): add IA32_APIC_BASE support</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/hannahfluch">@hannahfluch</a> and <a href="https://github.com/adavis628">@adavis628</a> for their contributions!</p>
+<h3 id="acpi"><a href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. We merged the following changes this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/acpi/pull/238">acpi: Remove Clone Copy traits for MADT</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/239">acpi: Clone impl for PlatformInfo and ManagedSlice</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/237">aml: fix clippy warnings and run clippy in CI</a></li>
+<li><a href="https://github.com/rust-osdev/acpi/pull/223">Fix unsoundness in our representation of the MADT</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/IsaacWoods">@IsaacWoods</a>, <a href="https://github.com/mrjbom">@mrjbom</a>, and <a href="https://github.com/00xc">@00xc</a> for their contributions!</p>
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/multiboot2"><code>multiboot2</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><em>Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
+the contained information tags. Usable in no_std environments, such as a kernel.
+An optional builder feature also allows the construction of the corresponding
+structures.</em></p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/multiboot2/pull/253">fix: typos</a></li>
+<li><a href="https://github.com/rust-osdev/multiboot2/pull/254">misc improvements</a></li>
+</ul>
+<!-- - [build(deps): bump crate-ci/typos from 1.28.1 to 1.29.0](https://github.com/rust-osdev/multiboot2/pull/252)
+- [build(deps): bump bitflags from 2.6.0 to 2.7.0](https://github.com/rust-osdev/multiboot2/pull/255)
+- [build(deps): bump bitflags from 2.7.0 to 2.8.0](https://github.com/rust-osdev/multiboot2/pull/256)
+- [build(deps): bump crate-ci/typos from 1.29.0 to 1.29.4](https://github.com/rust-osdev/multiboot2/pull/257) -->
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="roeeshoshani-genesis"><a href="https://github.com/roeeshoshani/genesis"><code>roeeshoshani/genesis</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/roeeshoshani">@roeeshoshani</a>)</span></p>
+<p><code>genesis</code> is a bare metal firmware implementation for mips. it implements everything from the bottom up, from
+initializing the cpu caches, to configuring pci devices and the interrupt controller.</p>
+<p>this month, the core async executor was implemented.</p>
+<p>this means that we can implement blocking operations (for example reading a byte from the UART) as rust futures, and we then
+<code>.await</code> them.</p>
+<p>this makes our lives much easier when writing code that needs to block until some I/O events happen. instead of using callbacks,
+and having to pass our state all over the place, we can just <code>.await</code> the blocking future, and write our code using async functions,
+which is much more ergonomic.</p>
+<h5 id="example">example</h5>
+<p>currently, there is only one blocking operation implemented, the operation of reading a byte from the UART.</p>
+<p>this allows code like the following to be written:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">loop </span><span>{
+</span><span>    </span><span style="color:#b48ead;">let</span><span> byte = </span><span style="color:#96b5b4;">uart_read_byte</span><span>().await;
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">received uart byte: </span><span style="color:#d08770;">{}</span><span>&quot;, byte);
+</span><span>}
+</span></code></pre>
+<p>which is a huge improvement over the previous implementation of putting the code inside the UART interrupt handler.</p>
+<h5 id="how-does-it-work">how does it work?</h5>
+<p>the way this works is that the core kernel's main loop looks roughly like the following:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">loop </span><span>{
+</span><span>    </span><span style="color:#96b5b4;">poll_tasks</span><span>();
+</span><span>    </span><span style="color:#96b5b4;">wait_for_interrupt</span><span>();
+</span><span>}
+</span></code></pre>
+<p>then, the interrupt handler is responsible for waking up the relevant tasks.</p>
+<p>futures that need interrupt handlers to wake them up should somehow register themselves, and the interrupt hanlers will then
+wake the registered tasks.</p>
+<p>then, in the next iteration, the tasks that were woken up will be polled again, which completes the loop.</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
