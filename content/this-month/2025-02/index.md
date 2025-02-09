@@ -32,6 +32,8 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Asterinas in 2024](https://asterinas.github.io/2025/01/20/asterinas-in-2024.html)
+  - [Asterinas](https://github.com/asterinas/asterinas) is a Linux ABI-compatible OS written from scratch in Rust
 
 ## Infrastructure and Tooling
 
