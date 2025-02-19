@@ -34,6 +34,7 @@ Please follow this template:
 
 - [Asterinas in 2024](https://asterinas.github.io/2025/01/20/asterinas-in-2024.html)
   - [Asterinas](https://github.com/asterinas/asterinas) is a Linux ABI-compatible OS written from scratch in Rust
+- [Towards Practical Formal Verification for a General-Purpose OS in Rust](https://asterinas.github.io/2025/02/13/towards-practical-formal-verification-for-a-general-purpose-os-in-rust.html)
 
 ## Infrastructure and Tooling
 
