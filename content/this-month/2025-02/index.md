@@ -54,6 +54,10 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [Create a generic AVR target: avr-none](https://github.com/rust-lang/rust/pull/131651)
+- [x86: use SSE2 to pass float and SIMD types](https://github.com/rust-lang/rust/pull/135408)
+- [add x86-sse2 (32bit) ABI that requires SSE2 target feature](https://github.com/rust-lang/rust/pull/137037)
+- [Update to LLVM 20](https://github.com/rust-lang/rust/pull/135763)
 
 ## `rust-osdev` Projects
 
