@@ -32,9 +32,16 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [This Month in Redox - January 2025](https://www.redox-os.org/news/this-month-250131/)
+- [RSoC 2024: Dynamic Linking - Part 2](https://www.redox-os.org/news/02_rsoc2024_dynamic_linker/)
 - [Asterinas in 2024](https://asterinas.github.io/2025/01/20/asterinas-in-2024.html)
   - [Asterinas](https://github.com/asterinas/asterinas) is a Linux ABI-compatible OS written from scratch in Rust
 - [Towards Practical Formal Verification for a General-Purpose OS in Rust](https://asterinas.github.io/2025/02/13/towards-practical-formal-verification-for-a-general-purpose-os-in-rust.html)
+- [Writing a Simple Windows Driver in Rust](https://scorpiosoftware.net/2025/02/08/writing-a-simple-driver-in-rust/)
+- [FOSDEM talk: Rust for Linux](https://fosdem.org/2025/schedule/event/fosdem-2025-6507-rust-for-linux/)
+- [No-Panic Rust: A Nice Technique for Systems Programming](https://blog.reverberate.org/2025/02/03/no-panic-rust.html)
+- [PSA: uuid's getrandom update may break no-std V4/V7 users](https://www.reddit.com/r/rust/comments/1ihd0hf/psa_uuids_getrandom_update_may_break_nostd_v4v7/)
+- The Embedded Rustacean: [Issue #39](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-39) and [Issue #40](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-40)
 
 ## Infrastructure and Tooling
 
