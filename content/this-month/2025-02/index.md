@@ -64,6 +64,97 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following PRs this month:
+
+- [relicensing: Rewrite PR "DevicePathToText and DevicePathFromText Protocol"](https://github.com/rust-osdev/uefi-rs/pull/1528)
+- [Relicense to "MIT OR Apache-2.0"](https://github.com/rust-osdev/uefi-rs/pull/1531)
+- [Add SPDX headers](https://github.com/rust-osdev/uefi-rs/pull/1532)
+- [release: uefi-raw-0.10.0, uefi-macros-0.18.0, uefi-0.34.0](https://github.com/rust-osdev/uefi-rs/pull/1533)
+- [uefi: Update license info in docstring](https://github.com/rust-osdev/uefi-rs/pull/1534)
+- [release: uefi-0.34.1](https://github.com/rust-osdev/uefi-rs/pull/1535)
+- [uefi-raw: add Boolean type](https://github.com/rust-osdev/uefi-rs/pull/1536)
+- [uefi-raw: use new Boolean type ](https://github.com/rust-osdev/uefi-rs/pull/1538)
+- [xtask/uefi-raw: improve check-raw error messages](https://github.com/rust-osdev/uefi-rs/pull/1537)
+- [Fix upcoming lints in clippy 1.85](https://github.com/rust-osdev/uefi-rs/pull/1541)
+- [uefi: clarify situation with `boot::memory_map()` and `Status::BUFFER_TOO_SMALL`](https://github.com/rust-osdev/uefi-rs/pull/1540)
+- [Fix uefi-raw MSRV build, and improve CI for MSRV](https://github.com/rust-osdev/uefi-rs/pull/1542)
+- [Add PXE types to uefi-raw](https://github.com/rust-osdev/uefi-rs/pull/1543)
+- [uefi: Replace definition of MacAddress with a re-export from uefi-raw](https://github.com/rust-osdev/uefi-rs/pull/1547)
+- [Use bitflags definitions from uefi-raw in uefi's pxe module](https://github.com/rust-osdev/uefi-rs/pull/1548)
+- [uefi: Fix the BufferSize argument in SimpleNetwork::transmit](https://github.com/rust-osdev/uefi-rs/pull/1550)
+- [Use newtype enum definitions from uefi-raw in uefi's pxe module](https://github.com/rust-osdev/uefi-rs/pull/1551)
+
+<!-- - [chore(deps): update crate-ci/typos action to v1.29.7](https://github.com/rust-osdev/uefi-rs/pull/1544) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1546) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.29.9](https://github.com/rust-osdev/uefi-rs/pull/1554) -->
+
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following improvements:
+
+- [Update `x86_64` to `0.15.2`](https://github.com/rust-osdev/bootloader/pull/490)
+- [change rustc-abi in custom targets to x86-softfloat](https://github.com/rust-osdev/bootloader/pull/491)
+- [[v0.9] change rustc-abi in custom targets to x86-softfloat](https://github.com/rust-osdev/bootloader/pull/492)
+- [Release `v0.11.10`](https://github.com/rust-osdev/bootloader/pull/493)
+- [Update uart_16550 to 0.3.2](https://github.com/rust-osdev/bootloader/pull/495)
+- [Specify kernel-code virt addr in BootloaderConfig](https://github.com/rust-osdev/bootloader/pull/494)
+- [Use `Result::ok`](https://github.com/rust-osdev/bootloader/pull/496)
+
+Thanks to [@Stazer](https://github.com/Stazer), [@Wasabi375](https://github.com/Wasabi375), and [@ChocolateLoverRaj](https://github.com/ChocolateLoverRaj) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PRs this month:
+
+- [Ensure that addition and subtraction of addresses panics on overflow/underflow](https://github.com/rust-osdev/x86_64/pull/535)
+- [don't pass -Crelocation-model=static to host targets](https://github.com/rust-osdev/x86_64/pull/536)
+
+Thanks to [@farnz](https://github.com/farnz) for their contribution!
+
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. We merged the following changes this month:
+
+- [acpi: fix build errors](https://github.com/rust-osdev/acpi/pull/240)
+
+Thanks to [@jellllly420](https://github.com/jellllly420) for their contribution!
+
+
+### [`ovmf-prebuilt`](https://github.com/rust-osdev/ovmf-prebuilt)
+<span class="maintainers">Maintained by [@nicholasbishop](https://github.com/nicholasbishop) and [@phil-opp](https://github.com/phil-opp)</span>
+
+The `ovmf-prebuilt` project provides pre-built [edk2](https://github.com/tianocore/edk2) releases to make it easier to set up OVMF. We merged the following improvement this month:
+
+- [Add 202408.01, 202411, and 202502 releases](https://github.com/rust-osdev/ovmf-prebuilt/pull/139)
+- [fix(deps): update rust crate ureq to v3](https://github.com/rust-osdev/ovmf-prebuilt/pull/146)
+- [Set `Source::LATEST` to `EDK2_STABLE202502_R1`](https://github.com/rust-osdev/ovmf-prebuilt/pull/145)
+- [release: 0.2.2](https://github.com/rust-osdev/ovmf-prebuilt/pull/140)
+y
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/135) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/136) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/137) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/138) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/144) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/148) -->
+
+Thanks to [@mkroening](https://github.com/mkroening) for their contributions!
+
+
+
 
 ## Other Projects
 
