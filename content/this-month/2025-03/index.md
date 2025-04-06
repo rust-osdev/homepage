@@ -128,7 +128,16 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
 
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Update blog to Rust 2024 edition](https://github.com/phil-opp/blog_os/pull/1405)
+- [Latam Spanish translation](https://github.com/phil-opp/blog_os/pull/1368)
+- [Fix translation in `zh-CN` testing post](https://github.com/phil-opp/blog_os/pull/1407)
+
+Thanks to [@dobleuber](https://github.com/dobleuber) and [@JINHUILYU](https://github.com/JINHUILYU) for their contributions!
 
 ## Join Us?
 
