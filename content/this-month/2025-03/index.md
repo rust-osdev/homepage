@@ -32,6 +32,11 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Rust, compiled to Holy C, running on TempleOS](https://www.reddit.com/r/rust/comments/1jp9227/media_rust_compiled_to_holly_c_running_on_templeos/)
+- [My non-unix like rust OS SafaOS, now has a rust libstd port](https://www.reddit.com/r/rust/comments/1jkkufh/media_my_nonunix_like_rust_os_safaos_now_has_a/)
+- [Introducing Ariel OS - an embedded library OS for small MCUs](https://www.reddit.com/r/rust/comments/1jo070l/introducing_ariel_os_an_embedded_library_os_for/)
+- [Stalloc: fast memory allocation on the stack](https://www.reddit.com/r/rust/comments/1jqjs6n/stalloc_fast_memory_allocation_on_the_stack/)
+
 ## Infrastructure and Tooling
 
 In this section, we collect recent updates to `rustc`, `cargo`, and other tooling that are relevant to Rust OS development.
@@ -42,6 +47,9 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
+
+- [Allow `*const W<dyn A> -> *const dyn A` ptr cast](https://github.com/rust-lang/rust/pull/136127)
+- [Stabilize `asm_goto` feature gate](https://github.com/rust-lang/rust/pull/133870)
 
 ## `rust-osdev` Projects
 
