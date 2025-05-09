@@ -138,6 +138,16 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Added [[bin]] section to Cargo.toml](https://github.com/phil-opp/blog_os/pull/1412)
+- [loading UEFI using ovmf_prebuilt=0.2.3 with ovmf_code and ovmf_vars](https://github.com/phil-opp/blog_os/pull/1410)
+
+Thanks to [@tigeryant](https://github.com/tigeryant) and [@v4zha](https://github.com/v4zha) for their contributions!
+
 
 ## Join Us?
 
