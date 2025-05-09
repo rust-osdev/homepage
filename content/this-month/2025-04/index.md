@@ -61,6 +61,68 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following PRs this month:
+
+- [uefi-raw: Add binding for EFI_DEVICE_PATH_UTILITIES_PROTOCOL](https://github.com/rust-osdev/uefi-rs/pull/1598)
+- [clippy: fix](https://github.com/rust-osdev/uefi-rs/pull/1602)
+- [helpers: Add AlignedBuffer](https://github.com/rust-osdev/uefi-rs/pull/1600)
+- [xtask: fix nixfmt + update Nix flake + fix CI](https://github.com/rust-osdev/uefi-rs/pull/1607)
+- [uefi/doc: improve documentation of exit_boot_services + change signature](https://github.com/rust-osdev/uefi-rs/pull/1605)
+- [uefi: Some convenient DevicePathUtilities helper methods](https://github.com/rust-osdev/uefi-rs/pull/1599)
+- [uefi: Add safe protocol wrapper for EFI_EXT_SCSI_PASS_THRU_PROTOCOL](https://github.com/rust-osdev/uefi-rs/pull/1589)
+- [uefi-raw: Fix ATA_PASS_THRU_PROTOCOL bindings](https://github.com/rust-osdev/uefi-rs/pull/1619)
+- [snp network test fixes](https://github.com/rust-osdev/uefi-rs/pull/1618)
+- [uefi-raw: Add EFI_USB_IO_PROTOCOL bindings](https://github.com/rust-osdev/uefi-rs/pull/1623)
+- [uefi: Add safe protocol wrapper for EFI_NVM_EXPRESS_PASS_THRU_PROTOCOL](https://github.com/rust-osdev/uefi-rs/pull/1594)
+- [uefi: Move PoolString to enable additional use](https://github.com/rust-osdev/uefi-rs/pull/1624)
+- [uefi-raw: Fix EFI_USB_IO_PROTOCOL implementation](https://github.com/rust-osdev/uefi-rs/pull/1626)
+- [uefi-raw: Add EFI_USB2_HC_PROTOCOL bindings](https://github.com/rust-osdev/uefi-rs/pull/1629)
+- [uefi: Add safe protocol wrapper for EFI_ATA_PASS_THRU_PROTOCOL](https://github.com/rust-osdev/uefi-rs/pull/1595)
+- [uefi-raw: Move EFI_SIMPLE_NETWORK_PROTOCOL](https://github.com/rust-osdev/uefi-rs/pull/1634)
+- [Enable access to hidden RAII guard components](https://github.com/rust-osdev/uefi-rs/pull/1635)
+- [UEFI Allocator: add PAGE_SIZE shortcut ](https://github.com/rust-osdev/uefi-rs/pull/1611)
+- [xtask: Update OVMF release to EDK2_STABLE202502_R2](https://github.com/rust-osdev/uefi-rs/pull/1637)
+- [add ip4config2 + http protocols support](https://github.com/rust-osdev/uefi-rs/pull/1614)
+- [uefi-raw: Redefine UsbPortStatus and UsbTransferStatus](https://github.com/rust-osdev/uefi-rs/pull/1638)
+- [uefi: remove duplication in DevicePathHeader; use uefi-raw](https://github.com/rust-osdev/uefi-rs/pull/1613)
+- [uefi: Implement CalculateCrc32() boot services function](https://github.com/rust-osdev/uefi-rs/pull/1649)
+
+<!-- - [fix(deps): update rust crate clap to v4.5.35](https://github.com/rust-osdev/uefi-rs/pull/1610) -->
+<!-- - [ci: fix](https://github.com/rust-osdev/uefi-rs/pull/1631) -->
+<!-- - [chore(deps): update codecov/codecov-action action to v5.4.2](https://github.com/rust-osdev/uefi-rs/pull/1633) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.31.1](https://github.com/rust-osdev/uefi-rs/pull/1647) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1648) -->
+<!-- - [ci: fix failing MSRV uefi-raw job](https://github.com/rust-osdev/uefi-rs/pull/1650) -->
+
+Thanks to [@seijikun](https://github.com/seijikun), [@andersson](https://github.com/andersson), [@kraxel](https://github.com/kraxel), and [@JarlEvanson](https://github.com/JarlEvanson) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PRs this month:
+
+- [fix kani build job](https://github.com/rust-osdev/x86_64/pull/544)
+- [improve `VirtAddr` `Add` & `Sub` impls](https://github.com/rust-osdev/x86_64/pull/543)
+- [Revert #529 on master](https://github.com/rust-osdev/x86_64/pull/545)
+- [merge master into next](https://github.com/rust-osdev/x86_64/pull/546)
+
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following improvements:
+
+- [implement Send+Sync for MemoryRegions](https://github.com/rust-osdev/bootloader/pull/502)
+
 
 
 ## Other Projects
