@@ -32,6 +32,11 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- Podcast: [Microsoft rewriting Hyper-V components in Rust; calls 2025 "the year of Rust at Microsoft"](https://corrode.dev/podcast/s04e01-microsoft/)
+- [Memory-safe sudo to become the default in Ubuntu](https://trifectatech.org/blog/memory-safe-sudo-to-become-the-default-in-ubuntu/)
+- [Migration to rust-coreutils in Ubuntu 25.10](https://discourse.ubuntu.com/t/migration-to-rust-coreutils-in-25-10/59708)
+- [noshell, a no_std argument parser and a shell for constrained systems](https://github.com/inthehack/noshell)
+- [Ariel OS - library OS for microcontrollers - now building on stable Rust](https://www.reddit.com/r/rust/comments/1kh0dg1/ariel_os_v020_now_building_on_stable_rust/)
 
 ## Infrastructure and Tooling
 
