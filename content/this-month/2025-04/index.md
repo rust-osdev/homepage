@@ -49,6 +49,7 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [Stabilize `naked_functions`](https://github.com/rust-lang/rust/pull/134213/)
 
 ## `rust-osdev` Projects
 
