@@ -44,6 +44,7 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [Miralis, a RISC-V virtual firmware monitor](https://github.com/CharlyCst/miralis)
 
 ## `rust-osdev` Projects
 
