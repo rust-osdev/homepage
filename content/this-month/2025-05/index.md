@@ -31,7 +31,8 @@ Please follow this template:
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
-
+- [This Month in Redox](https://redox-os.org/news/this-month-250531/)
+  - Redox is looking for a developer in the EU - see the job description in our monthly report!
 
 ## Infrastructure and Tooling
 
