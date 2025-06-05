@@ -88,7 +88,7 @@ Thanks to [@Knapsac](https://github.com/KnapSac) and [@toothbrush7777777](https:
 
 ### [`ovmf-prebuilt`](https://github.com/rust-osdev/ovmf-prebuilt)
 
-In order to make it easier to run UEFI disk images in [QEMU](https://www.qemu.org/) using [OVMF](https://github.com/tianocore/tianocore.github.io/wiki/OVMF), we created a new `ovmf-prebuilt` project this month. The projects automatically downloads the latest prebuilt OVMF RPM images from [Gerd Hoffman's firmware repository](https://www.kraxel.org/repos/) and publishes the extracted `OVMF_*.fd` files as [GitHub releases](https://github.com/rust-osdev/ovmf-prebuilt/releases). A new release is created daily through a CI script. Note that the licensing terms of the [`tianocore/edk2`](https://github.com/tianocore/edk2) repository apply to the released files.
+In order to make it easier to run UEFI disk images in [QEMU](https://www.qemu.org/) using [OVMF](https://github.com/tianocore/tianocore.github.io/wiki/OVMF), we created a new `ovmf-prebuilt` project this month. The projects automatically downloads the latest prebuilt OVMF RPM images from [Gerd Hoffman's firmware repository](https://web.archive.org/web/20250505152052/https://www.kraxel.org/repos/) and publishes the extracted `OVMF_*.fd` files as [GitHub releases](https://github.com/rust-osdev/ovmf-prebuilt/releases). A new release is created daily through a CI script. Note that the licensing terms of the [`tianocore/edk2`](https://github.com/tianocore/edk2) repository apply to the released files.
 
 ### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
 
