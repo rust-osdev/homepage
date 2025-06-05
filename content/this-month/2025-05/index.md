@@ -64,6 +64,61 @@ In this section, we give an overview of notable changes to the projects hosted u
 -->
 
 
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following PRs this month:
+
+- [release: uefi-raw-0.11.0, uefi-macros-0.18.1, uefi-0.35.0](https://github.com/rust-osdev/uefi-rs/pull/1652)
+- [xtask: Add --ovmf-shell arg](https://github.com/rust-osdev/uefi-rs/pull/1656)
+- [xtask: simplify env variables](https://github.com/rust-osdev/uefi-rs/pull/1657)
+- [uefi: use Duration for boot::stall](https://github.com/rust-osdev/uefi-rs/pull/1659)
+- [xtask: Improve error message for enums in uefi-raw](https://github.com/rust-osdev/uefi-rs/pull/1660)
+- [ConfigTableEntry move constants and add example](https://github.com/rust-osdev/uefi-rs/pull/1661)
+- [uefi: `system::with_*` now take mutably closure](https://github.com/rust-osdev/uefi-rs/pull/1663)
+- [uefi-test-runner: streamline memory related tests](https://github.com/rust-osdev/uefi-rs/pull/1666)
+- [rust: edition 2024](https://github.com/rust-osdev/uefi-rs/pull/1586)
+- [Unpin uguid](https://github.com/rust-osdev/uefi-rs/pull/1673)
+- [uefi: SNP transmit: document parameters](https://github.com/rust-osdev/uefi-rs/pull/1664)
+- [doc: improved documentation for boot allocation functions](https://github.com/rust-osdev/uefi-rs/pull/1665)
+- [uefi-raw: Add binding for EFI_PCI_ROOT_BRIDGE_IO_PROTOCOL](https://github.com/rust-osdev/uefi-rs/pull/1658)
+- [doc: streamline device path documentation between uefi-raw and uefi](https://github.com/rust-osdev/uefi-rs/pull/1641)
+- [clippy: fix upcoming nightly lints](https://github.com/rust-osdev/uefi-rs/pull/1675)
+- [cleanup IPConfig2/Http Protocol](https://github.com/rust-osdev/uefi-rs/pull/1640)
+- [uefi: deprecated since 0.36.0](https://github.com/rust-osdev/uefi-rs/pull/1677)
+- [doc: help with feature selection](https://github.com/rust-osdev/uefi-rs/pull/1676)
+- [uefi: Add safe EFI_USB_IO_PROTOCOL bindings](https://github.com/rust-osdev/uefi-rs/pull/1625)
+- [uefi: Add (partial) safe protocol implementation for PCI_ROOT_BRIDGE_IO_PROTOCOL](https://github.com/rust-osdev/uefi-rs/pull/1674)
+
+<!-- - [chore(deps): update crate-ci/typos action to v1.32.0](https://github.com/rust-osdev/uefi-rs/pull/1654) -->
+<!-- - [fix(deps): update rust crate clap to v4.5.38](https://github.com/rust-osdev/uefi-rs/pull/1668) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1669) -->
+<!-- - [chore(deps): update rust crate uguid to v2.2.1](https://github.com/rust-osdev/uefi-rs/pull/1653) -->
+<!-- - [fix(deps): update rust crate nix to 0.30.0](https://github.com/rust-osdev/uefi-rs/pull/1670) -->
+<!-- - [fix(deps): update rust crate mbrman to 0.6.0](https://github.com/rust-osdev/uefi-rs/pull/1671) -->
+<!-- - [chore(deps): update codecov/codecov-action action to v5.4.3](https://github.com/rust-osdev/uefi-rs/pull/1672) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1678) -->
+
+Thanks to [@seijikun](https://github.com/seijikun), [@fox0](https://github.com/fox0), and [@JarlEvanson](https://github.com/JarlEvanson) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PRs this month:
+
+- [feat(sev): add AMD SEV support](https://github.com/rust-osdev/x86_64/pull/542)
+- [implement functions for accessing CR8](https://github.com/rust-osdev/x86_64/pull/547)
+- [Add page attribute table support](https://github.com/rust-osdev/x86_64/pull/548)
+
+Thanks to [@zyuiop](https://github.com/zyuiop) for their contribution!
+
+
 
 ## Other Projects
 
