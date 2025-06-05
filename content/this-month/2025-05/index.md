@@ -31,8 +31,18 @@ Please follow this template:
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
+
+- [Miralis, a RISC-V virtual firmware monitor](https://github.com/CharlyCst/miralis)
 - [This Month in Redox](https://redox-os.org/news/this-month-250531/)
   - Redox is looking for a developer in the EU - see the job description in our monthly report!
+- [The Linux 6.15 kernel arrives - and it's big a victory for Rust fans](https://www.zdnet.com/article/the-linux-6-15-kernel-arrives-and-its-big-a-victory-for-rust-fans/)
+- [Rust Coreutils 0.1 Released With Big Performance Gains - Can Match Or Exceed GNU Speed](https://www.phoronix.com/news/Rust-Coreutils-0.1-Released)
+- [Edit is now open source](https://devblogs.microsoft.com/commandline/edit-is-now-open-source/)
+- [ChromeOS Virtual Machine Monitor is written in Rust with over 300k LoC](https://www.reddit.com/r/rust/comments/1l1ue85/chromeos_virtual_machine_monitor_is_written_in/)
+- [First look at Blinksy](https://blog.mikey.nz/first-look-at-blinksy/) - A Rust no-std no-alloc LED control library for spatial layouts
+- [biski64: A Fast, no_std PRNG in Rust (~0.37ns per u64)](https://www.reddit.com/r/rust/comments/1kwe65p/biski64_a_fast_no_std_prng_in_rust_037ns_per_u64/)
+- [RusTOS - Small RTOS in Rust](https://www.reddit.com/r/rust/comments/1kgx126/rustos_small_rtos_in_rust/)
+- [A second iteration of my DOS-like hobby OS in Rust](https://www.reddit.com/r/rust/comments/1kzjzj4/a_second_iteration_of_my_doslike_hobby_os_in_rust/)
 
 ## Infrastructure and Tooling
 
@@ -45,7 +55,7 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
-- [Miralis, a RISC-V virtual firmware monitor](https://github.com/CharlyCst/miralis)
+- [aarch64-softfloat: forbid enabling the neon target feature](https://github.com/rust-lang/rust/pull/135160)
 
 ## `rust-osdev` Projects
 
