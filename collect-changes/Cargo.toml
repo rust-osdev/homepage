@@ -8,7 +8,5 @@ edition = "2021"
 [dependencies]
 chrono = { version = "0.4.21", default-features = false }
 eyre = "0.6.8"
-octocrab = { version = "0.18.1", default-features = false, features = [
-    "rustls",
-] }
+octocrab = "0.44.1"
 tokio = { version = "1.20.4", features = ["full"] }

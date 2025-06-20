@@ -34,7 +34,7 @@ async fn main() -> eyre::Result<()> {
         .await?;
     let all_repos = gh.all_pages(repo_page).await?;
 
-    let mut changes: HashMap<_, Vec<_>> = HashMap::new();
+    let mut changes: BTreeMap<_, Vec<_>> = BTreeMap::new();
     let mut repos = HashMap::new();
     for repo in all_repos {
         let mut pulls = gh
