@@ -32,6 +32,20 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Munal OS: a fully graphical experimental OS with WASM-based application sandboxing](https://www.reddit.com/r/rust/comments/1l7av38/media_munal_os_a_fully_graphical_experimental_os/)
+- [SafaOS now has USB support and a working aarch64 port](https://www.reddit.com/r/rust/comments/1litijp/media_my_rust_os_safaos_now_has_usb_support_and_a/)
+- [R9: a reimplementation of the plan9 kernel in Rust](https://github.com/r9os/r9)
+- [This Month in Redox - June 2025](https://www.redox-os.org/news/this-month-250630/)
+- [Ratatui alpha with no-std support released](https://jslazak.com/are-we-embedded-yet-2/)
+    - crate for creating terminal user interfaces
+- [flat_rbtree: A fast, index-based Red-Black Tree with no heap allocations](https://github.com/matheus-git/flat_rbtree)
+
+### Linux-related
+
+- [Kernel Memory Safety: Mission Accomplished](https://asterinas.github.io/2025/06/04/kernel-memory-safety-mission-accomplished.html)
+- [How to write Rust in the kernel: part 2](https://lwn.net/SubscriberLink/1025232/fbb2d90d084368e3/)
+- [A Newbie's First Contribution to (Rust for) Linux](https://blog.buenzli.dev/rust-for-linux-first-contrib/)
+- [Writing a basic Linux device driver when you know nothing about Linux drivers or USB](https://crescentro.se/posts/writing-drivers/)
 
 ## Infrastructure and Tooling
 
@@ -44,7 +58,9 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
-
+- [Stabilizing naked functions](https://blog.rust-lang.org/2025/07/03/stabilizing-naked-functions/)
+- [Add new Tier-3 targets: `loongarch32-unknown-none*`](https://github.com/rust-lang/rust/pull/142053)
+- [Allow storing `format_args!()` in a variable](https://github.com/rust-lang/rust/pull/140748)
 
 ## `rust-osdev` Projects
 
