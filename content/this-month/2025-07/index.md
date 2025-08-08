@@ -32,7 +32,20 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
-
+- [You Are The BIOS Now: Building A Hypervisor In Rust With KVM](https://yeet.cx/blog/you-are-the-bios-now)
+- [How to write Rust in the kernel: part 3](https://lwn.net/Articles/1026694/)
+- [Vivo BlueOS Kernel open-sourced](https://github.com/vivoblueos/kernel)
+  - Vivo is a Chinese company selling smartphones and [smartwatches](https://www.vivo.com/en/products/watch3)
+  - BlueOS appears to be their smartwatch OS, now its kernel is open source (Apache license)
+  - POSIX-compatible, targets ARM and RISCV, supports Rust's `std` library
+  - Chinese homepage: https://blueos.vivo.com/kernel
+- [This Month in Redox - July 2025](https://www.redox-os.org/news/this-month-250731/)
+- [Writing a Rust GPU kernel driver: a brief introduction on how GPU drivers work](https://www.collabora.com/news-and-blog/blog/2025/08/06/writing-a-rust-gpu-kernel-driver-a-brief-introduction-on-how-gpu-drivers-work/)
+- [`bitpiece`: a crate for defining and manipulating bitfields with procedural macros](https://github.com/roeeshoshani/bitpiece)
+- [A Clone of the Linux Kernel's Red-Black Tree in Rust](https://www.reddit.com/r/rust/comments/1lyad9b/rougenoir_a_clone_of_the_linux_kernels_redblack/)
+- [Rex: Closing the language-verifier gap with safe and usable kernel extensions](https://www.usenix.org/conference/atc25/presentation/jia)
+- [Dynamic Indirect Syscalls via JOP or ROP in Rust](https://kirchware.com/Dynamic-Indirect-Syscalls-via-JOP-or-ROP-in-Rust)
+- [Practicing Linux Syscalls with Rust and x86_64 Assembly](https://www.reddit.com/r/rust/comments/1lyxyoa/practicing_linux_syscalls_with_rust_and_x86_64/)
 
 ## Infrastructure and Tooling
 
@@ -45,6 +58,7 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [Allow volatile access to non-Rust memory, including address 0](https://github.com/rust-lang/rust/pull/141260)
 
 
 ## `rust-osdev` Projects
