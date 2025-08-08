@@ -32,7 +32,7 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
-- [Testing Virtualization Stacks by Utilizing Mini Operating System Kernels](https://cyberus-technology.de/articles/testing-virtualization-stacks-utilizing-mini-kernels) \
+- [Testing Virtualization Stacks by Utilizing Mini Operating System Kernels](https://cyberus-technology.de/en/articles/testing-virtualization-stacks-utilizing-mini-kernels/) \
   Multiple mini OS kernels help Cyberus Technology to investigate issues 
   related to complicated problems in virtualization stacks, such as never
   delivered interrupts. Although the Cyberus Guest Tests are written in C++,
