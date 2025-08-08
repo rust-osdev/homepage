@@ -1,0 +1,197 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2025-07/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: July 2025 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: July 2025</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2025-08-08">
+            Aug 08, 2025
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (July 2025)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://yeet.cx/blog/you-are-the-bios-now">You Are The BIOS Now: Building A Hypervisor In Rust With KVM</a></li>
+<li><a href="https://lwn.net/Articles/1026694/">How to write Rust in the kernel: part 3</a></li>
+<li><a href="https://github.com/vivoblueos/kernel">Vivo BlueOS Kernel open-sourced</a>
+<ul>
+<li>Vivo is a Chinese company selling smartphones and <a href="https://www.vivo.com/en/products/watch3">smartwatches</a></li>
+<li>BlueOS appears to be their smartwatch OS, now its kernel is open source (Apache license)</li>
+<li>POSIX-compatible, targets ARM and RISCV, supports Rust's <code>std</code> library</li>
+<li>Chinese homepage: https://blueos.vivo.com/kernel</li>
+</ul>
+</li>
+<li><a href="https://www.redox-os.org/news/this-month-250731/">This Month in Redox - July 2025</a></li>
+<li><a href="https://www.collabora.com/news-and-blog/blog/2025/08/06/writing-a-rust-gpu-kernel-driver-a-brief-introduction-on-how-gpu-drivers-work/">Writing a Rust GPU kernel driver: a brief introduction on how GPU drivers work</a></li>
+<li><a href="https://github.com/roeeshoshani/bitpiece"><code>bitpiece</code>: a crate for defining and manipulating bitfields with procedural macros</a></li>
+<li><a href="https://www.reddit.com/r/rust/comments/1lyad9b/rougenoir_a_clone_of_the_linux_kernels_redblack/">A Clone of the Linux Kernel's Red-Black Tree in Rust</a></li>
+<li><a href="https://www.usenix.org/conference/atc25/presentation/jia">Rex: Closing the language-verifier gap with safe and usable kernel extensions</a></li>
+<li><a href="https://kirchware.com/Dynamic-Indirect-Syscalls-via-JOP-or-ROP-in-Rust">Dynamic Indirect Syscalls via JOP or ROP in Rust</a></li>
+<li><a href="https://www.reddit.com/r/rust/comments/1lyxyoa/practicing_linux_syscalls_with_rust_and_x86_64/">Practicing Linux Syscalls with Rust and x86_64 Assembly</a></li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/141260">Allow volatile access to non-Rust memory, including address 0</a></li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following fix:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/509">Fixes the type of target-c-int-width in target jsons.</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/OmegaMetor">@OmegaMetor</a> for their contribution!</p>
+<h3 id="uart-16550"><a href="https://github.com/rust-osdev/uart_16550"><code>uart_16550</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>uart_16550</code> crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following change this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uart_16550/pull/40">Update port.rs to do \r\n</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/rsahwe">@rsahwe</a> for their contribution!</p>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1716">doc: fix broken links</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1684">uefi: Add HiiKeywordHandler and HiiConfigAccess protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1731">protocols: Add ACPI Table protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1732">feat: <code>uefi-raw</code> IoMmu Protocol Impl</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/seijikun">@seijikun</a>, <a href="https://github.com/Jonathas-Conceicao">@Jonathas-Conceicao</a> and <a href="https://github.com/PelleKrab">@PelleKrab</a> for their contributions!</p>
+<!-- - [chore(deps): update crate-ci/typos action to v1.34.0](https://github.com/rust-osdev/uefi-rs/pull/1717)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1718)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1729)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1730) -->
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/555">docs(offset_page_table): fix typo</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/556">feat: add forwarding <code>impl PageTableFrameMapping for &amp;P</code></a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/mkroening">@mkroening</a> for their contributions!</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<!-- <span class="gray">No projects updates were submitted this month.</span> -->
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following changes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1425">Fix: <code>target-c-int-width</code> field now expects an integer</a>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1426">Update blog for <code>target-c-int-width</code> change</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1412">Add <code>[[bin]]</code> section with <code>test=false</code> to Cargo.toml</a> (thanks to <a href="https://github.com/tigeryant">@tigeryant</a>)
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1427">Update first post to set <code>test=false</code> for binary</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
