@@ -63,6 +63,57 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following fix:
+
+- [Fixes the type of target-c-int-width in target jsons.](https://github.com/rust-osdev/bootloader/pull/509)
+
+Thanks to [@OmegaMetor](https://github.com/OmegaMetor) for their contribution!
+
+
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `uart_16550` crate provides basic support for serial port I/O for 16550-compatible UARTs. We merged the following change this month:
+
+- [Update port.rs to do \r\n](https://github.com/rust-osdev/uart_16550/pull/40)
+
+Thanks to [@rsahwe](https://github.com/rsahwe) for their contribution!
+
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following PRs this month:
+
+- [doc: fix broken links](https://github.com/rust-osdev/uefi-rs/pull/1716)
+- [uefi: Add HiiKeywordHandler and HiiConfigAccess protocol](https://github.com/rust-osdev/uefi-rs/pull/1684)
+- [protocols: Add ACPI Table protocol](https://github.com/rust-osdev/uefi-rs/pull/1731)
+- [feat: `uefi-raw` IoMmu Protocol Impl](https://github.com/rust-osdev/uefi-rs/pull/1732)
+
+Thanks to [@seijikun](https://github.com/seijikun), [@Jonathas-Conceicao](https://github.com/Jonathas-Conceicao) and [@PelleKrab](https://github.com/PelleKrab) for their contributions!
+
+<!-- - [chore(deps): update crate-ci/typos action to v1.34.0](https://github.com/rust-osdev/uefi-rs/pull/1717)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1718)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1729)
+- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1730) -->
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PRs this month:
+
+- [docs(offset_page_table): fix typo](https://github.com/rust-osdev/x86_64/pull/555)
+- [feat: add forwarding `impl PageTableFrameMapping for &P`](https://github.com/rust-osdev/x86_64/pull/556)
+
+Thanks to [@mkroening](https://github.com/mkroening) for their contributions!
 
 
 
