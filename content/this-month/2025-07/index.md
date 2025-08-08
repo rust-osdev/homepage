@@ -38,7 +38,7 @@ Please follow this template:
   - Vivo is a Chinese company selling smartphones and [smartwatches](https://www.vivo.com/en/products/watch3)
   - BlueOS appears to be their smartwatch OS, now its kernel is open source (Apache license)
   - POSIX-compatible, targets ARM and RISCV, supports Rust's `std` library
-  - Chinese homepage: https://blueos.vivo.com/kernel
+  - Chinese homepage: <https://blueos.vivo.com/kernel>
 - [This Month in Redox - July 2025](https://www.redox-os.org/news/this-month-250731/)
 - [Writing a Rust GPU kernel driver: a brief introduction on how GPU drivers work](https://www.collabora.com/news-and-blog/blog/2025/08/06/writing-a-rust-gpu-kernel-driver-a-brief-introduction-on-how-gpu-drivers-work/)
 - [`bitpiece`: a crate for defining and manipulating bitfields with procedural macros](https://github.com/roeeshoshani/bitpiece)
