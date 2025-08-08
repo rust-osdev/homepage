@@ -147,6 +147,16 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 <!-- <span class="gray">No projects updates were submitted this month.</span> -->
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Fix: `target-c-int-width` field now expects an integer](https://github.com/phil-opp/blog_os/pull/1425)
+  - [Update blog for `target-c-int-width` change](https://github.com/phil-opp/blog_os/pull/1426)
+- [Add `[[bin]]` section with `test=false` to Cargo.toml](https://github.com/phil-opp/blog_os/pull/1412) (thanks to [@tigeryant](https://github.com/tigeryant))
+  - [Update first post to set `test=false` for binary](https://github.com/phil-opp/blog_os/pull/1427)
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [Zulip chat](https://rust-osdev.zulipchat.com).
