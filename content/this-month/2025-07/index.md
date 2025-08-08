@@ -156,6 +156,7 @@ We merged the following changes to the [_Writing an OS in Rust_](https://os.phil
   - [Update blog for `target-c-int-width` change](https://github.com/phil-opp/blog_os/pull/1426)
 - [Add `[[bin]]` section with `test=false` to Cargo.toml](https://github.com/phil-opp/blog_os/pull/1412) (thanks to [@tigeryant](https://github.com/tigeryant))
   - [Update first post to set `test=false` for binary](https://github.com/phil-opp/blog_os/pull/1427)
+- [translate edition2@post-11 to Chinese](https://github.com/phil-opp/blog_os/pull/1420) (thanks to [@ttttyy](https://github.com/ttttyy))
 
 ## Join Us?
 
