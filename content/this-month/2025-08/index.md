@@ -32,6 +32,7 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Announcing Asterinas 0.16.0](https://asterinas.github.io/2025/08/04/announcing-asterinas-0.16.0.html)
 
 ## Infrastructure and Tooling
 
