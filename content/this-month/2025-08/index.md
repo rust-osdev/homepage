@@ -32,7 +32,14 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [This Month in Redox - August 2025](https://www.redox-os.org/news/this-month-250831/)
 - [Announcing Asterinas 0.16.0](https://asterinas.github.io/2025/08/04/announcing-asterinas-0.16.0.html)
+- [minimal FAT32 file system driver written in #[no_std] rust](https://www.reddit.com/r/rust/comments/1mrz2lu/i_just_published_a_minimal_fat32_file_system/)
+- [Writing a Hypervisor in 1,000 Lines](https://seiya.me/blog/hypervisor-in-1000-lines)
+- [Proka Kernel - A kernel for ProkaOS](https://github.com/RainSTR-Studio/proka-kernel)
+- [Introducing Rusted Firmware-A (RF-A) - A Rust-Based reimagination of Trusted Firmware-A](https://www.trustedfirmware.org/blog/rf-a-blog)
+- [nanomp3: A pure Rust `no_std` MP3 decoding library](https://github.com/robbie01/nanomp3)
+- [Video: Intrusive Linked Lists for Fun and Profit (on embedded)](https://www.youtube.com/watch?v=ct10kgmcFmE)
 
 ## Infrastructure and Tooling
 
@@ -45,6 +52,8 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [Make target pointer width in target json an integer](https://github.com/rust-lang/rust/pull/144443)
+- [Implement support for become and explicit tail call codegen for the LLVM backend](https://github.com/rust-lang/rust/pull/144232)
 
 
 ## `rust-osdev` Projects
