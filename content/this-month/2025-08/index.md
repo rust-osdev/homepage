@@ -64,6 +64,79 @@ In this section, we give an overview of notable changes to the projects hosted u
 -->
 
 
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS. We merged the following changes this month:
+
+- [Rewrite `acpi` crate and entire AML interpreter](https://github.com/rust-osdev/acpi/pull/246)
+
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following fix:
+
+- [fix target-c-int-width for 0.9.x](https://github.com/rust-osdev/bootloader/pull/512)
+- [release v0.11.11](https://github.com/rust-osdev/bootloader/pull/510)
+
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following PRs this month:
+
+
+- [Use size_of/align_of from prelude](https://github.com/rust-osdev/uefi-rs/pull/1734)
+- [Add (partial) safe protocol implementation for EFI_HII_DATABASE_PROTOCOL](https://github.com/rust-osdev/uefi-rs/pull/1719)
+- [xtask: improved error output for "wrong" repr](https://github.com/rust-osdev/uefi-rs/pull/1742)
+- [EFI Shell Interface: CurDir Functions](https://github.com/rust-osdev/uefi-rs/pull/1740)
+- [uefi-raw: move types to net module](https://github.com/rust-osdev/uefi-rs/pull/1747)
+- [uefi-raw: various small net improvements](https://github.com/rust-osdev/uefi-rs/pull/1748)
+- [uefi-raw: changelog update](https://github.com/rust-osdev/uefi-rs/pull/1751)
+
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1737) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.35.3](https://github.com/rust-osdev/uefi-rs/pull/1739) -->
+<!-- - [fix(deps): update rust crate proc-macro2 to v1.0.96](https://github.com/rust-osdev/uefi-rs/pull/1738) -->
+<!-- - [fix(deps): update rust crate clap to v4.5.44](https://github.com/rust-osdev/uefi-rs/pull/1736) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.35.4](https://github.com/rust-osdev/uefi-rs/pull/1743) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1746) -->
+<!-- - [chore(deps): update actions/checkout action to v5](https://github.com/rust-osdev/uefi-rs/pull/1745) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.35.5](https://github.com/rust-osdev/uefi-rs/pull/1749) -->
+<!-- - [fix(deps): update rust crate cfg-if to v1.0.3](https://github.com/rust-osdev/uefi-rs/pull/1750) -->
+<!-- - [chore(deps): update rust crate bitflags to v2.9.3](https://github.com/rust-osdev/uefi-rs/pull/1744) -->
+
+Thanks to [@seijikun](https://github.com/seijikun) and [@RenTrieu](https://github.com/RenTrieu) for their contributions!
+
+
+### [`virtio-spec-rs`](https://github.com/rust-osdev/virtio-spec-rs)
+<span class="maintainers">Maintained by [@mkroening](https://github.com/mkroening)</span>
+
+The `virtio-spec` crate provides definitions from the Virtual I/O Device (VIRTIO) specification.
+This project aims to be unopinionated regarding actual VIRTIO drivers that are implemented on top of this crate.
+
+We merged the following PRs this month:
+
+- [fix(pci): capabilities are always little-endian](https://github.com/rust-osdev/virtio-spec-rs/pull/7)
+- [fix(pci): actually convert MMIO access to little endian](https://github.com/rust-osdev/virtio-spec-rs/pull/8)
+- [chore: release version 0.3.1](https://github.com/rust-osdev/virtio-spec-rs/pull/9)
+
+Thanks to [@Gelbpunkt](https://github.com/Gelbpunkt) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PRs this month:
+
+- [Bump actions/checkout from 4 to 5](https://github.com/rust-osdev/x86_64/pull/563)
+- [add PageFaultErrorCode::HLAT](https://github.com/rust-osdev/x86_64/pull/564)
+
 
 ## Other Projects
 
