@@ -126,6 +126,17 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 <!-- <span class="gray">No projects updates were submitted this month.</span> -->
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Update post texts to Rust 2024](https://github.com/phil-opp/blog_os/pull/1432) (thanks to [@thaliaarchi](https://github.com/thaliaarchi)!)
+- [Fix: `target-pointer-width` field now expects an integer](https://github.com/phil-opp/blog_os/pull/1436)
+  - [Update blog for `target-pointer-width` change](https://github.com/phil-opp/blog_os/pull/1437)
+- [Translate post 12 'Async/Await' into Russian](https://github.com/phil-opp/blog_os/pull/1439) (thanks to [@TakiMoysha](https://github.com/TakiMoysha)!)
+- [Fix(post-02) Korean translation and typo](https://github.com/phil-opp/blog_os/pull/1440) (thanks to [reddevilmidzy](https://github.com/reddevilmidzy)!)
+
 ## Join Us?
 
 Are you interested in Rust-based operating system development? Our `rust-osdev` organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our [Zulip chat](https://rust-osdev.zulipchat.com).
