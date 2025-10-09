@@ -1,0 +1,186 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2025-09/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: September 2025 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: September 2025</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2025-10-09">
+            Oct 09, 2025
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (September 2025)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://www.redox-os.org/news/development-priorities-2025-09/">Redox OS: Development Priorities for 2025/26</a></li>
+<li><a href="https://www.redox-os.org/news/this-month-250930/">This Month in Redox - September 2025</a></li>
+<li><a href="https://lwn.net/SubscriberLink/1039073/abf96f38b178f988/">Upcoming Rust language features for kernel development</a></li>
+<li><a href="https://lwn.net/SubscriberLink/1039784/d2548814efb78046/">Kernel hackers at Cauldron, 2025 edition</a></li>
+<li><a href="https://lwn.net/Articles/1038750/">Linting Rust code in the kernel</a></li>
+<li><a href="https://lwn.net/Articles/1034603/">Tracking trust with Rust in the kernel</a></li>
+<li><a href="https://github.com/vinc/moros/releases/tag/v0.12.0">MOROS 0.12.0</a></li>
+<li><a href="https://github.com/libbpf/blazesym/discussions/1318">blazesym 0.2 stable release: batteries included address symbolization</a></li>
+<li><a href="https://www.reddit.com/r/rust/comments/1nimfdf/building_a_tiling_window_manager_for_macos_in_rust/">Building a tiling window manager for macOS in Rust</a></li>
+<li>Video: <a href="https://www.youtube.com/watch?v=JP4-JJefY_A">(Kernel) Task Switching in Rust — by Jayden Qi — Seattle Rust User Group</a></li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://blog.rust-lang.org/inside-rust/2025/10/01/this-development-cycle-in-cargo-1.90/">This Development-cycle in Cargo: 1.90</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/141469">Allow <code>&amp;raw [mut | const]</code> for union field in safe code</a></li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following fix:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/516">Fix: <code>target-pointer-width</code> field now expects an integer</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/517">Release <code>v0.11.12</code></a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/518">Fix(v0.9): target-pointer-width field now expects an integer</a></li>
+</ul>
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1755">test-runner: Add example of using the Input protocol</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1760">style: misc clippy fixes</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1759">style: cargo doc fixes and improvements</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1758">uefi: memory safety fixes (UB!)</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1764">uefi: doc: Parameters -&gt; Arguments</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1765">Remove unnecessary unsafe block in example</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1763">uefi: remove support for unstable allocator_api feature</a></li>
+</ul>
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1762) -->
+<!-- - [fix(deps): update rust crate serde_json to v1.0.145](https://github.com/rust-osdev/uefi-rs/pull/1767) -->
+<!-- - [chore(deps): update rust crate trybuild to v1.0.111](https://github.com/rust-osdev/uefi-rs/pull/1766) -->
+<p>Thanks to <a href="https://github.com/BrokenC1oud">@BrokenC1oud</a> for their contribution!</p>
+<h3 id="virtio-spec-rs"><a href="https://github.com/rust-osdev/virtio-spec-rs"><code>virtio-spec-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/mkroening">@mkroening</a></span></p>
+<p>The <code>virtio-spec</code> crate provides definitions from the Virtual I/O Device (VIRTIO) specification.
+This project aims to be unopinionated regarding actual VIRTIO drivers that are implemented on top of this crate.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/virtio-spec-rs/pull/6">feat: add traditional mem balloon device</a></li>
+<li><a href="https://github.com/rust-osdev/virtio-spec-rs/pull/10">chore: release version 0.3.2</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/hcsch">@hcsch</a> for their contribution!</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<!-- <span class="gray">No projects updates were submitted this month.</span> -->
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following changes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1432">Update post texts to Rust 2024</a> (thanks to <a href="https://github.com/thaliaarchi">@thaliaarchi</a>!)</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1436">Fix: <code>target-pointer-width</code> field now expects an integer</a>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1437">Update blog for <code>target-pointer-width</code> change</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1439">Translate post 12 'Async/Await' into Russian</a> (thanks to <a href="https://github.com/TakiMoysha">@TakiMoysha</a>!)</li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1440">Fix(post-02) Korean translation and typo</a> (thanks to <a href="https://github.com/reddevilmidzy">reddevilmidzy</a>!)</li>
+</ul>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
