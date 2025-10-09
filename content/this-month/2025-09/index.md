@@ -32,6 +32,16 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Redox OS: Development Priorities for 2025/26](https://www.redox-os.org/news/development-priorities-2025-09/)
+- [This Month in Redox - September 2025](https://www.redox-os.org/news/this-month-250930/)
+- [Upcoming Rust language features for kernel development](https://lwn.net/SubscriberLink/1039073/abf96f38b178f988/)
+- [Kernel hackers at Cauldron, 2025 edition](https://lwn.net/SubscriberLink/1039784/d2548814efb78046/)
+- [Linting Rust code in the kernel](https://lwn.net/Articles/1038750/)
+- [Tracking trust with Rust in the kernel](https://lwn.net/Articles/1034603/)
+- [MOROS 0.12.0](https://github.com/vinc/moros/releases/tag/v0.12.0)
+- [blazesym 0.2 stable release: batteries included address symbolization](https://github.com/libbpf/blazesym/discussions/1318)
+- [Building a tiling window manager for macOS in Rust](https://www.reddit.com/r/rust/comments/1nimfdf/building_a_tiling_window_manager_for_macos_in_rust/)
+- Video: [(Kernel) Task Switching in Rust — by Jayden Qi — Seattle Rust User Group](https://www.youtube.com/watch?v=JP4-JJefY_A)
 
 ## Infrastructure and Tooling
 
@@ -44,7 +54,8 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
-
+- [This Development-cycle in Cargo: 1.90](https://blog.rust-lang.org/inside-rust/2025/10/01/this-development-cycle-in-cargo-1.90/)
+- [Allow `&raw [mut | const]` for union field in safe code](https://github.com/rust-lang/rust/pull/141469)
 
 ## `rust-osdev` Projects
 
