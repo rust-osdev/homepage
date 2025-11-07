@@ -32,6 +32,10 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [This Month in Redox - October 2025](https://www.redox-os.org/news/this-month-251031/)
+- [Patina: a Rust implementation of UEFI firmware](https://opendevicepartnership.github.io/patina/introduction.html)
+- [Inside Rust's std and parking_lot mutexes - who wins?](https://blog.cuongle.dev/p/inside-rusts-std-and-parking-lot-mutexes-who-win)
+- [Motor OS is now a Tier-3 target in Rust](https://www.reddit.com/r/rust/comments/1oc2c8b/motor_os_is_now_a_tier3_target_in_rust/)
 
 ## Infrastructure and Tooling
 
@@ -43,6 +47,9 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
+
+- [What's the status/blocker for `allocator_api` to be stabilized?](https://www.reddit.com/r/rust/comments/1op6g64/whats_the_statusblocker_for_allocator_api_to_be/)
+
 
 
 ## `rust-osdev` Projects
