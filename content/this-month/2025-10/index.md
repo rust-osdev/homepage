@@ -171,7 +171,7 @@ In this section, we describe updates to Rust OS projects that are not directly r
 -->
 
 
-<!-- <span class="gray">No projects updates were submitted this month.</span> -->
+<span class="gray">No projects updates were submitted this month.</span>
 
 
 ## Join Us?
