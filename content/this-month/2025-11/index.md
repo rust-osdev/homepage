@@ -62,6 +62,77 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following changes:
+
+- [Add basic example](https://github.com/rust-osdev/bootloader/pull/519)
+- [Use legacy symbol mangling for BIOS stage 2](https://github.com/rust-osdev/bootloader/pull/522)
+- [release `v0.11.13`](https://github.com/rust-osdev/bootloader/pull/523)
+
+Thanks to [@peppergrayxyz](https://github.com/peppergrayxyz) for their contribution!
+
+
+
+### [`pci_types`](https://github.com/rust-osdev/pci_types)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `pci_types` library provides types for accessing and configuring PCI devices from Rust operating systems. We merged the following change this month:
+
+- [fix: write compliant bit pattern for BAR sizing](https://github.com/rust-osdev/pci_types/pull/37)
+
+Thanks to [@cagatay-y](https://github.com/cagatay-y) for their contribution!
+
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following PRs this month:
+
+- [clippy: latest nightly fixes](https://github.com/rust-osdev/uefi-rs/pull/1811)
+- [book: Rephrase target installation](https://github.com/rust-osdev/uefi-rs/pull/1809)
+- [Fix documentation for allocate_pages function](https://github.com/rust-osdev/uefi-rs/pull/1815)
+- [AtaPassThru: Add read_pio method for AtaRequestBuilder](https://github.com/rust-osdev/uefi-rs/pull/1814)
+- [release: uefi-raw-0.13.0, uefi-0.36.1](https://github.com/rust-osdev/uefi-rs/pull/1810)
+- [efi shell interface protocol: add var(), vars(), and set_var()](https://github.com/rust-osdev/uefi-rs/pull/1679)
+- [uefi: Implement PciRootBridgeIo bus device enumeration logic](https://github.com/rust-osdev/uefi-rs/pull/1819)
+- [uefi-raw: add Tcp4 protocol type definitions](https://github.com/rust-osdev/uefi-rs/pull/1797)
+- [uefi-raw: add Storage Security Command protocol type definitions](https://github.com/rust-osdev/uefi-rs/pull/1827)
+- [uefi: Fix broken bridge recursion in PCI enumeration](https://github.com/rust-osdev/uefi-rs/pull/1829)
+- [uefi: Make AtaDevice::execute_command() return AtaResponse on error](https://github.com/rust-osdev/uefi-rs/pull/1828)
+- [uefi-raw: Add bindings for FMP](https://github.com/rust-osdev/uefi-rs/pull/1834)
+- [uefi-raw: Add bindings for most HII protocols](https://github.com/rust-osdev/uefi-rs/pull/1822)
+- [uefi: Add special broadcast nvme namespace](https://github.com/rust-osdev/uefi-rs/pull/1835)
+
+<!-- - [chore(deps): update crate-ci/typos action to v1.39.2](https://github.com/rust-osdev/uefi-rs/pull/1824) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1826) -->
+<!-- - [chore(deps): update actions/checkout action to v6](https://github.com/rust-osdev/uefi-rs/pull/1833) -->
+<!-- - [chore(deps): update rust crate clap to v4.5.53](https://github.com/rust-osdev/uefi-rs/pull/1832) -->
+<!-- - [chore(deps): update rust crate syn to v2.0.111](https://github.com/rust-osdev/uefi-rs/pull/1821) -->
+
+Thanks to [@seijikun](https://github.com/seijikun), [@jasonbking](https://github.com/jasonbking), [@JayKickliter](https://github.com/JayKickliter), [@crawfxrd](https://github.com/crawfxrd), [@RenTrieu](https://github.com/RenTrieu), [@rymdbar](https://github.com/rymdbar), and [@splaled](https://github.com/splaled) for their contributions!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PRs this month:
+
+- [release 0.15.3](https://github.com/rust-osdev/x86_64/pull/565)
+- [add SMAP helpers](https://github.com/rust-osdev/x86_64/pull/566)
+- [mention #542 in Changelog for 0.15.3](https://github.com/rust-osdev/x86_64/pull/568)
+- [fix docs.rs build](https://github.com/rust-osdev/x86_64/pull/569)
+- [Add ability to add iomap to TSS (take 2)](https://github.com/rust-osdev/x86_64/pull/194)
+- [Bump actions/checkout from 5 to 6](https://github.com/rust-osdev/x86_64/pull/571)
+- [release 0.15.4](https://github.com/rust-osdev/x86_64/pull/570)
+
+Thanks to [@Restioson](https://github.com/Restioson) for their contribution!
 
 
 ## Other Projects
