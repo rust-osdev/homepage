@@ -44,6 +44,12 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
+- [Switching to Rust's own mangling scheme on nightly](https://blog.rust-lang.org/2025/11/20/switching-to-v0-mangling-on-nightly/)
+- [Stabilize `asm_cfg`](https://github.com/rust-lang/rust/pull/147736)
+- [Stabilize `-Zno-jump-tables` into `-Cjump-tables=bool`](https://github.com/rust-lang/rust/pull/145974)
+- [Pass pointers to `const` in assembly](https://github.com/rust-lang/rfcs/pull/3848)
+- [Add Allocator proxy impls for Box, Rc, and Arc](https://github.com/rust-lang/rust/pull/148539)
+- [Stabilise `as_array` in `[_]` and `*const [_]`; stabilise `as_mut_array` in `[_]` and `*mut [_]`](https://github.com/rust-lang/rust/pull/147540)
 
 
 ## `rust-osdev` Projects
