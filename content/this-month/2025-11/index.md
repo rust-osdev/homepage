@@ -32,6 +32,14 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [moss: a Rust Linux-compatible kernel in about 26,000 lines of code](https://www.reddit.com/r/rust/comments/1p2dhex/moss_a_rust_linuxcompatible_kernel_in_about_26000/)
+- [Sprout: a programmable UEFI bootloader written in Rust](https://github.com/edera-dev/sprout)
+- [This Month in Redox - November 2025](https://www.redox-os.org/news/this-month-251130/)
+- [Made a x86_32 bootloader in Rust](https://www.reddit.com/r/rust/comments/1ouqxmw/made_a_x86_32_bootloader_in_rust/)
+- [I've improved the implementation behind all the string formatting macros in Rust](https://hachyderm.io/@Mara/115542621720999480)
+- [Rust in Android: move fast and fix things](https://security.googleblog.com/2025/11/rust-in-android-move-fast-fix-things.html)
+- Podcast: [Canonical - Jon Seager, VP Engineering for Ubuntu](https://corrode.dev/podcast/s05e05-canonical/)
+- Video: [Keynote: Rust in the Linux Kernel, Why? - Greg Kroah-Hartman](https://www.youtube.com/watch?v=HX0GH-YJbGw)
 
 ## Infrastructure and Tooling
 
