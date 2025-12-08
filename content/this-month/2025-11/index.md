@@ -175,6 +175,14 @@ In this section, we describe updates to Rust OS projects that are not directly r
 
 <!-- <span class="gray">No projects updates were submitted this month.</span> -->
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- Add Portuguese (pt-BR) translation
+  - for _all 12 posts_
+  - thanks a lot to [@richarddalves](https://github.com/richarddalves) for this contribution!
 
 ## Join Us?
 
