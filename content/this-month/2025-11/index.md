@@ -1,6 +1,6 @@
 +++
 title = "This Month in Rust OSDev: November 2025"
-date = 2025-12-05
+date = 2025-12-08
 
 [extra]
 month = "November 2025"
