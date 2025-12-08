@@ -62,6 +62,15 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### New Crate: [`mem_barrier`](https://github.com/rust-osdev/mem-barrier)
+<span class="maintainers">Maintained by [@mkroening](https://github.com/mkroening)</span>
+
+This crate provides cross-architecture, no-std memory barriers.
+
+When compiling with optimizations, the compiler may try to improve performance by reordering independent memory accesses and instructions. Modern CPUs use similar techniques for improving performance, such as out-of-order execution. Memory barriers affect both the compiler and the CPU by restricting reordering of certain memory operations across these barriers respective to other CPUs or devices, allowing proper communication with them.
+
+See the [docs](https://docs.rs/mem-barrier/latest/mem_barrier/index.html) for details!
+
 ### [`bootloader`](https://github.com/rust-osdev/bootloader)
 <span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
 
