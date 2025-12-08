@@ -58,6 +58,7 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 - [Pass pointers to `const` in assembly](https://github.com/rust-lang/rfcs/pull/3848)
 - [Add Allocator proxy impls for Box, Rc, and Arc](https://github.com/rust-lang/rust/pull/148539)
 - [Stabilise `as_array` in `[_]` and `*const [_]`; stabilise `as_mut_array` in `[_]` and `*mut [_]`](https://github.com/rust-lang/rust/pull/147540)
+- FCP: [Destabilise target-spec-json](https://github.com/rust-lang/compiler-team/issues/944)
 
 
 ## `rust-osdev` Projects
