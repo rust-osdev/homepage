@@ -35,9 +35,9 @@ Please follow this template:
 - [Xous: A Pure-Rust Rethink of the Embedded Operating System](https://media.ccc.de/v/39c3-xous-a-pure-rust-rethink-of-the-embedded-operating-system)
   - Homepage: <https://xous.dev/>
   - Repo: <https://github.com/betrusted-io/xous-core>
+- [Announcing Asterinas 0.17.0](https://asterinas.github.io/2025/12/19/announcing-asterinas-0.17.0.html)
 - [The state of the kernel Rust experiment](https://lwn.net/SubscriberLink/1050174/6b6d55c90ce1100f/)
 - [ratatui v0.30 released with `no-std` support](https://ratatui.rs/highlights/v030/#no_std-support)
-
 
 ## Infrastructure and Tooling
 
