@@ -1,4 +1,4 @@
-+++
+    +++
 title = "This Month in Rust OSDev: December 2025"
 date = 2026-01-06
 
@@ -150,8 +150,9 @@ In this section, we describe updates to Rust OS projects that are not directly r
 ### [`valibali/cluu`](https://github.com/valibali/cluu)
 <span class="maintainers">(Section written by [@valibali](https://github.com/valibali))</span>
     
-    CLUU’s kernel has transitioned from a feature-oriented hobby kernel to a strict L4-style microkernel that provides mechanisms only.
-	•	The kernel surface is now intentionally minimal, limited to scheduling, memory management, IPC, interrupts, token verification, and syscall dispatch.
+CLUU’s kernel has transitioned from a feature-oriented hobby kernel to a strict L4-style microkernel that provides mechanisms only.
+	
+    •	The kernel surface is now intentionally minimal, limited to scheduling, memory management, IPC, interrupts, token verification, and syscall dispatch.
 	•	All system policy, including filesystems, drivers, and services, has been moved entirely to userspace.
 	•	Implicit privilege has been eliminated and replaced with an explicit, cryptographically verified token-based authority system.
 	•	Every privileged operation now requires visible, auditable authority, with no ambient permissions or global namespaces.
