@@ -147,7 +147,286 @@ In this section, we describe updates to Rust OS projects that are not directly r
 -->
 
 
-<span class="gray">No projects updates were submitted this month.</span>
+### [`valibali/cluu`](https://github.com/valibali/cluu)
+<span class="maintainers">(Section written by [@valibali](https://github.com/valibali))</span>
+
+    # CLUU Kernel Evolution: From a mess to Disciplined Microkernel
+
+	---
+
+	## Executive Summary of Changes
+
+	Compared to the earlier kernel state, CLUU has undergone the following high-level transitions:
+
+	* From **feature-oriented kernel** → **mechanism-only microkernel**
+	* From **implicit privilege** → **explicit, token-based authority**
+	* From **kernel-resident subsystems** → **userspace-managed policy**
+	* From **best-effort safety** → **formally enforced correctness**
+	* From **prototype scheduler and IPC** → **deterministic, tested primitives**
+	* From **ad-hoc syscall growth** → **strictly minimal syscall surface**
+
+	These changes are architectural, not cosmetic.
+
+	---
+
+	## Architectural Reorientation
+
+	### Then: Hybrid / Transitional Kernel
+
+	The earlier kernel combined multiple responsibilities:
+
+	* Kernel-resident drivers (framebuffer, keyboard, serial)
+	* Kernel-owned TTY and console subsystems
+	* Implicit access to global kernel services
+	* Feature growth driven by hardware enablement
+
+	While still “microkernel-inspired,” the kernel acted as a **service provider**, not merely a mechanism layer.
+
+	---
+
+	### Now: Strict L4-Style Microkernel
+
+	The current kernel is intentionally narrow:
+
+	* Scheduler
+	* Memory management (PMM + VMM)
+	* IPC
+	* Interrupt delivery
+	* Token verification
+	* Syscall dispatch
+
+	Everything else — including filesystems, drivers, shells, and services — lives in **userspace**, communicating exclusively via IPC.
+
+	The kernel no longer implements *policy*.
+
+	---
+
+	## Authority Model: The Single Biggest Change
+
+	### Then: Implicit Trust Model
+
+	In the earlier kernel:
+
+	* Authority was largely implied by execution context
+	* Kernel code could freely invoke subsystems
+	* Userspace relied on convention and API discipline
+	* No formal representation of “who is allowed to do what”
+
+	This is typical of early-stage kernels.
+
+	---
+
+	### Now: Token-Based Explicit Authority
+
+	All authority in CLUU is now represented by **cryptographically protected tokens**:
+
+	* No ambient permissions
+	* No global namespaces
+	* No implicit access to resources
+	* No operation without a valid token
+
+	Key properties introduced:
+
+	| Property             | Old Kernel | Current Kernel            |
+	| -------------------- | ---------- | ------------------------- |
+	| Authority visibility | Implicit   | Explicit                  |
+	| Delegation           | Ad-hoc     | Cryptographically derived |
+	| Expiration           | None       | Mandatory                 |
+	| Enforcement          | Convention | Kernel-verified           |
+	| Enumeration          | Possible   | Impossible                |
+
+	This fundamentally changes how the system is reasoned about:
+	**every operation has an auditable authority chain**.
+
+	---
+
+	## IPC: From Messaging to System Backbone
+
+	### Then: IPC as a Feature
+
+	Previously, IPC existed alongside other communication paths and kernel-managed services.
+
+	---
+
+	### Now: IPC as the Only Primitive
+
+	IPC is now:
+
+	* **Synchronous rendezvous**
+	* Deterministic in blocking behavior
+	* The sole mechanism for:
+
+	  * Filesystem access
+	  * Driver interaction
+	  * Process management
+	  * Service discovery
+
+	Supported semantics are fully implemented and tested:
+
+	* `send` / `recv`
+	* `call` / `reply` / `replyrecv`
+	* `copy` / `map` / `grant` buffers
+
+	---
+
+	## Scheduler and Execution Model
+
+	### Then: Functional but Basic Scheduling
+
+	Earlier scheduling focused on:
+
+	* Correct task switching
+	* Timer-driven preemption
+	* Fairness as a secondary concern
+
+	---
+
+	### Now: Deterministic, O(1) Scheduler
+
+	The scheduler is now:
+
+	* Priority bitmap–based
+	* O(1) selection cost
+	* 256 fixed priority levels
+	* FIFO fairness within a priority class
+	* Cleanly separated policy hooks
+
+	This enables predictable system behavior and future experimentation without kernel refactoring.
+
+	---
+
+	## Memory Management: Formalized and Verified
+
+	### Then: Kernel-Centric Memory Control
+
+	Earlier memory management emphasized:
+
+	* Physical frame allocation
+	* Kernel-controlled virtual mappings
+	* Safety through Rust, not policy
+
+	---
+
+	### Now: Strict Address Spaces with Enforcement
+
+	The current memory model introduces:
+
+	* Per-process address spaces
+	* Mandatory user-pointer validation
+	* Lazy heap allocation via page faults
+	* No implicit sharing
+	* Explicit kernel/user boundary enforcement
+
+	Memory faults are now **first-class control-flow events**, not error cases.
+
+	---
+
+	## Syscall Surface: Radical Reduction
+
+	### Then: Expanding API Surface
+
+	Earlier syscalls evolved organically with new features.
+
+	---
+
+	### Now: Exactly Seven Syscalls
+
+	The syscall surface has been intentionally collapsed to:
+
+	```
+	Send
+	Recv
+	Call
+	Reply
+	Yield
+	Invoke
+	DebugPrint
+	```
+
+	All privileged operations are funneled through `Invoke`, guarded by tokens.
+
+	This drastically simplifies:
+
+	* Auditing
+	* Reasoning
+	* Formal verification potential
+
+	---
+
+	## Logging and Diagnostics
+
+	### Then: Kernel Utility
+
+	Logging previously behaved like a standard kernel service.
+
+	---
+
+	### Now: Diagnostic Instrument Only
+
+	Logging is now:
+
+	* IRQ-safe
+	* Allocation-free
+	* Zero-cost in release builds
+	* UART-backed only
+
+	It is explicitly **not** a runtime dependency.
+
+	---
+
+	## Userspace: From Demo to First-Class Citizen
+
+	### Then: Kernel-Centric Demonstrations
+
+	Earlier userspace programs existed mainly to exercise kernel features.
+
+	---
+
+	### Now: Policy Lives Entirely in Userspace
+
+	Current userspace demonstrates:
+
+	* IPC-based VFS
+	* Userspace drivers
+	* Token-governed service access
+	* Zero-copy buffer passing
+	* A working shell and utilities
+
+	The kernel does not “know” what a filesystem or driver is.
+
+	---
+
+	## Test Coverage and Internal Confidence
+
+	A critical maturity marker is test coverage:
+
+	| Metric              | Old Kernel | Current Kernel |
+	| ------------------- | ---------- | -------------- |
+	| Kernel unit tests   | Minimal    | 145            |
+	| Code coverage       | N/A        | ~90%           |
+	| Passing rate        | N/A        | 100%           |
+	| Subsystem isolation | Partial    | Complete       |
+	| Internal invariants | Informal   | Enforced       |
+
+	This reflects a shift from experimentation to **engineering discipline**.
+
+	---
+
+	## What Did *Not* Change
+
+	Some things were preserved intentionally:
+
+	* Rust as the implementation language
+	* Inspiration (blog-os, Plan9, L4)
+	* BOOTBOOT as the boot environment
+	* x86_64 as the primary architecture
+	* Clarity over convenience
+	* Non-POSIX philosophy
+
+	---
+
+	Further work will happen almost entirely in **userspace**, exactly as intended.
+
 
 
 
