@@ -50,7 +50,7 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
-
+<span class="gray">No content was submitted for this section this month.</span>
 
 
 ## `rust-osdev` Projects
@@ -147,7 +147,7 @@ In this section, we describe updates to Rust OS projects that are not directly r
 -->
 
 
-<!-- <span class="gray">No projects updates were submitted this month.</span> -->
+<span class="gray">No projects updates were submitted this month.</span>
 
 
 
