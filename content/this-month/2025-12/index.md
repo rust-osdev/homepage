@@ -147,7 +147,21 @@ In this section, we describe updates to Rust OS projects that are not directly r
 -->
 
 
-<span class="gray">No projects updates were submitted this month.</span>
+### [`valibali/cluu`](https://github.com/valibali/cluu)
+<span class="maintainers">(Section written by [@valibali](https://github.com/valibali))</span>
+    
+CLUU’s kernel has transitioned from a feature-oriented hobby kernel to a strict L4-style microkernel that provides mechanisms only.
+	
+- The kernel surface is now intentionally minimal, limited to scheduling, memory management, IPC, interrupts, token verification, and syscall dispatch.
+- All system policy, including filesystems, drivers, and services, has been moved entirely to userspace.
+- Implicit privilege has been eliminated and replaced with an explicit, cryptographically verified token-based authority system.
+- Every privileged operation now requires visible, auditable authority, with no ambient permissions or global namespaces.
+- IPC has become the only communication primitive, implemented as deterministic synchronous rendezvous.
+- The scheduler has been redesigned as an O(1) priority bitmap scheduler with predictable behavior and clear separation of mechanism and policy.
+- Memory management now enforces per-process address spaces, validated user pointers, and lazy allocation via page faults.
+- The syscall interface has been reduced to seven syscalls, with all privileged actions funneled through a single token-guarded entry point.
+- The kernel is now fully unit-tested, smaller, stricter, and architecturally stable, enabling future development to proceed almost entirely in userspace.
+
 
 
 
