@@ -150,7 +150,20 @@ and performant abstractions for UEFI functionality.</p>
 
     ...<<your project updates>>...
 -->
-<p><span class="gray">No projects updates were submitted this month.</span></p>
+<h3 id="valibali-cluu"><a href="https://github.com/valibali/cluu"><code>valibali/cluu</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/valibali">@valibali</a>)</span></p>
+<p>CLUU’s kernel has transitioned from a feature-oriented hobby kernel to a strict L4-style microkernel that provides mechanisms only.</p>
+<ul>
+<li>The kernel surface is now intentionally minimal, limited to scheduling, memory management, IPC, interrupts, token verification, and syscall dispatch.</li>
+<li>All system policy, including filesystems, drivers, and services, has been moved entirely to userspace.</li>
+<li>Implicit privilege has been eliminated and replaced with an explicit, cryptographically verified token-based authority system.</li>
+<li>Every privileged operation now requires visible, auditable authority, with no ambient permissions or global namespaces.</li>
+<li>IPC has become the only communication primitive, implemented as deterministic synchronous rendezvous.</li>
+<li>The scheduler has been redesigned as an O(1) priority bitmap scheduler with predictable behavior and clear separation of mechanism and policy.</li>
+<li>Memory management now enforces per-process address spaces, validated user pointers, and lazy allocation via page faults.</li>
+<li>The syscall interface has been reduced to seven syscalls, with all privileged actions funneled through a single token-guarded entry point.</li>
+<li>The kernel is now fully unit-tested, smaller, stricter, and architecturally stable, enabling future development to proceed almost entirely in userspace.</li>
+</ul>
 <h2 id="join-us">Join Us?</h2>
 <p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
 
