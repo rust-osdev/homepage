@@ -1,4 +1,4 @@
-    +++
++++
 title = "This Month in Rust OSDev: December 2025"
 date = 2026-01-06
 
