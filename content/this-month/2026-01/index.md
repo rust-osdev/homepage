@@ -32,6 +32,9 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Patina - Developing UEFI With Rust](https://opendevicepartnership.github.io/patina/)
+  - Repo: https://github.com/OpenDevicePartnership/patina
+  - [Project Overview on Youtube](https://www.youtube.com/watch?v=iKzHrhpCgUI)
 
 ## Infrastructure and Tooling
 
