@@ -161,7 +161,7 @@ on Twitter.
 
 At the first ever EuroRust conference from 13th to 14th October, Colin Finck gave a talk about the challenges of developing his [`nt-list`](https://github.com/ColinFinck/nt-list) crate.
 The crate provides a safe and idiomatic Rust wrapper around the Windows variant of Linked Lists.
-It was presented on this blog [in July](/this-month/2022-07/#nt-list-windows-linked-lists-in-idiomatic-rust).
+It was presented on this blog [in July](../../this-month/2022-07/#nt-list-windows-linked-lists-in-idiomatic-rust).
 
 A [recording](https://www.youtube.com/watch?v=IxhZIyXOIw8) of the talk has just been uploaded.
 Check it out, and also check out the [other videos](https://www.youtube.com/channel/UCR3gXcme1HMK7_TrUaNZOqw/videos) from that conference for some great takes on Rust!
