@@ -35,6 +35,10 @@ Please follow this template:
 - [Patina - Developing UEFI With Rust](https://opendevicepartnership.github.io/patina/)
   - Repo: https://github.com/OpenDevicePartnership/patina
   - [Project Overview on Youtube](https://www.youtube.com/watch?v=iKzHrhpCgUI)
+- [Kernel bugs hide for 2 years on average. Some hide for 20.](https://pebblebed.com/blog/kernel-bugs)
+- [What does it take to ship Rust in safety-critical?](https://blog.rust-lang.org/2026/01/14/what-does-it-take-to-ship-rust-in-safety-critical/)
+- [The Embedded Rustacean Issue #62](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-62)
+- [The Embedded Rustacean Issue #63](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-63)
 
 ## Infrastructure and Tooling
 
@@ -47,7 +51,15 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
-<!-- <span class="gray">No content was submitted for this section this month.</span> -->
+- [Destabilise target-spec-json](https://github.com/rust-lang/rust/pull/150151)
+  - Custom target JSON specs now require `-Zunstable-options` again. This affects OS developers using custom targets.
+- Cargo: [add -Z json-target-spec](https://github.com/rust-lang/cargo/pull/16557)
+  - can also be enabled by adding `json-target-spec = true` to the [unstable] table in `.cargo/config.toml`
+- [The Rust GCC backend can now be installed with rustup](https://old.reddit.com/r/rust/comments/1qk9t1t/the_rust_gcc_backend_can_now_be_installed_with/)
+  - Alternative backend useful for cross-compilation and platforms where LLVM support is limited.
+- [`Vec::push` in consts MVP](https://github.com/rust-lang/rust/pull/147893)
+- [add allocator parameter to HashMap](https://github.com/rust-lang/rust/pull/148545)
+- [add `AtomicPtr::null`](https://github.com/rust-lang/rust/pull/150736)
 
 
 ## `rust-osdev` Projects
