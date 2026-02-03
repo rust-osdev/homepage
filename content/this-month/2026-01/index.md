@@ -67,87 +67,116 @@ In this section, we give an overview of notable changes to the projects hosted u
 -->
 
 ### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following changes:
 
 - [Add llvm-tools to components](https://github.com/rust-osdev/bootloader/pull/529)
 - [Fix overflow error during address calculation](https://github.com/rust-osdev/bootloader/pull/530)
-- [fix "cargo build --release"](https://github.com/rust-osdev/bootloader/pull/532)
 - [add kernel stack address to BootInfo](https://github.com/rust-osdev/bootloader/pull/531)
+- [fix "cargo build --release"](https://github.com/rust-osdev/bootloader/pull/532)
 - [Release 0.11.14](https://github.com/rust-osdev/bootloader/pull/533)
 
-Thanks to [@Wasabi375](https://github.com/Wasabi375), and [@the-ssd](https://github.com/the-ssd) for their contributions!
+Thanks to [@Wasabi375](https://github.com/Wasabi375) and [@the-ssd](https://github.com/the-ssd) for their contributions!
 
 
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
 
-- [build(deps): bump crate-ci/typos from 1.40.0 to 1.41.0](https://github.com/rust-osdev/multiboot2/pull/285)
-- [build(deps): bump actions/cache from 4 to 5](https://github.com/rust-osdev/multiboot2/pull/286)
+_Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
+the contained information tags. Usable in no_std environments, such as a kernel.
+An optional builder feature also allows the construction of the corresponding
+structures._
 
-Thanks to [@dependabot[bot]](https://github.com/apps/dependabot) for their contributions!
+We merged the following PRs this month:
+
+<!-- - [build(deps): bump crate-ci/typos from 1.40.0 to 1.41.0](https://github.com/rust-osdev/multiboot2/pull/285) -->
+<!-- - [build(deps): bump actions/cache from 4 to 5](https://github.com/rust-osdev/multiboot2/pull/286) -->
+
+<span class="gray">No notable changes this month.</span>
 
 
 ### [`ovmf-prebuilt`](https://github.com/rust-osdev/ovmf-prebuilt)
+<span class="maintainers">Maintained by [@nicholasbishop](https://github.com/nicholasbishop) and [@phil-opp](https://github.com/phil-opp)</span>
+
+The `ovmf-prebuilt` project provides pre-built [edk2](https://github.com/tianocore/edk2) releases to make it easier to set up OVMF. We merged the following improvement this month:
 
 - [ovmf-prebuilt: Add download retry](https://github.com/rust-osdev/ovmf-prebuilt/pull/254)
 - [release: 0.2.7](https://github.com/rust-osdev/ovmf-prebuilt/pull/256)
-- [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/258)
-- [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/259)
-- [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/260)
-- [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/261)
-- [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/263)
 
-Thanks to [@nicholasbishop](https://github.com/nicholasbishop), and [@renovate[bot]](https://github.com/apps/renovate) for their contributions!
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/258) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/259) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/260) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/261) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/263) -->
 
 
 ### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
 
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following PRs this month:
+
+- [uefi: improve ergonomics of Events](https://github.com/rust-osdev/uefi-rs/pull/1840)
+- [uefi: improve doc (add short glossary/important terms overview)](https://github.com/rust-osdev/uefi-rs/pull/1857)
 - [workspace: switch to resolver v3](https://github.com/rust-osdev/uefi-rs/pull/1859)
 - [flake: update (Nix shell: rust 1.86 -> 1.92)](https://github.com/rust-osdev/uefi-rs/pull/1860)
-- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1863)
-- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1866)
-- [uefi: improve ergonomics of Events](https://github.com/rust-osdev/uefi-rs/pull/1840)
-- [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1868)
-- [chore(deps): update crate-ci/typos action to v1.42.0](https://github.com/rust-osdev/uefi-rs/pull/1869)
-- [uefi: improve doc (add short glossary/important terms overview)](https://github.com/rust-osdev/uefi-rs/pull/1857)
-- [Bump MSRV to 1.88](https://github.com/rust-osdev/uefi-rs/pull/1871)
 - [Replace remaining uses of `addr_of`/`addr_of_mut` with raw pointer syntax](https://github.com/rust-osdev/uefi-rs/pull/1870)
-- [export all text::{input, output} types](https://github.com/rust-osdev/uefi-rs/pull/1880)
-- [ci/fix: upgrade QEMU on windows](https://github.com/rust-osdev/uefi-rs/pull/1876)
+- [Bump MSRV to 1.88](https://github.com/rust-osdev/uefi-rs/pull/1871)
 - [uefi-raw: serial: fix mutability](https://github.com/rust-osdev/uefi-rs/pull/1872)
 - [uefi: serial: improve overall documentation](https://github.com/rust-osdev/uefi-rs/pull/1874)
 - [uefi: boot: improve documentation for handles](https://github.com/rust-osdev/uefi-rs/pull/1877)
-- [Revert "ci/fix: upgrade QEMU on windows"](https://github.com/rust-osdev/uefi-rs/pull/1884)
+- [export all text::{input, output} types](https://github.com/rust-osdev/uefi-rs/pull/1880)
 - [fix(deps): update rust crate nix to 0.31.0](https://github.com/rust-osdev/uefi-rs/pull/1883)
 
-Thanks to [@nicholasbishop](https://github.com/nicholasbishop), [@phip1611](https://github.com/phip1611), [@renovate[bot]](https://github.com/apps/renovate), and [@yaroslav957](https://github.com/yaroslav957) for their contributions!
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1863) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1866) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1868) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.42.0](https://github.com/rust-osdev/uefi-rs/pull/1869) -->
+<!-- - [ci/fix: upgrade QEMU on windows](https://github.com/rust-osdev/uefi-rs/pull/1876) -->
+<!-- - [Revert "ci/fix: upgrade QEMU on windows"](https://github.com/rust-osdev/uefi-rs/pull/1884) -->
+
+Thanks to [@yaroslav957](https://github.com/yaroslav957) for their contribution!
 
 
 ### [`virtio-spec-rs`](https://github.com/rust-osdev/virtio-spec-rs)
+<span class="maintainers">Maintained by [@mkroening](https://github.com/mkroening)</span>
 
+The `virtio-spec` crate provides definitions from the Virtual I/O Device (VIRTIO) specification.
+This project aims to be unopinionated regarding actual VIRTIO drivers that are implemented on top of this crate.
+
+We merged the following PRs this month:
+
+- [feat(virtio-mmio): add `MAGIC_VALUE` constant](https://github.com/rust-osdev/virtio-spec-rs/pull/11)
 - [fix(virtq): clippy::manual_is_multiple_of](https://github.com/rust-osdev/virtio-spec-rs/pull/12)
 - [feat(virtio-net): add `VIRTIO_NET_F_CTRL_RX_EXTRA`](https://github.com/rust-osdev/virtio-spec-rs/pull/13)
-- [feat(virtio-mmio): add `MAGIC_VALUE` constant](https://github.com/rust-osdev/virtio-spec-rs/pull/11)
 - [feat(virtio-net): add `VIRTIO_NET_F_GUEST_USO{4,6}`](https://github.com/rust-osdev/virtio-spec-rs/pull/14)
-- [ci: update actions/checkout to v6](https://github.com/rust-osdev/virtio-spec-rs/pull/16)
 - [feat(features): add `recommendations` and `recommendations_satisfied`](https://github.com/rust-osdev/virtio-spec-rs/pull/15)
-- [ci: run cargo-semver-checks](https://github.com/rust-osdev/virtio-spec-rs/pull/19)
 
-Thanks to [@mkroening](https://github.com/mkroening) for their contributions!
+<!-- - [ci: update actions/checkout to v6](https://github.com/rust-osdev/virtio-spec-rs/pull/16) -->
+<!-- - [ci: run cargo-semver-checks](https://github.com/rust-osdev/virtio-spec-rs/pull/19) -->
 
 
 ### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
 
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PRs this month:
+
+- [feat(mapper): add `MappedPageTable::display`](https://github.com/rust-osdev/x86_64/pull/574)
 - [fix(instructions): allow unused_unsafe for cpuid](https://github.com/rust-osdev/x86_64/pull/575)
-- [chore: merge master into next](https://github.com/rust-osdev/x86_64/pull/577)
 - [feat(mapper): make `OffsetPageTable` a type alias](https://github.com/rust-osdev/x86_64/pull/576)
 - [fix(mapper): inline internal `map_to_*` functions](https://github.com/rust-osdev/x86_64/pull/578)
 - [docs: fix typos](https://github.com/rust-osdev/x86_64/pull/579)
-- [ci: add typos job](https://github.com/rust-osdev/x86_64/pull/580)
-- [docs(page): fix typos](https://github.com/rust-osdev/x86_64/pull/582)
 - [feat(paging): make range types `!Copy`](https://github.com/rust-osdev/x86_64/pull/581)
+- [docs(page): fix typos](https://github.com/rust-osdev/x86_64/pull/582)
 - [feat: make page types `repr(transparent)` and range types `repr(Rust)`](https://github.com/rust-osdev/x86_64/pull/584)
-- [feat(mapper): add `MappedPageTable::display`](https://github.com/rust-osdev/x86_64/pull/574)
 
-Thanks to [@mkroening](https://github.com/mkroening) for their contributions!
+<!-- - [chore: merge master into next](https://github.com/rust-osdev/x86_64/pull/577) -->
+<!-- - [ci: add typos job](https://github.com/rust-osdev/x86_64/pull/580) -->
 
 
 
