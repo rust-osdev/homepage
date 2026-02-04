@@ -1,0 +1,251 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2026-01/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: January 2026 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: January 2026</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2027-02-04">
+            Feb 04, 2027
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>&quot;This Month in Rust OSDev&quot;</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (January 2026)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://opendevicepartnership.github.io/patina/">Patina - Developing UEFI With Rust</a>
+<ul>
+<li>Repo: https://github.com/OpenDevicePartnership/patina</li>
+<li><a href="https://www.youtube.com/watch?v=iKzHrhpCgUI">Project Overview on Youtube</a></li>
+</ul>
+</li>
+<li><a href="https://pebblebed.com/blog/kernel-bugs">Kernel bugs hide for 2 years on average. Some hide for 20.</a></li>
+<li><a href="https://blog.rust-lang.org/2026/01/14/what-does-it-take-to-ship-rust-in-safety-critical/">What does it take to ship Rust in safety-critical?</a></li>
+<li><a href="https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-62">The Embedded Rustacean Issue #62</a></li>
+<li><a href="https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-63">The Embedded Rustacean Issue #63</a></li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a href="https://github.com/rust-lang/rust/pull/150151">Destabilise target-spec-json</a>
+<ul>
+<li>Custom target JSON specs now require <code>-Zunstable-options</code> again. This affects OS developers using custom targets.</li>
+</ul>
+</li>
+<li>Cargo: <a href="https://github.com/rust-lang/cargo/pull/16557">add -Z json-target-spec</a>
+<ul>
+<li>can also be enabled by adding <code>json-target-spec = true</code> to the [unstable] table in <code>.cargo/config.toml</code></li>
+</ul>
+</li>
+<li><a href="https://old.reddit.com/r/rust/comments/1qk9t1t/the_rust_gcc_backend_can_now_be_installed_with/">The Rust GCC backend can now be installed with rustup</a>
+<ul>
+<li>Alternative backend useful for cross-compilation and platforms where LLVM support is limited.</li>
+</ul>
+</li>
+<li><a href="https://github.com/rust-lang/rust/pull/147893"><code>Vec::push</code> in consts MVP</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/148545">add allocator parameter to HashMap</a></li>
+<li><a href="https://github.com/rust-lang/rust/pull/150736">add <code>AtomicPtr::null</code></a></li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="bootloader"><a href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a> and <a href="https://github.com/Freax13">@Freax13</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following changes:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/529">Add llvm-tools to components</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/530">Fix overflow error during address calculation</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/531">add kernel stack address to BootInfo</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/532">fix &quot;cargo build --release&quot;</a></li>
+<li><a href="https://github.com/rust-osdev/bootloader/pull/533">Release 0.11.14</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/Wasabi375">@Wasabi375</a> and <a href="https://github.com/the-ssd">@the-ssd</a> for their contributions!</p>
+<h3 id="multiboot2"><a href="https://github.com/rust-osdev/multiboot2"><code>multiboot2</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><em>Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
+the contained information tags. Usable in no_std environments, such as a kernel.
+An optional builder feature also allows the construction of the corresponding
+structures.</em></p>
+<p>We merged the following PRs this month:</p>
+<!-- - [build(deps): bump crate-ci/typos from 1.40.0 to 1.41.0](https://github.com/rust-osdev/multiboot2/pull/285) -->
+<!-- - [build(deps): bump actions/cache from 4 to 5](https://github.com/rust-osdev/multiboot2/pull/286) -->
+<p><span class="gray">No notable changes this month.</span></p>
+<h3 id="ovmf-prebuilt"><a href="https://github.com/rust-osdev/ovmf-prebuilt"><code>ovmf-prebuilt</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/nicholasbishop">@nicholasbishop</a> and <a href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>ovmf-prebuilt</code> project provides pre-built <a href="https://github.com/tianocore/edk2">edk2</a> releases to make it easier to set up OVMF. We merged the following improvement this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/ovmf-prebuilt/pull/254">ovmf-prebuilt: Add download retry</a></li>
+<li><a href="https://github.com/rust-osdev/ovmf-prebuilt/pull/256">release: 0.2.7</a></li>
+</ul>
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/258) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/259) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/260) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/261) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/263) -->
+<h3 id="uefi-rs"><a href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1840">uefi: improve ergonomics of Events</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1857">uefi: improve doc (add short glossary/important terms overview)</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1859">workspace: switch to resolver v3</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1860">flake: update (Nix shell: rust 1.86 -&gt; 1.92)</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1870">Replace remaining uses of <code>addr_of</code>/<code>addr_of_mut</code> with raw pointer syntax</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1871">Bump MSRV to 1.88</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1872">uefi-raw: serial: fix mutability</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1874">uefi: serial: improve overall documentation</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1877">uefi: boot: improve documentation for handles</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1880">export all text::{input, output} types</a></li>
+<li><a href="https://github.com/rust-osdev/uefi-rs/pull/1883">fix(deps): update rust crate nix to 0.31.0</a></li>
+</ul>
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1863) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1866) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1868) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.42.0](https://github.com/rust-osdev/uefi-rs/pull/1869) -->
+<!-- - [ci/fix: upgrade QEMU on windows](https://github.com/rust-osdev/uefi-rs/pull/1876) -->
+<!-- - [Revert "ci/fix: upgrade QEMU on windows"](https://github.com/rust-osdev/uefi-rs/pull/1884) -->
+<p>Thanks to <a href="https://github.com/yaroslav957">@yaroslav957</a> for their contribution!</p>
+<h3 id="virtio-spec-rs"><a href="https://github.com/rust-osdev/virtio-spec-rs"><code>virtio-spec-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/mkroening">@mkroening</a></span></p>
+<p>The <code>virtio-spec</code> crate provides definitions from the Virtual I/O Device (VIRTIO) specification.
+This project aims to be unopinionated regarding actual VIRTIO drivers that are implemented on top of this crate.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/virtio-spec-rs/pull/11">feat(virtio-mmio): add <code>MAGIC_VALUE</code> constant</a></li>
+<li><a href="https://github.com/rust-osdev/virtio-spec-rs/pull/12">fix(virtq): clippy::manual_is_multiple_of</a></li>
+<li><a href="https://github.com/rust-osdev/virtio-spec-rs/pull/13">feat(virtio-net): add <code>VIRTIO_NET_F_CTRL_RX_EXTRA</code></a></li>
+<li><a href="https://github.com/rust-osdev/virtio-spec-rs/pull/14">feat(virtio-net): add <code>VIRTIO_NET_F_GUEST_USO{4,6}</code></a></li>
+<li><a href="https://github.com/rust-osdev/virtio-spec-rs/pull/15">feat(features): add <code>recommendations</code> and <code>recommendations_satisfied</code></a></li>
+</ul>
+<!-- - [ci: update actions/checkout to v6](https://github.com/rust-osdev/virtio-spec-rs/pull/16) -->
+<!-- - [ci: run cargo-semver-checks](https://github.com/rust-osdev/virtio-spec-rs/pull/19) -->
+<h3 id="x86-64"><a href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a href="https://github.com/phil-opp">@phil-opp</a>, <a href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/574">feat(mapper): add <code>MappedPageTable::display</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/575">fix(instructions): allow unused_unsafe for cpuid</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/576">feat(mapper): make <code>OffsetPageTable</code> a type alias</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/578">fix(mapper): inline internal <code>map_to_*</code> functions</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/579">docs: fix typos</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/581">feat(paging): make range types <code>!Copy</code></a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/582">docs(page): fix typos</a></li>
+<li><a href="https://github.com/rust-osdev/x86_64/pull/584">feat: make page types <code>repr(transparent)</code> and range types <code>repr(Rust)</code></a></li>
+</ul>
+<!-- - [chore: merge master into next](https://github.com/rust-osdev/x86_64/pull/577) -->
+<!-- - [ci: add typos job](https://github.com/rust-osdev/x86_64/pull/580) -->
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="phil-opp-blog-os"><a href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following changes to the <a href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month:</p>
+<ul>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1452">Fix mention of non-existent <code>keyboard_task</code> function in async/await post</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1455">Update 'Minimal Rust Kernel' post to enable unstable <code>json-target-spec</code> feature</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1456">Enable unstable <code>json-target-spec</code> feature</a></li>
+<li><a href="https://github.com/phil-opp/blog_os/pull/1457">Fix translations: <code>no_mangle</code> attribute is unstable now</a></li>
+</ul>
+<p>Thanks to <a href="https://github.com/ebkalderon">@ebkalderon</a> for their contribution!</p>
+<!-- <span class="gray">No projects updates were submitted this month.</span> -->
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
