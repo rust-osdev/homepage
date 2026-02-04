@@ -205,6 +205,18 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog this month:
+
+- [Fix mention of non-existent `keyboard_task` function in async/await post](https://github.com/phil-opp/blog_os/pull/1452)
+- [Update 'Minimal Rust Kernel' post to enable unstable `json-target-spec` feature](https://github.com/phil-opp/blog_os/pull/1455)
+- [Enable unstable `json-target-spec` feature](https://github.com/phil-opp/blog_os/pull/1456)
+- [Fix translations: `no_mangle` attribute is unstable now](https://github.com/phil-opp/blog_os/pull/1457)
+
+Thanks to [@ebkalderon](https://github.com/ebkalderon) for their contribution!
+
 
 <!-- <span class="gray">No projects updates were submitted this month.</span> -->
 
