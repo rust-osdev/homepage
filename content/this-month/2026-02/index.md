@@ -75,6 +75,20 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
+### [`metta-systems/ram-map-viewer`](https://github.com/metta-systems/ram-map-viewer)
+<span class="maintainers">(Section written by [@berkus](https://github.com/berkus))</span>
+
+Added a little GUI for visualizing memory maps. The application itself currently supports a map format that my initialisation code emits, but
+it has a MemorySource trait that you can implement to consume any format.
+
+<video src="https://raw.githubusercontent.com/metta-systems/ram-map-viewer/video/video/ram-map-viewer.mp4" controls></video>
+
+### [`metta-systems/vesper`](https://github.com/metta-systems/vesper)
+<span class="maintainers">(Section written by [@berkus](https://github.com/berkus))</span>
+
+Vesper has learned to put nucleus into higher-half memory and added a kernel syscall API with a single syscall - a capability invocation. I have a list of capabilities I want to implement, and first one implemented is Debug Console so you can output execution trace from your domains.
+
+Init thread implementation in progress, now parsing DTB and preparing to launch a user-space "init" process. The video above shows memory map produced by the init thread after parsing a RasPi3 B+ 1Gb DTB.
 
 
 <!-- <span class="gray">No projects updates were submitted this month.</span> -->
