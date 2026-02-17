@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <title>
+            {{ config.title }}
+            {%- if term %} - {{ term.name }}
+            {%- elif section.title %} - {{ section.title }}
+            {%- endif -%}
+        </title>
+        <link>
+            {%- if section -%}
+                {{ section.permalink | escape_xml | safe }}
+            {%- else -%}
+                {{ config.base_url | escape_xml | safe }}
+            {%- endif -%}
+        </link>
+        <description>{{ config.description }}</description>
+        <generator>Zola</generator>
+        <language>{{ lang }}</language>
+        <atom:link href="{{ feed_url | safe }}" rel="self" type="application/rss+xml"/>
+
+    {% if last_updated is defined %}
+        <lastBuildDate>{{ last_updated | date(format="%a, %d %b %Y %H:%M:%S %z") }}</lastBuildDate>
+    {% endif %}
+
+    {%- for page in pages %}
+        <item>
+            <title>{{ page.title | escape_xml }}</title>
+            <pubDate>{{ page.date | date(format="%a, %d %b %Y %H:%M:%S %z") }}</pubDate>
+            <link>{{ page.permalink | escape_xml | safe }}</link>
+            <guid isPermaLink="true">{{ page.permalink | escape_xml | safe }}</guid>
+            <description xml:base="{{ page.permalink | escape_xml | safe }}">
+            <![CDATA[{{ page.summary | default(value=page.title) }}]]>
+            </description>
+            <content:encoded>
+				{#
+					first replace transforms internal links to permalink.
+					second one replaces relative link to parent path. it only does 1 level.
+				#}
+				{% set base = page.components | slice(end=-1) | join(sep='/') %}
+                <![CDATA[{{
+                    page.content
+                        | replace(from='href="#', to='href="' ~ page.permalink ~ '#')
+                        | replace(from='href="../', to='href="' ~ config.base_url ~ '/' ~ base ~ '/')
+                        | safe
+                }}]]>
+            </content:encoded>
+        </item>
+    {%- endfor %}
+    </channel>
+</rss>
