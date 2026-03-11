@@ -90,30 +90,28 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
-### [`acpi`](https://github.com/rust-osdev/acpi)
-<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
 
-The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
 
-We merged the following changes this month:
+We merged the following PRs this month:
 
-- [Add support for extracting NUMA information from SRAT and SLIT](https://github.com/rust-osdev/acpi/pull/264)
-- [Suggestion: Use colored instead of termion](https://github.com/rust-osdev/acpi/pull/265)
+- [uefi: Add device path generation for discovered devices in a PciTree](https://github.com/rust-osdev/uefi-rs/pull/1831)
+- [uefi: significantly improve ergonomics of Handle (device path and component2 protocols)](https://github.com/rust-osdev/uefi-rs/pull/1858)
+- [uefi-raw & uefi: serial: add support for protocol revision 1.1](https://github.com/rust-osdev/uefi-rs/pull/1873)
+- [Improve docs of `OpenProtocolAttributes`](https://github.com/rust-osdev/uefi-rs/pull/1891)
+- [uefi: Add `handle_protocol` doc alias to open_protocol functions](https://github.com/rust-osdev/uefi-rs/pull/1893)
+- [uefi: serial: improve documentation and correctness of read() and write()](https://github.com/rust-osdev/uefi-rs/pull/1900)
 
-Thanks to [@martin-hughes](https://github.com/martin-hughes) for their contributions!
+<!-- - [chore(deps): update crate-ci/typos action to v1.42.3](https://github.com/rust-osdev/uefi-rs/pull/1885) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1889) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1890) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1895) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1904) -->
 
-
-### [`bootimage`](https://github.com/rust-osdev/bootimage)
-<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
-
-The `bootimage` tool allows the creation of bootable disk images for `bootloader`-based kernels. It also provides a runner executable for `cargo` to make `cargo run` and `cargo test` work using QEMU.
-
-We merged the following changes this month:
-
-- [Add an example kernel that uses the built-in `x86_64-unknown-none` target](https://github.com/rust-osdev/bootimage/pull/104)
-- [Fix bootloader build by passing `-Zjson-target-spec`](https://github.com/rust-osdev/bootimage/pull/105)
-- [Prepare release](https://github.com/rust-osdev/bootimage/pull/106)
-- [Fix QEMU test flakiness on ARM64 macOS](https://github.com/rust-osdev/bootimage/pull/107)
+Thanks to [@seijikun](https://github.com/seijikun) for their contributions!
 
 
 ### [`bootloader`](https://github.com/rust-osdev/bootloader)
@@ -131,6 +129,47 @@ The `bootloader` crate implements a custom Rust-based bootloader for easy loadin
 <!-- - [Bump bytes from 1.10.1 to 1.11.1 in /examples/basic](https://github.com/rust-osdev/bootloader/pull/540) -->
 
 Thanks to [@Freax13](https://github.com/Freax13) and [@Wasabi375](https://github.com/Wasabi375) for their contributions!
+
+
+### [`virtio-spec-rs`](https://github.com/rust-osdev/virtio-spec-rs)
+<span class="maintainers">Maintained by [@mkroening](https://github.com/mkroening)</span>
+
+The `virtio-spec` crate provides definitions from the Virtual I/O Device (VIRTIO) specification.
+This project aims to be unopinionated regarding actual VIRTIO drivers that are implemented on top of this crate.
+
+We merged the following PRs this month:
+
+- [build(deps): upgrade bitfield-structs to 0.12](https://github.com/rust-osdev/virtio-spec-rs/pull/17)
+- [build(deps): update allocator-api2 to 0.4](https://github.com/rust-osdev/virtio-spec-rs/pull/18)
+- [fix(docsrs): migrate from `doc_auto_cfg` to `doc_cfg`](https://github.com/rust-osdev/virtio-spec-rs/pull/21)
+- [fix: rust-2018-idioms](https://github.com/rust-osdev/virtio-spec-rs/pull/22)
+- [fix: upgrade to Rust 2024](https://github.com/rust-osdev/virtio-spec-rs/pull/23)
+
+
+### [`bootimage`](https://github.com/rust-osdev/bootimage)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp)</span>
+
+The `bootimage` tool allows the creation of bootable disk images for `bootloader`-based kernels. It also provides a runner executable for `cargo` to make `cargo run` and `cargo test` work using QEMU.
+
+We merged the following changes this month:
+
+- [Add an example kernel that uses the built-in `x86_64-unknown-none` target](https://github.com/rust-osdev/bootimage/pull/104)
+- [Fix bootloader build by passing `-Zjson-target-spec`](https://github.com/rust-osdev/bootimage/pull/105)
+- [Prepare release](https://github.com/rust-osdev/bootimage/pull/106)
+- [Fix QEMU test flakiness on ARM64 macOS](https://github.com/rust-osdev/bootimage/pull/107)
+
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.
+
+We merged the following changes this month:
+
+- [Add support for extracting NUMA information from SRAT and SLIT](https://github.com/rust-osdev/acpi/pull/264)
+- [Suggestion: Use colored instead of termion](https://github.com/rust-osdev/acpi/pull/265)
+
+Thanks to [@martin-hughes](https://github.com/martin-hughes) for their contributions!
 
 
 ### [`endian-num`](https://github.com/rust-osdev/endian-num)
@@ -164,45 +203,6 @@ The `spinning_top` crate provides a simple spinlock implementation based on the 
 We merged the following changes this month:
 
 - [fix(docsrs): migrate from `doc_auto_cfg` to `doc_cfg`](https://github.com/rust-osdev/spinning_top/pull/27)
-
-
-### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
-<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
-
-`uefi` makes it easy to develop Rust software that leverages safe, convenient,
-and performant abstractions for UEFI functionality.
-
-We merged the following PRs this month:
-
-- [uefi: Add device path generation for discovered devices in a PciTree](https://github.com/rust-osdev/uefi-rs/pull/1831)
-- [uefi: significantly improve ergonomics of Handle (device path and component2 protocols)](https://github.com/rust-osdev/uefi-rs/pull/1858)
-- [uefi-raw & uefi: serial: add support for protocol revision 1.1](https://github.com/rust-osdev/uefi-rs/pull/1873)
-- [Improve docs of `OpenProtocolAttributes`](https://github.com/rust-osdev/uefi-rs/pull/1891)
-- [uefi: Add `handle_protocol` doc alias to open_protocol functions](https://github.com/rust-osdev/uefi-rs/pull/1893)
-- [uefi: serial: improve documentation and correctness of read() and write()](https://github.com/rust-osdev/uefi-rs/pull/1900)
-
-<!-- - [chore(deps): update crate-ci/typos action to v1.42.3](https://github.com/rust-osdev/uefi-rs/pull/1885) -->
-<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1889) -->
-<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1890) -->
-<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1895) -->
-<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1904) -->
-
-Thanks to [@seijikun](https://github.com/seijikun) for their contributions!
-
-
-### [`virtio-spec-rs`](https://github.com/rust-osdev/virtio-spec-rs)
-<span class="maintainers">Maintained by [@mkroening](https://github.com/mkroening)</span>
-
-The `virtio-spec` crate provides definitions from the Virtual I/O Device (VIRTIO) specification.
-This project aims to be unopinionated regarding actual VIRTIO drivers that are implemented on top of this crate.
-
-We merged the following PRs this month:
-
-- [build(deps): upgrade bitfield-structs to 0.12](https://github.com/rust-osdev/virtio-spec-rs/pull/17)
-- [build(deps): update allocator-api2 to 0.4](https://github.com/rust-osdev/virtio-spec-rs/pull/18)
-- [fix(docsrs): migrate from `doc_auto_cfg` to `doc_cfg`](https://github.com/rust-osdev/virtio-spec-rs/pull/21)
-- [fix: rust-2018-idioms](https://github.com/rust-osdev/virtio-spec-rs/pull/22)
-- [fix: upgrade to Rust 2024](https://github.com/rust-osdev/virtio-spec-rs/pull/23)
 
 
 ## Other Projects
