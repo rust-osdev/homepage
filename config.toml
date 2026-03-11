@@ -11,11 +11,13 @@ compile_sass = false
 build_search_index = false
 
 # Generate RSS feed
-generate_feed = true
-feed_filename = "rss.xml"
+generate_feeds = true
+feed_filenames = ["rss.xml"]
 
 [markdown]
-highlight_code = true
+
+[markdown.highlighting]
+theme = "material-theme-ocean"
 
 [link_checker]
 skip_prefixes = [
