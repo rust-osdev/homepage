@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: "Download Zola"
-        run: curl -sL https://github.com/getzola/zola/releases/download/v0.16.1/zola-v0.16.1-x86_64-unknown-linux-gnu.tar.gz | tar zxv
+        run: curl -sL https://github.com/getzola/zola/releases/download/v0.22.1/zola-v0.22.1-x86_64-unknown-linux-gnu.tar.gz | tar zxv
 
       - name: "Build Site"
         run: ./zola build
@@ -36,10 +36,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: "Download Zola"
-        run: curl -sL https://github.com/getzola/zola/releases/download/v0.16.1/zola-v0.16.1-x86_64-unknown-linux-gnu.tar.gz | tar zxv
+        run: curl -sL https://github.com/getzola/zola/releases/download/v0.22.1/zola-v0.22.1-x86_64-unknown-linux-gnu.tar.gz | tar zxv
 
       - name: "Run zola check"
         run: ./zola check
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - run: curl -L https://git.io/misspell | bash
         name: "Install misspell"
@@ -76,7 +76,7 @@ jobs:
           path: generated_site
 
       - name: Check out gh-pages branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: "gh-pages"
           path: "gh-pages"
