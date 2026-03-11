@@ -1,0 +1,290 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2026-02/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: February 2026 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: February 2026</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2026-03-11">
+            Mar 11, 2026
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>"This Month in Rust OSDev"</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a rel="external" href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a rel="external" href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (February 2026)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a rel="external" href="https://www.phoronix.com/news/Linux-7.0-Rust">Linux 7.0 Officially Concluding The Rust Experiment</a>
+<ul>
+<li>Rust is now formally accepted as a permanent part of the Linux kernel, shipping in production across multiple distributions and millions of Android devices.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://lwn.net/SubscriberLink/1055590/12d48275b6f81988/">The future for Tyr</a>
+<ul>
+<li>Progress on Tyr, a Rust GPU driver for Arm Mali hardware. The DRM subsystem is reportedly "about a year away" from requiring new drivers to be written in Rust.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/microsoft/litebox">Microsoft LiteBox</a>
+<ul>
+<li>A Rust library OS supporting kernel- and user-mode execution, with sandboxing for running unmodified Linux programs on Windows and SEV SNP.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.redox-os.org/news/this-month-260131/">This Month in Redox - January 2026</a>
+<ul>
+<li>Redox got Cargo and rustc compiling natively and made progress on capability-based security.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://rust.cheriot.org/2026/02/15/status-update.html">CHERIoT Rust: Status update #0</a>
+<ul>
+<li>Six months of progress porting Rust to the CHERIoT capability-based hardware architecture. Core and alloc now compile for the new <code>riscv32cheriot-unknown-cheriotrtos</code> target.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://ariel-os.org/blog/ariel-os-0.3.0/">Ariel OS v0.3.0: BLE, Sensors, UART, and More!</a>
+<ul>
+<li>New release adds BLE support, hardware-agnostic UART drivers, sensor abstraction, and expanded MCU support (ESP32, STM32, Nordic, RP).</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.vectorware.com/blog/async-await-on-gpu/">Async/await on the GPU</a>
+<ul>
+<li>Rust's Future trait and async/await running on GPU hardware, reusing the Embassy embedded executor.</li>
+</ul>
+</li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a rel="external" href="https://github.com/rust-lang/rfcs/pull/3458">RFC: Unsafe fields</a>
+<ul>
+<li>Approved for implementation. Allows marking struct fields as <code>unsafe</code> when they maintain safety invariants.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/152366">Add <code>try_shrink_to</code> and <code>try_shrink_to_fit</code> to Vec</a>
+<ul>
+<li>Fallible shrinking methods that return <code>TryReserveError</code> instead of panicking on OOM.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/151995">Stabilize <code>ptr_as_ref_unchecked</code></a>
+<ul>
+<li>Raw-pointer-to-reference conversion without null/alignment checks.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/148590">Stabilize <code>atomic_try_update</code> and deprecate <code>fetch_update</code></a>
+<ul>
+<li>Cleaner API for lock-free atomic compare-and-swap loops. <code>fetch_update</code> will be deprecated starting in Rust 1.99.0.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/146900">Add <code>avr_target_feature</code></a>
+<ul>
+<li>Unstable target features for AVR microcontrollers including <code>tinyencoding</code>, <code>lowbytefirst</code>, and various instruction features.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/149783">Stabilize <code>cfg_select!</code></a>
+<ul>
+<li>Builtin macro for selecting code based on cfg predicates, simplifying conditional compilation.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/151576">Stabilize <code>core::hint::cold_path</code></a>
+<ul>
+<li>Mark unlikely code paths to help the compiler optimize branch layout.</li>
+</ul>
+</li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a rel="external" href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uefi-rs"><a rel="external" href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a rel="external" href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a rel="external" href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1831">uefi: Add device path generation for discovered devices in a PciTree</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1858">uefi: significantly improve ergonomics of Handle (device path and component2 protocols)</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1873">uefi-raw &amp; uefi: serial: add support for protocol revision 1.1</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1891">Improve docs of <code>OpenProtocolAttributes</code></a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1893">uefi: Add <code>handle_protocol</code> doc alias to open_protocol functions</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1900">uefi: serial: improve documentation and correctness of read() and write()</a></li>
+</ul>
+<!-- - [chore(deps): update crate-ci/typos action to v1.42.3](https://github.com/rust-osdev/uefi-rs/pull/1885) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1889) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1890) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1895) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1904) -->
+<p>Thanks to <a rel="external" href="https://github.com/seijikun">@seijikun</a> for their contributions!</p>
+<h3 id="bootloader"><a rel="external" href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a> and <a rel="external" href="https://github.com/Freax13">@Freax13</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following changes:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/535">Expose data for custom boot image creation</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/536">build with -Zjson-target-spec</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/537">Enable json-target-spec</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/538">release 0.11.15</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/539">fix typo in year</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/545">update bootloader crates</a></li>
+</ul>
+<!-- - [Bump bytes from 1.10.1 to 1.11.1 in /examples/basic](https://github.com/rust-osdev/bootloader/pull/540) -->
+<p>Thanks to <a rel="external" href="https://github.com/Freax13">@Freax13</a> and <a rel="external" href="https://github.com/Wasabi375">@Wasabi375</a> for their contributions!</p>
+<h3 id="virtio-spec-rs"><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs"><code>virtio-spec-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/mkroening">@mkroening</a></span></p>
+<p>The <code>virtio-spec</code> crate provides definitions from the Virtual I/O Device (VIRTIO) specification.
+This project aims to be unopinionated regarding actual VIRTIO drivers that are implemented on top of this crate.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs/pull/17">build(deps): upgrade bitfield-structs to 0.12</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs/pull/18">build(deps): update allocator-api2 to 0.4</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs/pull/21">fix(docsrs): migrate from <code>doc_auto_cfg</code> to <code>doc_cfg</code></a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs/pull/22">fix: rust-2018-idioms</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs/pull/23">fix: upgrade to Rust 2024</a></li>
+</ul>
+<h3 id="bootimage"><a rel="external" href="https://github.com/rust-osdev/bootimage"><code>bootimage</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>bootimage</code> tool allows the creation of bootable disk images for <code>bootloader</code>-based kernels. It also provides a runner executable for <code>cargo</code> to make <code>cargo run</code> and <code>cargo test</code> work using QEMU.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/bootimage/pull/104">Add an example kernel that uses the built-in <code>x86_64-unknown-none</code> target</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootimage/pull/105">Fix bootloader build by passing <code>-Zjson-target-spec</code></a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootimage/pull/106">Prepare release</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootimage/pull/107">Fix QEMU test flakiness on ARM64 macOS</a></li>
+</ul>
+<h3 id="acpi"><a rel="external" href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/264">Add support for extracting NUMA information from SRAT and SLIT</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/265">Suggestion: Use colored instead of termion</a></li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/martin-hughes">@martin-hughes</a> for their contributions!</p>
+<h3 id="endian-num"><a rel="external" href="https://github.com/rust-osdev/endian-num"><code>endian-num</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/mkroening">@mkroening</a></span></p>
+<p>The <code>endian-num</code> crate provides the <code>Be</code> (big-endian) and <code>Le</code> (little-endian) byte-order-aware numeric types.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/endian-num/pull/7">feat: add MSRV of 1.71</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/endian-num/pull/6">fix(docsrs): migrate from <code>doc_auto_cfg</code> to <code>doc_cfg</code></a></li>
+</ul>
+<h3 id="fuse-abi"><a rel="external" href="https://github.com/rust-osdev/fuse-abi"><code>fuse-abi</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/mkroening">@mkroening</a></span></p>
+<p>The <code>fuse-abi</code> crate provides bindings to FUSE devices. In motivation similar to that of <code>virtio-spec</code>, this project aims to provide correct foundational definitions for the FUSE kernel ABI.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/fuse-abi/pull/1">fix(docsrs): migrate from <code>doc_auto_cfg</code> to <code>doc_cfg</code></a></li>
+</ul>
+<!-- - [chore: upgrade bindgen-cli to 0.72.1](https://github.com/rust-osdev/fuse-abi/pull/2) -->
+<h3 id="spinning-top"><a rel="external" href="https://github.com/rust-osdev/spinning_top"><code>spinning_top</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>spinning_top</code> crate provides a simple spinlock implementation based on the abstractions of the <a rel="external" href="https://docs.rs/lock_api/0.4.1/lock_api/"><code>lock_api</code></a> crate.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/spinning_top/pull/27">fix(docsrs): migrate from <code>doc_auto_cfg</code> to <code>doc_cfg</code></a></li>
+</ul>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a rel="external" href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="metta-systems-ram-map-viewer"><a rel="external" href="https://github.com/metta-systems/ram-map-viewer"><code>metta-systems/ram-map-viewer</code></a></h3>
+<p><span class="maintainers">(Section written by <a rel="external" href="https://github.com/berkus">@berkus</a>)</span></p>
+<p>Added a little GUI for visualizing memory maps. The application itself currently supports a map format that my initialisation code emits, but
+it has a MemorySource trait that you can implement to consume any format.</p>
+<p><video src="https://raw.githubusercontent.com/metta-systems/ram-map-viewer/video/video/ram-map-viewer.mp4" controls></video></p>
+<h3 id="metta-systems-vesper"><a rel="external" href="https://github.com/metta-systems/vesper"><code>metta-systems/vesper</code></a></h3>
+<p><span class="maintainers">(Section written by <a rel="external" href="https://github.com/berkus">@berkus</a>)</span></p>
+<p>Vesper has learned to put nucleus into higher-half memory and added a kernel syscall API with a single syscall - a capability invocation. I have a list of capabilities I want to implement, and first one implemented is Debug Console so you can output execution trace from your domains.</p>
+<p>Init thread implementation in progress, now parsing DTB and preparing to launch a user-space "init" process. The video above shows memory map produced by the init thread after parsing a RasPi3 B+ 1Gb DTB.</p>
+<!-- <span class="gray">No projects updates were submitted this month.</span> -->
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way for getting in touch is our <a rel="external" href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
