@@ -63,6 +63,25 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+Simple yet highly configurable low-level driver for 16550 UART devices,
+typically known and used as serial ports or COM ports.
+
+We've just released `v0.5.0` - a complete rewrite and fresh start of the crate.
+The main motivation is to make the crate fit for working on real hardware,
+clean up technical debt, and streamline the code paths for x86 port I/O and
+MMIO.
+
+More info:
+
+- <https://github.com/rust-osdev/uart_16550/releases/tag/v0.5.0>
+- <https://docs.rs/uart_16550/0.5.0/uart_16550/>
+- <https://github.com/rust-osdev/uart_16550/pull/41>
+
+Special Thanks to Philipp Oppermann (@phil-opp) and Martin Kröning (@mkroening)
+for their very valuable review on the new crate!
 
 ## Other Projects
 
