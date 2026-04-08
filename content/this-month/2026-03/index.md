@@ -16,7 +16,7 @@ This series is openly developed [on GitHub](https://github.com/rust-osdev/homepa
 Please submit interesting posts and projects for the next issue [on Zulip](https://rust-osdev.zulipchat.com/#narrow/channel/435142-newsletter/topic/Content.20suggestions/with/580172810) or via a PR [on GitHub](https://github.com/rust-osdev/homepage/).
 
 <span class="gray">
-Disclaimer: Automated scripts and AI assistence were used for collecting and categorizing links.
+Disclaimer: Automated scripts and AI assistance were used for collecting and categorizing links.
 Everything was proofread and checked manually and there were many manual tweaks.
 </span>
 
