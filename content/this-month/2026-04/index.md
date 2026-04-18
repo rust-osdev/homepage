@@ -86,7 +86,20 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
-<span class="gray">No projects updates were submitted this month.</span>
+### [`willamhou/hypervisor`](https://github.com/willamhou/hypervisor)
+<span class="maintainers">(Section written by [@willamhou](https://github.com/willamhou))</span>
+
+An ARM64 Type-1 bare-metal hypervisor written in Rust (`no_std`). It runs at EL2 and manages guest VMs at EL1, targeting the QEMU `virt` machine. The project boots Linux 6.12.12 to a BusyBox shell with 4 vCPUs, virtio-blk storage, and virtio-net inter-VM networking.
+
+Key features:
+
+- **S-EL2 SPMC**: Runs as BL32 in TF-A boot chain, replacing Hafnium. Manages multiple Secure Partitions (SPs) at S-EL1 with per-SP Secure Stage-2 page tables.
+- **FF-A v1.1**: Full proxy implementation including DIRECT_REQ/RESP messaging, memory sharing (MEM_SHARE/LEND/DONATE/RETRIEVE/RELINQUISH/RECLAIM), descriptor fragmentation, PARTITION_INFO_GET, notifications, indirect messaging, and CONSOLE_LOG.
+- **pKVM integration**: Coexists with Android pKVM at NS-EL2 — our SPMC at S-EL2, pKVM at NS-EL2. 35/35 `ffa_test.ko` tests pass including SP-to-SP DIRECT_REQ relay and SP-to-SP memory sharing through the real SPMD chain.
+- **Multi-VM**: 2 Linux VMs time-sliced with VMID-tagged TLBs and per-VM Stage-2 page tables.
+- **SMP**: Both 4-vCPU-on-1-pCPU (round-robin scheduler) and 4-vCPU-on-4-pCPU (1:1 affinity) modes.
+- **SP-to-SP**: CallStack cycle detection, recursive dispatch, chain preemption, secure virtual interrupt injection via HCR_EL2.VI.
+- **34 test suites** with ~457 assertions running on QEMU, plus 20/20 BL33 E2E integration tests.
 
 
 
