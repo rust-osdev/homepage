@@ -40,7 +40,18 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
-<span class="gray">No content was submitted for this section this month.</span>
+- [octopos: xv6 based operating system for RISC-V in Rust](https://www.boranseckin.com/projects/octopos)
+  - A Rust port of xv6 that targets RISC-V and runs without the standard library, including process management, Sv39 page tables, VirtIO disk support, and a POSIX-style syscall interface.
+- [Bringing Rust to the Pixel Baseband](https://blog.google/security/bringing-rust-to-the-pixel-baseband/)
+  - Google describes adding Rust to Pixel modem firmware, including `no_std` support for Hickory DNS dependencies, `core`/`alloc` integration, allocator and panic handler hooks, and firmware linking details.
+- [tinyboot v0.4.0 Released -- The API is Stable](https://aaronqian.com/log/2026-04-22-tinyboot-v040-released/)
+  - A minimal Rust bootloader for resource-constrained MCUs. This release adds CH32V00x support, collapses the CH32 crates, stabilizes the wire protocol, and fixes half-duplex UART bugs.
+- [A minimal VMM in Rust with Apple Hypervisor](https://gigapotential.dev/blog/minimal-vmm-in-rust-with-apple-hypervisor/)
+  - Walks through building a small virtual machine monitor on Apple Silicon macOS using Rust bindings to Apple's Hypervisor framework.
+- [Rust: Memory safety in kernel space](https://oshub.org/users/OSHub/posts/rust-memory-safety-in-kernel-space-9178dd)
+  - An OS-focused introduction to what Rust's ownership and `unsafe` boundaries change for kernel development.
+- [Using Rust to Build a $1 Handheld Gaming Console](https://chrisdell.info/using-rust-to-build-a-1-dollar-handheld-gaming-console/)
+  - A small embedded Rust project on the CH32V003 RISC-V microcontroller, with notes on RAM-constrained rendering and fixed-point math.
 
 ## Infrastructure and Tooling
 
@@ -53,7 +64,17 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
-<span class="gray">No content was submitted for this section this month.</span>
+- [Rust 1.95.0](https://blog.rust-lang.org/2026/04/16/Rust-1.95.0/)
+  - Stabilizes `cfg_select!`, atomic `update`/`try_update` methods, and allocator layout helpers such as `Layout::{dangling_ptr, repeat, repeat_packed, extend_packed}`.
+  - Important for custom-target users: stable `rustc` no longer accepts JSON target specifications. Building `core` for custom targets still requires nightly-only features.
+- [Add `-Zsanitize=kernel-hwaddress`](https://github.com/rust-lang/rust/pull/153049)
+  - Adds nightly support for the kernel hardware address sanitizer mode used by Linux's `CONFIG_KASAN_SW_TAGS`.
+- [Mitigation enforcement RFC](https://github.com/rust-lang/rfcs/pull/3855)
+  - Approved RFC for tracking and enforcing target-wide exploit mitigation options such as stack protector settings.
+- [build-std: always RFC](https://github.com/rust-lang/rfcs/pull/3874)
+  - Proposed Cargo configuration for rebuilding standard library crates, part of the ongoing effort to make `build-std` usable on stable.
+- Move `std::io` pieces toward `core::io`
+  - [`ErrorKind`](https://github.com/rust-lang/rust/pull/154654) and [`RawOsError`](https://github.com/rust-lang/rust/pull/155574) were moved into `core::io`, continuing the groundwork for more IO abstractions in `no_std` contexts.
 
 ## `rust-osdev` Projects
 
@@ -71,7 +92,79 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
-<span class="gray">No projects updates were submitted this month.</span>
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers use to relay information about the hardware to the OS.
+
+We merged the following changes this month:
+
+- [Support multiple tables per test in `aml_tester`](https://github.com/rust-osdev/acpi/pull/284)
+- [Implement Index and Bank fields](https://github.com/rust-osdev/acpi/pull/274)
+- [Add support for running the tests from uACPI.](https://github.com/rust-osdev/acpi/pull/285)
+- [Remove some AML-triggerable panics from library](https://github.com/rust-osdev/acpi/pull/276)
+- [Derive Clone, Debug on useful objects](https://github.com/rust-osdev/acpi/pull/287)
+- [(minor) Trace the table ID better](https://github.com/rust-osdev/acpi/pull/291)
+
+Thanks to [@martin-hughes](https://github.com/martin-hughes) for their contributions!
+
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following PRs this month:
+
+- [uefi: make TimerTrigger more pleasant to use](https://github.com/rust-osdev/uefi-rs/pull/1934)
+- [uefi-raw: Add SimpleTextInputEx protocol](https://github.com/rust-osdev/uefi-rs/pull/1936)
+- [uefi: Add InputEx protocol](https://github.com/rust-osdev/uefi-rs/pull/1937)
+
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1926) -->
+<!-- - [chore(deps): update codecov/codecov-action action to v5.5.4](https://github.com/rust-osdev/uefi-rs/pull/1923) -->
+<!-- - [chore(deps): update dorny/paths-filter action to v4](https://github.com/rust-osdev/uefi-rs/pull/1921) -->
+<!-- - [misc: update to typos 1.45](https://github.com/rust-osdev/uefi-rs/pull/1927) -->
+<!-- - [chore(deps): update codecov/codecov-action action to v6](https://github.com/rust-osdev/uefi-rs/pull/1924) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1929) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.45.1](https://github.com/rust-osdev/uefi-rs/pull/1930) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1933) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1935) -->
+
+Thanks to [@JarlEvanson](https://github.com/JarlEvanson) for their contributions!
+
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following change:
+
+- [Update to v0.11.15 and add missing x86_64-unknown-uefi target ](https://github.com/rust-osdev/bootloader/pull/557)
+
+<!-- - [Bump rand from 0.8.5 to 0.8.6](https://github.com/rust-osdev/bootloader/pull/559) -->
+<!-- - [Bump rustls-webpki from 0.103.10 to 0.103.13 in /examples/basic](https://github.com/rust-osdev/bootloader/pull/560) -->
+
+Thanks to [@peppergrayxyz](https://github.com/peppergrayxyz) for their contribution!
+
+
+### [`linked-list-allocator`](https://github.com/rust-osdev/linked-list-allocator)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@jamesmunns](https://github.com/jamesmunns)</span>
+
+The `linked-list-allocator` crate provides a basic `no_std` allocator that builds a linked list from freed memory blocks and thus needs no additional data structures. We merged the following PR this month:
+
+- [fix(alloc_ref): use renamed `dangling`](https://github.com/rust-osdev/linked-list-allocator/pull/90)
+
+Thanks to [@sermuns](https://github.com/sermuns) for their contribution!
+
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following PR this month:
+
+- [insert NOP after STI](https://github.com/rust-osdev/x86_64/pull/588)
 
 ## Other Projects
 
