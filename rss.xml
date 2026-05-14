@@ -12,8 +12,227 @@
         <atom:link href="https://rust-osdev.com/rss.xml" rel="self" type="application/rss+xml"/>
 
     
-        <lastBuildDate>Wed, 08 Apr 2026 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 14 May 2026 00:00:00 +0000</lastBuildDate>
     
+        <item>
+            <title>This Month in Rust OSDev: April 2026</title>
+            <pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate>
+            <link>https://rust-osdev.com/this-month/2026-04/</link>
+            <guid isPermaLink="true">https://rust-osdev.com/this-month/2026-04/</guid>
+            <description xml:base="https://rust-osdev.com/this-month/2026-04/">
+            <![CDATA[&lt;p&gt;Welcome to a new issue of &lt;em&gt;&quot;This Month in Rust OSDev&quot;&lt;&#x2F;em&gt;. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.&lt;&#x2F;p&gt;]]>
+            </description>
+            <content:encoded>
+				
+				
+                <![CDATA[<p>Welcome to a new issue of <em>"This Month in Rust OSDev"</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a rel="external" href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a rel="external" href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2026-04/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<p>Please submit interesting posts and projects for the next issue <a rel="external" href="https://rust-osdev.zulipchat.com/#narrow/channel/435142-newsletter/topic/Content.20suggestions/with/580172810">on Zulip</a> or via a PR <a rel="external" href="https://github.com/rust-osdev/homepage/">on GitHub</a>.</p>
+<span class="gray">
+Disclaimer: Automated scripts and AI assistance were used for collecting and categorizing links.
+Everything was proofread and checked manually, with many manual tweaks.
+</span>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (April 2026)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a rel="external" href="https://www.boranseckin.com/projects/octopos">octopos: xv6-based operating system for RISC-V in Rust</a>
+<ul>
+<li>A Rust port of xv6 that targets RISC-V and runs without the standard library, including process management, Sv39 page tables, VirtIO disk support, and a POSIX-style syscall interface.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://gigapotential.dev/blog/minimal-vmm-in-rust-with-apple-hypervisor/">A minimal VMM in Rust with Apple Hypervisor</a>
+<ul>
+<li>Walks through building a small virtual machine monitor on Apple Silicon macOS using Rust bindings to Apple's Hypervisor framework.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://oshub.org/users/OSHub/posts/rust-memory-safety-in-kernel-space-9178dd">Rust: Memory safety in kernel space</a>
+<ul>
+<li>An OS-focused introduction to how Rust's ownership and <code>unsafe</code> boundaries change kernel development.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://blog.google/security/bringing-rust-to-the-pixel-baseband/">Bringing Rust to the Pixel Baseband</a>
+<ul>
+<li>Google describes adding Rust to Pixel modem firmware, including <code>no_std</code> support for Hickory DNS dependencies, <code>core</code>/<code>alloc</code> integration, allocator and panic handler hooks, and firmware linking details.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://aaronqian.com/log/2026-04-22-tinyboot-v040-released/">tinyboot v0.4.0 Released -- The API is Stable</a>
+<ul>
+<li>A minimal Rust bootloader for resource-constrained MCUs. This release adds CH32V00x support, collapses the CH32 crates, stabilizes the wire protocol, and fixes half-duplex UART bugs.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://chrisdell.info/using-rust-to-build-a-1-dollar-handheld-gaming-console/">Using Rust to Build a $1 Handheld Gaming Console</a>
+<ul>
+<li>A small embedded Rust project on the CH32V003 RISC-V microcontroller, with notes on RAM-constrained rendering and fixed-point math.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://redixhumayun.github.io/databases/2026/04/14/zero-copy-pages-in-rust.html">Zero-copy pages in Rust</a>
+<ul>
+<li>Explores an approach for working with database pages in Rust while avoiding unnecessary copies.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.redox-os.org/news/this-month-260430/">This Month in Redox - April 2026</a>
+<ul>
+<li>The Redox project reports updates across the kernel, system libraries, drivers, and userspace.</li>
+</ul>
+</li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a rel="external" href="https://blog.rust-lang.org/2026/04/16/Rust-1.95.0/">Rust 1.95.0</a>
+<ul>
+<li>Stabilizes <code>cfg_select!</code>, atomic <code>update</code>/<code>try_update</code> methods, and allocator layout helpers such as <code>Layout::{dangling_ptr, repeat, repeat_packed, extend_packed}</code>.</li>
+<li>Important for custom-target users: stable <code>rustc</code> no longer accepts JSON target specifications. Building <code>core</code> for custom targets still requires nightly-only features.</li>
+</ul>
+</li>
+<li>Move <code>std::io</code> pieces toward <code>core::io</code>
+<ul>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/154654"><code>ErrorKind</code></a> and <a rel="external" href="https://github.com/rust-lang/rust/pull/155574"><code>RawOsError</code></a> were moved into <code>core::io</code>, continuing the groundwork for more I/O abstractions in <code>no_std</code> contexts.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/153049">Add <code>-Zsanitize=kernel-hwaddress</code></a>
+<ul>
+<li>Adds nightly support for the kernel hardware address sanitizer mode used by Linux's <code>CONFIG_KASAN_SW_TAGS</code>.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rfcs/pull/3855">Mitigation enforcement RFC</a>
+<ul>
+<li>An approved RFC for tracking and enforcing target-wide exploit mitigation options such as stack protector settings.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rfcs/pull/3874">build-std: always RFC</a>
+<ul>
+<li>Proposed Cargo configuration for rebuilding standard library crates, part of the ongoing effort to make <code>build-std</code> usable on stable.</li>
+</ul>
+</li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a rel="external" href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="pvh"><a rel="external" href="https://github.com/rust-osdev/pvh"><code>pvh</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/mkroening">@mkroening</a></span></p>
+<p>The <code>pvh</code> crate contains definitions for Xen's <a rel="external" href="https://xenbits.xen.org/docs/unstable/misc/pvh.html">x86/HVM direct boot ABI</a> (PVH). PVH is commonly used for direct kernel boot in virtual machine managers (VMMs), such as <a rel="external" href="https://www.qemu.org">QEMU</a>, and in VMMs using the <a rel="external" href="https://github.com/rust-vmm/linux-loader"><code>linux-loader</code></a> crate, such as <a rel="external" href="https://firecracker-microvm.github.io">Firecracker</a> and <a rel="external" href="https://www.cloudhypervisor.org">Cloud Hypervisor</a>.</p>
+<p>The crate allows kernels to be booted via PVH and helps read the data provided via physical addresses. Its structures can also be used in VMMs or bootloaders to create appropriate start info structures when loading a kernel.</p>
+<p>The <a rel="external" href="https://github.com/rust-osdev/pvh">new repository</a> was created this month and is also available <a rel="external" href="https://crates.io/crates/pvh">on crates.io</a>.</p>
+<p>Thanks to <a rel="external" href="https://github.com/mkroening">@mkroening</a> for creating the project!</p>
+<h3 id="acpi"><a rel="external" href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers uses to relay information about the hardware to the OS.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/284">Support multiple tables per test in <code>aml_tester</code></a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/274">Implement Index and Bank fields</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/285">Add support for running the tests from uACPI</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/276">Remove some AML-triggerable panics from library</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/287">Derive Clone, Debug on useful objects</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/291">(minor) Trace the table ID better</a></li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/martin-hughes">@martin-hughes</a> for their contributions!</p>
+<h3 id="uefi-rs"><a rel="external" href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a rel="external" href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a rel="external" href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1934">uefi: make TimerTrigger more pleasant to use</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1936">uefi-raw: Add SimpleTextInputEx protocol</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1937">uefi: Add InputEx protocol</a></li>
+</ul>
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1926) -->
+<!-- - [chore(deps): update codecov/codecov-action action to v5.5.4](https://github.com/rust-osdev/uefi-rs/pull/1923) -->
+<!-- - [chore(deps): update dorny/paths-filter action to v4](https://github.com/rust-osdev/uefi-rs/pull/1921) -->
+<!-- - [misc: update to typos 1.45](https://github.com/rust-osdev/uefi-rs/pull/1927) -->
+<!-- - [chore(deps): update codecov/codecov-action action to v6](https://github.com/rust-osdev/uefi-rs/pull/1924) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1929) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.45.1](https://github.com/rust-osdev/uefi-rs/pull/1930) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1933) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1935) -->
+<p>Thanks to <a rel="external" href="https://github.com/JarlEvanson">@JarlEvanson</a> for their contributions!</p>
+<h3 id="bootloader"><a rel="external" href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a> and <a rel="external" href="https://github.com/Freax13">@Freax13</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. This month, we merged the following change:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/557">Update to v0.11.15 and add missing x86_64-unknown-uefi target</a></li>
+</ul>
+<!-- - [Bump rand from 0.8.5 to 0.8.6](https://github.com/rust-osdev/bootloader/pull/559) -->
+<!-- - [Bump rustls-webpki from 0.103.10 to 0.103.13 in /examples/basic](https://github.com/rust-osdev/bootloader/pull/560) -->
+<p>Thanks to <a rel="external" href="https://github.com/peppergrayxyz">@peppergrayxyz</a> for their contribution!</p>
+<h3 id="x86-64"><a rel="external" href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a>, <a rel="external" href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a rel="external" href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following PR this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/x86_64/pull/588">insert NOP after STI</a></li>
+</ul>
+<h3 id="linked-list-allocator"><a rel="external" href="https://github.com/rust-osdev/linked-list-allocator"><code>linked-list-allocator</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a> and <a rel="external" href="https://github.com/jamesmunns">@jamesmunns</a></span></p>
+<p>The <code>linked-list-allocator</code> crate provides a basic <code>no_std</code> allocator that builds a linked list from freed memory blocks and thus needs no additional data structures. We merged the following PR this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/linked-list-allocator/pull/90">fix(alloc_ref): use renamed <code>dangling</code></a></li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/sermuns">@sermuns</a> for their contribution!</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a rel="external" href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="willamhou-hypervisor"><a rel="external" href="https://github.com/willamhou/hypervisor"><code>willamhou/hypervisor</code></a></h3>
+<p><span class="maintainers">(Section written by <a rel="external" href="https://github.com/willamhou">@willamhou</a>)</span></p>
+<p>An ARM64 Type-1 bare-metal hypervisor written in Rust (<code>no_std</code>). It runs at EL2 and manages guest VMs at EL1, targeting the QEMU <code>virt</code> machine. The project boots Linux 6.12.12 to a BusyBox shell with 4 vCPUs, virtio-blk storage, and virtio-net inter-VM networking.</p>
+<p>Key features:</p>
+<ul>
+<li><strong>S-EL2 SPMC</strong>: Runs as BL32 in TF-A boot chain, replacing Hafnium. Manages multiple Secure Partitions (SPs) at S-EL1 with per-SP Secure Stage-2 page tables.</li>
+<li><strong>FF-A v1.1</strong>: Full proxy implementation including DIRECT_REQ/RESP messaging, memory sharing (MEM_SHARE/LEND/DONATE/RETRIEVE/RELINQUISH/RECLAIM), descriptor fragmentation, PARTITION_INFO_GET, notifications, indirect messaging, and CONSOLE_LOG.</li>
+<li><strong>pKVM integration</strong>: Coexists with Android pKVM at NS-EL2 — our SPMC at S-EL2, pKVM at NS-EL2. 35/35 <code>ffa_test.ko</code> tests pass, including SP-to-SP DIRECT_REQ relay and SP-to-SP memory sharing through the real SPMD chain.</li>
+<li><strong>Multi-VM</strong>: 2 Linux VMs time-sliced with VMID-tagged TLBs and per-VM Stage-2 page tables.</li>
+<li><strong>SMP</strong>: Both 4-vCPU-on-1-pCPU (round-robin scheduler) and 4-vCPU-on-4-pCPU (1:1 affinity) modes.</li>
+<li><strong>SP-to-SP</strong>: CallStack cycle detection, recursive dispatch, chain preemption, secure virtual interrupt injection via HCR_EL2.VI.</li>
+<li><strong>34 test suites</strong> with ~457 assertions running on QEMU, plus 20/20 BL33 E2E integration tests.</li>
+</ul>
+<h3 id="mohammadmuzamil23-qunix-operating-system"><a rel="external" href="https://github.com/MohammadMuzamil23/Qunix-Operating-System"><code>MohammadMuzamil23/Qunix-Operating-System</code></a></h3>
+<p><span class="maintainers">(Section suggested by JustSmile)</span></p>
+<p>Qunix is a Unix-like hobby operating system written in Rust. It includes a process model, virtual filesystem layer, memory management with COW fork and demand paging, an ELF loader, and a priority-based preemptive scheduler.</p>
+<p>The project recently reached userspace and is making progress on POSIX compatibility. Its initial <code>v0.2.0</code> release adds 70+ userland utilities, including a shell (<code>qsh</code>), along with blocking pipes, a TTY subsystem, and POSIX-style signal delivery.</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way to get in touch is our <a rel="external" href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+]]>
+            </content:encoded>
+        </item>
         <item>
             <title>This Month in Rust OSDev: March 2026</title>
             <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
