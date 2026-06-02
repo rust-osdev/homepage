@@ -68,6 +68,8 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - Includes Cargo fixes for [CVE-2026-5223](https://blog.rust-lang.org/2026/05/25/cve-2026-5223/) and CVE-2026-5222 for users of third-party registries.
 - More `std::io` pieces move toward `core::io`
   - [`Cursor`](https://github.com/rust-lang/rust/pull/156428) and [`std::io::util`](https://github.com/rust-lang/rust/pull/156431) were moved into `core::io`, continuing the effort to make I/O building blocks available in `no_std` contexts.
+- [Proposal to stabilize the `Allocator` trait](https://github.com/rust-lang/rust/pull/156882)
+  - A draft PR that proposes stabilizing the `Allocator` trait together with `Global`, `System`, and the `*_in` constructors (e.g. `Box::new_in`, `Vec::new_in`). This would let kernel and `no_std` code use custom allocators with the standard collections on stable Rust. The design still needs to go through FCP and bake further before it can land.
 - [Cargo `clean -p` now respects `build.target`](https://github.com/rust-lang/cargo/pull/16988)
   - Makes `cargo clean -p` behave more predictably for projects that set a default cross-compilation target in Cargo configuration.
 - [Promote five Thumb-mode bare-metal Arm targets to Tier 2](https://github.com/rust-lang/compiler-team/issues/985)
