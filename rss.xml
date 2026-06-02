@@ -12,8 +12,191 @@
         <atom:link href="https://rust-osdev.com/rss.xml" rel="self" type="application/rss+xml"/>
 
     
-        <lastBuildDate>Thu, 14 May 2026 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Tue, 02 Jun 2026 00:00:00 +0000</lastBuildDate>
     
+        <item>
+            <title>This Month in Rust OSDev: May 2026</title>
+            <pubDate>Tue, 02 Jun 2026 00:00:00 +0000</pubDate>
+            <link>https://rust-osdev.com/this-month/2026-05/</link>
+            <guid isPermaLink="true">https://rust-osdev.com/this-month/2026-05/</guid>
+            <description xml:base="https://rust-osdev.com/this-month/2026-05/">
+            <![CDATA[&lt;p&gt;Welcome to a new issue of &lt;em&gt;&quot;This Month in Rust OSDev&quot;&lt;&#x2F;em&gt;. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.&lt;&#x2F;p&gt;]]>
+            </description>
+            <content:encoded>
+				
+				
+                <![CDATA[<p>Welcome to a new issue of <em>"This Month in Rust OSDev"</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a rel="external" href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a rel="external" href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2026-05/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<p>Please submit interesting posts and projects for the next issue <a rel="external" href="https://rust-osdev.zulipchat.com/#narrow/channel/435142-newsletter/topic/Content.20suggestions/with/580172810">on Zulip</a> or via a PR <a rel="external" href="https://github.com/rust-osdev/homepage/">on GitHub</a>.</p>
+<span class="gray">
+Disclaimer: Automated scripts and AI assistance were used for collecting and categorizing links.
+Everything was proofread and checked manually, with many manual tweaks.
+</span>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (May 2026)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a rel="external" href="https://corrode.dev/podcast/s06e04-rust4linux/">Rust for Linux Live with Alice Ryhl and Greg Kroah-Hartman</a>
+<ul>
+<li>A live Rust Week recording about Rust in the Linux kernel, C/Rust interoperability, kernel driver work, and the day-to-day realities of writing kernel code in Rust.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://thejpster.org.uk/blog/blog-2026-05-17/">Finding the Time Part 2 - Rust Async and the Arm Generic Timer</a>
+<ul>
+<li>Explores implementing async timers for Armv8-R systems using the Arm Generic Timer, interrupts, and Embassy's <code>embassy-time</code> driver model.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://blog.cat-girl.gay/3ds-async-part-one/">Building an AsyncIO executor for the 3DS</a>
+<ul>
+<li>Starts a series on cooperative multitasking for Nintendo 3DS homebrew by building a small Rust executor and connecting async wakeups to platform scheduling constraints.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://jonahnestrick.com/blog/rust-gba-tutorial-1/">Rust x GBA: Setup and Pixels</a>
+<ul>
+<li>Walks through setting up a nightly Rust project for Game Boy Advance ROM development, including <code>arm-none-eabi</code> tooling, Cargo configuration, <code>core</code>-only code, and pixel output.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.theembeddedrustacean.com/uferris">uFerris: A Versatile Learner Board for Rust Embedded Beginners</a>
+<ul>
+<li>A new open source learner board and board support crate for embedded Rust exercises across Seeed XIAO-compatible MCUs.</li>
+</ul>
+</li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a rel="external" href="https://blog.rust-lang.org/2026/05/28/Rust-1.96.0/">Rust 1.96.0</a>
+<ul>
+<li>Stabilizes new <code>core::range</code> types and <code>core::assert_matches!</code>/<code>core::debug_assert_matches!</code>.</li>
+<li>WebAssembly targets now fail on undefined linker symbols by default instead of implicitly treating them as <code>"env"</code> imports.</li>
+<li>Includes Cargo fixes for <a rel="external" href="https://blog.rust-lang.org/2026/05/25/cve-2026-5223/">CVE-2026-5223</a> and CVE-2026-5222 for users of third-party registries.</li>
+</ul>
+</li>
+<li>More <code>std::io</code> pieces move toward <code>core::io</code>
+<ul>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/156428"><code>Cursor</code></a> and <a rel="external" href="https://github.com/rust-lang/rust/pull/156431"><code>std::io::util</code></a> were moved into <code>core::io</code>, continuing the effort to make I/O building blocks available in <code>no_std</code> contexts.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/156882">Proposal to stabilize the <code>Allocator</code> trait</a>
+<ul>
+<li>A draft PR that proposes stabilizing the <code>Allocator</code> trait together with <code>Global</code>, <code>System</code>, and the <code>*_in</code> constructors (e.g. <code>Box::new_in</code>, <code>Vec::new_in</code>). This would let kernel and <code>no_std</code> code use custom allocators with the standard collections on stable Rust. The design still needs to go through FCP and bake further before it can land.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/cargo/pull/16988">Cargo <code>clean -p</code> now respects <code>build.target</code></a>
+<ul>
+<li>Makes <code>cargo clean -p</code> behave more predictably for projects that set a default cross-compilation target in Cargo configuration.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/compiler-team/issues/985">Promote five Thumb-mode bare-metal Arm targets to Tier 2</a>
+<ul>
+<li>A compiler-team proposal entered final comment period to promote additional <code>thumb*-none-eabi*</code> bare-metal targets.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/compiler-team/issues/976">Add <code>-Zdead-fn-elimination</code></a>
+<ul>
+<li>A compiler-team proposal entered final comment period for a nightly codegen option that skips functions unreachable from exported symbols, which could help size-sensitive bare-metal and freestanding binaries.</li>
+</ul>
+</li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a rel="external" href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="acpi"><a rel="external" href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers uses to relay information about the hardware to the OS.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/293">Use <code>contribute_arg</code> to handle <code>NoCurrentOp</code> at the top-level</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/295">Logical not only requires one arg</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/296">Move method context to <code>do_execute_method</code></a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/288">Get referenced-package size - unwrap reference in <code>do_size_of</code></a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/286">Allow BufferField -&gt; Integer conversion</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/303">Compare strings and buffers like uACPI</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/299">Update uACPI example tests since some now work</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/298">Directly test a stream of opcodes</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/304">Fix regression in implicit casting from integer -&gt; string</a></li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/martin-hughes">@martin-hughes</a> for their contributions!</p>
+<h3 id="uefi-rs"><a rel="external" href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a rel="external" href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a rel="external" href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1939">Fix connect_controller to take a list for <code>driver_image</code>.</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1942">AtaPassThru: Make AtaStatusBlock and AtaCommandBlock derive Clone</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1953">various updates (nothing major or critical) + bump MSRV from 1.88 to 1.91</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1954">uefi: move runtime module to directory</a></li>
+</ul>
+<!-- - [chore(deps): update crate-ci/typos action to v1.46.0](https://github.com/rust-osdev/uefi-rs/pull/1940) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1941) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.46.1](https://github.com/rust-osdev/uefi-rs/pull/1944) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1946) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.46.2](https://github.com/rust-osdev/uefi-rs/pull/1948) -->
+<!-- - [ci: fix broken uefi-macros test](https://github.com/rust-osdev/uefi-rs/pull/1952) -->
+<p>Thanks to <a rel="external" href="https://github.com/seijikun">@seijikun</a> for their contributions!</p>
+<h3 id="x86-64"><a rel="external" href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a>, <a rel="external" href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a rel="external" href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following PR this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/x86_64/pull/589">implement DoubleEndedIterator for ranges + implement more iterator methods</a></li>
+</ul>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a rel="external" href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="phil-opp-blog-os"><a rel="external" href="https://github.com/phil-opp/blog_os"><code>phil-opp/blog_os</code></a></h3>
+<p><span class="maintainers">(Section written by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a>)</span></p>
+<p>We merged the following changes to the <a rel="external" href="https://os.phil-opp.com/"><em>Writing an OS in Rust</em></a> blog this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/phil-opp/blog_os/pull/1477">fix: lazy_static is not needed, keyboard methods are const, </a></li>
+<li><a rel="external" href="https://github.com/phil-opp/blog_os/pull/1480">[Translation] Translated post 8 and 9 into Russian</a></li>
+<li><a rel="external" href="https://github.com/phil-opp/blog_os/pull/1481">Adding Turkish translations of blog posts</a></li>
+<li><a rel="external" href="https://github.com/phil-opp/blog_os/pull/1482">Adjust blog for PR #1477</a></li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/harsh-98">@harsh-98</a>, <a rel="external" href="https://github.com/TakiMoysha">@TakiMoysha</a>, and <a rel="external" href="https://github.com/rhotav">@rhotav</a> for their contributions!</p>
+<!-- <span class="gray">No projects updates were submitted this month.</span> -->
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way to get in touch is our <a rel="external" href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+]]>
+            </content:encoded>
+        </item>
         <item>
             <title>This Month in Rust OSDev: April 2026</title>
             <pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate>
