@@ -39,6 +39,7 @@ Please follow this template:
 - [Title](https://example.com)
   - (optional) Some additional context
 -->
+- [Announcing Asterinas 0.18.0](https://asterinas.github.io/2026/06/04/announcing-asterinas-0.18.0.html)
 
 <span class="gray">No content was submitted for this section this month.</span>
 
