@@ -113,7 +113,7 @@ Please follow this template:
 </li>
 <li><a rel="external" href="https://github.com/rust-lang/compiler-team/issues/976">Add <code>-Zdead-fn-elimination</code></a>
 <ul>
-<li>A compiler-team proposal entered final comment period for a nightly codegen option that skips functions unreachable from exported symbols, which could help size-sensitive bare-metal and freestanding binaries.</li>
+<li>A compiler-team proposal entered final comment period for a nightly codegen option that skips functions unreachable from exported symbols, which could improve compile time. Improvements on binary size are <a rel="external" href="https://rust-osdev.zulipchat.com/#narrow/channel/435142-newsletter/topic/Incorrect.20characterization.20of.20-Zdead-fn-elimination">not expected</a> though since the linker should already eliminate dead functions today.</li>
 </ul>
 </li>
 </ul>
