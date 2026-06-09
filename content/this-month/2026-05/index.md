@@ -75,7 +75,7 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 - [Promote five Thumb-mode bare-metal Arm targets to Tier 2](https://github.com/rust-lang/compiler-team/issues/985)
   - A compiler-team proposal entered final comment period to promote additional `thumb*-none-eabi*` bare-metal targets.
 - [Add `-Zdead-fn-elimination`](https://github.com/rust-lang/compiler-team/issues/976)
-  - A compiler-team proposal entered final comment period for a nightly codegen option that skips functions unreachable from exported symbols, which could help size-sensitive bare-metal and freestanding binaries.
+  - A compiler-team proposal entered final comment period for a nightly codegen option that skips functions unreachable from exported symbols, which could improve compile time. Improvements on binary size are [not expected](https://rust-osdev.zulipchat.com/#narrow/channel/435142-newsletter/topic/Incorrect.20characterization.20of.20-Zdead-fn-elimination) though since the linker should already eliminate dead functions today.
 
 ## `rust-osdev` Projects
 
