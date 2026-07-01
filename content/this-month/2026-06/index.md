@@ -40,8 +40,17 @@ Please follow this template:
   - (optional) Some additional context
 -->
 - [Announcing Asterinas 0.18.0](https://asterinas.github.io/2026/06/04/announcing-asterinas-0.18.0.html)
+- [This Month in Redox - May 2026](https://www.redox-os.org/news/this-month-260531/)
+  - The latest Redox update covers an EEVDF scheduler, page flipping and plane support in the Intel graphics driver, a COSMIC monitor and XFCE port, and large I/O and RedoxFS performance improvements.
+- [Zinnia](https://zinnia-os.org/)
+  - A Unix-like kernel written almost entirely in Rust that boots on real x86_64 hardware and can run Wayland/X11 desktop sessions (Weston, XFCE). Drivers are loaded as modular Rust ELF libraries at boot.
+- [LearnixOS](https://www.learnix-os.com/)
+  - A book that teaches OS development from scratch in Rust, covering memory allocators, paging, filesystems, and kernel logic.
+- [Hardware Is Asynchronous. Most of Our Operating Systems Still Aren't.](https://vorjdux.com/articles/hardware-is-async.html)
+  - An article arguing that operating systems should treat asynchrony as the default rather than layering it on top of blocking abstractions, drawing on work from [CharlotteOS](https://github.com/charlotte-os/charlotte-os), an experimental modern OS written in Rust.
+- [Building an AsyncIO executor for the 3DS (pt 1!)](https://blog.cat-girl.gay/3ds-async-part-one/)
+  - Building a from-scratch async I/O executor for the Nintendo 3DS.
 
-<span class="gray">No content was submitted for this section this month.</span>
 
 ## Infrastructure and Tooling
 
@@ -54,7 +63,19 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
-<span class="gray">No content was submitted for this section this month.</span>
+- [Move `std::io::Error` into `core`](https://github.com/rust-lang/rust/pull/155625)
+  - Makes I/O error handling available in `no_std`
+  - Now the rest of `std::io` can be moved to `core`/`alloc` too, including the `Read` and `Write` traits. See the [open PR](https://github.com/rust-lang/rust/pull/156527) and the [tracking issue](https://github.com/rust-lang/rust/issues/154046) for details.
+- [Stabilize `int_format_into` feature](https://github.com/rust-lang/rust/pull/152544)
+  - Formats integers into fixed-size buffers with no allocation.
+- [Stabilize `#![feature(box_as_ptr)]`](https://github.com/rust-lang/rust/pull/157876)
+  - Stabilizes `Box::as_ptr` and `Box::as_mut_ptr`
+  - These methods can be used to create multiple pointers to the same `Box` that don't invalidate each other.
+- [staticlib: hide internal symbols](https://github.com/rust-lang/rust/pull/155338)
+  - A new `-Zstaticlib-hide-internal-symbols` flag hides non-exported Rust symbols in static libraries, shrinking binaries by 5–12% in non-LTO builds.
+- [`asm!` support for the Xtensa architecture](https://github.com/rust-lang/rust/pull/147302)
+  - Inline assembly for Xtensa (ESP32 and related chips) lands in-tree after years in the esp-rs fork.
+
 
 ## `rust-osdev` Projects
 
@@ -72,7 +93,104 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
-<span class="gray">No projects updates were submitted this month.</span>
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@GabrielMajeri](https://github.com/GabrielMajeri), [@nicholasbishop](https://github.com/nicholasbishop), and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following PRs this month:
+
+- [Feat: IoMmu protocol](https://github.com/rust-osdev/uefi-rs/pull/1728)
+- [uefi: Add PciRootBridgeIo memory and I/O space access](https://github.com/rust-osdev/uefi-rs/pull/1958)
+- [uefi: Add PciRootBridgeIo attribute manipulation](https://github.com/rust-osdev/uefi-rs/pull/1965)
+- [uefi-raw: Add PciRootBridgeIoProtocolAttributes](https://github.com/rust-osdev/uefi-rs/pull/1957)
+- [uefi: Add integration with `time` crate](https://github.com/rust-osdev/uefi-rs/pull/1955)
+- [uefi: Add integration with `jiff` crate](https://github.com/rust-osdev/uefi-rs/pull/1956)
+- [uefi: remove deprecated APIs](https://github.com/rust-osdev/uefi-rs/pull/1966)
+- [uefi-raw: enhance Boolean type and make it more type safe](https://github.com/rust-osdev/uefi-rs/pull/1974)
+- [uefi-raw: various spec fixes](https://github.com/rust-osdev/uefi-rs/pull/1962)
+- [uefi: Fix `boot::exit` signature](https://github.com/rust-osdev/uefi-rs/pull/1959)
+- [uefi: reject undersized device path nodes](https://github.com/rust-osdev/uefi-rs/pull/1979)
+- [uefi: various smaller memory map related fixes and improvements](https://github.com/rust-osdev/uefi-rs/pull/1980)
+- [uefi-raw: format negative time zones correctly](https://github.com/rust-osdev/uefi-rs/pull/1982)
+- [release: uefi-raw-0.15.0, uefi-0.38.0](https://github.com/rust-osdev/uefi-rs/pull/1984)
+
+<!-- - [chore(deps): update crate-ci/typos action to v1.47.2](https://github.com/rust-osdev/uefi-rs/pull/1961) -->
+<!-- - [chore(deps): update codecov/codecov-action action to v6.0.2](https://github.com/rust-osdev/uefi-rs/pull/1960) -->
+<!-- - [nix: simplify nix code & update](https://github.com/rust-osdev/uefi-rs/pull/1963) -->
+<!-- - [uefi-raw: fix typo in PciRootBridgeIoProtocolAttributes](https://github.com/rust-osdev/uefi-rs/pull/1964) -->
+<!-- - [ci: update QEMU for windows runners](https://github.com/rust-osdev/uefi-rs/pull/1969) -->
+<!-- - [treewide: allow() -> expect() + remove unneeded allow()](https://github.com/rust-osdev/uefi-rs/pull/1968) -->
+<!-- - [xtask: update OVMF from EDK2-STABLE202502 to EDK2-STABLE202605](https://github.com/rust-osdev/uefi-rs/pull/1970) -->
+<!-- - [ci: use ubuntu-26.04 (to update QEMU)](https://github.com/rust-osdev/uefi-rs/pull/1976) -->
+<!-- - [chore(deps): update rust crate time to v0.3.47 [security]](https://github.com/rust-osdev/uefi-rs/pull/1977) -->
+<!-- - [Remove duplications in `uefi` and `uefi-raw`](https://github.com/rust-osdev/uefi-rs/pull/1967) -->
+<!-- - [uefi: streamline + fix usize_from_u32()](https://github.com/rust-osdev/uefi-rs/pull/1981) -->
+<!-- - [uefi: minor improvements to device path protocol code](https://github.com/rust-osdev/uefi-rs/pull/1983) -->
+<!-- - [uefi: minor adjustments regarding previous commits](https://github.com/rust-osdev/uefi-rs/pull/1985) -->
+<!-- - [treewide: enforce safety comments](https://github.com/rust-osdev/uefi-rs/pull/1988) -->
+<!-- - [remove multilingual field from book.toml](https://github.com/rust-osdev/uefi-rs/pull/1992) -->
+
+Thanks to [@JarlEvanson](https://github.com/JarlEvanson), [@mysteriouslyseeing](https://github.com/mysteriouslyseeing), and [@PelleKrab](https://github.com/PelleKrab) for their contributions!
+
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+_Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
+the contained information tags. Usable in no_std environments, such as a kernel.
+An optional builder feature also allows the construction of the corresponding
+structures._
+
+We merged the following PRs this month:
+
+- [Rewrite: Add elf library for elf_sections.rs](https://github.com/rust-osdev/multiboot2/pull/292)
+- [various safety and correctness improvements](https://github.com/rust-osdev/multiboot2/pull/301)
+- [Various improvements and fixes](https://github.com/rust-osdev/multiboot2/pull/300)
+- [modernize misc stuff](https://github.com/rust-osdev/multiboot2/pull/296)
+- [elf: remove From impl](https://github.com/rust-osdev/multiboot2/pull/299)
+- [chore: prepare new workspace releases](https://github.com/rust-osdev/multiboot2/pull/302)
+
+<!-- - [build(deps): bump crate-ci/typos from 1.46.0 to 1.47.0](https://github.com/rust-osdev/multiboot2/pull/294) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.47.0 to 1.47.2](https://github.com/rust-osdev/multiboot2/pull/298) -->
+<!-- - [build(deps): bump bitflags from 2.11.0 to 2.13.0](https://github.com/rust-osdev/multiboot2/pull/297) -->
+
+Thanks to [@an-owl](https://github.com/an-owl) for their contribution!
+
+### [`ovmf-prebuilt`](https://github.com/rust-osdev/ovmf-prebuilt)
+<span class="maintainers">Maintained by [@nicholasbishop](https://github.com/nicholasbishop) and [@phil-opp](https://github.com/phil-opp)</span>
+
+The `ovmf-prebuilt` project provides pre-built [edk2](https://github.com/tianocore/edk2) releases to make it easier to set up OVMF. We merged the following changes this month:
+
+- [Fix build errors for edk2-stable202605](https://github.com/rust-osdev/ovmf-prebuilt/pull/312)
+- [Update to sha2-0.11](https://github.com/rust-osdev/ovmf-prebuilt/pull/313)
+- [release: 0.2.9 with edk2-stable202605-r1](https://github.com/rust-osdev/ovmf-prebuilt/pull/314)
+
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/309) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/310) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/315) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/316) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/317) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/ovmf-prebuilt/pull/320) -->
+
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+Simple yet highly configurable low-level driver for 16550 UART devices,
+typically known and used as serial ports or COM ports.
+
+We merged the following change this month:
+
+- [lib: change signature of Uart16550::config() to be more flexible](https://github.com/rust-osdev/uart_16550/pull/61)
+
+<!-- - [build(deps): bump crate-ci/typos from 1.46.0 to 1.47.1](https://github.com/rust-osdev/uart_16550/pull/59) -->
+<!-- - [build(deps): bump bitflags from 2.11.0 to 2.12.1](https://github.com/rust-osdev/uart_16550/pull/60) -->
+
+<!--
+    bootloader and x86_64 had only dependency/chore updates this month:
+    - bootloader #565 (deps: bump uart_16550), #567 (janked dependencies)
+    - x86_64 #590 (Bump actions/checkout from 6 to 7)
+-->
 
 ## Other Projects
 
