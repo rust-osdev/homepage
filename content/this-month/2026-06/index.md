@@ -76,7 +76,6 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
 - [`asm!` support for the Xtensa architecture](https://github.com/rust-lang/rust/pull/147302)
   - Inline assembly for Xtensa (ESP32 and related chips) lands in-tree after years in the esp-rs fork.
 
-
 ## `rust-osdev` Projects
 
 In this section, we give an overview of notable changes to the projects hosted under the [`rust-osdev`](https://github.com/rust-osdev/about) organization.
@@ -157,6 +156,21 @@ We merged the following PRs this month:
 
 Thanks to [@an-owl](https://github.com/an-owl) for their contribution!
 
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables. The following changes landed in early July, but we want to mention them already because they affect users building against recent Rust nightlies:
+
+- Recent Rust nightlies renamed the `x86-softfloat` target ABI to `softfloat`. This update adjusts the bootloader's custom targets accordingly, on both the latest release and the `v0.9` branch.
+  - [Change `rustc-abi` in custom targets from `x86-softfloat` to `softfloat`](https://github.com/rust-osdev/bootloader/pull/569)
+  - [(v0.9) Change `rustc-abi` in custom targets from `x86-softfloat` to `softfloat`](https://github.com/rust-osdev/bootloader/pull/568)
+- [uefi: bump from 0.20 to 0.38](https://github.com/rust-osdev/bootloader/pull/566)
+
+<!-- - [deps: bump uart_16550 to 0.6.0](https://github.com/rust-osdev/bootloader/pull/565) -->
+<!-- - [janked dependencies: bump critical-section, atomic-polyfill, heapless](https://github.com/rust-osdev/bootloader/pull/567) -->
+
+Thanks to [@phip1611](https://github.com/phip1611) for their contribution!
+
 ### [`ovmf-prebuilt`](https://github.com/rust-osdev/ovmf-prebuilt)
 <span class="maintainers">Maintained by [@nicholasbishop](https://github.com/nicholasbishop) and [@phil-opp](https://github.com/phil-opp)</span>
 
@@ -187,8 +201,7 @@ We merged the following change this month:
 <!-- - [build(deps): bump bitflags from 2.11.0 to 2.12.1](https://github.com/rust-osdev/uart_16550/pull/60) -->
 
 <!--
-    bootloader and x86_64 had only dependency/chore updates this month:
-    - bootloader #565 (deps: bump uart_16550), #567 (janked dependencies)
+    x86_64 had only dependency/chore updates this month:
     - x86_64 #590 (Bump actions/checkout from 6 to 7)
 -->
 
@@ -252,6 +265,16 @@ println!("Executable end:   {:p}", elf_symbols::executable_end());
 [mold]: https://github.com/rui314/mold/tree/v2.41.0
 [Wild]: https://github.com/wild-linker/wild/tree/0.9.0
 [elf-symbols]: https://crates.io/crates/elf-symbols
+
+### [`phil-opp/blog_os`](https://github.com/phil-opp/blog_os)
+<span class="maintainers">(Section written by [@phil-opp](https://github.com/phil-opp))</span>
+
+We merged the following changes to the [_Writing an OS in Rust_](https://os.phil-opp.com/) blog. These landed in early July, but we mention them here since they keep the code building on the latest Rust nightly:
+
+- [Fix target spec: use `softfloat` instead of `x86-softfloat`](https://github.com/phil-opp/blog_os/pull/1484)
+- [Fix blog: the `x86-softfloat` feature was renamed to `softfloat`](https://github.com/phil-opp/blog_os/pull/1485)
+- [Update for new Rust error messages](https://github.com/phil-opp/blog_os/pull/1486)
+- [Update blog to zola 0.22.1](https://github.com/phil-opp/blog_os/pull/1487)
 
 ## Join Us?
 
