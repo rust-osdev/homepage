@@ -6,7 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-chrono = { version = "0.4.21", default-features = false }
 eyre = "0.6.8"
-octocrab = "0.44.1"
-tokio = { version = "1.20.4", features = ["full"] }
+jiff = { version = "0.2", features = ["serde"] }
+reqwest = { version = "0.12", features = ["json"] }
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1.20.4", features = ["macros", "rt-multi-thread"] }
