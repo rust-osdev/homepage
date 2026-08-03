@@ -1,4 +1,4 @@
-use chrono::{DateTime, Datelike, Duration, Utc};
+use jiff::{tz::TimeZone, Timestamp, ToSpan};
 use reqwest::header::{HeaderMap, ACCEPT, AUTHORIZATION, LINK};
 use serde::Deserialize;
 use std::collections::BTreeMap;
@@ -20,25 +20,21 @@ struct User {
 struct Pull {
     title: String,
     html_url: String,
-    merged_at: Option<DateTime<Utc>>,
-    updated_at: Option<DateTime<Utc>>,
+    merged_at: Option<Timestamp>,
+    updated_at: Option<Timestamp>,
     user: Option<User>,
 }
 
 #[tokio::main]
 async fn main() -> eyre::Result<()> {
-    let last_month = {
-        let twenty_days_ago = Utc::now().checked_sub_signed(Duration::days(20)).unwrap();
-        twenty_days_ago
-            .with_day(1)
-            .unwrap()
-            .date_naive()
-            .and_hms_opt(0, 0, 0)
-            .unwrap()
-            .and_utc()
-    };
+    let last_month = Timestamp::now()
+        .to_zoned(TimeZone::UTC)
+        .checked_sub(20.days())?
+        .first_of_month()?
+        .start_of_day()?;
     let year = last_month.year();
     let month = last_month.month();
+    let last_month = last_month.timestamp();
     println!("Creating changelog for {year}/{month}");
 
     let mut headers = HeaderMap::new();
@@ -63,7 +59,7 @@ async fn main() -> eyre::Result<()> {
     )
     .await?;
 
-    type MergedPulls = Vec<(Pull, DateTime<Utc>)>;
+    type MergedPulls = Vec<(Pull, Timestamp)>;
     let mut changes: BTreeMap<String, (Repo, MergedPulls)> = BTreeMap::new();
     for repo in all_repos {
         let mut merged = Vec::new();
@@ -79,7 +75,8 @@ async fn main() -> eyre::Result<()> {
             let oldest_updated = items.last().and_then(|p| p.updated_at);
             for p in &items {
                 if let Some(t) = p.merged_at {
-                    if t.year() == year && t.month() == month {
+                    let dt = t.to_zoned(TimeZone::UTC);
+                    if dt.year() == year && dt.month() == month {
                         merged.push((p.clone(), t));
                     }
                 }
