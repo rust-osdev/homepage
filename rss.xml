@@ -12,8 +12,258 @@
         <atom:link href="https://rust-osdev.com/rss.xml" rel="self" type="application/rss+xml"/>
 
     
-        <lastBuildDate>Tue, 07 Jul 2026 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Tue, 11 Aug 2026 00:00:00 +0000</lastBuildDate>
     
+        <item>
+            <title>This Month in Rust OSDev: July 2026</title>
+            <pubDate>Tue, 11 Aug 2026 00:00:00 +0000</pubDate>
+            <link>https://rust-osdev.com/this-month/2026-07/</link>
+            <guid isPermaLink="true">https://rust-osdev.com/this-month/2026-07/</guid>
+            <description xml:base="https://rust-osdev.com/this-month/2026-07/">
+            <![CDATA[&lt;p&gt;Welcome to a new issue of &lt;em&gt;&quot;This Month in Rust OSDev&quot;&lt;&#x2F;em&gt;. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.&lt;&#x2F;p&gt;]]>
+            </description>
+            <content:encoded>
+				
+				
+                <![CDATA[<p>Welcome to a new issue of <em>"This Month in Rust OSDev"</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a rel="external" href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a rel="external" href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2026-07/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<p>Please submit interesting posts and projects for the next issue by commenting on the <a rel="external" href="https://github.com/rust-osdev/homepage/pulls">draft pull request</a> or via a PR <a rel="external" href="https://github.com/rust-osdev/homepage/">on GitHub</a>.</p>
+<span class="gray">
+Disclaimer: Automated scripts and AI assistance were used for collecting and categorizing links.
+Everything was proofread and checked manually, with many manual tweaks.
+</span>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (July 2026)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a rel="external" href="https://www.redox-os.org/news/this-month-260630/">This Month in Redox - June 2026</a></li>
+<li><a rel="external" href="https://old.reddit.com/r/rust/comments/1v9zh2r/safaos_another_hobby_os_written_in_rust_now_has/">SafaOS: another hobby OS written in rust, now has Audio, GUI and a bunch of software ports</a>
+<ul>
+<li>The hobby OS SafaOS gained UDP networking, a GUI, an Intel HDA audio stack, ports of SDL2/SDL2_Mixer/ffplay, and now runs Doom, Quake 2, and Celeste Classic.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/sermuns/efimux">sermuns/efimux: EFI application for booting other EFI applications</a>
+<ul>
+<li>A rudimentary UEFI boot menu written in Rust that scans filesystems for <code>.efi</code> files and presents them in a Ratatui TUI, built on top of the author's <code>ratatuefi</code> <code>no_std</code> Ratatui backend for UEFI.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.zdnet.com/article/greg-kroah-hartman-linux-kernel-rust/">'Rust makes coding fun again': Why Linux is moving away from C, according to Greg Kroah-Hartman</a></li>
+<li><a rel="external" href="https://lwn.net/SubscriberLink/1083202/f1ba926cd57ac5c5/">Progress toward compiling Linux with gccrs</a></li>
+<li><a rel="external" href="https://blog.st.com/rust-mems-drivers/">Rust MEMS drivers: 3 reasons to try and adopt our new sensor drivers written in Rust</a>
+<ul>
+<li>STMicroelectronics announces official Rust drivers for its MEMS sensor line, one of the first vendor-blessed embedded Rust driver crates from a major microcontroller/sensor manufacturer.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/nasa/spacewasm">nasa/spacewasm: A flight-compliant WebAssembly interpreter</a>
+<ul>
+<li>NASA released a WebAssembly 1.0 interpreter designed for safety-critical spacecraft: fixed-size memory blocks, no dynamic deallocation after allocation, deterministic memory usage, and streaming binary decoding, intended for on-board sequencing and sandboxing of low-confidence code.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-76">The Embedded Rustacean Issue #76</a></li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158573">stabilize <code>feature(atomic_from_mut)</code></a>
+<ul>
+<li>Stabilizes converting <code>&amp;mut [Atomic*]</code> to and from <code>&amp;mut [primitive]</code>, useful for building lock-free data structures without going through <code>unsafe</code> transmutes.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/155697">Stabilize c-variadic function definitions</a>
+<ul>
+<li>Rust code can now <em>define</em> C-style variadic functions, not just call them, which is needed when implementing C-compatible interfaces such as a libc from scratch.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/157153">allow <code>Allocator</code>s to be used as <code>#[global_allocator]</code>s</a>
+<ul>
+<li>Adds a <code>GlobalAllocator</code> marker trait so that types implementing the newer <code>Allocator</code> trait can be installed as the global allocator, without implementing <code>GlobalAlloc</code> directly and risking infinite recursion.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/159092">make volatile operations const</a>
+<ul>
+<li>Volatile reads and writes are now usable in <code>const fn</code>, which allows sharing code paths between MMIO-style special memory and regular memory.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158427">Implement <code>ptr::{read,write}_unaligned</code> via <code>repr(packed)</code></a>
+<ul>
+<li>Reimplements the unaligned pointer accessors on top of <code>repr(packed)</code> fields instead of <code>memcpy</code> and intrinsics, producing much simpler MIR and enabling further optimizations.</li>
+</ul>
+</li>
+<li>The move of <code>std::io</code> into <code>core</code> and <code>alloc</code> continued at a fast pace this month. After <code>io::Error</code> landed in <code>core</code> in June, most of the remaining building blocks followed, so that <code>Read</code>, <code>Write</code>, <code>Seek</code>, and the buffered wrappers are now usable without <code>std</code>:
+<ul>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158539">Move <code>SizeHint</code> and <code>IoHandle</code> to <code>core::io</code></a></li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158540">Move <code>std::io::Seek</code> to <code>core::io</code></a></li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158541">Move <code>std::io::Write</code> to <code>core::io</code></a></li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158544">Move <code>std::io::Read</code> to <code>alloc::io</code></a></li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158545">Move <code>std::io::read_to_string</code> to <code>alloc::io</code></a></li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158546">Move <code>std::io::BufRead</code> to <code>alloc::io</code></a></li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158547">Move <code>std::io::buffered</code> to <code>alloc::io</code></a></li>
+<li>See the <a rel="external" href="https://github.com/rust-lang/rust/issues/154046">tracking issue for <code>alloc::io</code> and <code>core::io</code></a> for the remaining work.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158473">Add <code>riscv32imfc-unknown-none-elf</code> bare-metal target</a>
+<ul>
+<li>A new <code>no_std</code> target for RISC-V32 cores with the <code>I</code>, <code>M</code>, <code>F</code>, and <code>C</code> extensions.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158405">rustc_target: Add ARMv8-M related target features</a>
+<ul>
+<li>Adds target features for ARMv8-M (Cortex-M23/M33/M35P/M55 and similar), relevant for embedded/bare-metal development on those chips.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158364">rustc_target/asm: add LoongArch LSX/LASX inline asm register support</a>
+<ul>
+<li>Extends <code>asm!</code> with LoongArch SIMD register classes.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/150732">Convert <code>-Ctarget-cpu</code> into a target-modifier for AVR, AMDGCN and NVPTX</a>
+<ul>
+<li>Also merged this month: <a rel="external" href="https://github.com/rust-lang/rust/pull/158776">fix: emit diagnostic for AVR target without target-cpu</a>, which errors instead of silently miscompiling when no AVR <code>target-cpu</code> is set.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/157650">rustc_target: Add OpenEmbedded/Yocto Linux base targets</a>
+<ul>
+<li>New base targets for embedded Linux systems built with the Yocto/OpenEmbedded toolchain.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158886">Add documentation for the <code>no_std</code> attribute</a></li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a rel="external" href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="bootloader"><a rel="external" href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a> and <a rel="external" href="https://github.com/Freax13">@Freax13</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/575">Revert <code>uart_16550</code> version bump to 0.6.0</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/571">Fix workspace.exclude in Cargo.toml</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/577">Make release script more robust and send user agent</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/570">Release 0.11.16</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/576">Release v0.11.17</a></li>
+</ul>
+<!--
+    The `softfloat` target-ABI fixes (bootloader #568 and #569) and the
+    `uefi` bump (#566) merged in early July, but were already reported in the
+    June 2026 issue, so they are not repeated here.
+-->
+<!-- - [(v0.9) Change `rustc-abi` in custom targets from `x86-softfloat` to `softfloat`](https://github.com/rust-osdev/bootloader/pull/568) -->
+<!-- - [Change `rustc-abi` in custom targets from `x86-softfloat` to `softfloat`](https://github.com/rust-osdev/bootloader/pull/569) -->
+<!-- - [uefi: bump from 0.20 to 0.38](https://github.com/rust-osdev/bootloader/pull/566) -->
+<!-- - [update Cargo.lock for basic example](https://github.com/rust-osdev/bootloader/pull/572) -->
+<p>Thanks to <a rel="external" href="https://github.com/Wasabi375">@Wasabi375</a> for this contribution!</p>
+<h3 id="uefi-rs"><a rel="external" href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/GabrielMajeri">@GabrielMajeri</a>, <a rel="external" href="https://github.com/nicholasbishop">@nicholasbishop</a>, and <a rel="external" href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1989">uefi: add driver helper</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/1996">doc: add showcases to README</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2004">release: uefi-raw-0.15.1 and uefi-0.39.0</a></li>
+</ul>
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/1999) -->
+<!-- - [chore(deps): update rust crate time to v0.3.47 [security]](https://github.com/rust-osdev/uefi-rs/pull/2000) -->
+<!-- - [fix(deps): update rust crate itertools to 0.15.0](https://github.com/rust-osdev/uefi-rs/pull/2001) -->
+<!-- - [chore(deps): update actions/checkout action to v7](https://github.com/rust-osdev/uefi-rs/pull/2002) -->
+<!-- - [chore(deps): update codecov/codecov-action action to v7](https://github.com/rust-osdev/uefi-rs/pull/2003) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/2012) -->
+<!-- - [chore(deps): update rust crate time to v0.3.47 [security]](https://github.com/rust-osdev/uefi-rs/pull/2013) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.48.0](https://github.com/rust-osdev/uefi-rs/pull/2015) -->
+<p>Thanks to <a rel="external" href="https://github.com/reynoldsbd">@reynoldsbd</a> and <a rel="external" href="https://github.com/sermuns">@sermuns</a> for these contributions!</p>
+<h3 id="x86-64"><a rel="external" href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a>, <a rel="external" href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a rel="external" href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/x86_64/pull/593">feat: Added the "from_pfn" in PhysFrame</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/x86_64/pull/595">add missing {forward,backward}_overflowing impls</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/x86_64/pull/596">release 0.15.5</a></li>
+</ul>
+<!-- - [Bump actions/cache from 5 to 6](https://github.com/rust-osdev/x86_64/pull/591) -->
+<!-- - [chore: merge master into next](https://github.com/rust-osdev/x86_64/pull/598) -->
+<p>Thanks to <a rel="external" href="https://github.com/zhangxuan2011">@zhangxuan2011</a> and <a rel="external" href="https://github.com/tpdenk">@tpdenk</a> for these contributions!</p>
+<h3 id="acpi"><a rel="external" href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers uses to relay information about the hardware to the OS.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/314">Demonstrate that less-than-all features will build</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/316">Skip unsupported _CRS resource descriptors</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/317">Handle DerefOf buffer fields</a></li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/martin-hughes">@martin-hughes</a> and <a rel="external" href="https://github.com/ArthurHeymans">@ArthurHeymans</a> for these contributions!</p>
+<h3 id="ps2-mouse"><a rel="external" href="https://github.com/rust-osdev/ps2-mouse"><code>ps2-mouse</code></a></h3>
+<p>The <code>ps2-mouse</code> library provides a basic interface for interacting with a PS/2 mouse. A Rust nightly change broke the <code>Step</code> trait implementation in <code>x86_64</code> this month (see <a rel="external" href="https://github.com/rust-osdev/x86_64/issues/594">rust-osdev/x86_64#594</a>), so <code>ps2-mouse</code> needed a dependency update too:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/ps2-mouse/pull/6">Update x86_64 to fix build failure caused by rust-osdev/x86_64#594</a></li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/forestaa">@forestaa</a> for this contribution!</p>
+<h3 id="bootimage"><a rel="external" href="https://github.com/rust-osdev/bootimage"><code>bootimage</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a></span></p>
+<p>The <code>bootimage</code> tool allows the creation of bootable disk images for <code>bootloader</code>-based kernels. It also provides a runner executable for <code>cargo</code> to make <code>cargo run</code> and <code>cargo test</code> work using QEMU.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/bootimage/pull/111">Fix example build on latest nightly</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootimage/pull/112">Adjust test detection for new <code>build-dir</code> layout of cargo</a>
+<ul>
+<li>Cargo's new <code>build-dir</code> layout v2 (stabilized on nightly in July) broke <code>bootimage</code>'s test-binary detection. This PR adjusts the runner accordingly, so <code>cargo test</code> works again on recent nightlies.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-osdev/bootimage/pull/113">Release version 0.10.5</a></li>
+</ul>
+<!--
+    #112 and #113 merged in early August 2026, but they land the recent-nightly
+    fix for cargo's build-dir layout v2 change (see the "Infrastructure and
+    Tooling" section) and we want it visible for readers hitting the breakage
+    now.
+-->
+<!-- `multiboot2`, `uart_16550`, and `ovmf-prebuilt` only had chore/dependency-update PRs merged this month, so they are omitted here. -->
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a rel="external" href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<p><span class="gray">No project updates were submitted this month.</span></p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way to get in touch is our <a rel="external" href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+]]>
+            </content:encoded>
+        </item>
         <item>
             <title>This Month in Rust OSDev: June 2026</title>
             <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
