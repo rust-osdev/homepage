@@ -12,5 +12,6 @@ extend-ignore-identifiers-re = [
 ]
 
 [default.extend-words]
+HDA = "HDA"  # Intel High Definition Audio (not a typo)
 
 [default.extend-identifiers]
