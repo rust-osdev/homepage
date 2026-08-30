@@ -86,7 +86,16 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
-<span class="gray">No project updates were submitted this month.</span>
+### [`open-nexus-OS/open-nexus-OS`](https://github.com/open-nexus-OS/open-nexus-OS)
+<span class="maintainers">(Section written by [@JenningSchaefer](https://github.com/JenningSchaefer))</span>
+
+[Open Nexus OS](https://github.com/open-nexus-OS/open-nexus-OS) is a capability-based microkernel operating system written in Rust and targeting RISC-V.
+
+This month, the Open Nexus graphical desktop stack reached a major milestone: its declarative UI DSL is now driving a working desktop interface. The `.nx` UI definitions and `.nxtheme` design tokens are used to implement the actual interface, allowing the desktop UI to be built from the same declarative system used to define its design.
+
+The desktop stack includes a compositor, window manager, launcher, and UI components running on top of the Open Nexus userspace architecture. The project also includes a boot-to-desktop demonstration showing the graphical environment running in QEMU.
+
+[Repository](https://github.com/open-nexus-OS/open-nexus-OS) · [Demo video](https://www.youtube.com/watch?v=Vrf6Z1sAY5I)
 
 
 
