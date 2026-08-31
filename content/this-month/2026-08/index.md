@@ -71,7 +71,88 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
-<span class="gray">No content was submitted for this section this month.</span>
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@nicholasbishop](https://github.com/nicholasbishop) and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+This month was all about **specification compliance and soundness**. We audited
+large parts of `uefi-raw` and `uefi` against the UEFI and PI specifications.
+Users now get correct data where the crates previously returned garbage or read
+out of bounds, for example:
+
+- `boot::set_watchdog_timer` passed the watchdog data size in characters instead
+  of bytes, so firmware only saw half of the data.
+- `ProcessorInformation` was 24 bytes too small, so firmware could write past
+  its end.
+- `UsbIo::supported_languages` reported twice the actual number of language IDs,
+  where the second half was an out-of-bounds read.
+
+`MemoryDescriptor` is now portable across x86 targets, so kernels and
+bootloaders built for a generic i686 target can finally parse a UEFI memory map.
+To keep such bugs away, our ABI tests are now `const` assertions evaluated for
+the actual target, instead of unit tests that only ever check the host.
+
+The new `char16!()` macro builds a `Char16` from a character literal in `const`
+context - no `unsafe` needed, and a compile error if the character is not valid
+in UCS-2.
+
+All of this is available in `uefi-raw v0.16.0` and `uefi v0.40.0`. We also
+refreshed our `CONTRIBUTING.md`, which now documents our expectations regarding
+code style, commit style, and AI/LLM-assisted contributions.
+
+#### Sponsorship by Anthropic
+
+We are glad to announce that [Anthropic](https://www.anthropic.com/) sponsors @phip1611 for six months 
+as part of their open source program. The sponsorship covers `uefi-rs` and 
+related crates in the `rust-osdev` space, with a focus on security issues, 
+undefined behavior, and specification compliance. Thank you!
+
+We merged the following PRs this month:
+
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+_Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
+the contained information tags. Usable in no_std environments, such as a kernel.
+An optional builder feature also allows the construction of the corresponding
+structures._
+
+We removed a whole class of undefined behavior. Parsing a structure with a value
+unknown to the specification - an unknown framebuffer type, VBE memory model, or
+header tag type - used to construct an invalid Rust enum. The new `raw_type!`
+macro generates an ABI-safe newtype plus an open-set enum with a `Custom`
+variant, so unknown values now pass through safely. `multiboot2-common` got
+further soundness fixes around size and alignment validation.
+
+Users also benefit from `BootInformation::get_tags`, which iterates over _all_
+occurrences of a tag. Network and SMBIOS tags may legitimately appear multiple
+times, but our API only exposed the first one. The builder gained `add_network`
+- and it turned out that `Builder::network` never included the tag at all.
+
+Released as `multiboot2 v0.26.1`, `multiboot2-header v0.10.0`, and
+`multiboot2-common v0.5.0`. The `raw_type!` work follows in the next release.
+
+We merged the following PRs this month:
+
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+_Simple yet highly configurable low-level driver for 16550 UART devices,
+typically known and used as serial ports or COM ports._
+
+Two releases, `v0.7.0` and `v0.8.0`, make the driver behave better on real
+hardware. Sending no longer waits for the `MSR::CTS` line by default, as modern
+hardware tends to leave that pin disconnected - which previously meant no output
+at all. Those who need hardware flow control can re-enable the check via
+`Config::check_cts_before_sending`.
+
+Further, `Config::default()` now disables _all_ interrupts, and `init()` enables
+the configured ones only at the very end. This way, a driver does not receive
+interrupts before it is ready to handle them.
+
+We merged the following PRs this month:
 
 ## Other Projects
 
@@ -96,6 +177,30 @@ This month, the Open Nexus graphical desktop stack reached a major milestone: it
 The desktop stack includes a compositor, window manager, launcher, and UI components running on top of the Open Nexus userspace architecture. The project also includes a boot-to-desktop demonstration showing the graphical environment running in QEMU.
 
 [Website](https://open-nexus-os.io/) · [Repository](https://github.com/open-nexus-OS/open-nexus-OS) · [Demo video](https://www.youtube.com/watch?v=Vrf6Z1sAY5I)
+
+
+### [`phip1611/tar-no-std`](https://github.com/phip1611/tar-no-std)
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+[`tar-no-std`](https://github.com/phip1611/tar-no-std) supports a relevant
+subset of Tar archives to extract multiple files from a single Tar archive in
+`no_std` environments with zero allocations. A typical use case is a kernel
+reading an initial ramdisk.
+
+The new `v0.5.0` release stops trusting the input. `TarArchive[Ref]::new` now
+rejects invalid headers, checksums, payload sizes, and missing archive
+termination, so a malformed archive fails right away instead of producing
+garbage entries. Numeric fields with invalid UTF-8 bytes no longer silently
+parse as zero, and `CorruptDataError` became an enum that names the violated
+invariant. Additionally, there is now limited support for POSIX PAX archives
+that use extended records only for optional metadata, such as high-precision
+timestamps.
+
+To keep it that way, the repository gained `cargo-fuzz` infrastructure,
+including structure-aware fuzzing with checksum-valid archives.
+
+Thanks to [@internetisalie](https://github.com/internetisalie) and
+[@fogti](https://github.com/fogti) for their contributions!
 
 
 
