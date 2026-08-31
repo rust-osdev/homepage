@@ -160,7 +160,28 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
-<span class="gray">No project updates were submitted this month.</span>
+### [`phip1611/tar-no-std`](https://github.com/phip1611/tar-no-std)
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+[`tar-no-std`](https://github.com/phip1611/tar-no-std) supports a relevant
+subset of Tar archives to extract multiple files from a single Tar archive in
+`no_std` environments with zero allocations. A typical use case is a kernel
+reading an initial ramdisk.
+
+The new `v0.5.0` release stops trusting the input. `TarArchive[Ref]::new` now
+rejects invalid headers, checksums, payload sizes, and missing archive
+termination, so a malformed archive fails right away instead of producing
+garbage entries. Numeric fields with invalid UTF-8 bytes no longer silently
+parse as zero, and `CorruptDataError` became an enum that names the violated
+invariant. Additionally, there is now limited support for POSIX PAX archives
+that use extended records only for optional metadata, such as high-precision
+timestamps.
+
+To keep it that way, the repository gained `cargo-fuzz` infrastructure,
+including structure-aware fuzzing with checksum-valid archives.
+
+Thanks to [@internetisalie](https://github.com/internetisalie) and
+[@fogti](https://github.com/fogti) for their contributions!
 
 
 
