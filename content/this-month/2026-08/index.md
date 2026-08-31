@@ -129,6 +129,24 @@ Released as `multiboot2 v0.26.1`, `multiboot2-header v0.10.0`, and
 
 We merged the following PRs this month:
 
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+_Simple yet highly configurable low-level driver for 16550 UART devices,
+typically known and used as serial ports or COM ports._
+
+Two releases, `v0.7.0` and `v0.8.0`, make the driver behave better on real
+hardware. Sending no longer waits for the `MSR::CTS` line by default, as modern
+hardware tends to leave that pin disconnected - which previously meant no output
+at all. Those who need hardware flow control can re-enable the check via
+`Config::check_cts_before_sending`.
+
+Further, `Config::default()` now disables _all_ interrupts, and `init()` enables
+the configured ones only at the very end. This way, a driver does not receive
+interrupts before it is ready to handle them.
+
+We merged the following PRs this month:
+
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
