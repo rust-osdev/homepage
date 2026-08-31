@@ -71,7 +71,38 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
-<span class="gray">No content was submitted for this section this month.</span>
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@nicholasbishop](https://github.com/nicholasbishop) and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+This month was all about **specification compliance and soundness**. We audited
+large parts of `uefi-raw` and `uefi` against the UEFI and PI specifications.
+Users now get correct data where the crates previously returned garbage or read
+out of bounds, for example:
+
+- `boot::set_watchdog_timer` passed the watchdog data size in characters instead
+  of bytes, so firmware only saw half of the data.
+- `ProcessorInformation` was 24 bytes too small, so firmware could write past
+  its end.
+- `UsbIo::supported_languages` reported twice the actual number of language IDs,
+  where the second half was an out-of-bounds read.
+
+`MemoryDescriptor` is now portable across x86 targets, so kernels and
+bootloaders built for a generic i686 target can finally parse a UEFI memory map.
+To keep such bugs away, our ABI tests are now `const` assertions evaluated for
+the actual target, instead of unit tests that only ever check the host.
+
+The new `char16!()` macro builds a `Char16` from a character literal in `const`
+context - no `unsafe` needed, and a compile error if the character is not valid
+in UCS-2.
+
+All of this is available in `uefi-raw v0.16.0` and `uefi v0.40.0`. We also
+refreshed our `CONTRIBUTING.md`, which now documents our expectations regarding
+code style, commit style, and AI/LLM-assisted contributions.
+
+We merged the following PRs this month:
 
 ## Other Projects
 
