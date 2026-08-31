@@ -104,6 +104,31 @@ code style, commit style, and AI/LLM-assisted contributions.
 
 We merged the following PRs this month:
 
+### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+_Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
+the contained information tags. Usable in no_std environments, such as a kernel.
+An optional builder feature also allows the construction of the corresponding
+structures._
+
+We removed a whole class of undefined behavior. Parsing a structure with a value
+unknown to the specification - an unknown framebuffer type, VBE memory model, or
+header tag type - used to construct an invalid Rust enum. The new `raw_type!`
+macro generates an ABI-safe newtype plus an open-set enum with a `Custom`
+variant, so unknown values now pass through safely. `multiboot2-common` got
+further soundness fixes around size and alignment validation.
+
+Users also benefit from `BootInformation::get_tags`, which iterates over _all_
+occurrences of a tag. Network and SMBIOS tags may legitimately appear multiple
+times, but our API only exposed the first one. The builder gained `add_network`
+- and it turned out that `Builder::network` never included the tag at all.
+
+Released as `multiboot2 v0.26.1`, `multiboot2-header v0.10.0`, and
+`multiboot2-common v0.5.0`. The `raw_type!` work follows in the next release.
+
+We merged the following PRs this month:
+
 ## Other Projects
 
 In this section, we describe updates to Rust OS projects that are not directly related to the `rust-osdev` organization. Feel free to [create a pull request](https://github.com/rust-osdev/homepage/pulls) with the updates of your OS project for the next post.
