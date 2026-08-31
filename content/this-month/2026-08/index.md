@@ -102,6 +102,13 @@ All of this is available in `uefi-raw v0.16.0` and `uefi v0.40.0`. We also
 refreshed our `CONTRIBUTING.md`, which now documents our expectations regarding
 code style, commit style, and AI/LLM-assisted contributions.
 
+#### Sponsorship by Anthropic
+
+We are glad to announce that [Anthropic](https://www.anthropic.com/) sponsors @phip1611 for six months 
+as part of their open source program. The sponsorship covers `uefi-rs` and 
+related crates in the `rust-osdev` space, with a focus on security issues, 
+undefined behavior, and specification compliance. Thank you!
+
 We merged the following PRs this month:
 
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
