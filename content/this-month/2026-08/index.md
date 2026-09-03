@@ -111,6 +111,42 @@ undefined behavior, and specification compliance. Thank you!
 
 We merged the following PRs this month:
 
+- [UEFI Spec Compliance: Various repr/packed fixes](https://github.com/rust-osdev/uefi-rs/pull/2040)
+- [Spec Fixes: Various Smaller Fixes or Additions](https://github.com/rust-osdev/uefi-rs/pull/2041)
+- [Spec Fixes: Address various smaller size/buffer mismatches](https://github.com/rust-osdev/uefi-rs/pull/2044)
+- [Spec Fixes: various smaller fixes regarding protocols](https://github.com/rust-osdev/uefi-rs/pull/2048)
+- [uefi: various UB fixes](https://github.com/rust-osdev/uefi-rs/pull/2052)
+- [uefi-raw: make MemoryDescriptor layout portable across x86 targets](https://github.com/rust-osdev/uefi-rs/pull/2036)
+- [uefi-raw: fix MemoryDescriptor layout on 32-bit](https://github.com/rust-osdev/uefi-rs/pull/2035)
+- [uefi: add convenient char16!() macro](https://github.com/rust-osdev/uefi-rs/pull/2031)
+- [replace ABI-related unit tests with const checks](https://github.com/rust-osdev/uefi-rs/pull/2039)
+- [contributing: streamline contribution guidance + AI/LLM Policy](https://github.com/rust-osdev/uefi-rs/pull/2029)
+- [docs: streamline rustdoc in uefi-raw and uefi](https://github.com/rust-osdev/uefi-rs/pull/2026)
+- [various small doc improvements](https://github.com/rust-osdev/uefi-rs/pull/2025)
+- [release: uefi-raw-0.16.0 and uefi-0.40.0](https://github.com/rust-osdev/uefi-rs/pull/2054)
+
+<!--
+    `Make memory maps repr(C)` (#2007) was reverted again in the same month
+    (#2024), so both are omitted here.
+-->
+<!-- - [Make memory maps repr(C)](https://github.com/rust-osdev/uefi-rs/pull/2007) -->
+<!-- - [Revert "Make memory maps repr(C)"](https://github.com/rust-osdev/uefi-rs/pull/2024) -->
+
+<!-- Chore and dependency PRs: -->
+<!-- - [xtask: Update to syn-3](https://github.com/rust-osdev/uefi-rs/pull/2019) -->
+<!-- - [uefi-macros: Update to syn-3](https://github.com/rust-osdev/uefi-rs/pull/2020) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/2021) -->
+<!-- - [chore(deps): update rust crate time to v0.3.47 [security]](https://github.com/rust-osdev/uefi-rs/pull/2022) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.49.0](https://github.com/rust-osdev/uefi-rs/pull/2023) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/2033) -->
+<!-- - [chore(deps): update rust crate time to v0.3.47 [security]](https://github.com/rust-osdev/uefi-rs/pull/2034) -->
+<!-- - [clippy: adjust latest nightly findings](https://github.com/rust-osdev/uefi-rs/pull/2038) -->
+<!-- - [cargo: update deps](https://github.com/rust-osdev/uefi-rs/pull/2045) -->
+<!-- - [chore(deps): update rust crate time to v0.3.55](https://github.com/rust-osdev/uefi-rs/pull/2056) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.50.0](https://github.com/rust-osdev/uefi-rs/pull/2057) -->
+
+Thanks to [@cwize1](https://github.com/cwize1) and [@SpecificProtagonist](https://github.com/SpecificProtagonist) for their contributions!
+
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 <span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
 
@@ -136,6 +172,12 @@ Released as `multiboot2 v0.26.1`, `multiboot2-header v0.10.0`, and
 
 We merged the following PRs this month:
 
+- [Various Subtle UB Fixes](https://github.com/rust-osdev/multiboot2/pull/312)
+- [add raw_type! macro for ABI-safe raw newtypes](https://github.com/rust-osdev/multiboot2/pull/314)
+- [multiboot2: improve tag getters](https://github.com/rust-osdev/multiboot2/pull/310)
+- [treewide: clarify Multiboot2 header APIs and debug output](https://github.com/rust-osdev/multiboot2/pull/309)
+- [docs: treewide documentation fixes](https://github.com/rust-osdev/multiboot2/pull/307)
+
 ### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
 <span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
 
@@ -153,6 +195,60 @@ the configured ones only at the very end. This way, a driver does not receive
 interrupts before it is ready to handle them.
 
 We merged the following PRs this month:
+
+- [Allow configuring whether to care about the CTS line](https://github.com/rust-osdev/uart_16550/pull/66)
+- [config: disable interrupts by default + document interrupt behavior of init()](https://github.com/rust-osdev/uart_16550/pull/69)
+- [doc: tighten cts/hw control flow wording](https://github.com/rust-osdev/uart_16550/pull/68)
+
+Thanks to [@meithecatte](https://github.com/meithecatte) for this contribution!
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers uses to relay information about the hardware to the OS.
+
+We merged the following changes this month:
+
+- [Resolve names used as package elements lazily](https://github.com/rust-osdev/acpi/pull/320)
+- [Fix mutex references and the global lock](https://github.com/rust-osdev/acpi/pull/322)
+- [Add Support for Multiple IRQs in IrqDescriptor (2)](https://github.com/rust-osdev/acpi/pull/331)
+- [Fix acpi_dumper manifest](https://github.com/rust-osdev/acpi/pull/321)
+
+Thanks to [@martin-hughes](https://github.com/martin-hughes), [@ArthurHeymans](https://github.com/ArthurHeymans), [@ChocolateLoverRaj](https://github.com/ChocolateLoverRaj), and [@hustlerone](https://github.com/hustlerone) for their contributions!
+
+### [`virtio-spec-rs`](https://github.com/rust-osdev/virtio-spec-rs)
+<span class="maintainers">Maintained by [@mkroening](https://github.com/mkroening)</span>
+
+The `virtio-spec` crate provides definitions from the Virtual I/O Device (VIRTIO) specification.
+This project aims to be unopinionated regarding actual VIRTIO drivers that are implemented on top of this crate.
+
+We merged the following PRs this month:
+
+- [feat: don't derive zerocopy traits for volatile structs](https://github.com/rust-osdev/virtio-spec-rs/pull/31)
+- [feat(features): remove `FeatureBits` bounds that are not elaborated and seal `FeatureBits`](https://github.com/rust-osdev/virtio-spec-rs/pull/20)
+- [feat(features): remove `requirements()` and `recommendations()`](https://github.com/rust-osdev/virtio-spec-rs/pull/34)
+- [docs: mark Entropy Device as supported](https://github.com/rust-osdev/virtio-spec-rs/pull/25)
+- [docs(balloon): add module-level doc comment](https://github.com/rust-osdev/virtio-spec-rs/pull/32)
+
+<!-- - [style: remove trailing spaces from doc comment](https://github.com/rust-osdev/virtio-spec-rs/pull/29) -->
+
+### [`bootloader`](https://github.com/rust-osdev/bootloader)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@Freax13](https://github.com/Freax13)</span>
+
+The `bootloader` crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.
+
+We merged the following changes this month:
+
+- [deps: bump uart_16550 to 0.8.0 + fix UEFI weirdness](https://github.com/rust-osdev/bootloader/pull/580)
+  - Picks up the `uart_16550` changes described above. On the UEFI path, the bootloader now explicitly disconnects the UEFI console from the serial device before setting up its logger, so that the logger has exclusive ownership of the UART. Previously, UEFI kept driving the device, which duplicated console output on the serial port and fired interrupts before `init()` had finished.
+
+Thanks to [@phip1611](https://github.com/phip1611) for this contribution!
+
+<!--
+    `bootimage` #112 and #113 merged in early August, but were already reported
+    in the July 2026 issue, so they are not repeated here.
+    `ovmf-prebuilt` only had renovate lock file maintenance this month.
+-->
 
 ## Other Projects
 
