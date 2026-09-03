@@ -155,9 +155,9 @@ code style, commit style, and AI/LLM-assisted contributions.
 
 #### Sponsorship by Anthropic
 
-We are glad to announce that [Anthropic](https://www.anthropic.com/) sponsors @phip1611 for six months 
-as part of their open source program. The sponsorship covers `uefi-rs` and 
-related crates in the `rust-osdev` space, with a focus on security issues, 
+We are glad to announce that [Anthropic](https://www.anthropic.com/) sponsors @phip1611 for six months
+as part of their open source program. The sponsorship covers `uefi-rs` and
+related crates in the `rust-osdev` space, with a focus on security issues,
 undefined behavior, and specification compliance. Thank you!
 
 We merged the following PRs this month:
