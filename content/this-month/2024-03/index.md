@@ -33,7 +33,7 @@ Please follow this template:
 -->
 
 - [An IRC client in your motherboard](https://axleos.com/an-irc-client-in-your-motherboard/)
-- [octox: Writing a Unix-like OS in Rust](https://vmm.dev/en/rust/osinrust.md)
+- [octox: Writing a Unix-like OS in Rust](https://web.archive.org/web/20260520091419/https://vmm.dev/en/rust/osinrust.md)
 - [This Month in Redox](https://redox-os.org/news/this-month-240330/)
 - [Redox Kernel Improvements](https://redox-os.org/news/kernel-10/)
 - [MOROS 0.10.3](https://github.com/vinc/moros/releases/tag/v0.10.3)

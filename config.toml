@@ -26,13 +26,25 @@ skip_prefixes = [
     "https://rusty-hermit.k8s.eonerc.rwth-aachen.de/", # RustyHermit show case
     "https://www.linux-kvm.org",                       # see https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/
     "https://twitter.com/",                            # too many redirects
+    "https://x.com/",                                  # 403 forbidden for bots
     "https://nitter.net/",                             # 403 forbidden
     "https://www.reddit.com/",                         # 403 forbidden
+    "https://old.reddit.com/",                         # 403 forbidden
     "https://blog.rust.careers",                       # Expired certificate
     "https://gee.cs.oswego.edu",                       # times out
     "https://web.archive.org",                         # times out
     "https://apollolabsblog.hashnode.dev",             # requires js
     "https://doi.org",                                 # 403 forbidden
+    "https://lwn.net",                                 # rate limits CI runners (429)
+    "https://security.googleblog.com",                 # rate limits CI runners (429)
+    "https://gitter.im",                               # redirects to app.gitter.im (301)
+    "https://mirage.io",                               # intermittent connection failures
+]
+
+# These resolve fine, but their "#..." fragments are client-side routes
+# rather than real anchors in the returned HTML.
+skip_anchor_prefixes = [
+    "https://rust-osdev.zulipchat.com",                # SPA, fragments are routes
 ]
 
 [extra]
