@@ -1,0 +1,435 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Operating System Development in Rust">
+
+    
+        <link rel="canonical" href="https://rust-osdev.com/this-month/2026-08/" />
+    
+    <link href="/css/poole.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS feed for rust-osdev.com" href="https://rust-osdev.com/rss.xml" />
+
+    <title>This Month in Rust OSDev: August 2026 | Rust OSDev</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="masthead">
+          <div class="container">
+            <h3 class="masthead-title">
+              <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
+              <small>Operating System Development in Rust</small>
+            </h3>
+          </div>
+        </div>
+  
+        <div class="container content">
+            <main>
+    <h1>This Month in Rust OSDev: August 2026</h1>
+
+    <span class="post-authors post-date">Published on <time datetime="2026-09-03">
+            Sep 03, 2026
+            
+        </time>(edited by
+        <a href="https://github.com/phil-opp">@phil-opp</a>)</span>
+
+    <p>Welcome to a new issue of <em>"This Month in Rust OSDev"</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a rel="external" href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a rel="external" href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<p>Please submit interesting posts and projects for the next issue by commenting on the <a rel="external" href="https://github.com/rust-osdev/homepage/pulls">draft pull request</a> or via a PR <a rel="external" href="https://github.com/rust-osdev/homepage/">on GitHub</a>.</p>
+<span class="gray">
+Disclaimer: Automated scripts and AI assistance were used for collecting and categorizing links.
+Everything was proofread and checked manually, with many manual tweaks.
+</span>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (August 2026)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a rel="external" href="https://x.com/rui314/status/2094677980857680052">Rui Ueyama: "We are rewriting the mold linker in Rust"</a>
+<ul>
+<li>The announcement of mold 3.0: besides the move to Rust, mold is gaining linker script support, with the explicit goal of linking "essentially anything GNU ld can, including kernels and embedded programs".</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.redox-os.org/news/rsoc-eevdf/">RSoC 2026: EEVDF for Redox</a>
+<ul>
+<li>Report on this year's Redox Summer of Code project, which replaced Redox's DWRR scheduler with an EEVDF ("Earliest Eligible Virtual Deadline First") implementation.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rseclinux/ouma"><code>rseclinux/ouma</code>: A hardened libc for GNU/Linux systems</a>
+<ul>
+<li>A libc for Linux written entirely in Rust, with hardening as an explicit design goal.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://codeberg.org/Luernn/AldecaldOS"><code>Luernn/AldecaldOS</code>: An hybrid RTOS</a>
+<ul>
+<li>A from-scratch embedded kernel in Rust, written as a hybrid real-time OS.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://old.reddit.com/r/rust/comments/1w22bx5/ramshared_v2_writing_a_linux_vram_block_driver_in/">RamShared v2: Writing a Linux VRAM Block Driver in Rust &amp; C with 8.74 GiB/s PCIe DMA, io_uring/ublk, and 3 Patches on lore.kernel.org</a>
+<ul>
+<li>Turns idle GPU VRAM into a block device, via a <code>ublk</code> userspace driver built on <code>io_uring</code> plus a Linux 6.18 block driver submitted upstream to the linux-block subsystem.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/Aefinity-AI/alice-aegis/blob/main/docs/posts/2026-08-05_uefi-soft-float-deletes-your-avx2.md"><code>#[target_feature(enable = "avx2")]</code> does nothing on <code>x86_64-unknown-uefi</code></a>
+<ul>
+<li>A debugging story about hand-written AVX2 kernels that compiled to zero vector instructions on the <code>x86_64-unknown-uefi</code> target, because that target enables <code>+soft-float</code>.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://w-graj.net/posts/rust-no-std-survey/">How <code>no_std</code> are <code>no_std</code> Rust crates really? A survey</a>
+<ul>
+<li>Surveys crates that advertise <code>no_std</code> support and checks how many of them actually build without <code>std</code>, and under which feature combinations.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/Metehan120/rsmalloc">Alpha-2 Release of RSMalloc: A general-purpose Restartable Sequences (RSEQ) based memory allocator</a>
+<ul>
+<li>An allocator built on Linux's restartable sequences, which let a thread's fast path be restarted rather than locked when it is preempted.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://kerkour.com/firecracker-sandboxing-rust">How Firecracker microVMs work under the hood to sandbox untrusted code and AI agents</a>
+<ul>
+<li>A tour of the Rust-based Firecracker VMM: how it uses KVM, what its minimal device model looks like, and how the guest kernel is booted.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.sonair.com/journal/how-we-safety-certified-the-worlds-first-rust-implementation">How we developed the world's first safety-certified product written in Rust – and why we went bare metal</a>
+<ul>
+<li>Sonair on getting a Rust codebase through safety certification, including why they dropped an RTOS in favour of running bare metal.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://blog.antoyo.xyz/rustc_codegen_gcc-progress-report-43">rustc_codegen_gcc: Progress Report #43</a>
+<ul>
+<li>Latest progress on the GCC backend for <code>rustc</code>, which is one route to Rust on architectures LLVM does not target.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://aaronqian.com/log/2026-08-01-chip-agnostic-architecture-bare-metal-rust/">A chip-agnostic architecture for bare-metal embedded Rust</a>
+<ul>
+<li>Argues for keeping the hardware-specific layer of a bare-metal project behind narrow traits, so that most of the firmware can be built and tested without the target chip.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://youtu.be/caE7W4bFW3c">Minecraft clone in no_std Rust + MMX inline asm running on an IBM ThinkPad 600E</a>
+<ul>
+<li>A <code>no_std</code> Rust renderer with hand-written MMX inline assembly, booted on a Pentium II laptop.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/zlfn/rust-gb">The world's first Game Boy ROM written in Pure Rust</a>
+<ul>
+<li><code>rust-gb</code> compiles Rust for the Game Boy's SM83 CPU on top of an LLVM Z80 backend - a good illustration of what bringing up a genuinely new bare-metal target involves.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://msj.prose.sh/epaper-retained-state">Your E-Paper Panel Isn't Broken: How Retained State Makes Drivers Look Buggy</a>
+<ul>
+<li>On writing drivers for devices that keep state across resets, and why the usual "initialize everything at startup" assumption breaks down there.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://niss36.github.io/blog/01-gentle-intro-to-embedded-rust/">A gentle introduction to Embedded Rust</a></li>
+<li><a rel="external" href="https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-77">The Embedded Rustacean Issue #77</a>
+and <a rel="external" href="https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-78">Issue #78</a></li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<ul>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/160302">target_features: sse (or at least avx2) is incompatible with soft-float ABI</a>
+<ul>
+<li>Enabling <code>sse</code> (and therefore any x86 vector feature) via <code>#[target_feature]</code> on a soft-float target such as <code>x86_64-unknown-uefi</code> is not supported by LLVM and can crash the backend or silently drop all vector instructions. This is now a future-compatibility warning, reported in dependencies as well, so that whoever builds the final binary actually sees it.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158504">Stabilize <code>extern "custom"</code></a>
+<ul>
+<li>An <code>extern "custom" fn</code> has a calling convention that Rust knows nothing about and therefore refuses to call normally. This is the supported way to write <code>#[naked]</code> entry points that are only ever reached from hardware or hand-written assembly, such as interrupt handlers or compiler-runtime symbols like <code>__aeabi_uidivmod</code>.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/157572">stabilize size_of_val_raw, align_of_val_raw, Layout::for_value_raw</a>
+<ul>
+<li>Size and alignment of a value can now be queried through a raw pointer on stable, without having to create a reference first. This matters for allocators and anything else that handles memory which is not (yet) a valid value.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/160079">make atomic operations const</a>
+<ul>
+<li>Atomic loads, stores, and read-modify-write operations are now usable in <code>const</code> contexts.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/159746">stabilize <code>c_variadic_naked_functions</code></a>
+<ul>
+<li><code>#[naked]</code> functions may now use the C variadic ABI, which is needed for hand-written trampolines into variadic C interfaces.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/159525">Stabilize passing 128-bit integers via vector registers with <code>asm!</code> on x86</a>
+<ul>
+<li><code>i128</code> and <code>u128</code> can now be passed to and from inline assembly in SSE registers.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/158548">Move <code>std::io::copy</code> to <code>alloc::io</code></a>
+<ul>
+<li>Continues the move of <code>std::io</code> into <code>core</code> and <code>alloc</code> that we covered last month.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/161887">std: uefi: fix File::seek returning the EOF sentinel</a>
+<ul>
+<li>On the <code>x86_64-unknown-uefi</code> std target, <code>seek(SeekFrom::End(0))</code> returned UEFI's <code>0xFFFF_FFFF_FFFF_FFFF</code> "end of file" sentinel instead of the actual position, which also broke the default <code>Seek::stream_len</code>.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/cargo/pull/17354">Re-stabilize build-dir layout v2</a>
+<ul>
+<li>Cargo's new <code>build-dir</code> layout is stable again after being reverted in July. Custom runners that locate test binaries themselves may need the same kind of adjustment that <code>bootimage</code> made last month.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/160564">volatile: allow accesses to non-AM memory to trap</a>
+<ul>
+<li>Not merged yet, but worth watching: this specifies that volatile accesses may trap, which is what MMIO code relies on in practice. According to the author it also removes the last case of "time-traveling UB" in Rust.</li>
+</ul>
+</li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a rel="external" href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uefi-rs"><a rel="external" href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/nicholasbishop">@nicholasbishop</a> and <a rel="external" href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.</p>
+<p>This month was all about <strong>specification compliance and soundness</strong>. We audited
+large parts of <code>uefi-raw</code> and <code>uefi</code> against the UEFI and PI specifications.
+Users now get correct data where the crates previously returned garbage or read
+out of bounds, for example:</p>
+<ul>
+<li><code>boot::set_watchdog_timer</code> passed the watchdog data size in characters instead
+of bytes, so firmware only saw half of the data.</li>
+<li><code>ProcessorInformation</code> was 24 bytes too small, so firmware could write past
+its end.</li>
+<li><code>UsbIo::supported_languages</code> reported twice the actual number of language IDs,
+where the second half was an out-of-bounds read.</li>
+</ul>
+<p><code>MemoryDescriptor</code> is now portable across x86 targets, so kernels and
+bootloaders built for a generic i686 target can finally parse a UEFI memory map.
+To keep such bugs away, our ABI tests are now <code>const</code> assertions evaluated for
+the actual target, instead of unit tests that only ever check the host.</p>
+<p>The new <code>char16!()</code> macro builds a <code>Char16</code> from a character literal in <code>const</code>
+context - no <code>unsafe</code> needed, and a compile error if the character is not valid
+in UCS-2.</p>
+<p>All of this is available in <code>uefi-raw v0.16.0</code> and <code>uefi v0.40.0</code>. We also
+refreshed our <code>CONTRIBUTING.md</code>, which now documents our expectations regarding
+code style, commit style, and AI/LLM-assisted contributions.</p>
+<h4 id="sponsorship-by-anthropic">Sponsorship by Anthropic</h4>
+<p>We are glad to announce that <a rel="external" href="https://www.anthropic.com/">Anthropic</a> sponsors @phip1611 for six months
+as part of their open source program. The sponsorship covers <code>uefi-rs</code> and
+related crates in the <code>rust-osdev</code> space, with a focus on security issues,
+undefined behavior, and specification compliance. Thank you!</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2040">UEFI Spec Compliance: Various repr/packed fixes</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2041">Spec Fixes: Various Smaller Fixes or Additions</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2044">Spec Fixes: Address various smaller size/buffer mismatches</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2048">Spec Fixes: various smaller fixes regarding protocols</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2052">uefi: various UB fixes</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2036">uefi-raw: make MemoryDescriptor layout portable across x86 targets</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2035">uefi-raw: fix MemoryDescriptor layout on 32-bit</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2031">uefi: add convenient char16!() macro</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2039">replace ABI-related unit tests with const checks</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2029">contributing: streamline contribution guidance + AI/LLM Policy</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2026">docs: streamline rustdoc in uefi-raw and uefi</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2025">various small doc improvements</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2054">release: uefi-raw-0.16.0 and uefi-0.40.0</a></li>
+</ul>
+<!--
+    `Make memory maps repr(C)` (#2007) was reverted again in the same month
+    (#2024), so both are omitted here.
+-->
+<!-- - [Make memory maps repr(C)](https://github.com/rust-osdev/uefi-rs/pull/2007) -->
+<!-- - [Revert "Make memory maps repr(C)"](https://github.com/rust-osdev/uefi-rs/pull/2024) -->
+<!-- Chore and dependency PRs: -->
+<!-- - [xtask: Update to syn-3](https://github.com/rust-osdev/uefi-rs/pull/2019) -->
+<!-- - [uefi-macros: Update to syn-3](https://github.com/rust-osdev/uefi-rs/pull/2020) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/2021) -->
+<!-- - [chore(deps): update rust crate time to v0.3.47 [security]](https://github.com/rust-osdev/uefi-rs/pull/2022) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.49.0](https://github.com/rust-osdev/uefi-rs/pull/2023) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/2033) -->
+<!-- - [chore(deps): update rust crate time to v0.3.47 [security]](https://github.com/rust-osdev/uefi-rs/pull/2034) -->
+<!-- - [clippy: adjust latest nightly findings](https://github.com/rust-osdev/uefi-rs/pull/2038) -->
+<!-- - [cargo: update deps](https://github.com/rust-osdev/uefi-rs/pull/2045) -->
+<!-- - [chore(deps): update rust crate time to v0.3.55](https://github.com/rust-osdev/uefi-rs/pull/2056) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.50.0](https://github.com/rust-osdev/uefi-rs/pull/2057) -->
+<p>Thanks to <a rel="external" href="https://github.com/cwize1">@cwize1</a> and <a rel="external" href="https://github.com/SpecificProtagonist">@SpecificProtagonist</a> for their contributions!</p>
+<h3 id="multiboot2"><a rel="external" href="https://github.com/rust-osdev/multiboot2"><code>multiboot2</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><em>Convenient and safe parsing of Multiboot2 Boot Information (MBI) structures and
+the contained information tags. Usable in no_std environments, such as a kernel.
+An optional builder feature also allows the construction of the corresponding
+structures.</em></p>
+<p>We removed a whole class of undefined behavior. Parsing a structure with a value
+unknown to the specification - an unknown framebuffer type, VBE memory model, or
+header tag type - used to construct an invalid Rust enum. The new <code>raw_type!</code>
+macro generates an ABI-safe newtype plus an open-set enum with a <code>Custom</code>
+variant, so unknown values now pass through safely. <code>multiboot2-common</code> got
+further soundness fixes around size and alignment validation.</p>
+<p>Users also benefit from <code>BootInformation::get_tags</code>, which iterates over <em>all</em>
+occurrences of a tag. Network and SMBIOS tags may legitimately appear multiple
+times, but our API only exposed the first one. The builder gained <code>add_network</code></p>
+<ul>
+<li>and it turned out that <code>Builder::network</code> never included the tag at all.</li>
+</ul>
+<p>Released as <code>multiboot2 v0.26.1</code>, <code>multiboot2-header v0.10.0</code>, and
+<code>multiboot2-common v0.5.0</code>. The <code>raw_type!</code> work follows in the next release.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/multiboot2/pull/312">Various Subtle UB Fixes</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/multiboot2/pull/314">add raw_type! macro for ABI-safe raw newtypes</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/multiboot2/pull/310">multiboot2: improve tag getters</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/multiboot2/pull/309">treewide: clarify Multiboot2 header APIs and debug output</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/multiboot2/pull/307">docs: treewide documentation fixes</a></li>
+</ul>
+<h3 id="uart-16550"><a rel="external" href="https://github.com/rust-osdev/uart_16550"><code>uart_16550</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><em>Simple yet highly configurable low-level driver for 16550 UART devices,
+typically known and used as serial ports or COM ports.</em></p>
+<p>Two releases, <code>v0.7.0</code> and <code>v0.8.0</code>, make the driver behave better on real
+hardware. Sending no longer waits for the <code>MSR::CTS</code> line by default, as modern
+hardware tends to leave that pin disconnected - which previously meant no output
+at all. Those who need hardware flow control can re-enable the check via
+<code>Config::check_cts_before_sending</code>.</p>
+<p>Further, <code>Config::default()</code> now disables <em>all</em> interrupts, and <code>init()</code> enables
+the configured ones only at the very end. This way, a driver does not receive
+interrupts before it is ready to handle them.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/66">Allow configuring whether to care about the CTS line</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/69">config: disable interrupts by default + document interrupt behavior of init()</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/68">doc: tighten cts/hw control flow wording</a></li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/meithecatte">@meithecatte</a> for this contribution!</p>
+<h3 id="acpi"><a rel="external" href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers uses to relay information about the hardware to the OS.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/320">Resolve names used as package elements lazily</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/322">Fix mutex references and the global lock</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/331">Add Support for Multiple IRQs in IrqDescriptor (2)</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/321">Fix acpi_dumper manifest</a></li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/martin-hughes">@martin-hughes</a>, <a rel="external" href="https://github.com/ArthurHeymans">@ArthurHeymans</a>, <a rel="external" href="https://github.com/ChocolateLoverRaj">@ChocolateLoverRaj</a>, and <a rel="external" href="https://github.com/hustlerone">@hustlerone</a> for their contributions!</p>
+<h3 id="virtio-spec-rs"><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs"><code>virtio-spec-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/mkroening">@mkroening</a></span></p>
+<p>The <code>virtio-spec</code> crate provides definitions from the Virtual I/O Device (VIRTIO) specification.
+This project aims to be unopinionated regarding actual VIRTIO drivers that are implemented on top of this crate.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs/pull/31">feat: don't derive zerocopy traits for volatile structs</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs/pull/20">feat(features): remove <code>FeatureBits</code> bounds that are not elaborated and seal <code>FeatureBits</code></a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs/pull/34">feat(features): remove <code>requirements()</code> and <code>recommendations()</code></a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs/pull/25">docs: mark Entropy Device as supported</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/virtio-spec-rs/pull/32">docs(balloon): add module-level doc comment</a></li>
+</ul>
+<!-- - [style: remove trailing spaces from doc comment](https://github.com/rust-osdev/virtio-spec-rs/pull/29) -->
+<h3 id="bootloader"><a rel="external" href="https://github.com/rust-osdev/bootloader"><code>bootloader</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a> and <a rel="external" href="https://github.com/Freax13">@Freax13</a></span></p>
+<p>The <code>bootloader</code> crate implements a custom Rust-based bootloader for easy loading of 64-bit ELF executables.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/bootloader/pull/580">deps: bump uart_16550 to 0.8.0 + fix UEFI weirdness</a>
+<ul>
+<li>Picks up the <code>uart_16550</code> changes described above. On the UEFI path, the bootloader now explicitly disconnects the UEFI console from the serial device before setting up its logger, so that the logger has exclusive ownership of the UART. Previously, UEFI kept driving the device, which duplicated console output on the serial port and fired interrupts before <code>init()</code> had finished.</li>
+</ul>
+</li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/phip1611">@phip1611</a> for this contribution!</p>
+<!--
+    `bootimage` #112 and #113 merged in early August, but were already reported
+    in the July 2026 issue, so they are not repeated here.
+    `ovmf-prebuilt` only had renovate lock file maintenance this month.
+-->
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a rel="external" href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="open-nexus-os-open-nexus-os"><a rel="external" href="https://github.com/open-nexus-OS/open-nexus-OS"><code>open-nexus-OS/open-nexus-OS</code></a></h3>
+<p><span class="maintainers">(Section written by <a rel="external" href="https://github.com/jenningschaefer">@jenningschaefer</a>)</span></p>
+<p><a rel="external" href="https://open-nexus-os.io/">Open Nexus OS</a> is a capability-based microkernel operating system written in Rust and targeting RISC-V.</p>
+<p>This month, the Open Nexus graphical desktop stack reached a major milestone: its declarative UI DSL is now driving a working desktop interface. The <code>.nx</code> UI definitions and <code>.nxtheme</code> design tokens are used to implement the actual interface, allowing the desktop UI to be built from the same declarative system used to define its design.</p>
+<p>The desktop stack includes a compositor, window manager, launcher, and UI components running on top of the Open Nexus userspace architecture. The project also includes a boot-to-desktop demonstration showing the graphical environment running in QEMU.</p>
+<p><a rel="external" href="https://open-nexus-os.io/">Website</a> · <a rel="external" href="https://github.com/open-nexus-OS/open-nexus-OS">Repository</a> · <a rel="external" href="https://www.youtube.com/watch?v=Vrf6Z1sAY5I">Demo video</a></p>
+<h3 id="phip1611-tar-no-std"><a rel="external" href="https://github.com/phip1611/tar-no-std"><code>phip1611/tar-no-std</code></a></h3>
+<p><span class="maintainers">(Section written by <a rel="external" href="https://github.com/phip1611">@phip1611</a>)</span></p>
+<p><a rel="external" href="https://github.com/phip1611/tar-no-std"><code>tar-no-std</code></a> supports a relevant
+subset of Tar archives to extract multiple files from a single Tar archive in
+<code>no_std</code> environments with zero allocations. A typical use case is a kernel
+reading an initial ramdisk.</p>
+<p>The new <code>v0.5.0</code> release stops trusting the input. <code>TarArchive[Ref]::new</code> now
+rejects invalid headers, checksums, payload sizes, and missing archive
+termination, so a malformed archive fails right away instead of producing
+garbage entries. Numeric fields with invalid UTF-8 bytes no longer silently
+parse as zero, and <code>CorruptDataError</code> became an enum that names the violated
+invariant. Additionally, there is now limited support for POSIX PAX archives
+that use extended records only for optional metadata, such as high-precision
+timestamps.</p>
+<p>To keep it that way, the repository gained <code>cargo-fuzz</code> infrastructure,
+including structure-aware fuzzing with checksum-valid archives.</p>
+<p>Thanks to <a rel="external" href="https://github.com/internetisalie">@internetisalie</a> and
+<a rel="external" href="https://github.com/fogti">@fogti</a> for their contributions!</p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way to get in touch is our <a rel="external" href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+
+
+    <h2 id="comment-form">Comments</h2>
+
+    <script src="https://utteranc.es/client.js"
+        repo="rust-osdev/homepage"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+</main>
+
+            <footer class="footer">
+                <hr>
+                <small>Join us on <a href="https://rust-osdev.zulipchat.com">Zulip.</a><br>
+                    &copy; <time datetime="2020">2020</time>-<time datetime="2022">2022</time>. All rights reserved.
+                    <a href="https://rust-osdev.com/contact/">Contact</a>
+                </small>
+            </footer>
+        </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+</body>
+
+</html>
