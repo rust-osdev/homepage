@@ -26,6 +26,7 @@ skip_prefixes = [
     "https://rusty-hermit.k8s.eonerc.rwth-aachen.de/", # RustyHermit show case
     "https://www.linux-kvm.org",                       # see https://letsencrypt.org/docs/dst-root-ca-x3-expiration-september-2021/
     "https://twitter.com/",                            # too many redirects
+    "https://x.com/",                                  # 403 forbidden for bots
     "https://nitter.net/",                             # 403 forbidden
     "https://www.reddit.com/",                         # 403 forbidden
     "https://blog.rust.careers",                       # Expired certificate
