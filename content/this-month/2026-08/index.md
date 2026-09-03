@@ -40,7 +40,39 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
-<span class="gray">No content was submitted for this section this month.</span>
+- [Rui Ueyama: "We are rewriting the mold linker in Rust"](https://x.com/rui314/status/2094677980857680052)
+  - The announcement of mold 3.0: besides the move to Rust, mold is gaining linker script support, with the explicit goal of linking "essentially anything GNU ld can, including kernels and embedded programs".
+- [RSoC 2026: EEVDF for Redox](https://www.redox-os.org/news/rsoc-eevdf/)
+  - Report on this year's Redox Summer of Code project, which replaced Redox's DWRR scheduler with an EEVDF ("Earliest Eligible Virtual Deadline First") implementation.
+- [`rseclinux/ouma`: A hardened libc for GNU/Linux systems](https://github.com/rseclinux/ouma)
+  - A libc for Linux written entirely in Rust, with hardening as an explicit design goal.
+- [`Luernn/AldecaldOS`: An hybrid RTOS](https://codeberg.org/Luernn/AldecaldOS)
+  - A from-scratch embedded kernel in Rust, written as a hybrid real-time OS.
+- [RamShared v2: Writing a Linux VRAM Block Driver in Rust & C with 8.74 GiB/s PCIe DMA, io_uring/ublk, and 3 Patches on lore.kernel.org](https://old.reddit.com/r/rust/comments/1w22bx5/ramshared_v2_writing_a_linux_vram_block_driver_in/)
+  - Turns idle GPU VRAM into a block device, via a `ublk` userspace driver built on `io_uring` plus a Linux 6.18 block driver submitted upstream to the linux-block subsystem.
+- [`#[target_feature(enable = "avx2")]` does nothing on `x86_64-unknown-uefi`](https://github.com/Aefinity-AI/alice-aegis/blob/main/docs/posts/2026-08-05_uefi-soft-float-deletes-your-avx2.md)
+  - A debugging story about hand-written AVX2 kernels that compiled to zero vector instructions on the `x86_64-unknown-uefi` target, because that target enables `+soft-float`.
+- [How `no_std` are `no_std` Rust crates really? A survey](https://w-graj.net/posts/rust-no-std-survey/)
+  - Surveys crates that advertise `no_std` support and checks how many of them actually build without `std`, and under which feature combinations.
+- [Alpha-2 Release of RSMalloc: A general-purpose Restartable Sequences (RSEQ) based memory allocator](https://github.com/Metehan120/rsmalloc)
+  - An allocator built on Linux's restartable sequences, which let a thread's fast path be restarted rather than locked when it is preempted.
+- [How Firecracker microVMs work under the hood to sandbox untrusted code and AI agents](https://kerkour.com/firecracker-sandboxing-rust)
+  - A tour of the Rust-based Firecracker VMM: how it uses KVM, what its minimal device model looks like, and how the guest kernel is booted.
+- [How we developed the world's first safety-certified product written in Rust – and why we went bare metal](https://www.sonair.com/journal/how-we-safety-certified-the-worlds-first-rust-implementation)
+  - Sonair on getting a Rust codebase through safety certification, including why they dropped an RTOS in favour of running bare metal.
+- [rustc_codegen_gcc: Progress Report #43](https://blog.antoyo.xyz/rustc_codegen_gcc-progress-report-43)
+  - Latest progress on the GCC backend for `rustc`, which is one route to Rust on architectures LLVM does not target.
+- [A chip-agnostic architecture for bare-metal embedded Rust](https://aaronqian.com/log/2026-08-01-chip-agnostic-architecture-bare-metal-rust/)
+  - Argues for keeping the hardware-specific layer of a bare-metal project behind narrow traits, so that most of the firmware can be built and tested without the target chip.
+- [Minecraft clone in no_std Rust + MMX inline asm running on an IBM ThinkPad 600E](https://youtu.be/caE7W4bFW3c)
+  - A `no_std` Rust renderer with hand-written MMX inline assembly, booted on a Pentium II laptop.
+- [The world's first Game Boy ROM written in Pure Rust](https://github.com/zlfn/rust-gb)
+  - `rust-gb` compiles Rust for the Game Boy's SM83 CPU on top of an LLVM Z80 backend - a good illustration of what bringing up a genuinely new bare-metal target involves.
+- [Your E-Paper Panel Isn't Broken: How Retained State Makes Drivers Look Buggy](https://msj.prose.sh/epaper-retained-state)
+  - On writing drivers for devices that keep state across resets, and why the usual "initialize everything at startup" assumption breaks down there.
+- [A gentle introduction to Embedded Rust](https://niss36.github.io/blog/01-gentle-intro-to-embedded-rust/)
+- [The Embedded Rustacean Issue #77](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-77)
+  and [Issue #78](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-78)
 
 ## Infrastructure and Tooling
 
@@ -53,7 +85,26 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
-<span class="gray">No content was submitted for this section this month.</span>
+- [target_features: sse (or at least avx2) is incompatible with soft-float ABI](https://github.com/rust-lang/rust/pull/160302)
+  - Enabling `sse` (and therefore any x86 vector feature) via `#[target_feature]` on a soft-float target such as `x86_64-unknown-uefi` is not supported by LLVM and can crash the backend or silently drop all vector instructions. This is now a future-compatibility warning, reported in dependencies as well, so that whoever builds the final binary actually sees it.
+- [Stabilize `extern "custom"`](https://github.com/rust-lang/rust/pull/158504)
+  - An `extern "custom" fn` has a calling convention that Rust knows nothing about and therefore refuses to call normally. This is the supported way to write `#[naked]` entry points that are only ever reached from hardware or hand-written assembly, such as interrupt handlers or compiler-runtime symbols like `__aeabi_uidivmod`.
+- [stabilize size_of_val_raw, align_of_val_raw, Layout::for_value_raw](https://github.com/rust-lang/rust/pull/157572)
+  - Size and alignment of a value can now be queried through a raw pointer on stable, without having to create a reference first. This matters for allocators and anything else that handles memory which is not (yet) a valid value.
+- [make atomic operations const](https://github.com/rust-lang/rust/pull/160079)
+  - Atomic loads, stores, and read-modify-write operations are now usable in `const` contexts.
+- [stabilize `c_variadic_naked_functions`](https://github.com/rust-lang/rust/pull/159746)
+  - `#[naked]` functions may now use the C variadic ABI, which is needed for hand-written trampolines into variadic C interfaces.
+- [Stabilize passing 128-bit integers via vector registers with `asm!` on x86](https://github.com/rust-lang/rust/pull/159525)
+  - `i128` and `u128` can now be passed to and from inline assembly in SSE registers.
+- [Move `std::io::copy` to `alloc::io`](https://github.com/rust-lang/rust/pull/158548)
+  - Continues the move of `std::io` into `core` and `alloc` that we covered last month.
+- [std: uefi: fix File::seek returning the EOF sentinel](https://github.com/rust-lang/rust/pull/161887)
+  - On the `x86_64-unknown-uefi` std target, `seek(SeekFrom::End(0))` returned UEFI's `0xFFFF_FFFF_FFFF_FFFF` "end of file" sentinel instead of the actual position, which also broke the default `Seek::stream_len`.
+- [Re-stabilize build-dir layout v2](https://github.com/rust-lang/cargo/pull/17354)
+  - Cargo's new `build-dir` layout is stable again after being reverted in July. Custom runners that locate test binaries themselves may need the same kind of adjustment that `bootimage` made last month.
+- [volatile: allow accesses to non-AM memory to trap](https://github.com/rust-lang/rust/pull/160564)
+  - Not merged yet, but worth watching: this specifies that volatile accesses may trap, which is what MMIO code relies on in practice. According to the author it also removes the last case of "time-traveling UB" in Rust.
 
 ## `rust-osdev` Projects
 
