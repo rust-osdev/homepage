@@ -92,8 +92,8 @@ Representation (IFR) types and `uefi` gained the `AbsolutePointer` protocol,
 `CString16::extend`, and allocation-free iteration over the components of a
 `Path`.
 
-All of this is unreleased so far and will ship in the next `uefi` and
-`uefi-raw` releases.
+All of this was released as `uefi v0.41.0`, `uefi-raw v0.17.0`, and
+`uefi-macros v0.20.0`.
 
 As mentioned last month, [Anthropic](https://www.anthropic.com/) sponsors
 @phip1611 with a Max plan as part of their open source program. Much of the
