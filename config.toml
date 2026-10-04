@@ -39,6 +39,7 @@ skip_prefixes = [
     "https://security.googleblog.com",                 # rate limits CI runners (429)
     "https://gitter.im",                               # redirects to app.gitter.im (301)
     "https://mirage.io",                               # intermittent connection failures
+    "https://wiki.osdev.org",                          # Cloudflare bot challenge (403)
 ]
 
 # These resolve fine, but their "#..." fragments are client-side routes
