@@ -105,7 +105,124 @@ Thanks to [@crawfxrd](https://github.com/crawfxrd),
 [@the-shank](https://github.com/the-shank) for their contributions!
 
 We merged the following PRs this month:
-<!-- TODO -->
+
+- [release: uefi-macros-0.20.0, uefi-raw-0.17.0, uefi-0.41.0](https://github.com/rust-osdev/uefi-rs/pull/2092)
+- [Various Fixes of Potential Undefined Behavior (LLM Assisted)](https://github.com/rust-osdev/uefi-rs/pull/2077)
+- [Various Fixes of Potential Undefined Behavior (LLM Assisted) (2/N)](https://github.com/rust-osdev/uefi-rs/pull/2078)
+- [Various Fixes of Potential Undefined Behavior (LLM Assisted) (3/N)](https://github.com/rust-osdev/uefi-rs/pull/2079)
+- [Various Fixes of Potential Undefined Behavior (LLM Assisted) (4/N)](https://github.com/rust-osdev/uefi-rs/pull/2080)
+- [Various Fixes of Potential Undefined Behavior (LLM Assisted) (5/N)](https://github.com/rust-osdev/uefi-rs/pull/2083)
+- [Various Fixes of Potential Undefined Behavior and Panics (LLM Assisted) (6/N)](https://github.com/rust-osdev/uefi-rs/pull/2084)
+- [Various Fixes of Potential Undefined Behavior and Panics (LLM Assisted) (8/N)](https://github.com/rust-osdev/uefi-rs/pull/2085)
+- [uefi: fix aliasing UB in PciRootBridgeIo I/O accessors](https://github.com/rust-osdev/uefi-rs/pull/2074)
+- [uefi: mem: fix the allocation handling of make_boxed](https://github.com/rust-osdev/uefi-rs/pull/2081)
+- [uefi: media: validate the file info returned by firmware](https://github.com/rust-osdev/uefi-rs/pull/2082)
+- [uefi-raw: spec violation fixes: outputs behind read-only pointers (1/5)](https://github.com/rust-osdev/uefi-rs/pull/2086)
+- [uefi-raw: spec violation fixes: read-only inputs (2/5)](https://github.com/rust-osdev/uefi-rs/pull/2087)
+- [uefi-raw: spec compliance: event notification context (3/5)](https://github.com/rust-osdev/uefi-rs/pull/2088)
+- [uefi-raw: spec compliance: caller-owned outputs (4/5)](https://github.com/rust-osdev/uefi-rs/pull/2089)
+- [uefi-raw: spec compliance: mode pointers and docs (5/5)](https://github.com/rust-osdev/uefi-rs/pull/2090)
+- [uefi-raw: a few more spec adjustments regarding api_guidelines.md](https://github.com/rust-osdev/uefi-rs/pull/2093)
+- [A few small Spec Fixes/Adjustments](https://github.com/rust-osdev/uefi-rs/pull/2063)
+- [uefi-raw: Add HII IFR bindings](https://github.com/rust-osdev/uefi-rs/pull/2064)
+- [uefi: Add AbsolutePointerProtocol](https://github.com/rust-osdev/uefi-rs/pull/2061)
+- [Add EdidDiscovered protocol](https://github.com/rust-osdev/uefi-rs/pull/2073)
+- [uefi: some string and path improvements](https://github.com/rust-osdev/uefi-rs/pull/2066)
+- [uefi: Improve the debug format of `CStr8`, `CStr16`, and `CString16`.](https://github.com/rust-osdev/uefi-rs/pull/2099)
+- [uefi-raw: Use efiapi for C variadic functions](https://github.com/rust-osdev/uefi-rs/pull/2098)
+- [pxe: use PxeBaseCodeBootType in PxeBaseCodeSrvlist](https://github.com/rust-osdev/uefi-rs/pull/2058)
+- [data_types: export FromSliceUntilNulError](https://github.com/rust-osdev/uefi-rs/pull/2059)
+- [uefi-raw: improve documentation how to model UEFI types](https://github.com/rust-osdev/uefi-rs/pull/2091)
+- [Various Small Release Preparation Fixes](https://github.com/rust-osdev/uefi-rs/pull/2096)
+- [Some Small Fixes](https://github.com/rust-osdev/uefi-rs/pull/2100)
+
+<!-- Chore and dependency PRs: -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.50.1](https://github.com/rust-osdev/uefi-rs/pull/2067) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/2069) -->
+<!-- - [cargo: fix warnings from latest nightly (v1.100.0)](https://github.com/rust-osdev/uefi-rs/pull/2070) -->
+<!-- - [Streamline Lints](https://github.com/rust-osdev/uefi-rs/pull/2071) -->
+<!-- - [Update crate-ci/typos action to v1.50.2](https://github.com/rust-osdev/uefi-rs/pull/2094) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.50.3](https://github.com/rust-osdev/uefi-rs/pull/2101) -->
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers uses to relay information about the hardware to the OS.
+
+We merged the following changes this month:
+
+- [Breaking: Improve pm1 enable registers control ](https://github.com/rust-osdev/acpi/pull/326)
+- [Add functions to get and clear pending events for Pm1EventRegisterBlock](https://github.com/rust-osdev/acpi/pull/325)
+- [Add I2C and GPIO resource descriptors](https://github.com/rust-osdev/acpi/pull/333)
+- [Add `set_interrupt_model_used` method for calling `\_PIC`](https://github.com/rust-osdev/acpi/pull/357)
+- [Create `pci_routing::Pin::from_pci_interrupt_pin` convenience fn.](https://github.com/rust-osdev/acpi/pull/359)
+- [Make RegionHandlers be Send + Sync by default](https://github.com/rust-osdev/acpi/pull/318)
+- [feat: Don't take explicit references to `Handler`](https://github.com/rust-osdev/acpi/pull/345)
+- [Use updated PhysicalMapping interface](https://github.com/rust-osdev/acpi/pull/360)
+- [feat(aml): make `spinning_top`, `byteorder`, and `smallvec` optional](https://github.com/rust-osdev/acpi/pull/340)
+- [Keep a copy of block stream instead of raw pointer](https://github.com/rust-osdev/acpi/pull/310)
+- [Ensure that Locals passed to Methods are preserved](https://github.com/rust-osdev/acpi/pull/335)
+- [Correctly unwind stack when handling `Continue`](https://github.com/rust-osdev/acpi/pull/363)
+- [Prevent some infinite recursion and loops](https://github.com/rust-osdev/acpi/pull/352)
+- [Fix a couple issues with end tags](https://github.com/rust-osdev/acpi/pull/332)
+- [fix: Fix compilation with only the `alloc` feature](https://github.com/rust-osdev/acpi/pull/342)
+- [Add basic test for ConcatenateRestTemplate](https://github.com/rust-osdev/acpi/pull/334)
+
+<!-- Chore PRs: -->
+<!-- - [Add $FEATURES to build flags](https://github.com/rust-osdev/acpi/pull/343) -->
+<!-- - [fix(aml): Fix Clippy lints](https://github.com/rust-osdev/acpi/pull/339) -->
+<!-- - [ci: Update workflow actions](https://github.com/rust-osdev/acpi/pull/344) -->
+<!-- - [fix: Fix Rust lints without default features](https://github.com/rust-osdev/acpi/pull/341) -->
+<!-- - [fix(tools): Fix `cargo::non_kebab_case_bins`](https://github.com/rust-osdev/acpi/pull/337) -->
+<!-- - [fix: Fix exported_private_dependencies](https://github.com/rust-osdev/acpi/pull/338) -->
+<!-- - [fix(aml): Fix clippy::unnecessary_cast](https://github.com/rust-osdev/acpi/pull/350) -->
+
+Thanks to [@dewyatt](https://github.com/dewyatt), [@martin-hughes](https://github.com/martin-hughes), [@mkroening](https://github.com/mkroening), and [@ChocolateLoverRaj](https://github.com/ChocolateLoverRaj) for their contributions!
+
+### [`virtio-spec-rs`](https://github.com/rust-osdev/virtio-spec-rs)
+<span class="maintainers">Maintained by [@mkroening](https://github.com/mkroening)</span>
+
+The `virtio-spec` crate provides definitions from the Virtual I/O Device (VIRTIO) specification.
+This project aims to be unopinionated regarding actual VIRTIO drivers that are implemented on top of this crate.
+
+This month, the crate was upgraded to version 1.4 of the VIRTIO specification and gained virtio-blk definitions, released as `v0.4.0`:
+
+- [chore: Release version 0.4.0](https://github.com/rust-osdev/virtio-spec-rs/pull/46)
+- [feat: add virtio-blk definitions](https://github.com/rust-osdev/virtio-spec-rs/pull/33)
+- [feat: update `virtio::Id` to spec 1.4](https://github.com/rust-osdev/virtio-spec-rs/pull/26)
+- [feat: add `DeviceStatus::SUSPEND` from spec 1.4](https://github.com/rust-osdev/virtio-spec-rs/pull/27)
+- [feat: update features to spec 1.4](https://github.com/rust-osdev/virtio-spec-rs/pull/35)
+- [feat(driver_notifications): upgrade to spec 1.4](https://github.com/rust-osdev/virtio-spec-rs/pull/36)
+- [feat(net): upgrade to spec 1.4](https://github.com/rust-osdev/virtio-spec-rs/pull/40)
+- [feat(pci): upgrade to spec 1.4](https://github.com/rust-osdev/virtio-spec-rs/pull/41)
+- [feat(mmio): upgrade to spec 1.4](https://github.com/rust-osdev/virtio-spec-rs/pull/37)
+- [feat: make enums ABI-compatible](https://github.com/rust-osdev/virtio-spec-rs/pull/30)
+
+<!-- Chore PRs: -->
+<!-- - [build(deps): Upgrade bitfield-struct to 0.13](https://github.com/rust-osdev/virtio-spec-rs/pull/42) -->
+<!-- - [ci: Upgrade to actions/checkout@v7](https://github.com/rust-osdev/virtio-spec-rs/pull/45) -->
+<!-- - [chore(Cargo.toml): Remove deprecated `package.authors` field](https://github.com/rust-osdev/virtio-spec-rs/pull/43) -->
+<!-- - [ci: Use Cargo `build.warnings` instead of `RUSTFLAGS=-Dwarnings`](https://github.com/rust-osdev/virtio-spec-rs/pull/44) -->
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We published a first release candidate for `v0.16.0` this month. We merged the following changes:
+
+- [release 0.16.0-rc.0](https://github.com/rust-osdev/x86_64/pull/608)
+- [increase the Minimum Supported Rust Version to 1.98](https://github.com/rust-osdev/x86_64/pull/604)
+- [make memory encryption bit an upper limit for physical address bits](https://github.com/rust-osdev/x86_64/pull/603)
+- [feat(paging): Implement `IntoIterator` and `Copy` for ranges](https://github.com/rust-osdev/x86_64/pull/609)
+- [fix: Add `#[track_caller]` to many address, page, and frame methods](https://github.com/rust-osdev/x86_64/pull/615)
+- [fix(paging): Fix panic on displaying a page table with the last physical frame](https://github.com/rust-osdev/x86_64/pull/614)
+- [clean up features](https://github.com/rust-osdev/x86_64/pull/607)
+
+<!-- Chore PRs: -->
+<!-- - [Fix some failing CI jobs](https://github.com/rust-osdev/x86_64/pull/606) -->
+
+Thanks to [@mkroening](https://github.com/mkroening) for their contributions!
 
 ### [`multiboot2`](https://github.com/rust-osdev/multiboot2)
 <span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
@@ -132,7 +249,13 @@ most notably that `Header` and `MaybeDynSized` are now `unsafe` traits, which
 affects users implementing custom tags.
 
 We merged the following PRs this month:
-<!-- TODO -->
+
+- [Various small-ish UB and Safety Fixes.](https://github.com/rust-osdev/multiboot2/pull/319)
+- [Various UB fixes and Code Improvements](https://github.com/rust-osdev/multiboot2/pull/318)
+- [Various UB Fixes](https://github.com/rust-osdev/multiboot2/pull/317)
+
+<!-- Chore PRs: -->
+<!-- - [build(deps): bump crate-ci/typos from 1.48.0 to 1.50.0](https://github.com/rust-osdev/multiboot2/pull/316) -->
 
 ### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
 <span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
@@ -151,7 +274,13 @@ rather than only in virtual machines - which is exactly what this crate was
 rewritten for.
 
 We merged the following PRs this month:
-<!-- TODO -->
+
+- [real-hw-test: init](https://github.com/rust-osdev/uart_16550/pull/71)
+
+<!-- Chore PRs: -->
+<!-- - [build(deps): bump crate-ci/typos from 1.48.0 to 1.50.0](https://github.com/rust-osdev/uart_16550/pull/72) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.50.0 to 1.50.2](https://github.com/rust-osdev/uart_16550/pull/73) -->
+
 
 ## Other Projects
 
