@@ -263,7 +263,7 @@ We merged the following PRs this month:
 _Simple yet highly configurable low-level driver for 16550 UART devices,
 typically known and used as serial ports or COM ports._
 
-`v0.8.1` adds the public method `Uart16550::check_present()`, which probes for a
+[`v0.8.1`](https://github.com/rust-osdev/uart_16550/commit/1d220e8615dbd1fbe3abef0446ffe90d70265be9) adds the public method [`Uart16550::check_present()`](https://github.com/rust-osdev/uart_16550/commit/a563618731b579fcc0984a85d7b2bfe7300e5c08), which probes for a
 device through the scratch register. `init()` now delegates its existing
 presence check to it, so users can run the same probe on their own before
 touching the device.
