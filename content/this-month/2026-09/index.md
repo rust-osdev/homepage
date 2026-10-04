@@ -40,7 +40,28 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
-<span class="gray">No content was submitted for this section this month.</span>
+- [OSTEP & Redox: Introduction & The Process](https://himwant.org/posts/ostep-redox-intro/)
+  - Blog series that maps the concepts of the "Operating Systems: Three Easy Pieces" textbook to Redox. Follow-up posts: [How does scheduling work on Redox?](https://himwant.org/posts/ostep-redox-scheduler/) and [Memory Management in Redox - Pt. 1 Page Tables](https://himwant.org/posts/ostep-redox-memory/)
+- [This Month in Redox - August 2026](https://www.redox-os.org/news/this-month-260831/)
+- [Rust in the kernel? What about Rust without the kernel!](https://kerkour.com/rust-kernel)
+- [The OpenVMM Project](https://techcommunity.microsoft.com/blog/windowsosplatform/the-openvmm-project/4547237)
+- [Building a DMA based driver for the RP2350 I2C (safety not included)](https://micro-rust.github.io/posts/001-i2c-dma-handler/)
+- [Reverse engineering my e-scooter and rewriting the firmware in rust](https://bensimms.moe/reverse-engineering-scooter/)
+- [The Embedded Rustacean Issue #79](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-79),
+  [Issue #80](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-80),
+  and [Issue #81](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-81)
+
+### Linux-related
+
+- [Kangrejos 2026](https://kangrejos.com)
+  - The Rust for Linux workshop took place on September 16–17 in Las Palmas. Slides for many sessions (pin-init, field projection, Tyr, Rust UFS driver, Rust SPDM, …) are linked on the page.
+- Video: [Kernel Recipes 2026 -  Rust for Linux](https://www.youtube.com/watch?v=7kPn2Kf7AJM)
+  - Talk by Miguel Ojeda.
+- [Compiling the kernel with gccrs](https://lwn.net/Articles/1095553/)
+  - The corresponding RustConf talk is available too: [Arthur Cohen & Pierre-Emmanuel Patry: "Compiling the Linux Kernel with gccrs" | RustConf 2026](https://www.youtube.com/watch?v=GzxLOCigy60)
+- [Google's "Painful To Maintain" Binder C Linux Driver Being Removed In Favor Of Rust](https://www.phoronix.com/news/Google-Binder-C-Goodbye)
+- [The "rnull" Rust block driver](https://lwn.net/Articles/1090378/)
+- [Guide to building kernel modules in Rust](https://thehecknow.hashnode.dev/implementing-a-linux-device-driver-in-rust)
 
 ## Infrastructure and Tooling
 
