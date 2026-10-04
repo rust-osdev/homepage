@@ -41,7 +41,8 @@ Please follow this template:
 -->
 
 - [OSTEP & Redox: Introduction & The Process](https://himwant.org/posts/ostep-redox-intro/)
-  - Blog series that maps the concepts of the "Operating Systems: Three Easy Pieces" textbook to Redox. Follow-up posts: [How does scheduling work on Redox?](https://himwant.org/posts/ostep-redox-scheduler/) and [Memory Management in Redox - Pt. 1 Page Tables](https://himwant.org/posts/ostep-redox-memory/)
+  - Blog series that maps the concepts of the [_Operating Systems: Three Easy Pieces_](https://pages.cs.wisc.edu/~remzi/OSTEP/) textbook to Redox.
+  - Follow-up posts: [How does scheduling work on Redox?](https://himwant.org/posts/ostep-redox-scheduler/) and [Memory Management in Redox - Pt. 1 Page Tables](https://himwant.org/posts/ostep-redox-memory/)
 - [This Month in Redox - August 2026](https://www.redox-os.org/news/this-month-260831/)
 - [Rust in the kernel? What about Rust without the kernel!](https://kerkour.com/rust-kernel)
 - [The OpenVMM Project](https://techcommunity.microsoft.com/blog/windowsosplatform/the-openvmm-project/4547237)
