@@ -53,7 +53,21 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
-<span class="gray">No content was submitted for this section this month.</span>
+- [alloc: stabilise `Allocator`](https://github.com/rust-lang/rust/pull/156882)
+  - After years behind the `allocator_api` feature gate, an MVP of the `Allocator` trait is stable, together with `Box<T, A>`, `Vec<T, A>`, `Global`, and the `*_with_allocator` methods. This makes custom per-collection allocators possible on stable Rust. The remaining parts of the old feature move to `allocator_ext`.
+- [libcore: expose volatile atomic operations](https://github.com/rust-lang/rust/pull/161301)
+  - Adds unstable `load_volatile`/`store_volatile` methods on the atomic types (`atomic_volatile` feature), for memory shared with devices or other address spaces, such as DMA buffers.
+- [x86: on targets that requires SSE, use those registers for ABI](https://github.com/rust-lang/rust/pull/161583)
+  - On SSE-requiring x86 targets, the Rust ABI now passes values in SSE registers and disabling SSE is a hard error. Kernels that disable SSE need a soft-float target.
+- [feat(builtin-deps): Add builtin dependencies manifest syntax](https://github.com/rust-lang/cargo/pull/17498)
+  - First steps toward [RFC 3875](https://github.com/rust-lang/rfcs/pull/3875) (explicit dependencies on standard library crates for `build-std`), with follow-ups in [#17497](https://github.com/rust-lang/cargo/pull/17497), [#17499](https://github.com/rust-lang/cargo/pull/17499), and [#17513](https://github.com/rust-lang/cargo/pull/17513).
+- [make target feature ABI check a hard error on ARM](https://github.com/rust-lang/rust/pull/161280)
+  - Code that requests a hard-float ABI on ARM without the matching float target features is now rejected. This was a future-compat warning since Rust 1.86.
+- [Stabilize `unsafe_cell_access`](https://github.com/rust-lang/rust/pull/162504)
+  - Stabilizes `UnsafeCell::as_ref_unchecked`, `as_mut_unchecked`, and `replace`.
+- [support `#[target_feature(enable = ...)]` on `#[naked]` functions](https://github.com/rust-lang/rust/pull/137720)
+- [Add Tier 3 targets for Hyperlight guests](https://github.com/rust-lang/rust/pull/163144)
+  - Adds `x86_64-unknown-hyperlight` and `aarch64-unknown-hyperlight` targets for bare-metal guests running in Hyperlight micro-VMs.
 
 ## `rust-osdev` Projects
 
