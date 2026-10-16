@@ -71,7 +71,41 @@ In this section, we give an overview of notable changes to the projects hosted u
     <<changelog, either in list or text form>>
 -->
 
-<span class="gray">No content was submitted for this section this month.</span>
+### [`uart_16550`](https://github.com/rust-osdev/uart_16550)
+<span class="maintainers">Maintained by [@phip1611](https://github.com/phip1611)</span>
+
+_Simple yet highly configurable low-level driver for 16550 UART devices,
+typically known and used as serial ports or COM ports._
+
+[`v0.9.0`](https://github.com/rust-osdev/uart_16550/commit/492c16b2ed81020cb51e302ba7056481db69ac2c)
+makes the driver considerably more robust on real hardware. The driver is now
+tested against a model of a 16550A that follows the flows of the Linux 8250
+driver. The model was created with LLM assistance and careful human review, and
+it found 12 bugs, all fixed in this release. Most notably, devices without
+working FIFOs, such as the 16450, overran the transmitter and hung the loopback
+self-test that `Uart16550Tty` always runs. Also, internal register reads lost
+line errors and modem status changes, which `lsr()` and `msr()` now report.
+
+The `Backend` trait is no longer sealed, so users can bring their own register
+access, e.g., port I/O via `tdcall` or the GHCB in confidential VMs. Together
+with the new `const fn` constructors, devices can now live in a `static`. The
+driver also gained `enable_interrupts()` and `disable_interrupts()`, e.g., for
+interrupt-driven transmission.
+
+The release comes with several breaking changes, most notably a new MSRV of
+1.91, a smaller `Backend` trait with only `read()` and `write()`, and
+`calc_divisor()` reporting divisors that don't fit into 16 bits instead of
+panicking. The
+[changelog](https://github.com/rust-osdev/uart_16550/blob/main/CHANGELOG.md)
+has all details.
+
+As mentioned in previous issues, [Anthropic](https://www.anthropic.com/)
+sponsors @phip1611 with a Max plan as part of their open source program. The
+16550A model and the testing above happened under that sponsorship, and we are
+happy that it helps us improve the robustness and reliability of the ecosystem.
+
+We merged the following PRs this month:
+<!-- TODO -->
 
 ## Other Projects
 
