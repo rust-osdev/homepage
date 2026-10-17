@@ -40,6 +40,9 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+- [Announcing Asterinas 0.19.0](https://asterinas.github.io/2026/10/13/announcing-asterinas-0.19.0.html)
+  - [Asterinas](https://github.com/asterinas/asterinas) is a Linux ABI-compatible OS kernel written from scratch in Rust. 0.19.0 adds a DRM subsystem (Xorg and 3D games), AArch64 as its fourth architecture, Intel VMX hypervisor support in OSTD, a Rust-native device model, and self-hosting builds.
+
 <span class="gray">No content was submitted for this section this month.</span>
 
 ## Infrastructure and Tooling
