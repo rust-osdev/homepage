@@ -136,6 +136,17 @@ On the desktop side, window tiling became the default model, a clipboard service
 
 [Website](https://open-nexus-os.io/) · [Repository](https://github.com/open-nexus-OS/open-nexus-OS) · [Changelog](https://github.com/open-nexus-OS/open-nexus-OS/blob/main/CHANGELOG.md)
 
+### [`EmiBSD/Kernel`](https://github.com/EmiBSD/Kernel)
+<span class="maintainers">(Section written by [@enavarre-cl](https://github.com/enavarre-cl))</span>
+
+[EmiBSD](https://www.emibsd.org/) carries the OpenBSD kernel into Rust in two stages. [LandingZone](https://github.com/EmiBSD/LandingZone) ports it one C file to one Rust file, keeping the C's shape so each file can be checked against its origin; Kernel then redesigns what LandingZone ported, subsystem by subsystem. The `kernel` and `abi` crates are `#![forbid(unsafe_code)]`; only `hal` may hold `unsafe`, each site with a written proof. OpenBSD's behaviour is the specification: the system-call ABI stays byte-identical, so OpenBSD's own userland runs unmodified, and every change is checked against a real OpenBSD in QEMU. The code is written by AI coding agents under written rules; one maintainer reviews and approves every commit. Pre-alpha, arm64 in QEMU only, not affiliated with the OpenBSD project.
+
+October was the month Kernel split from LandingZone and closed its first five milestones, N0 to N4: bootstrap, the leaf libraries, the `kernel`/`abi`/`hal` crates, memory (uvm into `kernel::vm`, the pmaps into `hal`), and processes and scheduling. At N4, processes, descriptors, kqueue, signals, the scheduler, terminals and the clock live in the safe `kernel` crate; the context switch, trap and system-call entry, user copies and the Spectre-BHB and KPTI code live in `hal`, which now has 184 `unsafe` sites against 9490 left in the inherited tree. 105 of OpenBSD's 331 system calls are handled natively, from 17 at the start of N4. The test suite passes on two and four CPUs, the installer runs end to end, and the comparison with a real OpenBSD found no new difference. The cost is measured too: under QEMU on arm64 the page fault is 41 % slower than at N3 and fork plus exec 24 %; those numbers wait for the performance milestone.
+
+Next is N5, the VFS and the file systems.
+
+[Website](https://www.emibsd.org/) · [Status, with every figure at a named commit](https://www.emibsd.org/status/) · [N4 post](https://www.emibsd.org/news/2026/10/24/n4-met/)
+
 
 
 ## Join Us?
