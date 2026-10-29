@@ -136,7 +136,16 @@ On the desktop side, window tiling became the default model, a clipboard service
 
 [Website](https://open-nexus-os.io/) · [Repository](https://github.com/open-nexus-OS/open-nexus-OS) · [Changelog](https://github.com/open-nexus-OS/open-nexus-OS/blob/main/CHANGELOG.md)
 
+### [`EmiBSD/Kernel`](https://github.com/EmiBSD/Kernel)
+<span class="maintainers">(Section written by [@enavarre-cl](https://github.com/enavarre-cl))</span>
 
+[EmiBSD](https://www.emibsd.org/) is an experiment carrying the OpenBSD kernel into safe Rust. It keeps a byte-identical ABI to run OpenBSD's unmodified userland, porting the C file by file ([LandingZone](https://github.com/EmiBSD/LandingZone)) before redesigning it to confine unsafe code to a single hardware layer, `hal`. The code is written by AI coding agents under written rules, with one maintainer reviewing and approving every commit. It is pre-alpha, runs on arm64 in QEMU only, and is not affiliated with the OpenBSD project.
+
+This month, the redesign moved its first core subsystems out of the inherited port: the string, compression and crypto primitives, virtual memory, and processes and scheduling. File descriptors, kqueue, signals, the scheduler and terminals now live in the `#![forbid(unsafe_code)]` kernel crate. `hal` holds 184 proven unsafe sites against 9,490 remaining in the port, and 105 of OpenBSD's 331 system calls are handled natively.
+
+The test suite passes on two and four CPUs, the OpenBSD installer runs end to end, and the comparison against a real OpenBSD shows no new behavioural difference. Performance tuning is scheduled after the redesign. Next up: the VFS and file systems.
+
+[Website](https://www.emibsd.org/) · [Status](https://www.emibsd.org/status/) · [Process](https://www.emibsd.org/process/)
 
 ## Join Us?
 
