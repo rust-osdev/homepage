@@ -42,8 +42,8 @@ Please follow this template:
 
 - [Announcing Asterinas 0.19.0](https://asterinas.github.io/2026/10/13/announcing-asterinas-0.19.0.html)
   - [Asterinas](https://github.com/asterinas/asterinas) is a Linux ABI-compatible OS kernel written from scratch in Rust. 0.19.0 adds a DRM subsystem (Xorg and 3D games), AArch64 as its fourth architecture, Intel VMX hypervisor support in OSTD, a Rust-native device model, and self-hosting builds.
-
-<span class="gray">No content was submitted for this section this month.</span>
+- [The Documentation I Wish I Had: How I build drivers for Open Nexus OS](https://open-nexus-os.io/blog/the-documentation-i-wish-i-had)
+  - Bringing up the Rust microkernel OS [Open Nexus OS](https://github.com/open-nexus-OS/open-nexus-OS) on a Banana Pi BPI-F3: measuring the vendor's Linux system first and turning those measurements into pass/fail gates that drive the display, USB, and GPU driver work.
 
 ## Infrastructure and Tooling
 
@@ -123,7 +123,18 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
-<span class="gray">No project updates were submitted this month.</span>
+### [`open-nexus-OS/open-nexus-OS`](https://github.com/open-nexus-OS/open-nexus-OS)
+<span class="maintainers">(Section written by [@jenningschaefer](https://github.com/jenningschaefer))</span>
+
+[Open Nexus OS](https://open-nexus-os.io/) is a capability-based microkernel operating system written in Rust and targeting RISC-V.
+
+**Update: Open Nexus OS now runs on real hardware.** This month the OS booted on a Banana Pi BPI-F3 (SpacemiT K1) for the first time: it boots from eMMC through the vendor boot chain and shows the desktop at 1920x1080 on HDMI via the SoC's display controller. A new userspace USB host stack (a reactive xHCI driver plus HID parsers) lets a USB keyboard and mouse drive the desktop on the board, with the pointer riding the display controller's hardware layer.
+
+Work then moved to the K1's GPU. The `gpud` service gained a Rust driver for it with multiple GPU contexts, a render queue, and a scanout contract, together with an in-house shader toolchain that compiles WGSL into the project's own IR and emits code for both the board's GPU and the virgl path on QEMU. The compositor now redraws only the damaged regions of a frame on the GPU, and since mid-October the board's display is no longer composited on the CPU at all.
+
+On the desktop side, window tiling became the default model, a clipboard service with text editing and an IME landed, and the shell gained a screenshot tool. The bring-up method behind all of this is described in the blog post [The Documentation I Wish I Had](https://open-nexus-os.io/blog/the-documentation-i-wish-i-had).
+
+[Website](https://open-nexus-os.io/) · [Repository](https://github.com/open-nexus-OS/open-nexus-OS) · [Changelog](https://github.com/open-nexus-OS/open-nexus-OS/blob/main/CHANGELOG.md)
 
 
 
