@@ -139,15 +139,13 @@ On the desktop side, window tiling became the default model, a clipboard service
 ### [`EmiBSD/Kernel`](https://github.com/EmiBSD/Kernel)
 <span class="maintainers">(Section written by [@enavarre-cl](https://github.com/enavarre-cl))</span>
 
-[EmiBSD](https://www.emibsd.org/) carries the OpenBSD kernel into Rust in two stages. [LandingZone](https://github.com/EmiBSD/LandingZone) ports it one C file to one Rust file, keeping the C's shape so each file can be checked against its origin; Kernel then redesigns what LandingZone ported, subsystem by subsystem. The `kernel` and `abi` crates are `#![forbid(unsafe_code)]`; only `hal` may hold `unsafe`, each site with a written proof. OpenBSD's behaviour is the specification: the system-call ABI stays byte-identical, so OpenBSD's own userland runs unmodified, and every change is checked against a real OpenBSD in QEMU. The code is written by AI coding agents under written rules; one maintainer reviews and approves every commit. Pre-alpha, arm64 in QEMU only, not affiliated with the OpenBSD project.
+[EmiBSD](https://www.emibsd.org/) is an experiment carrying the OpenBSD kernel into safe Rust. It keeps a byte-identical ABI to run OpenBSD's unmodified userland, porting the C file by file ([LandingZone](https://github.com/EmiBSD/LandingZone)) before redesigning it to confine unsafe code to a single hardware layer, `hal`. The code is written by AI coding agents under written rules, with one maintainer reviewing and approving every commit. It is pre-alpha, runs on arm64 in QEMU only, and is not affiliated with the OpenBSD project.
 
-October was the month Kernel split from LandingZone and closed its first five milestones, N0 to N4: bootstrap, the leaf libraries, the `kernel`/`abi`/`hal` crates, memory (uvm into `kernel::vm`, the pmaps into `hal`), and processes and scheduling. At N4, processes, descriptors, kqueue, signals, the scheduler, terminals and the clock live in the safe `kernel` crate; the context switch, trap and system-call entry, user copies and the Spectre-BHB and KPTI code live in `hal`, which now has 184 `unsafe` sites against 9490 left in the inherited tree. 105 of OpenBSD's 331 system calls are handled natively, from 17 at the start of N4. The test suite passes on two and four CPUs, the installer runs end to end, and the comparison with a real OpenBSD found no new difference. The cost is measured too: under QEMU on arm64 the page fault is 41 % slower than at N3 and fork plus exec 24 %; those numbers wait for the performance milestone.
+This month, the redesign moved its first core subsystems out of the inherited port: the string, compression and crypto primitives, virtual memory, and processes and scheduling. File descriptors, kqueue, signals, the scheduler and terminals now live in the `#![forbid(unsafe_code)]` kernel crate. `hal` holds 184 proven unsafe sites against 9,490 remaining in the port, and 105 of OpenBSD's 331 system calls are handled natively.
 
-Next is N5, the VFS and the file systems.
+The test suite passes on two and four CPUs, the OpenBSD installer runs end to end, and the comparison against a real OpenBSD shows no new behavioural difference. Performance tuning is scheduled after the redesign. Next up: the VFS and file systems.
 
-[Website](https://www.emibsd.org/) · [Status, with every figure at a named commit](https://www.emibsd.org/status/) · [N4 post](https://www.emibsd.org/news/2026/10/24/n4-met/)
-
-
+[Website](https://www.emibsd.org/) · [Status](https://www.emibsd.org/status/) · [Process](https://www.emibsd.org/process/)
 
 ## Join Us?
 
