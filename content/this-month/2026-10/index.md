@@ -137,6 +137,34 @@ On the desktop side, window tiling became the default model, a clipboard service
 [Website](https://open-nexus-os.io/) · [Repository](https://github.com/open-nexus-OS/open-nexus-OS) · [Changelog](https://github.com/open-nexus-OS/open-nexus-OS/blob/main/CHANGELOG.md)
 
 
+### [`phip1611/noto-sans-mono-bitmap-rs`](https://github.com/phip1611/noto-sans-mono-bitmap-rs)
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+_Pre-rasterized `no_std` bitmap font for framebuffers in bootloaders and
+kernels, without allocations or floating point operations._
+
+[`v0.4.0`](https://github.com/phip1611/noto-sans-mono-bitmap-rs/releases/tag/v0.4.0)
+renders the characters about 7% larger, on a pixel-aligned baseline, and
+auto-hinted. Wide characters, such as `�`, are no longer cut off. The raster
+widths are unchanged.
+
+The glyphs are now flat binary blobs (via `include_bytes!`) instead of ~3800
+generated Rust source files with one fat pointer per glyph row:
+
+| Size                          | v0.3.2    | v0.4.0  |
+|-------------------------------|-----------|---------|
+| Published crate               | 533 kB    | 230 kB  |
+| In the binary, default        | <120 KiB  | ~10 KiB |
+| In the binary, all features   | 5+ MiB    | ~1 MiB  |
+
+The row pointers alone made up about 3.5 MB with all features, including their
+relocations in position-independent binaries. Breaking changes:
+`RasterizedChar::raster()` is replaced by `pixels()`, `rows()`, and
+`pixel(x, y)`, `FontWeight::val()` is removed, and the MSRV is 1.85. See the
+[changelog](https://github.com/phip1611/noto-sans-mono-bitmap-rs/blob/main/CHANGELOG.md).
+
+![Characters of noto-sans-mono-bitmap v0.4.0 in all sizes and font weights.](noto-sans-mono-bitmap-v0.4.webp "Characters of noto-sans-mono-bitmap v0.4.0 in all sizes and font weights.")
+
 
 ## Join Us?
 
