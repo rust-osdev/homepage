@@ -108,7 +108,114 @@ sponsors @phip1611 with a Max plan as part of their open source program. The
 happy that it helps us improve the robustness and reliability of the ecosystem.
 
 We merged the following PRs this month:
-<!-- TODO -->
+
+- [Allow custom backends (e.g., TDX/SNP port I/O) and const construction](https://github.com/rust-osdev/uart_16550/pull/76)
+- [Make port I/O and MMIO constructors const](https://github.com/rust-osdev/uart_16550/pull/77)
+- [Make the Backend trait offset-based](https://github.com/rust-osdev/uart_16550/pull/79)
+- [Split the backend out of config()](https://github.com/rust-osdev/uart_16550/pull/80)
+- [Add Uart16550Tty::new_mmio_from_address() and Uart16550::backend_mut(), document register offset checks](https://github.com/rust-osdev/uart_16550/pull/82)
+- [Test the driver against a 16550A model, following Linux](https://github.com/rust-osdev/uart_16550/pull/83)
+- [Small fixes found by testing against a 16550A model](https://github.com/rust-osdev/uart_16550/pull/84)
+- [Report divisors that don't fit into 16 bits instead of panicking](https://github.com/rust-osdev/uart_16550/pull/85)
+- [Add enable_interrupts() and disable_interrupts()](https://github.com/rust-osdev/uart_16550/pull/86)
+- [Keep LSR and MSR status across internal reads, like Linux](https://github.com/rust-osdev/uart_16550/pull/87)
+- [Detect whether the FIFOs are really enabled](https://github.com/rust-osdev/uart_16550/pull/88)
+- [Make the loopback test robust](https://github.com/rust-osdev/uart_16550/pull/89)
+- [Inline ISR::interrupt_type() and InterruptType::from_bits()](https://github.com/rust-osdev/uart_16550/pull/93)
+- [doc: drop remarks about const fn and statics](https://github.com/rust-osdev/uart_16550/pull/81)
+- [Fix misleading statements in the docs](https://github.com/rust-osdev/uart_16550/pull/94)
+- [Streamline the changelog for v0.9.0](https://github.com/rust-osdev/uart_16550/pull/92)
+
+<!-- Chore PRs: -->
+<!-- - [build(deps): bump uefi from 0.40.0 to 0.41.0 in /real-hw-test](https://github.com/rust-osdev/uart_16550/pull/75) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.50.2 to 1.50.3](https://github.com/rust-osdev/uart_16550/pull/74) -->
+<!-- - [CI Improvements](https://github.com/rust-osdev/uart_16550/pull/78) -->
+<!-- - [Add missing SPDX license headers](https://github.com/rust-osdev/uart_16550/pull/90) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.50.3 to 1.51.1](https://github.com/rust-osdev/uart_16550/pull/95) -->
+<!-- - [real-hw-test: fix aarch64 QEMU smoke test on Ubuntu 26.04](https://github.com/rust-osdev/uart_16550/pull/96) -->
+
+### [`x86_64`](https://github.com/rust-osdev/x86_64)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp), [@josephlr](https://github.com/orgs/rust-osdev/people/josephlr), and [@Freax13](https://github.com/orgs/rust-osdev/people/Freax13)</span>
+
+The `x86_64` crate provides various abstractions for `x86_64` systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.
+
+We merged the following changes this month:
+
+- [feat(addr): add 57-bit and runtime-validated `VirtAddr` types](https://github.com/rust-osdev/x86_64/pull/605)
+- [Add checked arithmetic functions to addresses, pages, and frames](https://github.com/rust-osdev/x86_64/pull/616)
+- [feat(instructions): Add `lldt` and `sldt`](https://github.com/rust-osdev/x86_64/pull/621)
+- [Make mxcsr::write and mxcsr::update unsafe](https://github.com/rust-osdev/x86_64/pull/627)
+- [Don't panic when displaying a page tables with pages directly before and after the address gap](https://github.com/rust-osdev/x86_64/pull/617)
+- [Document the virtualization exception](https://github.com/rust-osdev/x86_64/pull/624)
+
+Thanks to [@aarkegz](https://github.com/aarkegz), [@mkroening](https://github.com/mkroening), [@adityuhkapoor](https://github.com/adityuhkapoor), [@Garfield1002](https://github.com/Garfield1002), and [@llp42](https://github.com/llp42) for their contributions!
+
+### [`acpi`](https://github.com/rust-osdev/acpi)
+<span class="maintainers">Maintained by [@IsaacWoods](https://github.com/IsaacWoods)</span>
+
+The `acpi` repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers uses to relay information about the hardware to the OS.
+
+We merged the following changes this month:
+
+- [Add types for parsing DMAR](https://github.com/rust-osdev/acpi/pull/370)
+- [Add simple docs for DMAR table.](https://github.com/rust-osdev/acpi/pull/374)
+- [Support the Match expression](https://github.com/rust-osdev/acpi/pull/368)
+- [Add BufferField support for Increment/Decrement.](https://github.com/rust-osdev/acpi/pull/351)
+- [Default _OSI can be passed a string reference](https://github.com/rust-osdev/acpi/pull/369)
+- [Rework GAS accesses to fixed register blocks](https://github.com/rust-osdev/acpi/pull/373)
+- [fix: Do unaligned reads for table entries](https://github.com/rust-osdev/acpi/pull/364)
+- [Make PhysicalMapping safely Send / Sync](https://github.com/rust-osdev/acpi/pull/361)
+- [Constrain NativeMethod to Send + Sync](https://github.com/rust-osdev/acpi/pull/367)
+
+Thanks to [@gierens](https://github.com/gierens), [@dewyatt](https://github.com/dewyatt), [@martin-hughes](https://github.com/martin-hughes), and [@mkroening](https://github.com/mkroening) for their contributions!
+
+### [`spinning_top`](https://github.com/rust-osdev/spinning_top)
+<span class="maintainers">Maintained by [@phil-opp](https://github.com/phil-opp) and [@mkroening](https://github.com/mkroening)</span>
+
+The `spinning_top` crate provides a simple spinlock implementation based on the abstractions of the [`lock_api`](https://docs.rs/lock_api/0.4.1/lock_api/) crate.
+
+This month, we fixed a race condition in `RwSpinlock` when upgrading a lock, released as `v0.3.1`. Afterwards, we published `v0.4.0` with the following breaking changes: an upgrade to `lock_api` 0.5, a minimum supported Rust version of 1.95, and the removal of the `owning_ref` feature, since `owning_ref` is unmaintained and unsound ([RUSTSEC-2022-0040](https://rustsec.org/advisories/RUSTSEC-2022-0040)).
+
+- [fix(rwlock): Fix race when upgrading RW lock](https://github.com/rust-osdev/spinning_top/pull/32)
+- [Release v0.3.1](https://github.com/rust-osdev/spinning_top/pull/30)
+- [feat: Upgrade to lock_api 0.5](https://github.com/rust-osdev/spinning_top/pull/31)
+- [Declare MSRV 1.95 and test it in CI](https://github.com/rust-osdev/spinning_top/pull/38)
+- [Remove the `owning_ref` feature](https://github.com/rust-osdev/spinning_top/pull/41)
+- [Upgrade to Rust 2024](https://github.com/rust-osdev/spinning_top/pull/34)
+- [Test concurrent lock operations under Miri](https://github.com/rust-osdev/spinning_top/pull/43)
+- [Release v0.4.0](https://github.com/rust-osdev/spinning_top/pull/44)
+
+<!-- Chore PRs: -->
+<!-- - [build(deps): Add `Cargo.lock`](https://github.com/rust-osdev/spinning_top/pull/29) -->
+<!-- - [Fix SPDX license expression](https://github.com/rust-osdev/spinning_top/pull/35) -->
+<!-- - [fix(rwlock): use fetch_update to avoid raising MSRV in 0.3.1](https://github.com/rust-osdev/spinning_top/pull/36) -->
+<!-- - [Revert "fix(rwlock): use fetch_update to avoid raising MSRV in 0.3.1"](https://github.com/rust-osdev/spinning_top/pull/37) -->
+<!-- - [build(deps): Upgrade rand to 0.10](https://github.com/rust-osdev/spinning_top/pull/33) -->
+<!-- - [Fix clippy warnings and run it on CI](https://github.com/rust-osdev/spinning_top/pull/39) -->
+<!-- - [ci: bump actions/checkout from v1 to v7](https://github.com/rust-osdev/spinning_top/pull/40) -->
+<!-- - [Changelog: document unreleased changes](https://github.com/rust-osdev/spinning_top/pull/42) -->
+
+### [`uefi-rs`](https://github.com/rust-osdev/uefi-rs)
+<span class="maintainers">Maintained by [@nicholasbishop](https://github.com/nicholasbishop) and [@phip1611](https://github.com/phip1611)</span>
+
+`uefi` makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.
+
+We merged the following changes this month:
+
+- [uefi/time: add monotonic counter services](https://github.com/rust-osdev/uefi-rs/pull/2104)
+- [Add EdidActive protocol](https://github.com/rust-osdev/uefi-rs/pull/2109)
+
+<!-- Chore PRs: -->
+<!-- - [chore(deps): update rust crate time to v0.3.55](https://github.com/rust-osdev/uefi-rs/pull/2102) -->
+<!-- - [chore(deps): update rust crate serde_json to v1.0.154](https://github.com/rust-osdev/uefi-rs/pull/2108) -->
+<!-- - [chore(deps): update rust crate jiff to v0.2.38](https://github.com/rust-osdev/uefi-rs/pull/2107) -->
+<!-- - [chore(deps): update codecov/codecov-action action to v7.1.1](https://github.com/rust-osdev/uefi-rs/pull/2106) -->
+<!-- - [chore(deps): update rust crate fs-err to v3.3.2](https://github.com/rust-osdev/uefi-rs/pull/2105) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/2113) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.51.1](https://github.com/rust-osdev/uefi-rs/pull/2112) -->
+
+Thanks to [@RaitoBezarius](https://github.com/RaitoBezarius) and [@the-shank](https://github.com/the-shank) for their contributions!
 
 ## Other Projects
 
