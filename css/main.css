@@ -6,6 +6,10 @@ h3 a code {
     color: inherit;
 }
 
+h3 {
+    color: #4a6a8a;
+}
+
 .post-authors a {
     color: inherit;
     font-style: italic;

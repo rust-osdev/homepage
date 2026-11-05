@@ -12,8 +12,417 @@
         <atom:link href="https://rust-osdev.com/rss.xml" rel="self" type="application/rss+xml"/>
 
     
-        <lastBuildDate>Thu, 01 Oct 2026 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 05 Nov 2026 00:00:00 +0000</lastBuildDate>
     
+        <item>
+            <title>This Month in Rust OSDev: October 2026</title>
+            <pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
+            <link>https://rust-osdev.com/this-month/2026-10/</link>
+            <guid isPermaLink="true">https://rust-osdev.com/this-month/2026-10/</guid>
+            <description xml:base="https://rust-osdev.com/this-month/2026-10/">
+            <![CDATA[&lt;p&gt;Welcome to a new issue of &lt;em&gt;&quot;This Month in Rust OSDev&quot;&lt;&#x2F;em&gt;. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.&lt;&#x2F;p&gt;]]>
+            </description>
+            <content:encoded>
+				
+				
+                <![CDATA[<p>Welcome to a new issue of <em>"This Month in Rust OSDev"</em>. In these posts, we give a regular overview of notable changes in the Rust operating system development ecosystem.</p>
+<span id="continue-reading"></span>
+<p>This series is openly developed <a rel="external" href="https://github.com/rust-osdev/homepage/">on GitHub</a>. Feel free to open pull requests there with content you would like to see in the next issue. If you find some issues on this page, please report them by <a rel="external" href="https://github.com/rust-osdev/homepage/issues/new">creating an issue</a> or using our <a href="https://rust-osdev.com/this-month/2026-10/#comment-form"><em>comment form</em></a> at the bottom of this page.</p>
+<p>Please submit interesting posts and projects for the next issue by commenting on the <a rel="external" href="https://github.com/rust-osdev/homepage/pulls">draft pull request</a> or via a PR <a rel="external" href="https://github.com/rust-osdev/homepage/">on GitHub</a>.</p>
+<span class="gray">
+Disclaimer: Automated scripts and AI assistance were used for collecting and categorizing links.
+Everything was proofread and checked manually, with many manual tweaks.
+</span>
+<!--
+    This is a draft for the upcoming "This Month in Rust OSDev (October 2026)" post.
+    Feel free to create pull requests against the `next` branch to add your
+    content here.
+    Please take a look at the past posts on https://rust-osdev.com/ to see the
+    general structure of these posts.
+-->
+<h2 id="announcements-news-and-blog-posts">Announcements, News, and Blog Posts</h2>
+<p>Here we collect news, blog posts, etc. related to OS development in Rust.</p>
+<!--
+Please follow this template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<h3 id="os-projects">OS Projects</h3>
+<ul>
+<li><a rel="external" href="https://asterinas.github.io/2026/10/13/announcing-asterinas-0.19.0.html">Announcing Asterinas 0.19.0</a>
+<ul>
+<li><a rel="external" href="https://github.com/asterinas/asterinas">Asterinas</a> is a Linux ABI-compatible OS kernel written from scratch in Rust.</li>
+<li>0.19.0 adds a DRM subsystem (Xorg and 3D games), AArch64 as its fourth architecture, Intel VMX hypervisor support in OSTD, a Rust-native device model, and self-hosting builds.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/oriaj-nocrala/rust_so_kernel/blob/master/docs/blog/gsp-to-vulkan.md">Driving an NVIDIA GPU from a hobby Rust kernel: GSP-RM to Vulkan</a>
+<ul>
+<li>The <code>no_std</code> UEFI hobby kernel <a rel="external" href="https://github.com/oriaj-nocrala/rust_so_kernel">constanos</a> now boots NVIDIA's GSP-RM firmware on an RTX 3050 and runs a port of Mesa's NVK, so unmodified Vulkan code renders without Linux underneath.</li>
+<li>Most of the code was written by Claude Code, with the author directing the work and running the hardware tests.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.tockos.org/">Tock</a>, a secure embedded operating system for microcontrollers written in Rust:
+<ul>
+<li><a rel="external" href="https://github.com/tock/tock/releases/tag/release-2.3.0">Tock 2.3.0</a>: The first Tock release since early 2025 adds initial 64-bit RISC-V and x86 support, dynamic process loading, 8 new boards, and many soundness and MPU security fixes.</li>
+<li><a rel="external" href="https://www.tockos.org/blog/2026/talking-tock-66/">Talking Tock 66: RISC-V 64-bit Support on Tock</a></li>
+<li><a rel="external" href="https://www.tockos.org/blog/2026/talking-tock-65/">Talking Tock 65: Unsafe Documentation in the Core Tock Kernel</a>: Tock's core kernel crate now denies <code>clippy::missing_safety_doc</code> and <code>clippy::undocumented_unsafe_blocks</code>.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.redox-os.org/">Redox OS</a>, a Unix-like microkernel operating system written in Rust:
+<ul>
+<li><a rel="external" href="https://www.redox-os.org/news/this-month-260930/">This Month in Redox - September 2026</a></li>
+<li><a rel="external" href="https://www.redox-os.org/news/nlnet-rb-summary/">Ring Buffers Project Summary</a>: Wrap-up of Redox's NLnet-funded work on io_uring-like ring buffer support.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.phoronix.com/news/Microsoft-LiteBox-0.1">Microsoft Issues First Release Of Their LiteBox Sandboxing Library OS</a></li>
+<li><a rel="external" href="https://open-nexus-os.io/blog/the-documentation-i-wish-i-had">The Documentation I Wish I Had: How I build drivers for Open Nexus OS</a>
+<ul>
+<li>Bringing up the Rust microkernel OS <a rel="external" href="https://github.com/open-nexus-OS/open-nexus-OS">Open Nexus OS</a> on a Banana Pi BPI-F3: measuring the vendor's Linux system first and turning those measurements into pass/fail gates that drive the display, USB, and GPU driver work.</li>
+<li>A large part of Open Nexus OS was built with AI coding agents, guided by the measured gates described in the post.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/gmkurtzer/ginux">Ginux</a>
+<ul>
+<li>A userspace kernel that runs as an ordinary process on top of Linux and gives each workload a deliberately reduced, versioned subset of the Linux ABI by emulating, mediating, or denying its syscalls.</li>
+<li>Ginux started as a standalone Rust kernel booting through UEFI and running a Rocky Linux userspace (preserved on the <a rel="external" href="https://github.com/gmkurtzer/ginux/tree/bootable-kernel"><code>bootable-kernel</code></a> branch).</li>
+<li>Both versions were written by an AI coding agent directed by the author.</li>
+</ul>
+</li>
+</ul>
+<h3 id="linux-related">Linux-related</h3>
+<ul>
+<li><a rel="external" href="https://www.phoronix.com/news/Linux-7.4-Rust">17k Lines Of New Rust Kernel Code Heading Into Linux 7.4</a></li>
+<li><a rel="external" href="https://www.phoronix.com/news/Linux-7.4-Char-Misc">Google's C Binder Driver Removed With Rust Binder Ready For "Few Billion Devices"</a>
+<ul>
+<li>Follow-up to last month's item: the removal has now been merged for Linux 7.4.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.collabora.com/news-and-blog/blog/2026/10/21/upstreaming-tyr-rust-drm-and-the-linux-kernel/">Upstreaming Tyr: Rust, DRM, and the Linux Kernel</a>
+<ul>
+<li>Progress on upstreaming Tyr, the Rust DRM driver for Arm Mali GPUs.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.phoronix.com/news/NVIDIA-Nova-Linux-7.4-Changes">NVIDIA's Nova Driver Continues Leading The Way For Linux Rust GPU Drivers</a></li>
+<li><a rel="external" href="https://www.phoronix.com/news/Nova-Driver-LPC-2026">Nova Driver Continues Progressing With Long-Term Goal For Official NVIDIA Linux Use</a>
+<ul>
+<li>Coverage of the LPC 2026 talk on the Rust Nova driver stack.</li>
+</ul>
+</li>
+<li>LWN coverage of <a rel="external" href="https://kangrejos.com">Kangrejos 2026</a>, the Rust for Linux workshop:
+<ul>
+<li><a rel="external" href="https://lwn.net/Articles/1099015/">Owning C types from Rust code</a></li>
+<li><a rel="external" href="https://lwn.net/Articles/1099224/">Safe self-referential data structures in kernel Rust</a></li>
+<li><a rel="external" href="https://lwn.net/Articles/1099596/">Cross-crate forward declarations in Rust</a></li>
+<li><a rel="external" href="https://lwn.net/Articles/1100520/">Discussing a rewrite of XArray</a></li>
+<li><a rel="external" href="https://lwn.net/Articles/1099606/">Rust features in the future</a></li>
+<li><a rel="external" href="https://lwn.net/Articles/1100873/">Guidelines for panics in kernel code</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="embedded-and-tooling">Embedded and Tooling</h3>
+<ul>
+<li><a rel="external" href="https://tweedegolf.nl/en/blog/241/using-trustzone-m-in-rust-on-the-raspberry-pi-pico-2/">Using TrustZone-M in Rust on the Raspberry Pi Pico 2</a></li>
+<li><a rel="external" href="https://tweedegolf.nl/en/blog/242/finding-panics-with-call-graph-analyzer/">Finding panics with Call Graph Analyzer</a>
+<ul>
+<li>A tool that extracts the call graph from monomorphized MIR to find which functions in a firmware binary can panic.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/wild-linker/wild/releases/tag/0.11.0">Wild 0.11.0</a>
+<ul>
+<li>The Rust-based Wild linker gained considerably better linker script support and a Wasm port.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-82">The Embedded Rustacean Issue #82</a>
+and <a rel="external" href="https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-83">Issue #83</a></li>
+</ul>
+<h2 id="infrastructure-and-tooling">Infrastructure and Tooling</h2>
+<p>In this section, we collect recent updates to <code>rustc</code>, <code>cargo</code>, and other tooling that are relevant to Rust OS development.</p>
+<!--
+    Please use the following template:
+
+- [Title](https://example.com)
+  - (optional) Some additional context
+-->
+<h3 id="breaking-changes-and-warnings">Breaking Changes and Warnings</h3>
+<ul>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/162974">FCW (future-compatibility warning) for <code>#[panic_handler]</code> on <code>unsafe fn</code>.</a>
+<ul>
+<li>The compiler can call the panic handler from anywhere, so declaring it as <code>unsafe fn</code> is going to become an error.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/157941">Deny partial <code>-Z stack-protector</code> by default in all editions</a>
+<ul>
+<li>Enabling stack protection for only some crates of a binary now triggers a future-compatibility warning unless <code>-Z allow-partial-mitigations=stack-protector</code> is passed (<a rel="external" href="https://github.com/rust-lang/rfcs/pull/3855">RFC 3855</a>).</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/163405">Remove some #[linkage] options</a>
+<ul>
+<li>The unstable <code>#[linkage]</code> attribute no longer accepts <code>common</code>, <code>external</code>, or <code>internal</code>.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/164146">Nuke <code>Unique</code> (and <code>ptr_internals</code>)</a>
+<ul>
+<li>Removes the internal <code>core::ptr::Unique</code> type and the <code>ptr_internals</code> feature, which some older nightly kernel code still uses.</li>
+</ul>
+</li>
+</ul>
+<h3 id="library-stabilizations">Library Stabilizations</h3>
+<p>The following APIs were stabilized this month and are expected to be available in Rust 1.101:</p>
+<ul>
+<li><a rel="external" href="https://doc.rust-lang.org/nightly/core/primitive.pointer.html#method.try_cast_aligned"><code>&lt;*const T&gt;::try_cast_aligned</code></a>, <a rel="external" href="https://doc.rust-lang.org/nightly/core/primitive.pointer.html#method.try_cast_aligned-1"><code>&lt;*mut T&gt;::try_cast_aligned</code></a>, and <a rel="external" href="https://doc.rust-lang.org/nightly/core/ptr/struct.NonNull.html#method.try_cast_aligned"><code>NonNull::try_cast_aligned</code></a>
+<ul>
+<li>Checked pointer casts that return <code>None</code> if the pointer is not aligned for the target type.</li>
+<li>Stabilization PR: <a rel="external" href="https://github.com/rust-lang/rust/pull/154170">Stabilize <code>ptr::try_cast_aligned</code></a></li>
+</ul>
+</li>
+<li><a rel="external" href="https://doc.rust-lang.org/nightly/core/primitive.pointer.html#method.cast_slice"><code>&lt;*const T&gt;::cast_slice</code></a>, <a rel="external" href="https://doc.rust-lang.org/nightly/core/primitive.pointer.html#method.cast_slice-1"><code>&lt;*mut T&gt;::cast_slice</code></a>, and <a rel="external" href="https://doc.rust-lang.org/nightly/core/ptr/struct.NonNull.html#method.cast_slice"><code>NonNull::cast_slice</code></a>
+<ul>
+<li>Postfix versions of <code>ptr::slice_from_raw_parts{_mut}</code> that turn a pointer and a length into a slice pointer.</li>
+<li>Stabilization PR: <a rel="external" href="https://github.com/rust-lang/rust/pull/162927">stabilize ptr_cast_slice</a></li>
+</ul>
+</li>
+<li><a rel="external" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.IntoIter.html#method.allocator"><code>vec::IntoIter::allocator</code></a>, together with the allocator parameter of <code>vec::IntoIter&lt;T, A&gt;</code>
+<ul>
+<li>A follow-up to last month's <code>Allocator</code> stabilization.</li>
+<li>Stabilization PR: <a rel="external" href="https://github.com/rust-lang/rust/pull/163499">vec: stabilise allocators for into_iter</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="unstable-core-apis">Unstable <code>core</code> APIs</h3>
+<ul>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/164730">core: Rename <code>abort_immediate</code> to <code>crash</code></a>
+<ul>
+<li>Renames the single-instruction abort in <code>core::process</code>, which also works without an OS or libc. Stabilizing it as <code>crash</code> is proposed in <a rel="external" href="https://github.com/rust-lang/rust/pull/164731">#164731</a>.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/163611">add core::process::resumable_breakpoint</a>
+<ul>
+<li>An unstable breakpoint function in <code>core</code> that is documented as safe to continue past. See the <a rel="external" href="https://rust-lang.zulipchat.com/#narrow/channel/219381-t-libs/topic/Pushing.20.60breakpoint.60.20over.20the.20finish.20line.3F/near/628514482">Zulip discussion</a> for background.</li>
+</ul>
+</li>
+</ul>
+<h3 id="target-support">Target Support</h3>
+<ul>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/163824">aarch64: Use neon registers for ABI on targets that require `neon"</a>
+<ul>
+<li>The aarch64 version of last month's x86 SSE change: on hard-float aarch64 targets, vectors are now passed in NEON registers and disabling the <code>neon</code> target feature is a hard error. Kernels that disable NEON need a soft-float target such as <code>aarch64-unknown-none-softfloat</code>.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/162840">tier 3 target policy: target CPU and features must be supported by upstream backend</a>
+<ul>
+<li>New tier 3 targets must use CPU and feature names that upstream LLVM recognizes.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/163688">Add aarch64-unknown-qtee as a tier 3 target</a>
+<ul>
+<li>A new target for Qualcomm's Trusted Execution Environment (QTEE).</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/163742">Add the <code>movdir64b</code> and <code>movdiri</code> x86 target features</a>
+<ul>
+<li>Adds unstable target features for x86 direct-store instructions, which are used to submit work to devices through MMIO.</li>
+</ul>
+</li>
+<li><a rel="external" href="https://github.com/rust-lang/rust/pull/163833">Fix RISC-V inline ASM <code>clobber_abi</code> when extra target features are enabled</a>
+<ul>
+<li>Fixes which registers <code>clobber_abi("C")</code> clobbers for the <code>ilp32e</code>/<code>lp64e</code> ABIs and for floating-point registers.</li>
+</ul>
+</li>
+</ul>
+<h3 id="cargo">Cargo</h3>
+<ul>
+<li><a rel="external" href="https://github.com/rust-lang/cargo/pull/17602">feat(build-std): Add build.build-std.when and crates config keys</a>
+<ul>
+<li>Adds the config keys proposed in the <a rel="external" href="https://rust-lang.github.io/rfcs/3874-build-std-always.html"><code>build-std=always</code> RFC</a> (not functional yet). Related: <a rel="external" href="https://github.com/rust-lang/cargo/pull/17539">builtin package ID spec parsing</a> (<code>builtin://.#core</code>) for <a rel="external" href="https://rust-lang.github.io/rfcs/3875-build-std-explicit-dependencies.html">RFC 3875</a>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="rust-osdev-projects"><code>rust-osdev</code> Projects</h2>
+<p>In this section, we give an overview of notable changes to the projects hosted under the <a rel="external" href="https://github.com/rust-osdev/about"><code>rust-osdev</code></a> organization.</p>
+<!--
+    Please use the following template:
+
+    ### [`repo_name`](https://github.com/rust-osdev/repo_name)
+    <span class="maintainers">Maintained by [@maintainer_1](https://github.com/maintainer_1)</span>
+
+    The `repo_name` crate ...<<short introduction>>...
+
+    We merged the following changes this month:
+    <<changelog, either in list or text form>>
+-->
+<h3 id="uart-16550"><a rel="external" href="https://github.com/rust-osdev/uart_16550"><code>uart_16550</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><em>Simple yet highly configurable low-level driver for 16550 UART devices,
+typically known and used as serial ports or COM ports.</em></p>
+<p><a rel="external" href="https://github.com/rust-osdev/uart_16550/commit/492c16b2ed81020cb51e302ba7056481db69ac2c"><code>v0.9.0</code></a>
+makes the driver considerably more robust on real hardware. The driver is now
+tested against a model of a 16550A that follows the flows of the Linux 8250
+driver. The model was created with LLM assistance and careful human review, and
+it found 12 bugs, all fixed in this release. Most notably, devices without
+working FIFOs, such as the 16450, overran the transmitter and hung the loopback
+self-test that <code>Uart16550Tty</code> always runs. Also, internal register reads lost
+line errors and modem status changes, which <code>lsr()</code> and <code>msr()</code> now report.</p>
+<p>The <code>Backend</code> trait is no longer sealed, so users can bring their own register
+access, e.g., port I/O via <code>tdcall</code> or the GHCB in confidential VMs. Together
+with the new <code>const fn</code> constructors, devices can now live in a <code>static</code>. The
+driver also gained <code>enable_interrupts()</code> and <code>disable_interrupts()</code>, e.g., for
+interrupt-driven transmission.</p>
+<p>The release comes with several breaking changes, most notably a new MSRV of
+1.91, a smaller <code>Backend</code> trait with only <code>read()</code> and <code>write()</code>, and
+<code>calc_divisor()</code> reporting divisors that don't fit into 16 bits instead of
+panicking. The
+<a rel="external" href="https://github.com/rust-osdev/uart_16550/blob/main/CHANGELOG.md">changelog</a>
+has all details.</p>
+<p>As mentioned in previous issues, <a rel="external" href="https://www.anthropic.com/">Anthropic</a>
+sponsors @phip1611 with a Max plan as part of their open source program. The
+16550A model and the testing above happened under that sponsorship, and we are
+happy that it helps us improve the robustness and reliability of the ecosystem.</p>
+<p>We merged the following PRs this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/76">Allow custom backends (e.g., TDX/SNP port I/O) and const construction</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/77">Make port I/O and MMIO constructors const</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/79">Make the Backend trait offset-based</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/80">Split the backend out of config()</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/82">Add Uart16550Tty::new_mmio_from_address() and Uart16550::backend_mut(), document register offset checks</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/83">Test the driver against a 16550A model, following Linux</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/84">Small fixes found by testing against a 16550A model</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/85">Report divisors that don't fit into 16 bits instead of panicking</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/86">Add enable_interrupts() and disable_interrupts()</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/87">Keep LSR and MSR status across internal reads, like Linux</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/88">Detect whether the FIFOs are really enabled</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/89">Make the loopback test robust</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/93">Inline ISR::interrupt_type() and InterruptType::from_bits()</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/81">doc: drop remarks about const fn and statics</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/94">Fix misleading statements in the docs</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uart_16550/pull/92">Streamline the changelog for v0.9.0</a></li>
+</ul>
+<!-- Chore PRs: -->
+<!-- - [build(deps): bump uefi from 0.40.0 to 0.41.0 in /real-hw-test](https://github.com/rust-osdev/uart_16550/pull/75) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.50.2 to 1.50.3](https://github.com/rust-osdev/uart_16550/pull/74) -->
+<!-- - [CI Improvements](https://github.com/rust-osdev/uart_16550/pull/78) -->
+<!-- - [Add missing SPDX license headers](https://github.com/rust-osdev/uart_16550/pull/90) -->
+<!-- - [build(deps): bump crate-ci/typos from 1.50.3 to 1.51.1](https://github.com/rust-osdev/uart_16550/pull/95) -->
+<!-- - [real-hw-test: fix aarch64 QEMU smoke test on Ubuntu 26.04](https://github.com/rust-osdev/uart_16550/pull/96) -->
+<h3 id="x86-64"><a rel="external" href="https://github.com/rust-osdev/x86_64"><code>x86_64</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a>, <a rel="external" href="https://github.com/orgs/rust-osdev/people/josephlr">@josephlr</a>, and <a rel="external" href="https://github.com/orgs/rust-osdev/people/Freax13">@Freax13</a></span></p>
+<p>The <code>x86_64</code> crate provides various abstractions for <code>x86_64</code> systems, including wrappers for CPU instructions, access to processor-specific registers, and abstraction types for architecture-specific structures such as page tables and descriptor tables.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/x86_64/pull/605">feat(addr): add 57-bit and runtime-validated <code>VirtAddr</code> types</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/x86_64/pull/616">Add checked arithmetic functions to addresses, pages, and frames</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/x86_64/pull/621">feat(instructions): Add <code>lldt</code> and <code>sldt</code></a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/x86_64/pull/627">Make mxcsr::write and mxcsr::update unsafe</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/x86_64/pull/617">Don't panic when displaying a page tables with pages directly before and after the address gap</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/x86_64/pull/624">Document the virtualization exception</a></li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/aarkegz">@aarkegz</a>, <a rel="external" href="https://github.com/mkroening">@mkroening</a>, <a rel="external" href="https://github.com/adityuhkapoor">@adityuhkapoor</a>, <a rel="external" href="https://github.com/Garfield1002">@Garfield1002</a>, and <a rel="external" href="https://github.com/llp42">@llp42</a> for their contributions!</p>
+<h3 id="acpi"><a rel="external" href="https://github.com/rust-osdev/acpi"><code>acpi</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/IsaacWoods">@IsaacWoods</a></span></p>
+<p>The <code>acpi</code> repository contains crates for parsing the ACPI tables – data structures that the firmware of modern computers uses to relay information about the hardware to the OS.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/370">Add types for parsing DMAR</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/374">Add simple docs for DMAR table.</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/368">Support the Match expression</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/351">Add BufferField support for Increment/Decrement.</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/369">Default _OSI can be passed a string reference</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/373">Rework GAS accesses to fixed register blocks</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/364">fix: Do unaligned reads for table entries</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/361">Make PhysicalMapping safely Send / Sync</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/acpi/pull/367">Constrain NativeMethod to Send + Sync</a></li>
+</ul>
+<p>Thanks to <a rel="external" href="https://github.com/gierens">@gierens</a>, <a rel="external" href="https://github.com/dewyatt">@dewyatt</a>, <a rel="external" href="https://github.com/martin-hughes">@martin-hughes</a>, and <a rel="external" href="https://github.com/mkroening">@mkroening</a> for their contributions!</p>
+<h3 id="spinning-top"><a rel="external" href="https://github.com/rust-osdev/spinning_top"><code>spinning_top</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/phil-opp">@phil-opp</a> and <a rel="external" href="https://github.com/mkroening">@mkroening</a></span></p>
+<p>The <code>spinning_top</code> crate provides a simple spinlock implementation based on the abstractions of the <a rel="external" href="https://docs.rs/lock_api/0.4.1/lock_api/"><code>lock_api</code></a> crate.</p>
+<p>This month, we fixed a race condition in <code>RwSpinlock</code> when upgrading a lock, released as <code>v0.3.1</code>. Afterwards, we published <code>v0.4.0</code> with the following breaking changes: an upgrade to <code>lock_api</code> 0.5, a minimum supported Rust version of 1.95, and the removal of the <code>owning_ref</code> feature, since <code>owning_ref</code> is unmaintained and unsound (<a rel="external" href="https://rustsec.org/advisories/RUSTSEC-2022-0040">RUSTSEC-2022-0040</a>).</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/spinning_top/pull/32">fix(rwlock): Fix race when upgrading RW lock</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/spinning_top/pull/30">Release v0.3.1</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/spinning_top/pull/31">feat: Upgrade to lock_api 0.5</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/spinning_top/pull/38">Declare MSRV 1.95 and test it in CI</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/spinning_top/pull/41">Remove the <code>owning_ref</code> feature</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/spinning_top/pull/34">Upgrade to Rust 2024</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/spinning_top/pull/43">Test concurrent lock operations under Miri</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/spinning_top/pull/44">Release v0.4.0</a></li>
+</ul>
+<!-- Chore PRs: -->
+<!-- - [build(deps): Add `Cargo.lock`](https://github.com/rust-osdev/spinning_top/pull/29) -->
+<!-- - [Fix SPDX license expression](https://github.com/rust-osdev/spinning_top/pull/35) -->
+<!-- - [fix(rwlock): use fetch_update to avoid raising MSRV in 0.3.1](https://github.com/rust-osdev/spinning_top/pull/36) -->
+<!-- - [Revert "fix(rwlock): use fetch_update to avoid raising MSRV in 0.3.1"](https://github.com/rust-osdev/spinning_top/pull/37) -->
+<!-- - [build(deps): Upgrade rand to 0.10](https://github.com/rust-osdev/spinning_top/pull/33) -->
+<!-- - [Fix clippy warnings and run it on CI](https://github.com/rust-osdev/spinning_top/pull/39) -->
+<!-- - [ci: bump actions/checkout from v1 to v7](https://github.com/rust-osdev/spinning_top/pull/40) -->
+<!-- - [Changelog: document unreleased changes](https://github.com/rust-osdev/spinning_top/pull/42) -->
+<h3 id="uefi-rs"><a rel="external" href="https://github.com/rust-osdev/uefi-rs"><code>uefi-rs</code></a></h3>
+<p><span class="maintainers">Maintained by <a rel="external" href="https://github.com/nicholasbishop">@nicholasbishop</a> and <a rel="external" href="https://github.com/phip1611">@phip1611</a></span></p>
+<p><code>uefi</code> makes it easy to develop Rust software that leverages safe, convenient,
+and performant abstractions for UEFI functionality.</p>
+<p>We merged the following changes this month:</p>
+<ul>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2104">uefi/time: add monotonic counter services</a></li>
+<li><a rel="external" href="https://github.com/rust-osdev/uefi-rs/pull/2109">Add EdidActive protocol</a></li>
+</ul>
+<!-- Chore PRs: -->
+<!-- - [chore(deps): update rust crate time to v0.3.55](https://github.com/rust-osdev/uefi-rs/pull/2102) -->
+<!-- - [chore(deps): update rust crate serde_json to v1.0.154](https://github.com/rust-osdev/uefi-rs/pull/2108) -->
+<!-- - [chore(deps): update rust crate jiff to v0.2.38](https://github.com/rust-osdev/uefi-rs/pull/2107) -->
+<!-- - [chore(deps): update codecov/codecov-action action to v7.1.1](https://github.com/rust-osdev/uefi-rs/pull/2106) -->
+<!-- - [chore(deps): update rust crate fs-err to v3.3.2](https://github.com/rust-osdev/uefi-rs/pull/2105) -->
+<!-- - [chore(deps): lock file maintenance](https://github.com/rust-osdev/uefi-rs/pull/2113) -->
+<!-- - [chore(deps): update crate-ci/typos action to v1.51.1](https://github.com/rust-osdev/uefi-rs/pull/2112) -->
+<p>Thanks to <a rel="external" href="https://github.com/RaitoBezarius">@RaitoBezarius</a> and <a rel="external" href="https://github.com/the-shank">@the-shank</a> for their contributions!</p>
+<h2 id="other-projects">Other Projects</h2>
+<p>In this section, we describe updates to Rust OS projects that are not directly related to the <code>rust-osdev</code> organization. Feel free to <a rel="external" href="https://github.com/rust-osdev/homepage/pulls">create a pull request</a> with the updates of your OS project for the next post.</p>
+<!--
+    Please use the following template:
+
+    ### [`owner_name/repo_name`](https://github.com/rust-osdev/owner_name/repo_name)
+    <span class="maintainers">(Section written by [@your_github_name](https://github.com/your_github_name))</span>
+
+    ...<<your project updates>>...
+-->
+<h3 id="open-nexus-os-open-nexus-os"><a rel="external" href="https://github.com/open-nexus-OS/open-nexus-OS"><code>open-nexus-OS/open-nexus-OS</code></a></h3>
+<p><span class="maintainers">(Section written by <a rel="external" href="https://github.com/jenningschaefer">@jenningschaefer</a>)</span></p>
+<p><a rel="external" href="https://open-nexus-os.io/">Open Nexus OS</a> is a capability-based microkernel operating system written in Rust and targeting RISC-V. <span class="gray">(A large part of it is built with AI coding agents.)</span></p>
+<p><strong>Update: Open Nexus OS now runs on real hardware.</strong> This month the OS booted on a Banana Pi BPI-F3 (SpacemiT K1) for the first time: it boots from eMMC through the vendor boot chain and shows the desktop at 1920x1080 on HDMI via the SoC's display controller. A new userspace USB host stack (a reactive xHCI driver plus HID parsers) lets a USB keyboard and mouse drive the desktop on the board, with the pointer riding the display controller's hardware layer.</p>
+<p>Work then moved to the K1's GPU. The <code>gpud</code> service gained a Rust driver for it with multiple GPU contexts, a render queue, and a scanout contract, together with an in-house shader toolchain that compiles WGSL into the project's own IR and emits code for both the board's GPU and the virgl path on QEMU. The compositor now redraws only the damaged regions of a frame on the GPU, and since mid-October the board's display is no longer composited on the CPU at all.</p>
+<p>On the desktop side, window tiling became the default model, a clipboard service with text editing and an IME landed, and the shell gained a screenshot tool. The bring-up method behind all of this is described in the blog post <a rel="external" href="https://open-nexus-os.io/blog/the-documentation-i-wish-i-had">The Documentation I Wish I Had</a>.</p>
+<p><a rel="external" href="https://open-nexus-os.io/">Website</a> · <a rel="external" href="https://github.com/open-nexus-OS/open-nexus-OS">Repository</a> · <a rel="external" href="https://github.com/open-nexus-OS/open-nexus-OS/blob/main/CHANGELOG.md">Changelog</a></p>
+<h3 id="emibsd-kernel"><a rel="external" href="https://github.com/EmiBSD/Kernel"><code>EmiBSD/Kernel</code></a></h3>
+<p><span class="maintainers">(Section written by <a rel="external" href="https://github.com/enavarre-cl">@enavarre-cl</a>)</span></p>
+<p><a rel="external" href="https://www.emibsd.org/">EmiBSD</a> is an experiment carrying the OpenBSD kernel into safe Rust. It keeps a byte-identical ABI to run OpenBSD's unmodified userland, porting the C file by file (<a rel="external" href="https://github.com/EmiBSD/LandingZone">LandingZone</a>) before redesigning it to confine unsafe code to a single hardware layer, <code>hal</code>. The code is written by AI coding agents under written rules, with one maintainer reviewing and approving every commit. It is pre-alpha, runs on arm64 in QEMU only, and is not affiliated with the OpenBSD project.</p>
+<p>This month, the redesign moved its first core subsystems out of the inherited port: the string, compression and crypto primitives, virtual memory, and processes and scheduling. File descriptors, kqueue, signals, the scheduler and terminals now live in the <code>#![forbid(unsafe_code)]</code> kernel crate. <code>hal</code> holds 184 proven unsafe sites against 9,490 remaining in the port, and 105 of OpenBSD's 331 system calls are handled natively.</p>
+<p>The test suite passes on two and four CPUs, the OpenBSD installer runs end to end, and the comparison against a real OpenBSD shows no new behavioural difference. Performance tuning is scheduled after the redesign. Next up: the VFS and file systems.</p>
+<p><a rel="external" href="https://www.emibsd.org/">Website</a> · <a rel="external" href="https://www.emibsd.org/status/">Status</a> · <a rel="external" href="https://www.emibsd.org/process/">Process</a></p>
+<h3 id="phip1611-noto-sans-mono-bitmap-rs"><a rel="external" href="https://github.com/phip1611/noto-sans-mono-bitmap-rs"><code>phip1611/noto-sans-mono-bitmap-rs</code></a></h3>
+<p><span class="maintainers">(Section written by <a rel="external" href="https://github.com/phip1611">@phip1611</a>)</span></p>
+<p><em>Pre-rasterized <code>no_std</code> bitmap font for framebuffers in bootloaders and
+kernels, without allocations or floating point operations.</em></p>
+<p><a rel="external" href="https://github.com/phip1611/noto-sans-mono-bitmap-rs/releases/tag/v0.4.0"><code>v0.4.0</code></a>
+renders the characters about 7% larger, on a pixel-aligned baseline, and
+auto-hinted. Wide characters, such as <code>�</code>, are no longer cut off. The raster
+widths are unchanged.</p>
+<p>The glyphs are now flat binary blobs (via <code>include_bytes!</code>) instead of ~3800
+generated Rust source files with one fat pointer per glyph row:</p>
+<table><thead><tr><th>Size</th><th>v0.3.2</th><th>v0.4.0</th></tr></thead><tbody>
+<tr><td>Published crate</td><td>533 kB</td><td>230 kB</td></tr>
+<tr><td>In the binary, default</td><td>&lt;120 KiB</td><td>~10 KiB</td></tr>
+<tr><td>In the binary, all features</td><td>5+ MiB</td><td>~1 MiB</td></tr>
+</tbody></table>
+<p>The row pointers alone made up about 3.5 MB with all features, including their
+relocations in position-independent binaries. Breaking changes:
+<code>RasterizedChar::raster()</code> is replaced by <code>pixels()</code>, <code>rows()</code>, and
+<code>pixel(x, y)</code>, <code>FontWeight::val()</code> is removed, and the MSRV is 1.85. See the
+<a rel="external" href="https://github.com/phip1611/noto-sans-mono-bitmap-rs/blob/main/CHANGELOG.md">changelog</a>.</p>
+<p><img src="https://rust-osdev.com/this-month/2026-10/noto-sans-mono-bitmap-v0.4.webp" alt="Characters of noto-sans-mono-bitmap v0.4.0 in all sizes and font weights." title="Characters of noto-sans-mono-bitmap v0.4.0 in all sizes and font weights." /></p>
+<h2 id="join-us">Join Us?</h2>
+<p>Are you interested in Rust-based operating system development? Our <code>rust-osdev</code> organization is always open to new members and new projects. Just let us know if you want to join! A good way to get in touch is our <a rel="external" href="https://rust-osdev.zulipchat.com">Zulip chat</a>.</p>
+]]>
+            </content:encoded>
+        </item>
         <item>
             <title>This Month in Rust OSDev: September 2026</title>
             <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
