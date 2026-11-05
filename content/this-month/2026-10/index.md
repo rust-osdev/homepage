@@ -328,7 +328,7 @@ In this section, we describe updates to Rust OS projects that are not directly r
 ### [`open-nexus-OS/open-nexus-OS`](https://github.com/open-nexus-OS/open-nexus-OS)
 <span class="maintainers">(Section written by [@jenningschaefer](https://github.com/jenningschaefer))</span>
 
-[Open Nexus OS](https://open-nexus-os.io/) is a capability-based microkernel operating system written in Rust and targeting RISC-V.
+[Open Nexus OS](https://open-nexus-os.io/) is a capability-based microkernel operating system written in Rust and targeting RISC-V. <span class="gray">(A large part of it is built with AI coding agents.)</span>
 
 **Update: Open Nexus OS now runs on real hardware.** This month the OS booted on a Banana Pi BPI-F3 (SpacemiT K1) for the first time: it boots from eMMC through the vendor boot chain and shows the desktop at 1920x1080 on HDMI via the SoC's display controller. A new userspace USB host stack (a reactive xHCI driver plus HID parsers) lets a USB keyboard and mouse drive the desktop on the board, with the pointer riding the display controller's hardware layer.
 
