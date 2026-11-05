@@ -1,0 +1,116 @@
+/*
+ * Color themes
+ *
+ * The light theme is the default. The dark theme is used when the visitor's
+ * system prefers a dark color scheme, unless overridden via the theme toggle
+ * button (which sets the `data-theme` attribute on the `<html>` element).
+ */
+
+:root {
+  color-scheme: light;
+  --bg: #fff;
+  --bg-alt: #f9f9f9;
+  --text: #515151;
+  --text-muted: #7a7a7a;
+  --text-light: #9a9a9a;
+  --text-faint: #c0c0c0;
+  --gray: gray;
+  --heading: #313131;
+  --subheading: #4a6a8a;
+  --masthead: #505050;
+  --link: #268bd2;
+  --code: #bf616a;
+  --heading-code: #a0565c;
+  --border: #e5e5e5;
+}
+
+/* Keep the dark color definitions below in sync */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #1b1d21;
+    --bg-alt: #24272c;
+    --text: #c8c8c8;
+    --text-muted: #9a9a9a;
+    --text-light: #8a8a8a;
+    --text-faint: #6a6a6a;
+    --gray: #8f8f8f;
+    --heading: #e6e6e6;
+    --subheading: #8fb0d0;
+    --masthead: #d0d0d0;
+    --link: #4fa8e8;
+    --code: #e0868e;
+    --heading-code: #e0868e;
+    --border: #363a40;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1b1d21;
+  --bg-alt: #24272c;
+  --text: #c8c8c8;
+  --text-muted: #9a9a9a;
+  --text-light: #8a8a8a;
+  --text-faint: #6a6a6a;
+  --gray: #8f8f8f;
+  --heading: #e6e6e6;
+  --subheading: #8fb0d0;
+  --masthead: #d0d0d0;
+  --link: #4fa8e8;
+  --code: #e0868e;
+  --heading-code: #e0868e;
+  --border: #363a40;
+}
+
+/* Theme toggle button */
+
+.masthead .container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-self: center;
+  padding: .3rem;
+  line-height: 0;
+  color: var(--text-light);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--heading);
+  border-color: var(--text-light);
+}
+
+.theme-toggle svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Show the icon of the theme that the button switches to */
+.theme-toggle .icon-sun,
+.theme-toggle[data-current="dark"] .icon-moon {
+  display: none;
+}
+
+.theme-toggle[data-current="dark"] .icon-sun {
+  display: block;
+}
+
+.theme-toggle[hidden] {
+  display: none;
+}

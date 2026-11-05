@@ -25,13 +25,7 @@
 
     <h2 id="comment-form">Comments</h2>
 
-    <script src="https://utteranc.es/client.js"
-        repo="rust-osdev/homepage"
-        issue-term="url"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-    </script>
+    {{ snippets::comments() }}
 {% endblock main %}
 
 {% block after_main %}
