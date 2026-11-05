@@ -103,7 +103,55 @@ In this section, we collect recent updates to `rustc`, `cargo`, and other toolin
   - (optional) Some additional context
 -->
 
-<span class="gray">No content was submitted for this section this month.</span>
+### Breaking Changes and Warnings
+
+- [FCW (future-compatibility warning) for `#[panic_handler]` on `unsafe fn`.](https://github.com/rust-lang/rust/pull/162974)
+  - The compiler can call the panic handler from anywhere, so declaring it as `unsafe fn` is going to become an error.
+- [Deny partial `-Z stack-protector` by default in all editions](https://github.com/rust-lang/rust/pull/157941)
+  - Enabling stack protection for only some crates of a binary now triggers a future-compatibility warning unless `-Z allow-partial-mitigations=stack-protector` is passed ([RFC 3855](https://github.com/rust-lang/rfcs/pull/3855)).
+- [Remove some #[linkage] options](https://github.com/rust-lang/rust/pull/163405)
+  - The unstable `#[linkage]` attribute no longer accepts `common`, `external`, or `internal`.
+- [Nuke `Unique` (and `ptr_internals`)](https://github.com/rust-lang/rust/pull/164146)
+  - Removes the internal `core::ptr::Unique` type and the `ptr_internals` feature, which some older nightly kernel code still uses.
+
+### Library Stabilizations
+
+The following APIs were stabilized this month and are expected to be available in Rust 1.101:
+
+- [`<*const T>::try_cast_aligned`](https://doc.rust-lang.org/nightly/core/primitive.pointer.html#method.try_cast_aligned), [`<*mut T>::try_cast_aligned`](https://doc.rust-lang.org/nightly/core/primitive.pointer.html#method.try_cast_aligned-1), and [`NonNull::try_cast_aligned`](https://doc.rust-lang.org/nightly/core/ptr/struct.NonNull.html#method.try_cast_aligned)
+  - Checked pointer casts that return `None` if the pointer is not aligned for the target type.
+  - Stabilization PR: [Stabilize `ptr::try_cast_aligned`](https://github.com/rust-lang/rust/pull/154170)
+- [`<*const T>::cast_slice`](https://doc.rust-lang.org/nightly/core/primitive.pointer.html#method.cast_slice), [`<*mut T>::cast_slice`](https://doc.rust-lang.org/nightly/core/primitive.pointer.html#method.cast_slice-1), and [`NonNull::cast_slice`](https://doc.rust-lang.org/nightly/core/ptr/struct.NonNull.html#method.cast_slice)
+  - Postfix versions of `ptr::slice_from_raw_parts{_mut}` that turn a pointer and a length into a slice pointer.
+  - Stabilization PR: [stabilize ptr_cast_slice](https://github.com/rust-lang/rust/pull/162927)
+- [`vec::IntoIter::allocator`](https://doc.rust-lang.org/nightly/alloc/vec/struct.IntoIter.html#method.allocator), together with the allocator parameter of `vec::IntoIter<T, A>`
+  - A follow-up to last month's `Allocator` stabilization.
+  - Stabilization PR: [vec: stabilise allocators for into_iter](https://github.com/rust-lang/rust/pull/163499)
+
+### Unstable `core` APIs
+
+- [core: Rename `abort_immediate` to `crash`](https://github.com/rust-lang/rust/pull/164730)
+  - Renames the single-instruction abort in `core::process`, which also works without an OS or libc. Stabilizing it as `crash` is proposed in [#164731](https://github.com/rust-lang/rust/pull/164731).
+- [add core::process::resumable_breakpoint](https://github.com/rust-lang/rust/pull/163611)
+  - An unstable breakpoint function in `core` that is documented as safe to continue past. See the [Zulip discussion](https://rust-lang.zulipchat.com/#narrow/channel/219381-t-libs/topic/Pushing.20.60breakpoint.60.20over.20the.20finish.20line.3F/near/628514482) for background.
+
+### Target Support
+
+- [aarch64: Use neon registers for ABI on targets that require `neon"](https://github.com/rust-lang/rust/pull/163824)
+  - The aarch64 version of last month's x86 SSE change: on hard-float aarch64 targets, vectors are now passed in NEON registers and disabling the `neon` target feature is a hard error. Kernels that disable NEON need a soft-float target such as `aarch64-unknown-none-softfloat`.
+- [tier 3 target policy: target CPU and features must be supported by upstream backend](https://github.com/rust-lang/rust/pull/162840)
+  - New tier 3 targets must use CPU and feature names that upstream LLVM recognizes.
+- [Add aarch64-unknown-qtee as a tier 3 target](https://github.com/rust-lang/rust/pull/163688)
+  - A new target for Qualcomm's Trusted Execution Environment (QTEE).
+- [Add the `movdir64b` and `movdiri` x86 target features](https://github.com/rust-lang/rust/pull/163742)
+  - Adds unstable target features for x86 direct-store instructions, which are used to submit work to devices through MMIO.
+- [Fix RISC-V inline ASM `clobber_abi` when extra target features are enabled](https://github.com/rust-lang/rust/pull/163833)
+  - Fixes which registers `clobber_abi("C")` clobbers for the `ilp32e`/`lp64e` ABIs and for floating-point registers.
+
+### Cargo
+
+- [feat(build-std): Add build.build-std.when and crates config keys](https://github.com/rust-lang/cargo/pull/17602)
+  - Adds the config keys proposed in the [`build-std=always` RFC](https://rust-lang.github.io/rfcs/3874-build-std-always.html) (not functional yet). Related: [builtin package ID spec parsing](https://github.com/rust-lang/cargo/pull/17539) (`builtin://.#core`) for [RFC 3875](https://rust-lang.github.io/rfcs/3875-build-std-explicit-dependencies.html).
 
 ## `rust-osdev` Projects
 
