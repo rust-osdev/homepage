@@ -46,6 +46,7 @@ skip_prefixes = [
 # rather than real anchors in the returned HTML.
 skip_anchor_prefixes = [
     "https://rust-osdev.zulipchat.com",                # SPA, fragments are routes
+    "https://rust-lang.zulipchat.com",                 # SPA, fragments are routes
 ]
 
 [extra]
