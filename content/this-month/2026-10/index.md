@@ -40,10 +40,57 @@ Please follow this template:
   - (optional) Some additional context
 -->
 
+### OS Projects
+
 - [Announcing Asterinas 0.19.0](https://asterinas.github.io/2026/10/13/announcing-asterinas-0.19.0.html)
-  - [Asterinas](https://github.com/asterinas/asterinas) is a Linux ABI-compatible OS kernel written from scratch in Rust. 0.19.0 adds a DRM subsystem (Xorg and 3D games), AArch64 as its fourth architecture, Intel VMX hypervisor support in OSTD, a Rust-native device model, and self-hosting builds.
+  - [Asterinas](https://github.com/asterinas/asterinas) is a Linux ABI-compatible OS kernel written from scratch in Rust.
+  - 0.19.0 adds a DRM subsystem (Xorg and 3D games), AArch64 as its fourth architecture, Intel VMX hypervisor support in OSTD, a Rust-native device model, and self-hosting builds.
+- [Driving an NVIDIA GPU from a hobby Rust kernel: GSP-RM to Vulkan](https://github.com/oriaj-nocrala/rust_so_kernel/blob/master/docs/blog/gsp-to-vulkan.md)
+  - The `no_std` UEFI hobby kernel [constanos](https://github.com/oriaj-nocrala/rust_so_kernel) now boots NVIDIA's GSP-RM firmware on an RTX 3050 and runs a port of Mesa's NVK, so unmodified Vulkan code renders without Linux underneath.
+  - Most of the code was written by Claude Code, with the author directing the work and running the hardware tests.
+- [Tock](https://www.tockos.org/), a secure embedded operating system for microcontrollers written in Rust:
+  - [Tock 2.3.0](https://github.com/tock/tock/releases/tag/release-2.3.0): The first Tock release since early 2025 adds initial 64-bit RISC-V and x86 support, dynamic process loading, 8 new boards, and many soundness and MPU security fixes.
+  - [Talking Tock 66: RISC-V 64-bit Support on Tock](https://www.tockos.org/blog/2026/talking-tock-66/)
+  - [Talking Tock 65: Unsafe Documentation in the Core Tock Kernel](https://www.tockos.org/blog/2026/talking-tock-65/): Tock's core kernel crate now denies `clippy::missing_safety_doc` and `clippy::undocumented_unsafe_blocks`.
+- [Redox OS](https://www.redox-os.org/), a Unix-like microkernel operating system written in Rust:
+  - [This Month in Redox - September 2026](https://www.redox-os.org/news/this-month-260930/)
+  - [Ring Buffers Project Summary](https://www.redox-os.org/news/nlnet-rb-summary/): Wrap-up of Redox's NLnet-funded work on io_uring-like ring buffer support.
+- [Microsoft Issues First Release Of Their LiteBox Sandboxing Library OS](https://www.phoronix.com/news/Microsoft-LiteBox-0.1)
 - [The Documentation I Wish I Had: How I build drivers for Open Nexus OS](https://open-nexus-os.io/blog/the-documentation-i-wish-i-had)
   - Bringing up the Rust microkernel OS [Open Nexus OS](https://github.com/open-nexus-OS/open-nexus-OS) on a Banana Pi BPI-F3: measuring the vendor's Linux system first and turning those measurements into pass/fail gates that drive the display, USB, and GPU driver work.
+  - A large part of Open Nexus OS was built with AI coding agents, guided by the measured gates described in the post.
+- [Ginux](https://github.com/gmkurtzer/ginux)
+  - A userspace kernel that runs as an ordinary process on top of Linux and gives each workload a deliberately reduced, versioned subset of the Linux ABI by emulating, mediating, or denying its syscalls.
+  - Ginux started as a standalone Rust kernel booting through UEFI and running a Rocky Linux userspace (preserved on the [`bootable-kernel`](https://github.com/gmkurtzer/ginux/tree/bootable-kernel) branch).
+  - Both versions were written by an AI coding agent directed by the author.
+
+### Linux-related
+
+- [17k Lines Of New Rust Kernel Code Heading Into Linux 7.4](https://www.phoronix.com/news/Linux-7.4-Rust)
+- [Google's C Binder Driver Removed With Rust Binder Ready For "Few Billion Devices"](https://www.phoronix.com/news/Linux-7.4-Char-Misc)
+  - Follow-up to last month's item: the removal has now been merged for Linux 7.4.
+- [Upstreaming Tyr: Rust, DRM, and the Linux Kernel](https://www.collabora.com/news-and-blog/blog/2026/10/21/upstreaming-tyr-rust-drm-and-the-linux-kernel/)
+  - Progress on upstreaming Tyr, the Rust DRM driver for Arm Mali GPUs.
+- [NVIDIA's Nova Driver Continues Leading The Way For Linux Rust GPU Drivers](https://www.phoronix.com/news/NVIDIA-Nova-Linux-7.4-Changes)
+- [Nova Driver Continues Progressing With Long-Term Goal For Official NVIDIA Linux Use](https://www.phoronix.com/news/Nova-Driver-LPC-2026)
+  - Coverage of the LPC 2026 talk on the Rust Nova driver stack.
+- LWN coverage of [Kangrejos 2026](https://kangrejos.com), the Rust for Linux workshop:
+  - [Owning C types from Rust code](https://lwn.net/Articles/1099015/)
+  - [Safe self-referential data structures in kernel Rust](https://lwn.net/Articles/1099224/)
+  - [Cross-crate forward declarations in Rust](https://lwn.net/Articles/1099596/)
+  - [Discussing a rewrite of XArray](https://lwn.net/Articles/1100520/)
+  - [Rust features in the future](https://lwn.net/Articles/1099606/)
+  - [Guidelines for panics in kernel code](https://lwn.net/Articles/1100873/)
+
+### Embedded and Tooling
+
+- [Using TrustZone-M in Rust on the Raspberry Pi Pico 2](https://tweedegolf.nl/en/blog/241/using-trustzone-m-in-rust-on-the-raspberry-pi-pico-2/)
+- [Finding panics with Call Graph Analyzer](https://tweedegolf.nl/en/blog/242/finding-panics-with-call-graph-analyzer/)
+  - A tool that extracts the call graph from monomorphized MIR to find which functions in a firmware binary can panic.
+- [Wild 0.11.0](https://github.com/wild-linker/wild/releases/tag/0.11.0)
+  - The Rust-based Wild linker gained considerably better linker script support and a Wasm port.
+- [The Embedded Rustacean Issue #82](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-82)
+  and [Issue #83](https://www.theembeddedrustacean.com/p/the-embedded-rustacean-issue-83)
 
 ## Infrastructure and Tooling
 
