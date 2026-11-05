@@ -11,6 +11,24 @@
     
         <link rel="canonical" href="https://rust-osdev.com/contact/" />
     
+    <script>
+        // Apply a stored theme override before the page renders to avoid a flash
+        // of the wrong theme. The choice is only kept in the browser's local
+        // storage; it is never sent to any server.
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem("theme"); } catch (e) {}
+            if (theme === "light" || theme === "dark") {
+                document.documentElement.setAttribute("data-theme", theme);
+            }
+        })();
+        function currentTheme() {
+            var override = document.documentElement.getAttribute("data-theme");
+            if (override) return override;
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+    </script>
+    <link href="/css/theme.css" rel="stylesheet">
     <link href="/css/poole.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
 
@@ -27,6 +45,10 @@
               <a href="https://rust-osdev.com" title="Home">Rust OSDev</a>
               <small>Operating System Development in Rust</small>
             </h3>
+            <button type="button" class="theme-toggle" id="theme-toggle" hidden>
+              <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            </button>
           </div>
         </div>
   
@@ -50,6 +72,52 @@
     </div>
 
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var button = document.getElementById("theme-toggle");
+            var systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+            function update() {
+                var theme = currentTheme();
+                var next = theme === "dark" ? "light" : "dark";
+                button.setAttribute("data-current", theme);
+                button.title = "Switch to " + next + " theme";
+                button.setAttribute("aria-label", button.title);
+                // update the theme of the utterances comment widget, if present
+                var frame = document.querySelector(".utterances-frame");
+                if (frame) {
+                    frame.contentWindow.postMessage(
+                        { type: "set-theme", theme: "github-" + theme },
+                        "https://utteranc.es"
+                    );
+                }
+            }
+
+            button.addEventListener("click", function () {
+                var next = currentTheme() === "dark" ? "light" : "dark";
+                var system = systemDark.matches ? "dark" : "light";
+                try {
+                    if (next === system) {
+                        // back to following the system setting
+                        root.removeAttribute("data-theme");
+                        localStorage.removeItem("theme");
+                    } else {
+                        root.setAttribute("data-theme", next);
+                        localStorage.setItem("theme", next);
+                    }
+                } catch (e) {
+                    root.setAttribute("data-theme", next);
+                }
+                update();
+            });
+            systemDark.addEventListener("change", update);
+
+            update();
+            button.hidden = false;
+        })();
+    </script>
 </body>
 
 </html>

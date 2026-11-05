@@ -7,7 +7,7 @@ h3 a code {
 }
 
 h3 {
-    color: #4a6a8a;
+    color: var(--subheading);
 }
 
 .post-authors a {
@@ -16,7 +16,7 @@ h3 {
 }
 
 .gray {
-    color: gray;
+    color: var(--gray);
 }
 
 li ul {
@@ -25,7 +25,7 @@ li ul {
 
 h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
     padding: 0;
-    color: #a0565c;
+    color: var(--heading-code);
     font-size: 95%;
     background-color: inherit;
 }
@@ -39,20 +39,20 @@ h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .showcase-post-intro {
-    color: gray;
+    color: var(--gray);
     font-style: italic;
     margin-left: 1rem;
 }
 
 .maintainers {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--border);
     display: block;
     margin-top: -.5rem;
-    color: #9a9a9a;
+    color: var(--text-light);
 }
 
 .maintainers a {
-    color: #9a9a9a;
+    color: var(--text-light);
 }
 
 details summary {
