@@ -86,7 +86,34 @@ In this section, we describe updates to Rust OS projects that are not directly r
     ...<<your project updates>>...
 -->
 
-<span class="gray">No project updates were submitted this month.</span>
+### [`phip1611/tar-no-std`](https://github.com/phip1611/tar-no-std)
+<span class="maintainers">(Section written by [@phip1611](https://github.com/phip1611))</span>
+
+_Reads Tar archives in `no_std` environments with zero allocations, for example
+an initial ramdisk in a kernel._
+
+[`v0.6.0`](https://github.com/phip1611/tar-no-std/releases/tag/v0.6.0) makes
+the crate work with many more real-world archives and environments. Archives
+that do not fit into memory can now be read block by block: `TarStreamReader`
+pulls blocks from a `BlockSource`, such as a flash device, and
+`TarStreamParser` processes blocks that are pushed to the caller, for example
+by an interrupt handler or a network stack.
+
+Archives from GNU tar's default format, busybox, and Python's `tarfile` now
+work, as GNU long names and PAX `path` records of up to 256 bytes are applied
+for long or non-ASCII paths. Features that are not supported yet, such as
+sparse files or files larger than 8 GiB, are reported as errors instead of
+returning wrong data. Also, `mtime` is now parsed as octal, as the Tar format
+requires, instead of as decimal.
+
+The release has breaking changes, most notably `TarArchive` implementing
+`TryFrom<Box<[u8]>>` instead of a panicking `From`, and
+`ArchiveEntry::posix_header` borrowing the archive instead of the entry. The
+[changelog](https://github.com/phip1611/tar-no-std/blob/main/CHANGELOG.md) has
+all details.
+
+Thanks to [@AlixANNERAUD](https://github.com/AlixANNERAUD) for their first
+contributions, including the streaming parser!
 
 
 
